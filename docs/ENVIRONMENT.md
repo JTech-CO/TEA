@@ -10,6 +10,7 @@
 | Node.js | v25.2.0 (요구: ≥18, package.json engines) |
 | npm | 11.6.2 |
 | git | 2.54.0.windows.1 — `core.hooksPath=.githooks`, `.gitattributes`로 LF 고정 |
+| 원격 | origin = https://github.com/JTech-CO/TEA (main, MIT 라이선스) |
 
 ## 토크나이저 (INV-3 판정 기준 — ADR-0009)
 | 항목 | 값 |
