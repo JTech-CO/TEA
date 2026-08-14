@@ -1,0 +1,19 @@
+node_modules/
+
+# 시크릿 (INV-1)
+.env
+.env.*
+!.env.example
+
+# 세션 로그 원본·벤치마크 아티팩트 (INV-2) — 커밋 대상은 요약 통계뿐
+bench/artifacts/
+bench/logs/
+bench/raw/
+logs/
+sessions/
+*.session.jsonl
+*.transcript.json
+
+# OS
+.DS_Store
+Thumbs.db

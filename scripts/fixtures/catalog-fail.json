@@ -1,0 +1,11 @@
+{
+  "version": "0.0.0",
+  "comment": "결손 원장 픽스처 — rule-audit이 잡아야 하는 위반: ID 중복, 핸들 누락, 빈 핸들, ID 형식 위반, 축 불명",
+  "expectedMeasured": { "READ": 2 },
+  "rules": [
+    { "id": "R1", "axis": "READ", "text": "검색으로 특정한다", "handle": "읽기 직전 검색 호출 유무" },
+    { "id": "R1", "axis": "READ", "text": "중복 ID + 빈 핸들", "handle": "" },
+    { "id": "W1", "axis": "WRITE", "text": "핸들이 아예 없다" },
+    { "id": "BAD", "axis": "unknown", "text": "형식 위반 ID + 축 불명" }
+  ]
+}

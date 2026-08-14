@@ -1,0 +1,29 @@
+{
+  "version": "0.1.0",
+  "source": "docs/TEA-design-whitepaper.md §4 · 부록 A",
+  "priority": "THINK > READ — 충돌 시 T3이 R1~R3에 우선 (DESIGN §4.5)",
+  "expectedMeasured": { "READ": 4, "WRITE": 5, "THINK": 3 },
+  "rules": [
+    { "id": "L1", "axis": "ladder", "text": "추가 컨텍스트가 필요한가 — 아니면 즉시 실행", "handle": null },
+    { "id": "L2", "axis": "ladder", "text": "최소 단위로 특정 가능한가 — 위치 검색 우선", "handle": null },
+    { "id": "L3", "axis": "ladder", "text": "편집 범위가 확정되었는가 — 아니면 확정 먼저", "handle": null },
+    { "id": "L4", "axis": "ladder", "text": "최소 패치로 가능한가 — 전체 재작성은 구조 변경 시만", "handle": null },
+    { "id": "R1", "axis": "READ", "text": "파일을 열기 전에 검색으로 대상을 특정한다", "handle": "읽기 직전 검색 호출 유무" },
+    { "id": "R2", "axis": "READ", "text": "확인된 범위만 읽는다. 전체 읽기는 구조 파악이 목적일 때만", "handle": "범위 지정 읽기 비율" },
+    { "id": "R3", "axis": "READ", "text": "이미 읽은 파일을 다시 읽지 않는다. 편집 후 검증은 예외", "handle": "동일 경로 중복 읽기 횟수" },
+    { "id": "R4", "axis": "READ", "text": "디렉터리 탐색은 필요한 깊이까지만 한다", "handle": "트리 탐색 호출 수·깊이" },
+    { "id": "W1", "axis": "WRITE", "text": "부분 치환을 우선한다. 전체 재작성은 구조 변경에 한정", "handle": "전체 쓰기 대 부분 치환 비율" },
+    { "id": "W2", "axis": "WRITE", "text": "편집 앵커는 고유성이 확보되는 최소 폭으로 잡는다", "handle": "앵커 불일치 실패 횟수", "note": "양방향 지표 — 이 핸들의 증가는 W2 완화 신호. 과긴축 조기 경보 (DESIGN §4.4, RUNBOOK #12)" },
+    { "id": "W3", "axis": "WRITE", "text": "새 파일 생성보다 기존 파일 확장을 우선한다", "handle": "신규 파일 생성 수" },
+    { "id": "W4", "axis": "WRITE", "text": "테스트·README·예제·설정은 요청받은 경우에만 만든다", "handle": "요청 외 파일 생성 수" },
+    { "id": "W5", "axis": "WRITE", "text": "diff로 확인 가능한 내용을 산문으로 다시 쓰지 않는다", "handle": "응답 내 코드 블록 재게시 수", "note": "스타일이 아니라 중복 삭제 규칙. 설계 근거·남은 선택지·부작용·사용자 판단 사항은 비대상 (DESIGN §4.6)" },
+    { "id": "T1", "axis": "THINK", "text": "되돌리기 비용이 확인 비용보다 크면 확인을 먼저 한다", "handle": "편집 되돌림·재편집 횟수" },
+    { "id": "T2", "axis": "THINK", "text": "설계 선택이 남아 있으면 편집 전에 해소한다", "handle": "동일 파일 연속 재편집 횟수" },
+    { "id": "T3", "axis": "THINK", "text": "대상 코드의 현재 상태를 모르는 채로 편집하지 않는다", "handle": "편집 실패율" },
+    { "id": "X1", "axis": "forbidden", "text": "식별자를 축약하지 않는다", "handle": null },
+    { "id": "X2", "axis": "forbidden", "text": "의미를 보존한 채 표현을 압축하지 않는다", "handle": null },
+    { "id": "X3", "axis": "forbidden", "text": "관용구를 벗어난 표현을 쓰지 않는다", "handle": null },
+    { "id": "X4", "axis": "forbidden", "text": "한 줄에 로직을 결합하지 않는다", "handle": null },
+    { "id": "P1", "axis": "stub", "text": "새 코드를 쓰기 전에 기존 코드·표준 라이브러리·플랫폼 기본 기능으로 해결되는지 먼저 확인한다", "handle": null, "note": "Ponytail 미설치 시에만 활성 (DESIGN §8.4). 의도적으로 최소 — 계층 B는 TEA의 정의역이 아님" }
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "name": "tea-token-engineering",
+  "version": "0.1.0",
+  "private": true,
+  "description": "TEA — Token Engineering for Agents. 게이트 스크립트와 벤치마크 하네스 (스킬 본체는 tea/).",
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "selftest": "node scripts/selftest.js",
+    "check:budget": "node scripts/token-budget.js",
+    "check:terms": "node scripts/forbidden-terms.js",
+    "check:rules": "node scripts/rule-audit.js"
+  },
+  "devDependencies": {
+    "gpt-tokenizer": "^3.4.0"
+  }
+}
