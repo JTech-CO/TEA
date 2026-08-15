@@ -1,5 +1,5 @@
 // Price rules: base price per SKU, tier discounts, bulk discounts.
-const PRICES = { 'TEA-001': 12.5, 'TEA-002': 9.9, 'CUP-100': 4.25 };
+const PRICES = { 'SKU-001': 12.5, 'SKU-002': 9.9, 'CUP-100': 4.25 };
 
 function unitPrice(sku) {
   if (!(sku in PRICES)) throw new Error(`no price for ${sku}`);

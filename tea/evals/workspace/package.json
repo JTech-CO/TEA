@@ -2,7 +2,7 @@
   "name": "orders-service",
   "version": "1.0.0",
   "private": true,
-  "description": "Small in-memory orders API used as the TEA trigger-evaluation sandbox.",
+  "description": "Small in-memory orders API.",
   "scripts": {
     "start": "node src/server.js",
     "test": "node tests/orders.test.js"

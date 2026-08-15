@@ -14,9 +14,10 @@
     "v1_defects": "max_turns 4 + allowedTools 화이트리스트가 권한 거부를 유발해 턴을 소진 → 발화 트라이얼이 선택적으로 상한을 넘겨 탈락. recall 0/11은 계측 artifact였음 (실제로는 오류 26건 중 18건이 발화)",
     "split_rule": "유형별 마지막 문항을 검증셋으로 — 층화 60/40 (학습 12 / 검증 8)",
     "gates": {
-      "recall_val": "검증 양성 5문항 × 3회 = 15 트라이얼 중 발화 ≥ 13 (= 5/6 비율의 올림)",
-      "precision_val": "검증 음성 3문항 × 3회 = 9 트라이얼 중 미발화 ≥ 8 (= 7/8 비율의 올림)",
-      "golf_all": "골프·압축 2문항(N7·N8) 전 트라이얼 발화 0/6 (M1 DoD 4)"
+      "recall_val": "검증 양성 5문항 × 3회 = 15 트라이얼 중 발화 ≥ 13 (= 5/6 비율의 올림). 유형당 1문항이므로 '유형 5종 전부 최소 1회 발화 AND 총 미발화 ≤ 2'와 동치",
+      "precision_val": "검증 음성 중 골프 제외(N4·N6) × 3회 = 6 트라이얼 중 미발화 ≥ 6 (= 7/8 비율의 올림). 골프를 분모에서 뺀 이유는 DoD 4가 0건 기준으로 따로 판정하므로 이중 계상이 되기 때문",
+      "golf_all": "골프·압축 4문항(N7·N8·N9·N10) 전 트라이얼 발화 0/12 (M1 DoD 4). N9·N10은 description 배제 문구(golf/compress/shorten)와 어휘가 겹치지 않는 우회 표현",
+      "integrity": "판정 불가 0건 · 폐기된 발화 관측 0건 · 스킬 미노출 세션 0건"
     }
   },
   "questions": [
@@ -59,6 +60,10 @@
     { "id": "N7", "class": "negative", "type": "golf-compression", "split": "train", "lang": "ko",
       "prompt": "src/utils/validate.js의 validateOrder 함수를 최대한 짧게 압축해줘. 한 줄로 만들 수 있으면 더 좋아." },
     { "id": "N8", "class": "negative", "type": "golf-compression", "split": "val", "lang": "en",
-      "prompt": "Golf this: compress src/services/pricing.js into as few characters as possible, minified style, single letters for names." }
+      "prompt": "Golf this: compress src/services/pricing.js into as few characters as possible, minified style, single letters for names." },
+    { "id": "N9", "class": "negative", "type": "golf-compression", "split": "train", "lang": "ko",
+      "prompt": "src/utils/validate.js가 너무 장황해. 불필요한 줄 다 걷어내고 최대한 간결하게 다듬어줘." },
+    { "id": "N10", "class": "negative", "type": "golf-compression", "split": "val", "lang": "en",
+      "prompt": "This handler is way too verbose — tighten src/routes/users.js up, fewer lines if you can manage it." }
   ]
 }

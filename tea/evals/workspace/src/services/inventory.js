@@ -1,7 +1,7 @@
 // Tracks stock per SKU.
 const stock = new Map([
-  ['TEA-001', 50],
-  ['TEA-002', 20],
+  ['SKU-001', 50],
+  ['SKU-002', 20],
   ['CUP-100', 8],
 ]);
 

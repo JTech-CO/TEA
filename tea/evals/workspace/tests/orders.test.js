@@ -15,7 +15,7 @@ function check(name, fn) {
 }
 
 check('silver tier bulk price rounds to cents', () => {
-  assert.strictEqual(computeTotal('TEA-002', 7, 'silver'), 65.84);
+  assert.strictEqual(computeTotal('SKU-002', 7, 'silver'), 65.84);
 });
 
 check('guest small order has no discount', () => {
@@ -23,9 +23,9 @@ check('guest small order has no discount', () => {
 });
 
 check('stock decrements by the ordered quantity', () => {
-  const before = inventory.available('TEA-001');
-  inventory.decrement('TEA-001', 3);
-  assert.strictEqual(inventory.available('TEA-001'), before - 3);
+  const before = inventory.available('SKU-001');
+  inventory.decrement('SKU-001', 3);
+  assert.strictEqual(inventory.available('SKU-001'), before - 3);
 });
 
 process.exit(failed ? 1 : 0);
