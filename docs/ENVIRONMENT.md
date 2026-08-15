@@ -32,8 +32,23 @@
 
 종료 코드 규약: **0 통과 / 1 실패 / 2 대상 부재**(해당 산출물이 아직 없는 phase에서는 정상).
 
+## 트리거 발화 판정 프로토콜 (M1 — DoR 2)
+| 항목 | 값 |
+|---|---|
+| 실행 클라이언트 | Claude Code CLI 2.1.233 (npm 전역 `@anthropic-ai/claude-code`, `%APPDATA%\npm`) |
+| 인증 | 사용자 OAuth — 최초 1회 터미널에서 `claude` 로그인 필요 |
+| 모델 | `claude-sonnet-5` 고정 (러너 `--model`로 오버라이드 시 기록 필수) |
+| 세션 | 문항당 독립 headless 세션(`claude -p`), cwd = `tea/evals/workspace/` |
+| 스킬 노출 | `workspace/.claude/skills/tea/SKILL.md` — 러너가 description 파일에서 생성(본문은 M2 전까지 스텁) |
+| 발화 판정 | stream-json 이벤트에서 `Skill` 도구 호출(`input.skill == "tea"`) 검출 |
+| 턴 상한 | `--max-turns 4` — 발화는 통상 1~2턴 내. 상한은 recall을 낮추는 방향으로만 작용(보수적) |
+| 허용 도구 | Skill, Read, Grep, Glob — 편집 불가(평가 중 부작용 차단) |
+| MCP | `--strict-mcp-config` (외부 MCP 미로딩) |
+| 반복·집계 | 문항당 3회, 트라이얼 단위 집계. 결과는 `tea/evals/results/`에 저장(문항×회차 매트릭스 포함) |
+| 게이트 환산 | DESIGN §5.2 비율을 트라이얼 수에 올림 적용 — 검증셋 recall ≥ 13/15 (5/6), precision ≥ 8/9 (7/8), 골프 0/6. 하향 없음 |
+| 분할 | 층화 60/40 — 유형별 마지막 문항이 검증셋 (학습 12 / 검증 8). 문안 개선은 학습셋, 채택 판단은 검증셋 |
+
 ## 벤치마크 실행 환경 (M4에서 확정)
 - 대상 레포: tiangolo/full-stack-fastapi-template (ADR-0006)
 - 실행: headless 에이전트 세션, 완료 통지 즉시 저장(RUNBOOK #9)
 - 검증 모델 2종: **미확정 — 사용자 입력 대기 (M5 진입 차단)**
-- M1 트리거 평가의 실행 클라이언트·모델: M1 착수 시 이 문서에 추가

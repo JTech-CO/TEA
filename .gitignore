@@ -14,6 +14,9 @@ sessions/
 *.session.jsonl
 *.transcript.json
 
+# 트리거 평가 워크스페이스의 생성물 (러너가 description에서 재생성)
+tea/evals/workspace/.claude/
+
 # OS
 .DS_Store
 Thumbs.db
