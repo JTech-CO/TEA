@@ -3,11 +3,15 @@
   "source": "docs/TEA-design-whitepaper.md §5.1·§5.2",
   "description_file": "tea/evals/description-v1.md",
   "protocol": {
+    "version": 2,
     "runs_per_question": 3,
-    "max_turns": 4,
+    "max_turns": 15,
     "model": "claude-sonnet-5",
-    "allowed_tools": "Skill,Read,Grep,Glob",
+    "permission_mode": "bypassPermissions",
+    "workspace": "트라이얼마다 리포 밖 임시 디렉터리에 새로 복사 — 상위 CLAUDE.md 상속과 트라이얼 간 간섭 차단",
     "detection": "stream-json에서 tool_use name=Skill && input.skill=tea 검출",
+    "verdict": "fired(발화·유효) / quiet(자연종료·미발화·유효) / ambiguous(절단·미발화·판정보류) / error(실행실패)",
+    "v1_defects": "max_turns 4 + allowedTools 화이트리스트가 권한 거부를 유발해 턴을 소진 → 발화 트라이얼이 선택적으로 상한을 넘겨 탈락. recall 0/11은 계측 artifact였음 (실제로는 오류 26건 중 18건이 발화)",
     "split_rule": "유형별 마지막 문항을 검증셋으로 — 층화 60/40 (학습 12 / 검증 8)",
     "gates": {
       "recall_val": "검증 양성 5문항 × 3회 = 15 트라이얼 중 발화 ≥ 13 (= 5/6 비율의 올림)",

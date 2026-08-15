@@ -12,6 +12,7 @@
 // 종료 코드: 0 통과(게이트 미적용 시 실행 성공) / 1 게이트 미달·실행 실패 / 2 CLI 부재
 'use strict';
 const fs = require('fs');
+const os = require('os');
 const path = require('path');
 const crypto = require('crypto');
 const { spawn } = require('child_process');
@@ -19,9 +20,9 @@ const readline = require('readline');
 
 const ROOT = path.resolve(__dirname, '..');
 const CONFIG_PATH = path.join(ROOT, 'tea', 'evals', 'trigger.json');
-const WORKSPACE = path.join(ROOT, 'tea', 'evals', 'workspace');
+const WORKSPACE_SRC = path.join(ROOT, 'tea', 'evals', 'workspace');
 const RESULTS_DIR = path.join(ROOT, 'tea', 'evals', 'results');
-const RUN_TIMEOUT_MS = 240000;
+const RUN_TIMEOUT_MS = 600000;
 
 function argValue(flag, fallback) {
   const i = process.argv.indexOf(flag);
@@ -46,11 +47,10 @@ function findCli() {
   return null;
 }
 
-// description 파일 → 평가 워크스페이스의 스킬 스텁 생성. 본문은 M2 전까지 의도적 최소 (트리거는 메타로만 결정).
-function generateSkillStub(descriptionFile) {
+function buildSkillText(descriptionFile) {
   const desc = fs.readFileSync(path.join(ROOT, descriptionFile), 'utf8').trim();
   const indented = desc.split(/\r?\n/).map((l) => (l.trim() === '' ? '' : `  ${l}`)).join('\n');
-  const skill = [
+  const text = [
     '---',
     'name: tea',
     'description: >-',
@@ -64,34 +64,63 @@ function generateSkillStub(descriptionFile) {
     '(Body intentionally minimal during M1 trigger evaluation — full rules land in M2.)',
     '',
   ].join('\n');
-  const dir = path.join(WORKSPACE, '.claude', 'skills', 'tea');
-  fs.mkdirSync(dir, { recursive: true });
-  fs.writeFileSync(path.join(dir, 'SKILL.md'), skill);
-  return crypto.createHash('sha256').update(desc).digest('hex').slice(0, 12);
+  return { text, hash: crypto.createHash('sha256').update(desc).digest('hex').slice(0, 12) };
 }
 
-function runTrial(cliJs, protocol, prompt) {
+// 트라이얼마다 리포 밖 임시 디렉터리에 워크스페이스를 새로 복사한다.
+// 두 가지를 동시에 막는다 — (1) 리포 루트 CLAUDE.md·git 컨텍스트가 상위 탐색으로 상속되어 발화를 편향시키는 것,
+// (2) 앞 트라이얼의 편집이 뒤 트라이얼의 조건을 바꾸는 것.
+// fs.cpSync는 이 환경(Node 25 / Windows)에서 프로세스를 하드 크래시시킨다 — 수동 재귀 복사로 대체.
+function copyDir(src, dest) {
+  fs.mkdirSync(dest, { recursive: true });
+  for (const entry of fs.readdirSync(src, { withFileTypes: true })) {
+    const from = path.join(src, entry.name);
+    const to = path.join(dest, entry.name);
+    if (entry.isDirectory()) copyDir(from, to);
+    else if (entry.isFile()) fs.copyFileSync(from, to);
+  }
+}
+
+function prepareTrialWorkspace(skillText) {
+  const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'tea-trigger-'));
+  copyDir(WORKSPACE_SRC, dir);
+  const skillDir = path.join(dir, '.claude', 'skills', 'tea');
+  fs.mkdirSync(skillDir, { recursive: true });
+  fs.writeFileSync(path.join(skillDir, 'SKILL.md'), skillText);
+  return dir;
+}
+
+function runTrial(cliJs, protocol, prompt, workspace) {
   return new Promise((resolve) => {
     const cliArgs = [
       '-p', prompt,
       '--output-format', 'stream-json', '--verbose',
       '--max-turns', String(protocol.max_turns),
       '--model', protocol.model,
-      '--allowedTools', protocol.allowed_tools,
+      // 격리된 일회용 복사본에서만 실행하므로 권한 프롬프트를 우회한다.
+      // 이전 프로토콜(--allowedTools 화이트리스트)은 도구 목록을 제한하지 못한 채 거부만 유발했고,
+      // 거부가 턴을 소진해 상한 초과를 만들었다 — 발화 트라이얼이 선택적으로 탈락하는 편향의 원인.
+      '--permission-mode', 'bypassPermissions',
       '--strict-mcp-config',
     ];
     const isJs = cliJs.endsWith('.js') || cliJs.endsWith('.cjs');
     const child = isJs
-      ? spawn(process.execPath, [cliJs, ...cliArgs], { cwd: WORKSPACE, env: process.env })
-      : spawn(cliJs, cliArgs, { cwd: WORKSPACE, env: process.env });
+      ? spawn(process.execPath, [cliJs, ...cliArgs], { cwd: workspace, env: process.env })
+      : spawn(cliJs, cliArgs, { cwd: workspace, env: process.env });
     let fired = false;
+    let firedAtTurn = null;
+    let assistantTurns = 0;
     let numTurns = null;
     let costUsd = null;
     let durationMs = null;
     let errorMsg = null;
+    let terminalReason = null;
+    let denials = 0;
     let authFailure = false;
+    let truncated = false;
     const timer = setTimeout(() => {
       errorMsg = 'timeout';
+      truncated = true;
       child.kill('SIGKILL');
     }, RUN_TIMEOUT_MS);
     const rl = readline.createInterface({ input: child.stdout });
@@ -103,9 +132,11 @@ function runTrial(cliJs, protocol, prompt) {
         return;
       }
       if (ev.type === 'assistant' && ev.message && Array.isArray(ev.message.content)) {
+        assistantTurns++;
         for (const block of ev.message.content) {
           if (block.type === 'tool_use' && block.name === 'Skill' && block.input
             && (block.input.skill === 'tea' || block.input.command === 'tea')) {
+            if (!fired) firedAtTurn = assistantTurns;
             fired = true;
           }
         }
@@ -114,8 +145,12 @@ function runTrial(cliJs, protocol, prompt) {
         numTurns = ev.num_turns;
         costUsd = ev.total_cost_usd;
         durationMs = ev.duration_ms;
-        if (ev.is_error) {
-          errorMsg = String(ev.result || 'api_error').slice(0, 200);
+        terminalReason = ev.terminal_reason || ev.subtype || null;
+        denials = Array.isArray(ev.permission_denials) ? ev.permission_denials.length : 0;
+        if (ev.subtype === 'error_max_turns' || ev.terminal_reason === 'max_turns') {
+          truncated = true; // 오류가 아니라 절단 — 발화했으면 유효 관측, 미발화면 판정 보류
+        } else if (ev.is_error) {
+          errorMsg = String(ev.result || ev.subtype || 'api_error').slice(0, 200);
           if (/authenticate|login|oauth/i.test(errorMsg)) authFailure = true;
         }
       }
@@ -124,14 +159,26 @@ function runTrial(cliJs, protocol, prompt) {
     child.stderr.on('data', (d) => { stderrBuf += d; });
     child.on('close', (code) => {
       clearTimeout(timer);
-      if (code !== 0 && !errorMsg) errorMsg = `exit ${code}: ${stderrBuf.slice(0, 200)}`;
-      resolve({ fired, numTurns, costUsd, durationMs, error: errorMsg, authFailure });
+      if (code !== 0 && !errorMsg && !truncated) errorMsg = `exit ${code}: ${stderrBuf.slice(0, 200)}`;
+      resolve({ fired, firedAtTurn, numTurns, costUsd, durationMs, terminalReason, denials, truncated, error: errorMsg, authFailure });
     });
     child.on('error', (e) => {
       clearTimeout(timer);
-      resolve({ fired: false, numTurns: null, costUsd: null, durationMs: null, error: e.message, authFailure: false });
+      resolve({ fired: false, firedAtTurn: null, numTurns: null, costUsd: null, durationMs: null, terminalReason: null, denials: 0, truncated: false, error: e.message, authFailure: false });
     });
   });
+}
+
+// 트라이얼 3상태 분류 — 절단된 미발화를 "미발화"로 세면 발화 트라이얼만 탈락하는 편향이 생긴다.
+//   fired      발화 관측 (절단 여부와 무관하게 유효 — 발화는 이미 일어났다)
+//   quiet      자연 종료했고 발화 없음 (유효)
+//   ambiguous  절단됐고 발화 없음 (판정 불가 — 게이트를 막고 재실행 대상)
+//   error      실행 실패 (판정 불가)
+function classify(t) {
+  if (t.error) return 'error';
+  if (t.fired) return 'fired';
+  if (t.truncated) return 'ambiguous';
+  return 'quiet';
 }
 
 async function runPool(items, worker, concurrency) {
@@ -156,58 +203,67 @@ function ratio(n, d) {
 
 // 게이트 환산: DESIGN §5.2의 비율(5/6, 7/8)을 트라이얼 수에 올림 적용 — 하향 없는 보수적 방향.
 function score(results, applyGate) {
-  const valid = results.trials.filter((t) => !t.error);
-  const errors = results.trials.filter((t) => t.error);
+  const all = results.trials.map((t) => ({ ...t, verdict: classify(t) }));
+  const unusable = all.filter((t) => t.verdict === 'error' || t.verdict === 'ambiguous');
+  const valid = all.filter((t) => t.verdict === 'fired' || t.verdict === 'quiet');
 
   const byQuestion = new Map();
-  for (const t of valid) {
-    if (!byQuestion.has(t.id)) byQuestion.set(t.id, { ...t, firedCount: 0, total: 0 });
-    const q = byQuestion.get(t.id);
-    q.firedCount += t.fired ? 1 : 0;
-    q.total += 1;
+  for (const t of all) {
+    if (!byQuestion.has(t.id)) byQuestion.set(t.id, { ...t, runs: [] });
+    byQuestion.get(t.id).runs.push(t);
   }
-  console.log('\n문항 × 발화 매트릭스');
-  console.log('ID    class     type                 split  발화');
+  console.log('\n문항 × 회차 매트릭스  (F=발화 · q=미발화 · ?=절단·판정보류 · E=오류)');
+  console.log('ID    class     type                 split  회차       발화/유효  최초발화턴');
+  const mark = { fired: 'F', quiet: 'q', ambiguous: '?', error: 'E' };
   for (const q of byQuestion.values()) {
-    console.log(`${q.id.padEnd(5)} ${q.class.padEnd(9)} ${q.type.padEnd(20)} ${q.split.padEnd(6)} ${q.firedCount}/${q.total}`);
+    const marks = q.runs.map((t) => mark[t.verdict]).join(' ');
+    const v = q.runs.filter((t) => t.verdict === 'fired' || t.verdict === 'quiet');
+    const f = q.runs.filter((t) => t.verdict === 'fired');
+    const turns = f.map((t) => t.firedAtTurn).filter((n) => n != null);
+    console.log(`${q.id.padEnd(5)} ${q.class.padEnd(9)} ${q.type.padEnd(20)} ${q.split.padEnd(6)} ${marks.padEnd(10)} ${String(f.length).padStart(4)}/${String(v.length).padEnd(4)}  ${turns.length ? turns.join(',') : '—'}`);
   }
-  if (errors.length) {
-    console.log(`\n오류 트라이얼 ${errors.length}건 (집계 제외 — 재실행 필요):`);
-    for (const t of errors) console.log(`  ${t.id} run${t.run}: ${t.error}`);
+  if (unusable.length) {
+    console.log(`\n판정 불가 트라이얼 ${unusable.length}건 (재실행 대상):`);
+    for (const t of unusable) {
+      console.log(`  ${t.id} run${t.run}: ${t.verdict}${t.error ? ` — ${t.error}` : ` — ${t.terminalReason}, ${t.numTurns}턴, 거부 ${t.denials}건`}`);
+    }
   }
 
-  const valPos = valid.filter((t) => t.split === 'val' && t.class === 'positive');
-  const valNeg = valid.filter((t) => t.split === 'val' && t.class === 'negative');
-  const trainPos = valid.filter((t) => t.split === 'train' && t.class === 'positive');
-  const trainNeg = valid.filter((t) => t.split === 'train' && t.class === 'negative');
+  const pick = (split, cls) => valid.filter((t) => t.split === split && t.class === cls);
+  const valPos = pick('val', 'positive');
+  const valNeg = pick('val', 'negative');
+  const trainPos = pick('train', 'positive');
+  const trainNeg = pick('train', 'negative');
   const golf = valid.filter((t) => t.type === 'golf-compression');
 
   const recallFired = valPos.filter((t) => t.fired).length;
   const precisionQuiet = valNeg.filter((t) => !t.fired).length;
   const golfFired = golf.filter((t) => t.fired).length;
 
-  console.log('\n집계 (트라이얼 단위)');
+  console.log('\n집계 (유효 트라이얼 단위 — 판정 불가 제외)');
   console.log(`  학습셋: recall ${ratio(trainPos.filter((t) => t.fired).length, trainPos.length)}, precision ${ratio(trainNeg.filter((t) => !t.fired).length, trainNeg.length)}`);
   console.log(`  검증셋: recall ${ratio(recallFired, valPos.length)}, precision ${ratio(precisionQuiet, valNeg.length)}`);
   console.log(`  골프 문항 발화: ${ratio(golfFired, golf.length)} (0이어야 함)`);
-  const cost = valid.reduce((s, t) => s + (t.costUsd || 0), 0);
-  console.log(`  비용 합계: $${cost.toFixed(4)} / 유효 트라이얼 ${valid.length}`);
+  const cost = all.reduce((s, t) => s + (t.costUsd || 0), 0);
+  const truncCount = all.filter((t) => t.truncated).length;
+  const denialTotal = all.reduce((s, t) => s + (t.denials || 0), 0);
+  console.log(`  비용 합계 $${cost.toFixed(4)} · 유효 ${valid.length}/${all.length} · 절단 ${truncCount} · 권한거부 ${denialTotal}`);
 
-  if (!applyGate) return errors.length === 0;
+  if (!applyGate) return unusable.length === 0;
 
   const gates = [];
-  if (valPos.length > 0) {
-    const need = Math.ceil((5 / 6) * valPos.length);
-    gates.push({ name: `DoD 2 recall(검증) ≥ ${need}/${valPos.length}`, pass: recallFired >= need });
-  } else gates.push({ name: 'DoD 2 recall(검증)', pass: false, note: '검증 양성 트라이얼 없음' });
-  if (valNeg.length > 0) {
-    const need = Math.ceil((7 / 8) * valNeg.length);
-    gates.push({ name: `DoD 3 precision(검증) ≥ ${need}/${valNeg.length}`, pass: precisionQuiet >= need });
-  } else gates.push({ name: 'DoD 3 precision(검증)', pass: false, note: '검증 음성 트라이얼 없음' });
-  if (golf.length >= 6) {
-    gates.push({ name: `DoD 4 골프 발화 0/${golf.length}`, pass: golfFired === 0 });
-  } else gates.push({ name: 'DoD 4 골프 발화 0건', pass: false, note: `골프 트라이얼 ${golf.length}건 — 2문항 × 3회 필요` });
-  if (errors.length > 0) gates.push({ name: '데이터 완전성 (오류 트라이얼 0)', pass: false });
+  const needRecall = Math.ceil((5 / 6) * valPos.length);
+  gates.push(valPos.length
+    ? { name: `DoD 2 recall(검증) ${recallFired}/${valPos.length} ≥ ${needRecall}`, pass: recallFired >= needRecall }
+    : { name: 'DoD 2 recall(검증)', pass: false, note: '유효 트라이얼 없음' });
+  const needPrec = Math.ceil((7 / 8) * valNeg.length);
+  gates.push(valNeg.length
+    ? { name: `DoD 3 precision(검증) ${precisionQuiet}/${valNeg.length} ≥ ${needPrec}`, pass: precisionQuiet >= needPrec }
+    : { name: 'DoD 3 precision(검증)', pass: false, note: '유효 트라이얼 없음' });
+  gates.push(golf.length >= 6
+    ? { name: `DoD 4 골프 발화 ${golfFired}/${golf.length} = 0`, pass: golfFired === 0 }
+    : { name: 'DoD 4 골프 발화 0건', pass: false, note: `유효 골프 트라이얼 ${golf.length}건 — 2문항 × 3회 필요` });
+  gates.push({ name: `데이터 완전성 (판정 불가 ${unusable.length}건 = 0)`, pass: unusable.length === 0 });
 
   console.log('\n게이트 판정 (M1 DoD)');
   let allPass = true;
@@ -235,7 +291,8 @@ async function main() {
   const config = JSON.parse(fs.readFileSync(CONFIG_PATH, 'utf8'));
   const protocol = { ...config.protocol };
   if (argValue('--model', null)) protocol.model = argValue('--model', null);
-  const descHash = generateSkillStub(config.description_file);
+  if (argValue('--max-turns', null)) protocol.max_turns = Number(argValue('--max-turns', null));
+  const { text: skillText, hash: descHash } = buildSkillText(config.description_file);
 
   let questions;
   let runs;
@@ -256,14 +313,23 @@ async function main() {
   for (const q of questions) for (let r = 1; r <= runs; r++) trials.push({ ...q, run: r });
 
   console.log(`[trigger-eval] CLI: ${cliJs}`);
-  console.log(`[trigger-eval] 모델 ${protocol.model} · 문항 ${questions.length} × ${runs}회 = ${trials.length} 트라이얼 · 동시 ${concurrency} · description ${descHash}`);
+  console.log(`[trigger-eval] 모델 ${protocol.model} · 상한 ${protocol.max_turns}턴 · 문항 ${questions.length} × ${runs}회 = ${trials.length} 트라이얼 · 동시 ${concurrency} · description ${descHash}`);
 
   let done = 0;
   const { results, aborted } = await runPool(trials, async (t) => {
-    let out = await runTrial(cliJs, protocol, t.prompt);
-    if (out.error && !out.authFailure) out = await runTrial(cliJs, protocol, t.prompt); // 1회 재시도
+    const runOnce = async () => {
+      const ws = prepareTrialWorkspace(skillText);
+      try {
+        return await runTrial(cliJs, protocol, t.prompt, ws);
+      } finally {
+        fs.rmSync(ws, { recursive: true, force: true });
+      }
+    };
+    let out = await runOnce();
+    if (out.error && !out.authFailure) out = await runOnce(); // 실행 실패만 1회 재시도 (절단은 재시도 대상 아님)
     done++;
-    console.log(`  [${done}/${trials.length}] ${t.id} run${t.run} → ${out.error ? `오류(${out.error.slice(0, 60)})` : out.fired ? '발화' : '미발화'}`);
+    const label = out.error ? `오류(${out.error.slice(0, 50)})` : out.fired ? `발화(턴${out.firedAtTurn})` : out.truncated ? '절단·판정보류' : '미발화';
+    console.log(`  [${done}/${trials.length}] ${t.id} run${t.run} → ${label}`);
     return { ...t, ...out };
   }, concurrency);
 
@@ -283,7 +349,9 @@ async function main() {
     runsPerQuestion: runs,
     trials: results.map((t) => ({
       id: t.id, class: t.class, type: t.type, split: t.split, run: t.run,
-      fired: t.fired, numTurns: t.numTurns, durationMs: t.durationMs, costUsd: t.costUsd, error: t.error || null,
+      fired: t.fired, firedAtTurn: t.firedAtTurn ?? null, truncated: !!t.truncated,
+      terminalReason: t.terminalReason || null, denials: t.denials || 0,
+      numTurns: t.numTurns, durationMs: t.durationMs, costUsd: t.costUsd, error: t.error || null,
     })),
   };
   fs.mkdirSync(RESULTS_DIR, { recursive: true });
