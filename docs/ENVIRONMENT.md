@@ -7,7 +7,8 @@
 |---|---|
 | OS | Windows 11 Pro (10.0.26200) |
 | 셸 | PowerShell 5.1 (주) / Git Bash (POSIX 스크립트) |
-| Node.js | v25.2.0 (요구: ≥18, package.json engines) |
+| Node.js | v25.2.0 (요구: ≥18, package.json engines). **주의: 이 빌드는 fs 재귀 복사·삭제에서 무출력 하드 크래시(exit 127)** — cpSync 100% 재현 |
+| 러너 전용 Node | v22.23.2 LTS 단일 바이너리 — `tools/node22/node.exe` (비커밋, `curl -sL -o tools/node22/node.exe https://nodejs.org/dist/latest-v22.x/win-x64/node.exe`). trigger-eval은 반드시 이걸로 실행 |
 | npm | 11.6.2 |
 | git | 2.54.0.windows.1 — `core.hooksPath=.githooks`, `.gitattributes`로 LF 고정 |
 | 원격 | origin = https://github.com/JTech-CO/TEA (main, MIT 라이선스) |
