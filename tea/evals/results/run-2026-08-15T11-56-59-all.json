@@ -1,0 +1,2876 @@
+{
+  "startedAt": "2026-08-15T11:56:59.323Z",
+  "cli": "C:\\Users\\MSI\\AppData\\Roaming\\npm\\node_modules\\@anthropic-ai\\claude-code\\bin\\claude.exe",
+  "protocol": {
+    "version": 2,
+    "runs_per_question": 3,
+    "max_turns": 15,
+    "model": "claude-sonnet-5",
+    "permission_mode": "bypassPermissions",
+    "workspace": "트라이얼마다 리포 밖 임시 디렉터리에 새로 복사 — 상위 CLAUDE.md 상속과 트라이얼 간 간섭 차단",
+    "detection": "stream-json에서 tool_use name=Skill && input.skill=tea 검출",
+    "verdict": "fired(발화·유효) / quiet(자연종료·미발화·유효) / ambiguous(절단·미발화·판정보류) / error(실행실패)",
+    "v1_defects": "max_turns 4 + allowedTools 화이트리스트가 권한 거부를 유발해 턴을 소진 → 발화 트라이얼이 선택적으로 상한을 넘겨 탈락. recall 0/11은 계측 artifact였음 (실제로는 오류 26건 중 18건이 발화)",
+    "split_rule": "유형별 마지막 문항을 검증셋으로 — 층화 60/40 (학습 12 / 검증 8)",
+    "gates": {
+      "recall_val": "검증 양성 5문항 × 3회 = 15 트라이얼 중 발화 ≥ 13 (= 5/6 비율의 올림). 유형당 1문항이므로 '유형 5종 전부 최소 1회 발화 AND 총 미발화 ≤ 2'와 동치",
+      "precision_val": "검증 음성 중 골프 제외(N4·N6) × 3회 = 6 트라이얼 중 미발화 ≥ 6 (= 7/8 비율의 올림). 골프를 분모에서 뺀 이유는 DoD 4가 0건 기준으로 따로 판정하므로 이중 계상이 되기 때문",
+      "golf_all": "골프·압축 4문항(N7·N8·N9·N10) 전 트라이얼 발화 0/12 (M1 DoD 4). N9·N10은 description 배제 문구(golf/compress/shorten)와 어휘가 겹치지 않는 우회 표현",
+      "integrity": "판정 불가 0건 · 폐기된 발화 관측 0건 · 스킬 미노출 세션 0건"
+    }
+  },
+  "descriptionFile": "tea/evals/description-v1.md",
+  "descriptionHash": "b5f5ee7bae7c",
+  "set": "all",
+  "runsPerQuestion": 3,
+  "runKey": "b1baf054366806f5",
+  "trials": [
+    {
+      "id": "P1",
+      "class": "positive",
+      "type": "multi-file-edit",
+      "split": "train",
+      "run": 1,
+      "fired": false,
+      "firedAtTurn": null,
+      "truncated": false,
+      "terminalReason": "completed",
+      "denials": 0,
+      "numTurns": 13,
+      "durationMs": 55305,
+      "costUsd": 0.3042417,
+      "error": null,
+      "init": {
+        "version": "2.1.233",
+        "model": "claude-sonnet-5",
+        "permissionMode": "bypassPermissions",
+        "teaSkillVisible": true,
+        "skillCount": 17,
+        "memoryPaths": {
+          "auto": "C:\\Users\\MSI\\.claude\\projects\\C--Users-MSI-AppData-Local-Temp-ws-ALGx3G\\memory\\"
+        }
+      },
+      "attempts": [
+        {
+          "fired": false,
+          "firedAtTurn": null,
+          "error": null,
+          "truncated": false,
+          "terminalReason": "completed",
+          "numTurns": 13,
+          "denials": 0
+        }
+      ]
+    },
+    {
+      "id": "P1",
+      "class": "positive",
+      "type": "multi-file-edit",
+      "split": "train",
+      "run": 2,
+      "fired": false,
+      "firedAtTurn": null,
+      "truncated": false,
+      "terminalReason": "completed",
+      "denials": 0,
+      "numTurns": 11,
+      "durationMs": 51138,
+      "costUsd": 0.2634168,
+      "error": null,
+      "init": {
+        "version": "2.1.233",
+        "model": "claude-sonnet-5",
+        "permissionMode": "bypassPermissions",
+        "teaSkillVisible": true,
+        "skillCount": 17,
+        "memoryPaths": {
+          "auto": "C:\\Users\\MSI\\.claude\\projects\\C--Users-MSI-AppData-Local-Temp-ws-y7zZyB\\memory\\"
+        }
+      },
+      "attempts": [
+        {
+          "fired": false,
+          "firedAtTurn": null,
+          "error": null,
+          "truncated": false,
+          "terminalReason": "completed",
+          "numTurns": 11,
+          "denials": 0
+        }
+      ]
+    },
+    {
+      "id": "P1",
+      "class": "positive",
+      "type": "multi-file-edit",
+      "split": "train",
+      "run": 3,
+      "fired": false,
+      "firedAtTurn": null,
+      "truncated": false,
+      "terminalReason": "completed",
+      "denials": 0,
+      "numTurns": 13,
+      "durationMs": 45583,
+      "costUsd": 0.2881052,
+      "error": null,
+      "init": {
+        "version": "2.1.233",
+        "model": "claude-sonnet-5",
+        "permissionMode": "bypassPermissions",
+        "teaSkillVisible": true,
+        "skillCount": 17,
+        "memoryPaths": {
+          "auto": "C:\\Users\\MSI\\.claude\\projects\\C--Users-MSI-AppData-Local-Temp-ws-mzp7GY\\memory\\"
+        }
+      },
+      "attempts": [
+        {
+          "fired": false,
+          "firedAtTurn": null,
+          "error": null,
+          "truncated": false,
+          "terminalReason": "completed",
+          "numTurns": 13,
+          "denials": 0
+        }
+      ]
+    },
+    {
+      "id": "P2",
+      "class": "positive",
+      "type": "multi-file-edit",
+      "split": "train",
+      "run": 1,
+      "fired": false,
+      "firedAtTurn": null,
+      "truncated": false,
+      "terminalReason": "completed",
+      "denials": 0,
+      "numTurns": 15,
+      "durationMs": 44893,
+      "costUsd": 0.3122385999999999,
+      "error": null,
+      "init": {
+        "version": "2.1.233",
+        "model": "claude-sonnet-5",
+        "permissionMode": "bypassPermissions",
+        "teaSkillVisible": true,
+        "skillCount": 17,
+        "memoryPaths": {
+          "auto": "C:\\Users\\MSI\\.claude\\projects\\C--Users-MSI-AppData-Local-Temp-ws-O6Gmpy\\memory\\"
+        }
+      },
+      "attempts": [
+        {
+          "fired": false,
+          "firedAtTurn": null,
+          "error": null,
+          "truncated": false,
+          "terminalReason": "completed",
+          "numTurns": 15,
+          "denials": 0
+        }
+      ]
+    },
+    {
+      "id": "P2",
+      "class": "positive",
+      "type": "multi-file-edit",
+      "split": "train",
+      "run": 2,
+      "fired": false,
+      "firedAtTurn": null,
+      "truncated": false,
+      "terminalReason": "completed",
+      "denials": 0,
+      "numTurns": 16,
+      "durationMs": 52106,
+      "costUsd": 0.33432609999999996,
+      "error": null,
+      "init": {
+        "version": "2.1.233",
+        "model": "claude-sonnet-5",
+        "permissionMode": "bypassPermissions",
+        "teaSkillVisible": true,
+        "skillCount": 17,
+        "memoryPaths": {
+          "auto": "C:\\Users\\MSI\\.claude\\projects\\C--Users-MSI-AppData-Local-Temp-ws-rJ5t3e\\memory\\"
+        }
+      },
+      "attempts": [
+        {
+          "fired": false,
+          "firedAtTurn": null,
+          "error": null,
+          "truncated": false,
+          "terminalReason": "completed",
+          "numTurns": 16,
+          "denials": 0
+        }
+      ]
+    },
+    {
+      "id": "P2",
+      "class": "positive",
+      "type": "multi-file-edit",
+      "split": "train",
+      "run": 3,
+      "fired": false,
+      "firedAtTurn": null,
+      "truncated": false,
+      "terminalReason": "completed",
+      "denials": 0,
+      "numTurns": 22,
+      "durationMs": 69647,
+      "costUsd": 0.4180324000000001,
+      "error": null,
+      "init": {
+        "version": "2.1.233",
+        "model": "claude-sonnet-5",
+        "permissionMode": "bypassPermissions",
+        "teaSkillVisible": true,
+        "skillCount": 17,
+        "memoryPaths": {
+          "auto": "C:\\Users\\MSI\\.claude\\projects\\C--Users-MSI-AppData-Local-Temp-ws-DWLZQf\\memory\\"
+        }
+      },
+      "attempts": [
+        {
+          "fired": false,
+          "firedAtTurn": null,
+          "error": null,
+          "truncated": false,
+          "terminalReason": "completed",
+          "numTurns": 22,
+          "denials": 0
+        }
+      ]
+    },
+    {
+      "id": "P3",
+      "class": "positive",
+      "type": "multi-file-edit",
+      "split": "val",
+      "run": 1,
+      "fired": false,
+      "firedAtTurn": null,
+      "truncated": true,
+      "terminalReason": "max_turns",
+      "denials": 0,
+      "numTurns": 16,
+      "durationMs": 98825,
+      "costUsd": 0.4686997000000001,
+      "error": null,
+      "init": {
+        "version": "2.1.233",
+        "model": "claude-sonnet-5",
+        "permissionMode": "bypassPermissions",
+        "teaSkillVisible": true,
+        "skillCount": 17,
+        "memoryPaths": {
+          "auto": "C:\\Users\\MSI\\.claude\\projects\\C--Users-MSI-AppData-Local-Temp-ws-8yPZd7\\memory\\"
+        }
+      },
+      "attempts": [
+        {
+          "fired": false,
+          "firedAtTurn": null,
+          "error": null,
+          "truncated": true,
+          "terminalReason": "max_turns",
+          "numTurns": 16,
+          "denials": 0
+        }
+      ]
+    },
+    {
+      "id": "P3",
+      "class": "positive",
+      "type": "multi-file-edit",
+      "split": "val",
+      "run": 2,
+      "fired": false,
+      "firedAtTurn": null,
+      "truncated": true,
+      "terminalReason": "max_turns",
+      "denials": 0,
+      "numTurns": 16,
+      "durationMs": 121349,
+      "costUsd": 0.5001769,
+      "error": null,
+      "init": {
+        "version": "2.1.233",
+        "model": "claude-sonnet-5",
+        "permissionMode": "bypassPermissions",
+        "teaSkillVisible": true,
+        "skillCount": 17,
+        "memoryPaths": {
+          "auto": "C:\\Users\\MSI\\.claude\\projects\\C--Users-MSI-AppData-Local-Temp-ws-nYtWWB\\memory\\"
+        }
+      },
+      "attempts": [
+        {
+          "fired": false,
+          "firedAtTurn": null,
+          "error": null,
+          "truncated": true,
+          "terminalReason": "max_turns",
+          "numTurns": 16,
+          "denials": 0
+        }
+      ]
+    },
+    {
+      "id": "P3",
+      "class": "positive",
+      "type": "multi-file-edit",
+      "split": "val",
+      "run": 3,
+      "fired": false,
+      "firedAtTurn": null,
+      "truncated": false,
+      "terminalReason": "completed",
+      "denials": 0,
+      "numTurns": 18,
+      "durationMs": 99928,
+      "costUsd": 0.43228,
+      "error": null,
+      "init": {
+        "version": "2.1.233",
+        "model": "claude-sonnet-5",
+        "permissionMode": "bypassPermissions",
+        "teaSkillVisible": true,
+        "skillCount": 17,
+        "memoryPaths": {
+          "auto": "C:\\Users\\MSI\\.claude\\projects\\C--Users-MSI-AppData-Local-Temp-ws-S5bMNv\\memory\\"
+        }
+      },
+      "attempts": [
+        {
+          "fired": false,
+          "firedAtTurn": null,
+          "error": null,
+          "truncated": false,
+          "terminalReason": "completed",
+          "numTurns": 18,
+          "denials": 0
+        }
+      ]
+    },
+    {
+      "id": "P4",
+      "class": "positive",
+      "type": "debugging",
+      "split": "train",
+      "run": 1,
+      "fired": false,
+      "firedAtTurn": null,
+      "truncated": false,
+      "terminalReason": "completed",
+      "denials": 0,
+      "numTurns": 13,
+      "durationMs": 37697,
+      "costUsd": 0.2630147,
+      "error": null,
+      "init": {
+        "version": "2.1.233",
+        "model": "claude-sonnet-5",
+        "permissionMode": "bypassPermissions",
+        "teaSkillVisible": true,
+        "skillCount": 17,
+        "memoryPaths": {
+          "auto": "C:\\Users\\MSI\\.claude\\projects\\C--Users-MSI-AppData-Local-Temp-ws-QJ4RPh\\memory\\"
+        }
+      },
+      "attempts": [
+        {
+          "fired": false,
+          "firedAtTurn": null,
+          "error": null,
+          "truncated": false,
+          "terminalReason": "completed",
+          "numTurns": 13,
+          "denials": 0
+        }
+      ]
+    },
+    {
+      "id": "P4",
+      "class": "positive",
+      "type": "debugging",
+      "split": "train",
+      "run": 2,
+      "fired": false,
+      "firedAtTurn": null,
+      "truncated": false,
+      "terminalReason": "completed",
+      "denials": 0,
+      "numTurns": 13,
+      "durationMs": 64596,
+      "costUsd": 0.3169959,
+      "error": null,
+      "init": {
+        "version": "2.1.233",
+        "model": "claude-sonnet-5",
+        "permissionMode": "bypassPermissions",
+        "teaSkillVisible": true,
+        "skillCount": 17,
+        "memoryPaths": {
+          "auto": "C:\\Users\\MSI\\.claude\\projects\\C--Users-MSI-AppData-Local-Temp-ws-0xpdXQ\\memory\\"
+        }
+      },
+      "attempts": [
+        {
+          "fired": false,
+          "firedAtTurn": null,
+          "error": null,
+          "truncated": false,
+          "terminalReason": "completed",
+          "numTurns": 13,
+          "denials": 0
+        }
+      ]
+    },
+    {
+      "id": "P4",
+      "class": "positive",
+      "type": "debugging",
+      "split": "train",
+      "run": 3,
+      "fired": false,
+      "firedAtTurn": null,
+      "truncated": false,
+      "terminalReason": "completed",
+      "denials": 0,
+      "numTurns": 11,
+      "durationMs": 36984,
+      "costUsd": 0.22872489999999998,
+      "error": null,
+      "init": {
+        "version": "2.1.233",
+        "model": "claude-sonnet-5",
+        "permissionMode": "bypassPermissions",
+        "teaSkillVisible": true,
+        "skillCount": 17,
+        "memoryPaths": {
+          "auto": "C:\\Users\\MSI\\.claude\\projects\\C--Users-MSI-AppData-Local-Temp-ws-NhmPGF\\memory\\"
+        }
+      },
+      "attempts": [
+        {
+          "fired": false,
+          "firedAtTurn": null,
+          "error": null,
+          "truncated": false,
+          "terminalReason": "completed",
+          "numTurns": 11,
+          "denials": 0
+        }
+      ]
+    },
+    {
+      "id": "P5",
+      "class": "positive",
+      "type": "debugging",
+      "split": "train",
+      "run": 1,
+      "fired": false,
+      "firedAtTurn": null,
+      "truncated": false,
+      "terminalReason": "completed",
+      "denials": 0,
+      "numTurns": 6,
+      "durationMs": 29529,
+      "costUsd": 0.39158190000000004,
+      "error": null,
+      "init": {
+        "version": "2.1.233",
+        "model": "claude-sonnet-5",
+        "permissionMode": "bypassPermissions",
+        "teaSkillVisible": true,
+        "skillCount": 17,
+        "memoryPaths": {
+          "auto": "C:\\Users\\MSI\\.claude\\projects\\C--Users-MSI-AppData-Local-Temp-ws-NFbUwn\\memory\\"
+        }
+      },
+      "attempts": [
+        {
+          "fired": false,
+          "firedAtTurn": null,
+          "error": null,
+          "truncated": false,
+          "terminalReason": "completed",
+          "numTurns": 6,
+          "denials": 0
+        }
+      ]
+    },
+    {
+      "id": "P5",
+      "class": "positive",
+      "type": "debugging",
+      "split": "train",
+      "run": 2,
+      "fired": false,
+      "firedAtTurn": null,
+      "truncated": true,
+      "terminalReason": "max_turns",
+      "denials": 0,
+      "numTurns": 16,
+      "durationMs": 162214,
+      "costUsd": 0.8072364000000001,
+      "error": null,
+      "init": {
+        "version": "2.1.233",
+        "model": "claude-sonnet-5",
+        "permissionMode": "bypassPermissions",
+        "teaSkillVisible": true,
+        "skillCount": 17,
+        "memoryPaths": {
+          "auto": "C:\\Users\\MSI\\.claude\\projects\\C--Users-MSI-AppData-Local-Temp-ws-oiFaWi\\memory\\"
+        }
+      },
+      "attempts": [
+        {
+          "fired": false,
+          "firedAtTurn": null,
+          "error": null,
+          "truncated": true,
+          "terminalReason": "max_turns",
+          "numTurns": 16,
+          "denials": 0
+        }
+      ]
+    },
+    {
+      "id": "P5",
+      "class": "positive",
+      "type": "debugging",
+      "split": "train",
+      "run": 3,
+      "fired": false,
+      "firedAtTurn": null,
+      "truncated": false,
+      "terminalReason": "completed",
+      "denials": 0,
+      "numTurns": 16,
+      "durationMs": 77879,
+      "costUsd": 0.3220269,
+      "error": null,
+      "init": {
+        "version": "2.1.233",
+        "model": "claude-sonnet-5",
+        "permissionMode": "bypassPermissions",
+        "teaSkillVisible": true,
+        "skillCount": 17,
+        "memoryPaths": {
+          "auto": "C:\\Users\\MSI\\.claude\\projects\\C--Users-MSI-AppData-Local-Temp-ws-zEuPLC\\memory\\"
+        }
+      },
+      "attempts": [
+        {
+          "fired": false,
+          "firedAtTurn": null,
+          "error": null,
+          "truncated": false,
+          "terminalReason": "completed",
+          "numTurns": 16,
+          "denials": 0
+        }
+      ]
+    },
+    {
+      "id": "P6",
+      "class": "positive",
+      "type": "debugging",
+      "split": "val",
+      "run": 1,
+      "fired": false,
+      "firedAtTurn": null,
+      "truncated": false,
+      "terminalReason": "completed",
+      "denials": 0,
+      "numTurns": 9,
+      "durationMs": 43502,
+      "costUsd": 0.19752789999999998,
+      "error": null,
+      "init": {
+        "version": "2.1.233",
+        "model": "claude-sonnet-5",
+        "permissionMode": "bypassPermissions",
+        "teaSkillVisible": true,
+        "skillCount": 17,
+        "memoryPaths": {
+          "auto": "C:\\Users\\MSI\\.claude\\projects\\C--Users-MSI-AppData-Local-Temp-ws-eAGk2C\\memory\\"
+        }
+      },
+      "attempts": [
+        {
+          "fired": false,
+          "firedAtTurn": null,
+          "error": null,
+          "truncated": false,
+          "terminalReason": "completed",
+          "numTurns": 9,
+          "denials": 0
+        }
+      ]
+    },
+    {
+      "id": "P6",
+      "class": "positive",
+      "type": "debugging",
+      "split": "val",
+      "run": 2,
+      "fired": false,
+      "firedAtTurn": null,
+      "truncated": false,
+      "terminalReason": "completed",
+      "denials": 0,
+      "numTurns": 8,
+      "durationMs": 31586,
+      "costUsd": 0.1931668,
+      "error": null,
+      "init": {
+        "version": "2.1.233",
+        "model": "claude-sonnet-5",
+        "permissionMode": "bypassPermissions",
+        "teaSkillVisible": true,
+        "skillCount": 17,
+        "memoryPaths": {
+          "auto": "C:\\Users\\MSI\\.claude\\projects\\C--Users-MSI-AppData-Local-Temp-ws-bataFF\\memory\\"
+        }
+      },
+      "attempts": [
+        {
+          "fired": false,
+          "firedAtTurn": null,
+          "error": null,
+          "truncated": false,
+          "terminalReason": "completed",
+          "numTurns": 8,
+          "denials": 0
+        }
+      ]
+    },
+    {
+      "id": "P6",
+      "class": "positive",
+      "type": "debugging",
+      "split": "val",
+      "run": 3,
+      "fired": false,
+      "firedAtTurn": null,
+      "truncated": false,
+      "terminalReason": "completed",
+      "denials": 0,
+      "numTurns": 9,
+      "durationMs": 36533,
+      "costUsd": 0.21689849999999997,
+      "error": null,
+      "init": {
+        "version": "2.1.233",
+        "model": "claude-sonnet-5",
+        "permissionMode": "bypassPermissions",
+        "teaSkillVisible": true,
+        "skillCount": 17,
+        "memoryPaths": {
+          "auto": "C:\\Users\\MSI\\.claude\\projects\\C--Users-MSI-AppData-Local-Temp-ws-o1DRzi\\memory\\"
+        }
+      },
+      "attempts": [
+        {
+          "fired": false,
+          "firedAtTurn": null,
+          "error": null,
+          "truncated": false,
+          "terminalReason": "completed",
+          "numTurns": 9,
+          "denials": 0
+        }
+      ]
+    },
+    {
+      "id": "P7",
+      "class": "positive",
+      "type": "refactoring",
+      "split": "train",
+      "run": 1,
+      "fired": false,
+      "firedAtTurn": null,
+      "truncated": false,
+      "terminalReason": "completed",
+      "denials": 0,
+      "numTurns": 5,
+      "durationMs": 20522,
+      "costUsd": 0.1498785,
+      "error": null,
+      "init": {
+        "version": "2.1.233",
+        "model": "claude-sonnet-5",
+        "permissionMode": "bypassPermissions",
+        "teaSkillVisible": true,
+        "skillCount": 17,
+        "memoryPaths": {
+          "auto": "C:\\Users\\MSI\\.claude\\projects\\C--Users-MSI-AppData-Local-Temp-ws-A3CTiM\\memory\\"
+        }
+      },
+      "attempts": [
+        {
+          "fired": false,
+          "firedAtTurn": null,
+          "error": null,
+          "truncated": false,
+          "terminalReason": "completed",
+          "numTurns": 5,
+          "denials": 0
+        }
+      ]
+    },
+    {
+      "id": "P7",
+      "class": "positive",
+      "type": "refactoring",
+      "split": "train",
+      "run": 2,
+      "fired": false,
+      "firedAtTurn": null,
+      "truncated": false,
+      "terminalReason": "completed",
+      "denials": 0,
+      "numTurns": 8,
+      "durationMs": 31261,
+      "costUsd": 0.1927477,
+      "error": null,
+      "init": {
+        "version": "2.1.233",
+        "model": "claude-sonnet-5",
+        "permissionMode": "bypassPermissions",
+        "teaSkillVisible": true,
+        "skillCount": 17,
+        "memoryPaths": {
+          "auto": "C:\\Users\\MSI\\.claude\\projects\\C--Users-MSI-AppData-Local-Temp-ws-UUVIYC\\memory\\"
+        }
+      },
+      "attempts": [
+        {
+          "fired": false,
+          "firedAtTurn": null,
+          "error": null,
+          "truncated": false,
+          "terminalReason": "completed",
+          "numTurns": 8,
+          "denials": 0
+        }
+      ]
+    },
+    {
+      "id": "P7",
+      "class": "positive",
+      "type": "refactoring",
+      "split": "train",
+      "run": 3,
+      "fired": false,
+      "firedAtTurn": null,
+      "truncated": false,
+      "terminalReason": "completed",
+      "denials": 0,
+      "numTurns": 5,
+      "durationMs": 25835,
+      "costUsd": 0.16092610000000002,
+      "error": null,
+      "init": {
+        "version": "2.1.233",
+        "model": "claude-sonnet-5",
+        "permissionMode": "bypassPermissions",
+        "teaSkillVisible": true,
+        "skillCount": 17,
+        "memoryPaths": {
+          "auto": "C:\\Users\\MSI\\.claude\\projects\\C--Users-MSI-AppData-Local-Temp-ws-2e5Q9d\\memory\\"
+        }
+      },
+      "attempts": [
+        {
+          "fired": false,
+          "firedAtTurn": null,
+          "error": null,
+          "truncated": false,
+          "terminalReason": "completed",
+          "numTurns": 5,
+          "denials": 0
+        }
+      ]
+    },
+    {
+      "id": "P8",
+      "class": "positive",
+      "type": "refactoring",
+      "split": "val",
+      "run": 1,
+      "fired": false,
+      "firedAtTurn": null,
+      "truncated": false,
+      "terminalReason": "api_error",
+      "denials": 0,
+      "numTurns": 1,
+      "durationMs": 618,
+      "costUsd": 0,
+      "error": "You've hit your weekly limit · resets Aug 17, 8pm (Asia/Seoul)",
+      "init": {
+        "version": "2.1.233",
+        "model": "claude-sonnet-5",
+        "permissionMode": "bypassPermissions",
+        "teaSkillVisible": true,
+        "skillCount": 17,
+        "memoryPaths": {
+          "auto": "C:\\Users\\MSI\\.claude\\projects\\C--Users-MSI-AppData-Local-Temp-ws-TrM62o\\memory\\"
+        }
+      },
+      "attempts": [
+        {
+          "fired": false,
+          "firedAtTurn": null,
+          "error": "You've hit your weekly limit · resets Aug 17, 8pm (Asia/Seoul)",
+          "truncated": false,
+          "terminalReason": "api_error",
+          "numTurns": 13,
+          "denials": 0
+        },
+        {
+          "fired": false,
+          "firedAtTurn": null,
+          "error": "You've hit your weekly limit · resets Aug 17, 8pm (Asia/Seoul)",
+          "truncated": false,
+          "terminalReason": "api_error",
+          "numTurns": 1,
+          "denials": 0
+        }
+      ]
+    },
+    {
+      "id": "P8",
+      "class": "positive",
+      "type": "refactoring",
+      "split": "val",
+      "run": 2,
+      "fired": false,
+      "firedAtTurn": null,
+      "truncated": false,
+      "terminalReason": "api_error",
+      "denials": 0,
+      "numTurns": 1,
+      "durationMs": 647,
+      "costUsd": 0,
+      "error": "You've hit your weekly limit · resets Aug 17, 8pm (Asia/Seoul)",
+      "init": {
+        "version": "2.1.233",
+        "model": "claude-sonnet-5",
+        "permissionMode": "bypassPermissions",
+        "teaSkillVisible": true,
+        "skillCount": 17,
+        "memoryPaths": {
+          "auto": "C:\\Users\\MSI\\.claude\\projects\\C--Users-MSI-AppData-Local-Temp-ws-viw3vu\\memory\\"
+        }
+      },
+      "attempts": [
+        {
+          "fired": false,
+          "firedAtTurn": null,
+          "error": "You've hit your weekly limit · resets Aug 17, 8pm (Asia/Seoul)",
+          "truncated": false,
+          "terminalReason": "api_error",
+          "numTurns": 12,
+          "denials": 0
+        },
+        {
+          "fired": false,
+          "firedAtTurn": null,
+          "error": "You've hit your weekly limit · resets Aug 17, 8pm (Asia/Seoul)",
+          "truncated": false,
+          "terminalReason": "api_error",
+          "numTurns": 1,
+          "denials": 0
+        }
+      ]
+    },
+    {
+      "id": "P8",
+      "class": "positive",
+      "type": "refactoring",
+      "split": "val",
+      "run": 3,
+      "fired": false,
+      "firedAtTurn": null,
+      "truncated": false,
+      "terminalReason": "api_error",
+      "denials": 0,
+      "numTurns": 1,
+      "durationMs": 635,
+      "costUsd": 0,
+      "error": "You've hit your weekly limit · resets Aug 17, 8pm (Asia/Seoul)",
+      "init": {
+        "version": "2.1.233",
+        "model": "claude-sonnet-5",
+        "permissionMode": "bypassPermissions",
+        "teaSkillVisible": true,
+        "skillCount": 17,
+        "memoryPaths": {
+          "auto": "C:\\Users\\MSI\\.claude\\projects\\C--Users-MSI-AppData-Local-Temp-ws-Yyveqe\\memory\\"
+        }
+      },
+      "attempts": [
+        {
+          "fired": false,
+          "firedAtTurn": null,
+          "error": "You've hit your weekly limit · resets Aug 17, 8pm (Asia/Seoul)",
+          "truncated": false,
+          "terminalReason": "api_error",
+          "numTurns": 1,
+          "denials": 0
+        },
+        {
+          "fired": false,
+          "firedAtTurn": null,
+          "error": "You've hit your weekly limit · resets Aug 17, 8pm (Asia/Seoul)",
+          "truncated": false,
+          "terminalReason": "api_error",
+          "numTurns": 1,
+          "denials": 0
+        }
+      ]
+    },
+    {
+      "id": "P9",
+      "class": "positive",
+      "type": "codebase-navigation",
+      "split": "train",
+      "run": 1,
+      "fired": false,
+      "firedAtTurn": null,
+      "truncated": false,
+      "terminalReason": "api_error",
+      "denials": 0,
+      "numTurns": 1,
+      "durationMs": 710,
+      "costUsd": 0,
+      "error": "You've hit your weekly limit · resets Aug 17, 8pm (Asia/Seoul)",
+      "init": {
+        "version": "2.1.233",
+        "model": "claude-sonnet-5",
+        "permissionMode": "bypassPermissions",
+        "teaSkillVisible": true,
+        "skillCount": 17,
+        "memoryPaths": {
+          "auto": "C:\\Users\\MSI\\.claude\\projects\\C--Users-MSI-AppData-Local-Temp-ws-0d4rqB\\memory\\"
+        }
+      },
+      "attempts": [
+        {
+          "fired": false,
+          "firedAtTurn": null,
+          "error": "You've hit your weekly limit · resets Aug 17, 8pm (Asia/Seoul)",
+          "truncated": false,
+          "terminalReason": "api_error",
+          "numTurns": 1,
+          "denials": 0
+        },
+        {
+          "fired": false,
+          "firedAtTurn": null,
+          "error": "You've hit your weekly limit · resets Aug 17, 8pm (Asia/Seoul)",
+          "truncated": false,
+          "terminalReason": "api_error",
+          "numTurns": 1,
+          "denials": 0
+        }
+      ]
+    },
+    {
+      "id": "P9",
+      "class": "positive",
+      "type": "codebase-navigation",
+      "split": "train",
+      "run": 2,
+      "fired": false,
+      "firedAtTurn": null,
+      "truncated": false,
+      "terminalReason": "api_error",
+      "denials": 0,
+      "numTurns": 1,
+      "durationMs": 943,
+      "costUsd": 0,
+      "error": "You've hit your weekly limit · resets Aug 17, 8pm (Asia/Seoul)",
+      "init": {
+        "version": "2.1.233",
+        "model": "claude-sonnet-5",
+        "permissionMode": "bypassPermissions",
+        "teaSkillVisible": true,
+        "skillCount": 17,
+        "memoryPaths": {
+          "auto": "C:\\Users\\MSI\\.claude\\projects\\C--Users-MSI-AppData-Local-Temp-ws-3hYhwg\\memory\\"
+        }
+      },
+      "attempts": [
+        {
+          "fired": false,
+          "firedAtTurn": null,
+          "error": "You've hit your weekly limit · resets Aug 17, 8pm (Asia/Seoul)",
+          "truncated": false,
+          "terminalReason": "api_error",
+          "numTurns": 1,
+          "denials": 0
+        },
+        {
+          "fired": false,
+          "firedAtTurn": null,
+          "error": "You've hit your weekly limit · resets Aug 17, 8pm (Asia/Seoul)",
+          "truncated": false,
+          "terminalReason": "api_error",
+          "numTurns": 1,
+          "denials": 0
+        }
+      ]
+    },
+    {
+      "id": "P9",
+      "class": "positive",
+      "type": "codebase-navigation",
+      "split": "train",
+      "run": 3,
+      "fired": false,
+      "firedAtTurn": null,
+      "truncated": false,
+      "terminalReason": "api_error",
+      "denials": 0,
+      "numTurns": 1,
+      "durationMs": 698,
+      "costUsd": 0,
+      "error": "You've hit your weekly limit · resets Aug 17, 8pm (Asia/Seoul)",
+      "init": {
+        "version": "2.1.233",
+        "model": "claude-sonnet-5",
+        "permissionMode": "bypassPermissions",
+        "teaSkillVisible": true,
+        "skillCount": 17,
+        "memoryPaths": {
+          "auto": "C:\\Users\\MSI\\.claude\\projects\\C--Users-MSI-AppData-Local-Temp-ws-0i1ZeP\\memory\\"
+        }
+      },
+      "attempts": [
+        {
+          "fired": false,
+          "firedAtTurn": null,
+          "error": "You've hit your weekly limit · resets Aug 17, 8pm (Asia/Seoul)",
+          "truncated": false,
+          "terminalReason": "api_error",
+          "numTurns": 1,
+          "denials": 0
+        },
+        {
+          "fired": false,
+          "firedAtTurn": null,
+          "error": "You've hit your weekly limit · resets Aug 17, 8pm (Asia/Seoul)",
+          "truncated": false,
+          "terminalReason": "api_error",
+          "numTurns": 1,
+          "denials": 0
+        }
+      ]
+    },
+    {
+      "id": "P10",
+      "class": "positive",
+      "type": "codebase-navigation",
+      "split": "val",
+      "run": 1,
+      "fired": false,
+      "firedAtTurn": null,
+      "truncated": false,
+      "terminalReason": "api_error",
+      "denials": 0,
+      "numTurns": 1,
+      "durationMs": 637,
+      "costUsd": 0,
+      "error": "You've hit your weekly limit · resets Aug 17, 8pm (Asia/Seoul)",
+      "init": {
+        "version": "2.1.233",
+        "model": "claude-sonnet-5",
+        "permissionMode": "bypassPermissions",
+        "teaSkillVisible": true,
+        "skillCount": 17,
+        "memoryPaths": {
+          "auto": "C:\\Users\\MSI\\.claude\\projects\\C--Users-MSI-AppData-Local-Temp-ws-7Mjjao\\memory\\"
+        }
+      },
+      "attempts": [
+        {
+          "fired": false,
+          "firedAtTurn": null,
+          "error": "You've hit your weekly limit · resets Aug 17, 8pm (Asia/Seoul)",
+          "truncated": false,
+          "terminalReason": "api_error",
+          "numTurns": 1,
+          "denials": 0
+        },
+        {
+          "fired": false,
+          "firedAtTurn": null,
+          "error": "You've hit your weekly limit · resets Aug 17, 8pm (Asia/Seoul)",
+          "truncated": false,
+          "terminalReason": "api_error",
+          "numTurns": 1,
+          "denials": 0
+        }
+      ]
+    },
+    {
+      "id": "P10",
+      "class": "positive",
+      "type": "codebase-navigation",
+      "split": "val",
+      "run": 2,
+      "fired": false,
+      "firedAtTurn": null,
+      "truncated": false,
+      "terminalReason": "api_error",
+      "denials": 0,
+      "numTurns": 1,
+      "durationMs": 798,
+      "costUsd": 0,
+      "error": "You've hit your weekly limit · resets Aug 17, 8pm (Asia/Seoul)",
+      "init": {
+        "version": "2.1.233",
+        "model": "claude-sonnet-5",
+        "permissionMode": "bypassPermissions",
+        "teaSkillVisible": true,
+        "skillCount": 17,
+        "memoryPaths": {
+          "auto": "C:\\Users\\MSI\\.claude\\projects\\C--Users-MSI-AppData-Local-Temp-ws-XDD4xm\\memory\\"
+        }
+      },
+      "attempts": [
+        {
+          "fired": false,
+          "firedAtTurn": null,
+          "error": "You've hit your weekly limit · resets Aug 17, 8pm (Asia/Seoul)",
+          "truncated": false,
+          "terminalReason": "api_error",
+          "numTurns": 1,
+          "denials": 0
+        },
+        {
+          "fired": false,
+          "firedAtTurn": null,
+          "error": "You've hit your weekly limit · resets Aug 17, 8pm (Asia/Seoul)",
+          "truncated": false,
+          "terminalReason": "api_error",
+          "numTurns": 1,
+          "denials": 0
+        }
+      ]
+    },
+    {
+      "id": "P10",
+      "class": "positive",
+      "type": "codebase-navigation",
+      "split": "val",
+      "run": 3,
+      "fired": false,
+      "firedAtTurn": null,
+      "truncated": false,
+      "terminalReason": "api_error",
+      "denials": 0,
+      "numTurns": 1,
+      "durationMs": 640,
+      "costUsd": 0,
+      "error": "You've hit your weekly limit · resets Aug 17, 8pm (Asia/Seoul)",
+      "init": {
+        "version": "2.1.233",
+        "model": "claude-sonnet-5",
+        "permissionMode": "bypassPermissions",
+        "teaSkillVisible": true,
+        "skillCount": 17,
+        "memoryPaths": {
+          "auto": "C:\\Users\\MSI\\.claude\\projects\\C--Users-MSI-AppData-Local-Temp-ws-aVHQb2\\memory\\"
+        }
+      },
+      "attempts": [
+        {
+          "fired": false,
+          "firedAtTurn": null,
+          "error": "You've hit your weekly limit · resets Aug 17, 8pm (Asia/Seoul)",
+          "truncated": false,
+          "terminalReason": "api_error",
+          "numTurns": 1,
+          "denials": 0
+        },
+        {
+          "fired": false,
+          "firedAtTurn": null,
+          "error": "You've hit your weekly limit · resets Aug 17, 8pm (Asia/Seoul)",
+          "truncated": false,
+          "terminalReason": "api_error",
+          "numTurns": 1,
+          "denials": 0
+        }
+      ]
+    },
+    {
+      "id": "P11",
+      "class": "positive",
+      "type": "keyword-mention",
+      "split": "train",
+      "run": 1,
+      "fired": false,
+      "firedAtTurn": null,
+      "truncated": false,
+      "terminalReason": "api_error",
+      "denials": 0,
+      "numTurns": 1,
+      "durationMs": 921,
+      "costUsd": 0,
+      "error": "You've hit your weekly limit · resets Aug 17, 8pm (Asia/Seoul)",
+      "init": {
+        "version": "2.1.233",
+        "model": "claude-sonnet-5",
+        "permissionMode": "bypassPermissions",
+        "teaSkillVisible": true,
+        "skillCount": 17,
+        "memoryPaths": {
+          "auto": "C:\\Users\\MSI\\.claude\\projects\\C--Users-MSI-AppData-Local-Temp-ws-1kx02k\\memory\\"
+        }
+      },
+      "attempts": [
+        {
+          "fired": false,
+          "firedAtTurn": null,
+          "error": "You've hit your weekly limit · resets Aug 17, 8pm (Asia/Seoul)",
+          "truncated": false,
+          "terminalReason": "api_error",
+          "numTurns": 1,
+          "denials": 0
+        },
+        {
+          "fired": false,
+          "firedAtTurn": null,
+          "error": "You've hit your weekly limit · resets Aug 17, 8pm (Asia/Seoul)",
+          "truncated": false,
+          "terminalReason": "api_error",
+          "numTurns": 1,
+          "denials": 0
+        }
+      ]
+    },
+    {
+      "id": "P11",
+      "class": "positive",
+      "type": "keyword-mention",
+      "split": "train",
+      "run": 2,
+      "fired": false,
+      "firedAtTurn": null,
+      "truncated": false,
+      "terminalReason": "api_error",
+      "denials": 0,
+      "numTurns": 1,
+      "durationMs": 656,
+      "costUsd": 0,
+      "error": "You've hit your weekly limit · resets Aug 17, 8pm (Asia/Seoul)",
+      "init": {
+        "version": "2.1.233",
+        "model": "claude-sonnet-5",
+        "permissionMode": "bypassPermissions",
+        "teaSkillVisible": true,
+        "skillCount": 17,
+        "memoryPaths": {
+          "auto": "C:\\Users\\MSI\\.claude\\projects\\C--Users-MSI-AppData-Local-Temp-ws-xO1TO5\\memory\\"
+        }
+      },
+      "attempts": [
+        {
+          "fired": false,
+          "firedAtTurn": null,
+          "error": "You've hit your weekly limit · resets Aug 17, 8pm (Asia/Seoul)",
+          "truncated": false,
+          "terminalReason": "api_error",
+          "numTurns": 1,
+          "denials": 0
+        },
+        {
+          "fired": false,
+          "firedAtTurn": null,
+          "error": "You've hit your weekly limit · resets Aug 17, 8pm (Asia/Seoul)",
+          "truncated": false,
+          "terminalReason": "api_error",
+          "numTurns": 1,
+          "denials": 0
+        }
+      ]
+    },
+    {
+      "id": "P11",
+      "class": "positive",
+      "type": "keyword-mention",
+      "split": "train",
+      "run": 3,
+      "fired": false,
+      "firedAtTurn": null,
+      "truncated": false,
+      "terminalReason": "api_error",
+      "denials": 0,
+      "numTurns": 1,
+      "durationMs": 623,
+      "costUsd": 0,
+      "error": "You've hit your weekly limit · resets Aug 17, 8pm (Asia/Seoul)",
+      "init": {
+        "version": "2.1.233",
+        "model": "claude-sonnet-5",
+        "permissionMode": "bypassPermissions",
+        "teaSkillVisible": true,
+        "skillCount": 17,
+        "memoryPaths": {
+          "auto": "C:\\Users\\MSI\\.claude\\projects\\C--Users-MSI-AppData-Local-Temp-ws-0Dwazk\\memory\\"
+        }
+      },
+      "attempts": [
+        {
+          "fired": false,
+          "firedAtTurn": null,
+          "error": "You've hit your weekly limit · resets Aug 17, 8pm (Asia/Seoul)",
+          "truncated": false,
+          "terminalReason": "api_error",
+          "numTurns": 1,
+          "denials": 0
+        },
+        {
+          "fired": false,
+          "firedAtTurn": null,
+          "error": "You've hit your weekly limit · resets Aug 17, 8pm (Asia/Seoul)",
+          "truncated": false,
+          "terminalReason": "api_error",
+          "numTurns": 1,
+          "denials": 0
+        }
+      ]
+    },
+    {
+      "id": "P12",
+      "class": "positive",
+      "type": "keyword-mention",
+      "split": "val",
+      "run": 1,
+      "fired": false,
+      "firedAtTurn": null,
+      "truncated": false,
+      "terminalReason": "api_error",
+      "denials": 0,
+      "numTurns": 1,
+      "durationMs": 619,
+      "costUsd": 0,
+      "error": "You've hit your weekly limit · resets Aug 17, 8pm (Asia/Seoul)",
+      "init": {
+        "version": "2.1.233",
+        "model": "claude-sonnet-5",
+        "permissionMode": "bypassPermissions",
+        "teaSkillVisible": true,
+        "skillCount": 17,
+        "memoryPaths": {
+          "auto": "C:\\Users\\MSI\\.claude\\projects\\C--Users-MSI-AppData-Local-Temp-ws-o2OZXB\\memory\\"
+        }
+      },
+      "attempts": [
+        {
+          "fired": false,
+          "firedAtTurn": null,
+          "error": "You've hit your weekly limit · resets Aug 17, 8pm (Asia/Seoul)",
+          "truncated": false,
+          "terminalReason": "api_error",
+          "numTurns": 1,
+          "denials": 0
+        },
+        {
+          "fired": false,
+          "firedAtTurn": null,
+          "error": "You've hit your weekly limit · resets Aug 17, 8pm (Asia/Seoul)",
+          "truncated": false,
+          "terminalReason": "api_error",
+          "numTurns": 1,
+          "denials": 0
+        }
+      ]
+    },
+    {
+      "id": "P12",
+      "class": "positive",
+      "type": "keyword-mention",
+      "split": "val",
+      "run": 2,
+      "fired": false,
+      "firedAtTurn": null,
+      "truncated": false,
+      "terminalReason": "api_error",
+      "denials": 0,
+      "numTurns": 1,
+      "durationMs": 672,
+      "costUsd": 0,
+      "error": "You've hit your weekly limit · resets Aug 17, 8pm (Asia/Seoul)",
+      "init": {
+        "version": "2.1.233",
+        "model": "claude-sonnet-5",
+        "permissionMode": "bypassPermissions",
+        "teaSkillVisible": true,
+        "skillCount": 17,
+        "memoryPaths": {
+          "auto": "C:\\Users\\MSI\\.claude\\projects\\C--Users-MSI-AppData-Local-Temp-ws-ZRLOpS\\memory\\"
+        }
+      },
+      "attempts": [
+        {
+          "fired": false,
+          "firedAtTurn": null,
+          "error": "You've hit your weekly limit · resets Aug 17, 8pm (Asia/Seoul)",
+          "truncated": false,
+          "terminalReason": "api_error",
+          "numTurns": 1,
+          "denials": 0
+        },
+        {
+          "fired": false,
+          "firedAtTurn": null,
+          "error": "You've hit your weekly limit · resets Aug 17, 8pm (Asia/Seoul)",
+          "truncated": false,
+          "terminalReason": "api_error",
+          "numTurns": 1,
+          "denials": 0
+        }
+      ]
+    },
+    {
+      "id": "P12",
+      "class": "positive",
+      "type": "keyword-mention",
+      "split": "val",
+      "run": 3,
+      "fired": false,
+      "firedAtTurn": null,
+      "truncated": false,
+      "terminalReason": "api_error",
+      "denials": 0,
+      "numTurns": 1,
+      "durationMs": 688,
+      "costUsd": 0,
+      "error": "You've hit your weekly limit · resets Aug 17, 8pm (Asia/Seoul)",
+      "init": {
+        "version": "2.1.233",
+        "model": "claude-sonnet-5",
+        "permissionMode": "bypassPermissions",
+        "teaSkillVisible": true,
+        "skillCount": 17,
+        "memoryPaths": {
+          "auto": "C:\\Users\\MSI\\.claude\\projects\\C--Users-MSI-AppData-Local-Temp-ws-cxHVVX\\memory\\"
+        }
+      },
+      "attempts": [
+        {
+          "fired": false,
+          "firedAtTurn": null,
+          "error": "You've hit your weekly limit · resets Aug 17, 8pm (Asia/Seoul)",
+          "truncated": false,
+          "terminalReason": "api_error",
+          "numTurns": 1,
+          "denials": 0
+        },
+        {
+          "fired": false,
+          "firedAtTurn": null,
+          "error": "You've hit your weekly limit · resets Aug 17, 8pm (Asia/Seoul)",
+          "truncated": false,
+          "terminalReason": "api_error",
+          "numTurns": 1,
+          "denials": 0
+        }
+      ]
+    },
+    {
+      "id": "N1",
+      "class": "negative",
+      "type": "non-coding",
+      "split": "train",
+      "run": 1,
+      "fired": false,
+      "firedAtTurn": null,
+      "truncated": false,
+      "terminalReason": "api_error",
+      "denials": 0,
+      "numTurns": 1,
+      "durationMs": 665,
+      "costUsd": 0,
+      "error": "You've hit your weekly limit · resets Aug 17, 8pm (Asia/Seoul)",
+      "init": {
+        "version": "2.1.233",
+        "model": "claude-sonnet-5",
+        "permissionMode": "bypassPermissions",
+        "teaSkillVisible": true,
+        "skillCount": 17,
+        "memoryPaths": {
+          "auto": "C:\\Users\\MSI\\.claude\\projects\\C--Users-MSI-AppData-Local-Temp-ws-JaoVLi\\memory\\"
+        }
+      },
+      "attempts": [
+        {
+          "fired": false,
+          "firedAtTurn": null,
+          "error": "You've hit your weekly limit · resets Aug 17, 8pm (Asia/Seoul)",
+          "truncated": false,
+          "terminalReason": "api_error",
+          "numTurns": 1,
+          "denials": 0
+        },
+        {
+          "fired": false,
+          "firedAtTurn": null,
+          "error": "You've hit your weekly limit · resets Aug 17, 8pm (Asia/Seoul)",
+          "truncated": false,
+          "terminalReason": "api_error",
+          "numTurns": 1,
+          "denials": 0
+        }
+      ]
+    },
+    {
+      "id": "N1",
+      "class": "negative",
+      "type": "non-coding",
+      "split": "train",
+      "run": 2,
+      "fired": false,
+      "firedAtTurn": null,
+      "truncated": false,
+      "terminalReason": "api_error",
+      "denials": 0,
+      "numTurns": 1,
+      "durationMs": 615,
+      "costUsd": 0,
+      "error": "You've hit your weekly limit · resets Aug 17, 8pm (Asia/Seoul)",
+      "init": {
+        "version": "2.1.233",
+        "model": "claude-sonnet-5",
+        "permissionMode": "bypassPermissions",
+        "teaSkillVisible": true,
+        "skillCount": 17,
+        "memoryPaths": {
+          "auto": "C:\\Users\\MSI\\.claude\\projects\\C--Users-MSI-AppData-Local-Temp-ws-IzWsNd\\memory\\"
+        }
+      },
+      "attempts": [
+        {
+          "fired": false,
+          "firedAtTurn": null,
+          "error": "You've hit your weekly limit · resets Aug 17, 8pm (Asia/Seoul)",
+          "truncated": false,
+          "terminalReason": "api_error",
+          "numTurns": 1,
+          "denials": 0
+        },
+        {
+          "fired": false,
+          "firedAtTurn": null,
+          "error": "You've hit your weekly limit · resets Aug 17, 8pm (Asia/Seoul)",
+          "truncated": false,
+          "terminalReason": "api_error",
+          "numTurns": 1,
+          "denials": 0
+        }
+      ]
+    },
+    {
+      "id": "N1",
+      "class": "negative",
+      "type": "non-coding",
+      "split": "train",
+      "run": 3,
+      "fired": false,
+      "firedAtTurn": null,
+      "truncated": false,
+      "terminalReason": "api_error",
+      "denials": 0,
+      "numTurns": 1,
+      "durationMs": 648,
+      "costUsd": 0,
+      "error": "You've hit your weekly limit · resets Aug 17, 8pm (Asia/Seoul)",
+      "init": {
+        "version": "2.1.233",
+        "model": "claude-sonnet-5",
+        "permissionMode": "bypassPermissions",
+        "teaSkillVisible": true,
+        "skillCount": 17,
+        "memoryPaths": {
+          "auto": "C:\\Users\\MSI\\.claude\\projects\\C--Users-MSI-AppData-Local-Temp-ws-J6muVa\\memory\\"
+        }
+      },
+      "attempts": [
+        {
+          "fired": false,
+          "firedAtTurn": null,
+          "error": "You've hit your weekly limit · resets Aug 17, 8pm (Asia/Seoul)",
+          "truncated": false,
+          "terminalReason": "api_error",
+          "numTurns": 1,
+          "denials": 0
+        },
+        {
+          "fired": false,
+          "firedAtTurn": null,
+          "error": "You've hit your weekly limit · resets Aug 17, 8pm (Asia/Seoul)",
+          "truncated": false,
+          "terminalReason": "api_error",
+          "numTurns": 1,
+          "denials": 0
+        }
+      ]
+    },
+    {
+      "id": "N2",
+      "class": "negative",
+      "type": "non-coding",
+      "split": "train",
+      "run": 1,
+      "fired": false,
+      "firedAtTurn": null,
+      "truncated": false,
+      "terminalReason": "api_error",
+      "denials": 0,
+      "numTurns": 1,
+      "durationMs": 606,
+      "costUsd": 0,
+      "error": "You've hit your weekly limit · resets Aug 17, 8pm (Asia/Seoul)",
+      "init": {
+        "version": "2.1.233",
+        "model": "claude-sonnet-5",
+        "permissionMode": "bypassPermissions",
+        "teaSkillVisible": true,
+        "skillCount": 17,
+        "memoryPaths": {
+          "auto": "C:\\Users\\MSI\\.claude\\projects\\C--Users-MSI-AppData-Local-Temp-ws-2wUENq\\memory\\"
+        }
+      },
+      "attempts": [
+        {
+          "fired": false,
+          "firedAtTurn": null,
+          "error": "You've hit your weekly limit · resets Aug 17, 8pm (Asia/Seoul)",
+          "truncated": false,
+          "terminalReason": "api_error",
+          "numTurns": 1,
+          "denials": 0
+        },
+        {
+          "fired": false,
+          "firedAtTurn": null,
+          "error": "You've hit your weekly limit · resets Aug 17, 8pm (Asia/Seoul)",
+          "truncated": false,
+          "terminalReason": "api_error",
+          "numTurns": 1,
+          "denials": 0
+        }
+      ]
+    },
+    {
+      "id": "N2",
+      "class": "negative",
+      "type": "non-coding",
+      "split": "train",
+      "run": 2,
+      "fired": false,
+      "firedAtTurn": null,
+      "truncated": false,
+      "terminalReason": "api_error",
+      "denials": 0,
+      "numTurns": 1,
+      "durationMs": 1366,
+      "costUsd": 0,
+      "error": "You've hit your weekly limit · resets Aug 17, 8pm (Asia/Seoul)",
+      "init": {
+        "version": "2.1.233",
+        "model": "claude-sonnet-5",
+        "permissionMode": "bypassPermissions",
+        "teaSkillVisible": true,
+        "skillCount": 17,
+        "memoryPaths": {
+          "auto": "C:\\Users\\MSI\\.claude\\projects\\C--Users-MSI-AppData-Local-Temp-ws-xZiLdQ\\memory\\"
+        }
+      },
+      "attempts": [
+        {
+          "fired": false,
+          "firedAtTurn": null,
+          "error": "You've hit your weekly limit · resets Aug 17, 8pm (Asia/Seoul)",
+          "truncated": false,
+          "terminalReason": "api_error",
+          "numTurns": 1,
+          "denials": 0
+        },
+        {
+          "fired": false,
+          "firedAtTurn": null,
+          "error": "You've hit your weekly limit · resets Aug 17, 8pm (Asia/Seoul)",
+          "truncated": false,
+          "terminalReason": "api_error",
+          "numTurns": 1,
+          "denials": 0
+        }
+      ]
+    },
+    {
+      "id": "N2",
+      "class": "negative",
+      "type": "non-coding",
+      "split": "train",
+      "run": 3,
+      "fired": false,
+      "firedAtTurn": null,
+      "truncated": false,
+      "terminalReason": "api_error",
+      "denials": 0,
+      "numTurns": 1,
+      "durationMs": 731,
+      "costUsd": 0,
+      "error": "You've hit your weekly limit · resets Aug 17, 8pm (Asia/Seoul)",
+      "init": {
+        "version": "2.1.233",
+        "model": "claude-sonnet-5",
+        "permissionMode": "bypassPermissions",
+        "teaSkillVisible": true,
+        "skillCount": 17,
+        "memoryPaths": {
+          "auto": "C:\\Users\\MSI\\.claude\\projects\\C--Users-MSI-AppData-Local-Temp-ws-02nh5s\\memory\\"
+        }
+      },
+      "attempts": [
+        {
+          "fired": false,
+          "firedAtTurn": null,
+          "error": "You've hit your weekly limit · resets Aug 17, 8pm (Asia/Seoul)",
+          "truncated": false,
+          "terminalReason": "api_error",
+          "numTurns": 1,
+          "denials": 0
+        },
+        {
+          "fired": false,
+          "firedAtTurn": null,
+          "error": "You've hit your weekly limit · resets Aug 17, 8pm (Asia/Seoul)",
+          "truncated": false,
+          "terminalReason": "api_error",
+          "numTurns": 1,
+          "denials": 0
+        }
+      ]
+    },
+    {
+      "id": "N3",
+      "class": "negative",
+      "type": "non-coding",
+      "split": "train",
+      "run": 1,
+      "fired": false,
+      "firedAtTurn": null,
+      "truncated": false,
+      "terminalReason": "api_error",
+      "denials": 0,
+      "numTurns": 1,
+      "durationMs": 804,
+      "costUsd": 0,
+      "error": "You've hit your weekly limit · resets Aug 17, 8pm (Asia/Seoul)",
+      "init": {
+        "version": "2.1.233",
+        "model": "claude-sonnet-5",
+        "permissionMode": "bypassPermissions",
+        "teaSkillVisible": true,
+        "skillCount": 17,
+        "memoryPaths": {
+          "auto": "C:\\Users\\MSI\\.claude\\projects\\C--Users-MSI-AppData-Local-Temp-ws-o857W1\\memory\\"
+        }
+      },
+      "attempts": [
+        {
+          "fired": false,
+          "firedAtTurn": null,
+          "error": "You've hit your weekly limit · resets Aug 17, 8pm (Asia/Seoul)",
+          "truncated": false,
+          "terminalReason": "api_error",
+          "numTurns": 1,
+          "denials": 0
+        },
+        {
+          "fired": false,
+          "firedAtTurn": null,
+          "error": "You've hit your weekly limit · resets Aug 17, 8pm (Asia/Seoul)",
+          "truncated": false,
+          "terminalReason": "api_error",
+          "numTurns": 1,
+          "denials": 0
+        }
+      ]
+    },
+    {
+      "id": "N3",
+      "class": "negative",
+      "type": "non-coding",
+      "split": "train",
+      "run": 2,
+      "fired": false,
+      "firedAtTurn": null,
+      "truncated": false,
+      "terminalReason": "api_error",
+      "denials": 0,
+      "numTurns": 1,
+      "durationMs": 693,
+      "costUsd": 0,
+      "error": "You've hit your weekly limit · resets Aug 17, 8pm (Asia/Seoul)",
+      "init": {
+        "version": "2.1.233",
+        "model": "claude-sonnet-5",
+        "permissionMode": "bypassPermissions",
+        "teaSkillVisible": true,
+        "skillCount": 17,
+        "memoryPaths": {
+          "auto": "C:\\Users\\MSI\\.claude\\projects\\C--Users-MSI-AppData-Local-Temp-ws-2L9Acs\\memory\\"
+        }
+      },
+      "attempts": [
+        {
+          "fired": false,
+          "firedAtTurn": null,
+          "error": "You've hit your weekly limit · resets Aug 17, 8pm (Asia/Seoul)",
+          "truncated": false,
+          "terminalReason": "api_error",
+          "numTurns": 1,
+          "denials": 0
+        },
+        {
+          "fired": false,
+          "firedAtTurn": null,
+          "error": "You've hit your weekly limit · resets Aug 17, 8pm (Asia/Seoul)",
+          "truncated": false,
+          "terminalReason": "api_error",
+          "numTurns": 1,
+          "denials": 0
+        }
+      ]
+    },
+    {
+      "id": "N3",
+      "class": "negative",
+      "type": "non-coding",
+      "split": "train",
+      "run": 3,
+      "fired": false,
+      "firedAtTurn": null,
+      "truncated": false,
+      "terminalReason": "api_error",
+      "denials": 0,
+      "numTurns": 1,
+      "durationMs": 692,
+      "costUsd": 0,
+      "error": "You've hit your weekly limit · resets Aug 17, 8pm (Asia/Seoul)",
+      "init": {
+        "version": "2.1.233",
+        "model": "claude-sonnet-5",
+        "permissionMode": "bypassPermissions",
+        "teaSkillVisible": true,
+        "skillCount": 17,
+        "memoryPaths": {
+          "auto": "C:\\Users\\MSI\\.claude\\projects\\C--Users-MSI-AppData-Local-Temp-ws-5V3O8q\\memory\\"
+        }
+      },
+      "attempts": [
+        {
+          "fired": false,
+          "firedAtTurn": null,
+          "error": "You've hit your weekly limit · resets Aug 17, 8pm (Asia/Seoul)",
+          "truncated": false,
+          "terminalReason": "api_error",
+          "numTurns": 1,
+          "denials": 0
+        },
+        {
+          "fired": false,
+          "firedAtTurn": null,
+          "error": "You've hit your weekly limit · resets Aug 17, 8pm (Asia/Seoul)",
+          "truncated": false,
+          "terminalReason": "api_error",
+          "numTurns": 1,
+          "denials": 0
+        }
+      ]
+    },
+    {
+      "id": "N4",
+      "class": "negative",
+      "type": "non-coding",
+      "split": "val",
+      "run": 1,
+      "fired": false,
+      "firedAtTurn": null,
+      "truncated": false,
+      "terminalReason": "api_error",
+      "denials": 0,
+      "numTurns": 1,
+      "durationMs": 911,
+      "costUsd": 0,
+      "error": "You've hit your weekly limit · resets Aug 17, 8pm (Asia/Seoul)",
+      "init": {
+        "version": "2.1.233",
+        "model": "claude-sonnet-5",
+        "permissionMode": "bypassPermissions",
+        "teaSkillVisible": true,
+        "skillCount": 17,
+        "memoryPaths": {
+          "auto": "C:\\Users\\MSI\\.claude\\projects\\C--Users-MSI-AppData-Local-Temp-ws-RldfFf\\memory\\"
+        }
+      },
+      "attempts": [
+        {
+          "fired": false,
+          "firedAtTurn": null,
+          "error": "You've hit your weekly limit · resets Aug 17, 8pm (Asia/Seoul)",
+          "truncated": false,
+          "terminalReason": "api_error",
+          "numTurns": 1,
+          "denials": 0
+        },
+        {
+          "fired": false,
+          "firedAtTurn": null,
+          "error": "You've hit your weekly limit · resets Aug 17, 8pm (Asia/Seoul)",
+          "truncated": false,
+          "terminalReason": "api_error",
+          "numTurns": 1,
+          "denials": 0
+        }
+      ]
+    },
+    {
+      "id": "N4",
+      "class": "negative",
+      "type": "non-coding",
+      "split": "val",
+      "run": 2,
+      "fired": false,
+      "firedAtTurn": null,
+      "truncated": false,
+      "terminalReason": "api_error",
+      "denials": 0,
+      "numTurns": 1,
+      "durationMs": 684,
+      "costUsd": 0,
+      "error": "You've hit your weekly limit · resets Aug 17, 8pm (Asia/Seoul)",
+      "init": {
+        "version": "2.1.233",
+        "model": "claude-sonnet-5",
+        "permissionMode": "bypassPermissions",
+        "teaSkillVisible": true,
+        "skillCount": 17,
+        "memoryPaths": {
+          "auto": "C:\\Users\\MSI\\.claude\\projects\\C--Users-MSI-AppData-Local-Temp-ws-umccRT\\memory\\"
+        }
+      },
+      "attempts": [
+        {
+          "fired": false,
+          "firedAtTurn": null,
+          "error": "You've hit your weekly limit · resets Aug 17, 8pm (Asia/Seoul)",
+          "truncated": false,
+          "terminalReason": "api_error",
+          "numTurns": 1,
+          "denials": 0
+        },
+        {
+          "fired": false,
+          "firedAtTurn": null,
+          "error": "You've hit your weekly limit · resets Aug 17, 8pm (Asia/Seoul)",
+          "truncated": false,
+          "terminalReason": "api_error",
+          "numTurns": 1,
+          "denials": 0
+        }
+      ]
+    },
+    {
+      "id": "N4",
+      "class": "negative",
+      "type": "non-coding",
+      "split": "val",
+      "run": 3,
+      "fired": false,
+      "firedAtTurn": null,
+      "truncated": false,
+      "terminalReason": "api_error",
+      "denials": 0,
+      "numTurns": 1,
+      "durationMs": 617,
+      "costUsd": 0,
+      "error": "You've hit your weekly limit · resets Aug 17, 8pm (Asia/Seoul)",
+      "init": {
+        "version": "2.1.233",
+        "model": "claude-sonnet-5",
+        "permissionMode": "bypassPermissions",
+        "teaSkillVisible": true,
+        "skillCount": 17,
+        "memoryPaths": {
+          "auto": "C:\\Users\\MSI\\.claude\\projects\\C--Users-MSI-AppData-Local-Temp-ws-df5ZuA\\memory\\"
+        }
+      },
+      "attempts": [
+        {
+          "fired": false,
+          "firedAtTurn": null,
+          "error": "You've hit your weekly limit · resets Aug 17, 8pm (Asia/Seoul)",
+          "truncated": false,
+          "terminalReason": "api_error",
+          "numTurns": 1,
+          "denials": 0
+        },
+        {
+          "fired": false,
+          "firedAtTurn": null,
+          "error": "You've hit your weekly limit · resets Aug 17, 8pm (Asia/Seoul)",
+          "truncated": false,
+          "terminalReason": "api_error",
+          "numTurns": 1,
+          "denials": 0
+        }
+      ]
+    },
+    {
+      "id": "N5",
+      "class": "negative",
+      "type": "single-file-edit",
+      "split": "train",
+      "run": 1,
+      "fired": false,
+      "firedAtTurn": null,
+      "truncated": false,
+      "terminalReason": "api_error",
+      "denials": 0,
+      "numTurns": 1,
+      "durationMs": 630,
+      "costUsd": 0,
+      "error": "You've hit your weekly limit · resets Aug 17, 8pm (Asia/Seoul)",
+      "init": {
+        "version": "2.1.233",
+        "model": "claude-sonnet-5",
+        "permissionMode": "bypassPermissions",
+        "teaSkillVisible": true,
+        "skillCount": 17,
+        "memoryPaths": {
+          "auto": "C:\\Users\\MSI\\.claude\\projects\\C--Users-MSI-AppData-Local-Temp-ws-WI0pTa\\memory\\"
+        }
+      },
+      "attempts": [
+        {
+          "fired": false,
+          "firedAtTurn": null,
+          "error": "You've hit your weekly limit · resets Aug 17, 8pm (Asia/Seoul)",
+          "truncated": false,
+          "terminalReason": "api_error",
+          "numTurns": 1,
+          "denials": 0
+        },
+        {
+          "fired": false,
+          "firedAtTurn": null,
+          "error": "You've hit your weekly limit · resets Aug 17, 8pm (Asia/Seoul)",
+          "truncated": false,
+          "terminalReason": "api_error",
+          "numTurns": 1,
+          "denials": 0
+        }
+      ]
+    },
+    {
+      "id": "N5",
+      "class": "negative",
+      "type": "single-file-edit",
+      "split": "train",
+      "run": 2,
+      "fired": false,
+      "firedAtTurn": null,
+      "truncated": false,
+      "terminalReason": "api_error",
+      "denials": 0,
+      "numTurns": 1,
+      "durationMs": 725,
+      "costUsd": 0,
+      "error": "You've hit your weekly limit · resets Aug 17, 8pm (Asia/Seoul)",
+      "init": {
+        "version": "2.1.233",
+        "model": "claude-sonnet-5",
+        "permissionMode": "bypassPermissions",
+        "teaSkillVisible": true,
+        "skillCount": 17,
+        "memoryPaths": {
+          "auto": "C:\\Users\\MSI\\.claude\\projects\\C--Users-MSI-AppData-Local-Temp-ws-XSsU8n\\memory\\"
+        }
+      },
+      "attempts": [
+        {
+          "fired": false,
+          "firedAtTurn": null,
+          "error": "You've hit your weekly limit · resets Aug 17, 8pm (Asia/Seoul)",
+          "truncated": false,
+          "terminalReason": "api_error",
+          "numTurns": 1,
+          "denials": 0
+        },
+        {
+          "fired": false,
+          "firedAtTurn": null,
+          "error": "You've hit your weekly limit · resets Aug 17, 8pm (Asia/Seoul)",
+          "truncated": false,
+          "terminalReason": "api_error",
+          "numTurns": 1,
+          "denials": 0
+        }
+      ]
+    },
+    {
+      "id": "N5",
+      "class": "negative",
+      "type": "single-file-edit",
+      "split": "train",
+      "run": 3,
+      "fired": false,
+      "firedAtTurn": null,
+      "truncated": false,
+      "terminalReason": "api_error",
+      "denials": 0,
+      "numTurns": 1,
+      "durationMs": 685,
+      "costUsd": 0,
+      "error": "You've hit your weekly limit · resets Aug 17, 8pm (Asia/Seoul)",
+      "init": {
+        "version": "2.1.233",
+        "model": "claude-sonnet-5",
+        "permissionMode": "bypassPermissions",
+        "teaSkillVisible": true,
+        "skillCount": 17,
+        "memoryPaths": {
+          "auto": "C:\\Users\\MSI\\.claude\\projects\\C--Users-MSI-AppData-Local-Temp-ws-G3yszu\\memory\\"
+        }
+      },
+      "attempts": [
+        {
+          "fired": false,
+          "firedAtTurn": null,
+          "error": "You've hit your weekly limit · resets Aug 17, 8pm (Asia/Seoul)",
+          "truncated": false,
+          "terminalReason": "api_error",
+          "numTurns": 1,
+          "denials": 0
+        },
+        {
+          "fired": false,
+          "firedAtTurn": null,
+          "error": "You've hit your weekly limit · resets Aug 17, 8pm (Asia/Seoul)",
+          "truncated": false,
+          "terminalReason": "api_error",
+          "numTurns": 1,
+          "denials": 0
+        }
+      ]
+    },
+    {
+      "id": "N6",
+      "class": "negative",
+      "type": "single-file-edit",
+      "split": "val",
+      "run": 1,
+      "fired": false,
+      "firedAtTurn": null,
+      "truncated": false,
+      "terminalReason": "api_error",
+      "denials": 0,
+      "numTurns": 1,
+      "durationMs": 702,
+      "costUsd": 0,
+      "error": "You've hit your weekly limit · resets Aug 17, 8pm (Asia/Seoul)",
+      "init": {
+        "version": "2.1.233",
+        "model": "claude-sonnet-5",
+        "permissionMode": "bypassPermissions",
+        "teaSkillVisible": true,
+        "skillCount": 17,
+        "memoryPaths": {
+          "auto": "C:\\Users\\MSI\\.claude\\projects\\C--Users-MSI-AppData-Local-Temp-ws-5kfhkx\\memory\\"
+        }
+      },
+      "attempts": [
+        {
+          "fired": false,
+          "firedAtTurn": null,
+          "error": "You've hit your weekly limit · resets Aug 17, 8pm (Asia/Seoul)",
+          "truncated": false,
+          "terminalReason": "api_error",
+          "numTurns": 1,
+          "denials": 0
+        },
+        {
+          "fired": false,
+          "firedAtTurn": null,
+          "error": "You've hit your weekly limit · resets Aug 17, 8pm (Asia/Seoul)",
+          "truncated": false,
+          "terminalReason": "api_error",
+          "numTurns": 1,
+          "denials": 0
+        }
+      ]
+    },
+    {
+      "id": "N6",
+      "class": "negative",
+      "type": "single-file-edit",
+      "split": "val",
+      "run": 2,
+      "fired": false,
+      "firedAtTurn": null,
+      "truncated": false,
+      "terminalReason": "api_error",
+      "denials": 0,
+      "numTurns": 1,
+      "durationMs": 1520,
+      "costUsd": 0,
+      "error": "You've hit your weekly limit · resets Aug 17, 8pm (Asia/Seoul)",
+      "init": {
+        "version": "2.1.233",
+        "model": "claude-sonnet-5",
+        "permissionMode": "bypassPermissions",
+        "teaSkillVisible": true,
+        "skillCount": 17,
+        "memoryPaths": {
+          "auto": "C:\\Users\\MSI\\.claude\\projects\\C--Users-MSI-AppData-Local-Temp-ws-vSeDdz\\memory\\"
+        }
+      },
+      "attempts": [
+        {
+          "fired": false,
+          "firedAtTurn": null,
+          "error": "You've hit your weekly limit · resets Aug 17, 8pm (Asia/Seoul)",
+          "truncated": false,
+          "terminalReason": "api_error",
+          "numTurns": 1,
+          "denials": 0
+        },
+        {
+          "fired": false,
+          "firedAtTurn": null,
+          "error": "You've hit your weekly limit · resets Aug 17, 8pm (Asia/Seoul)",
+          "truncated": false,
+          "terminalReason": "api_error",
+          "numTurns": 1,
+          "denials": 0
+        }
+      ]
+    },
+    {
+      "id": "N6",
+      "class": "negative",
+      "type": "single-file-edit",
+      "split": "val",
+      "run": 3,
+      "fired": false,
+      "firedAtTurn": null,
+      "truncated": false,
+      "terminalReason": "api_error",
+      "denials": 0,
+      "numTurns": 1,
+      "durationMs": 685,
+      "costUsd": 0,
+      "error": "You've hit your weekly limit · resets Aug 17, 8pm (Asia/Seoul)",
+      "init": {
+        "version": "2.1.233",
+        "model": "claude-sonnet-5",
+        "permissionMode": "bypassPermissions",
+        "teaSkillVisible": true,
+        "skillCount": 17,
+        "memoryPaths": {
+          "auto": "C:\\Users\\MSI\\.claude\\projects\\C--Users-MSI-AppData-Local-Temp-ws-mdeVUC\\memory\\"
+        }
+      },
+      "attempts": [
+        {
+          "fired": false,
+          "firedAtTurn": null,
+          "error": "You've hit your weekly limit · resets Aug 17, 8pm (Asia/Seoul)",
+          "truncated": false,
+          "terminalReason": "api_error",
+          "numTurns": 1,
+          "denials": 0
+        },
+        {
+          "fired": false,
+          "firedAtTurn": null,
+          "error": "You've hit your weekly limit · resets Aug 17, 8pm (Asia/Seoul)",
+          "truncated": false,
+          "terminalReason": "api_error",
+          "numTurns": 1,
+          "denials": 0
+        }
+      ]
+    },
+    {
+      "id": "N7",
+      "class": "negative",
+      "type": "golf-compression",
+      "split": "train",
+      "run": 1,
+      "fired": false,
+      "firedAtTurn": null,
+      "truncated": false,
+      "terminalReason": "api_error",
+      "denials": 0,
+      "numTurns": 1,
+      "durationMs": 654,
+      "costUsd": 0,
+      "error": "You've hit your weekly limit · resets Aug 17, 8pm (Asia/Seoul)",
+      "init": {
+        "version": "2.1.233",
+        "model": "claude-sonnet-5",
+        "permissionMode": "bypassPermissions",
+        "teaSkillVisible": true,
+        "skillCount": 17,
+        "memoryPaths": {
+          "auto": "C:\\Users\\MSI\\.claude\\projects\\C--Users-MSI-AppData-Local-Temp-ws-CQ5LMw\\memory\\"
+        }
+      },
+      "attempts": [
+        {
+          "fired": false,
+          "firedAtTurn": null,
+          "error": "You've hit your weekly limit · resets Aug 17, 8pm (Asia/Seoul)",
+          "truncated": false,
+          "terminalReason": "api_error",
+          "numTurns": 1,
+          "denials": 0
+        },
+        {
+          "fired": false,
+          "firedAtTurn": null,
+          "error": "You've hit your weekly limit · resets Aug 17, 8pm (Asia/Seoul)",
+          "truncated": false,
+          "terminalReason": "api_error",
+          "numTurns": 1,
+          "denials": 0
+        }
+      ]
+    },
+    {
+      "id": "N7",
+      "class": "negative",
+      "type": "golf-compression",
+      "split": "train",
+      "run": 2,
+      "fired": false,
+      "firedAtTurn": null,
+      "truncated": false,
+      "terminalReason": "api_error",
+      "denials": 0,
+      "numTurns": 1,
+      "durationMs": 1198,
+      "costUsd": 0,
+      "error": "You've hit your weekly limit · resets Aug 17, 8pm (Asia/Seoul)",
+      "init": {
+        "version": "2.1.233",
+        "model": "claude-sonnet-5",
+        "permissionMode": "bypassPermissions",
+        "teaSkillVisible": true,
+        "skillCount": 17,
+        "memoryPaths": {
+          "auto": "C:\\Users\\MSI\\.claude\\projects\\C--Users-MSI-AppData-Local-Temp-ws-wGS8Bq\\memory\\"
+        }
+      },
+      "attempts": [
+        {
+          "fired": false,
+          "firedAtTurn": null,
+          "error": "You've hit your weekly limit · resets Aug 17, 8pm (Asia/Seoul)",
+          "truncated": false,
+          "terminalReason": "api_error",
+          "numTurns": 1,
+          "denials": 0
+        },
+        {
+          "fired": false,
+          "firedAtTurn": null,
+          "error": "You've hit your weekly limit · resets Aug 17, 8pm (Asia/Seoul)",
+          "truncated": false,
+          "terminalReason": "api_error",
+          "numTurns": 1,
+          "denials": 0
+        }
+      ]
+    },
+    {
+      "id": "N7",
+      "class": "negative",
+      "type": "golf-compression",
+      "split": "train",
+      "run": 3,
+      "fired": false,
+      "firedAtTurn": null,
+      "truncated": false,
+      "terminalReason": "api_error",
+      "denials": 0,
+      "numTurns": 1,
+      "durationMs": 643,
+      "costUsd": 0,
+      "error": "You've hit your weekly limit · resets Aug 17, 8pm (Asia/Seoul)",
+      "init": {
+        "version": "2.1.233",
+        "model": "claude-sonnet-5",
+        "permissionMode": "bypassPermissions",
+        "teaSkillVisible": true,
+        "skillCount": 17,
+        "memoryPaths": {
+          "auto": "C:\\Users\\MSI\\.claude\\projects\\C--Users-MSI-AppData-Local-Temp-ws-URMpsg\\memory\\"
+        }
+      },
+      "attempts": [
+        {
+          "fired": false,
+          "firedAtTurn": null,
+          "error": "You've hit your weekly limit · resets Aug 17, 8pm (Asia/Seoul)",
+          "truncated": false,
+          "terminalReason": "api_error",
+          "numTurns": 1,
+          "denials": 0
+        },
+        {
+          "fired": false,
+          "firedAtTurn": null,
+          "error": "You've hit your weekly limit · resets Aug 17, 8pm (Asia/Seoul)",
+          "truncated": false,
+          "terminalReason": "api_error",
+          "numTurns": 1,
+          "denials": 0
+        }
+      ]
+    },
+    {
+      "id": "N8",
+      "class": "negative",
+      "type": "golf-compression",
+      "split": "val",
+      "run": 1,
+      "fired": false,
+      "firedAtTurn": null,
+      "truncated": false,
+      "terminalReason": "api_error",
+      "denials": 0,
+      "numTurns": 1,
+      "durationMs": 654,
+      "costUsd": 0,
+      "error": "You've hit your weekly limit · resets Aug 17, 8pm (Asia/Seoul)",
+      "init": {
+        "version": "2.1.233",
+        "model": "claude-sonnet-5",
+        "permissionMode": "bypassPermissions",
+        "teaSkillVisible": true,
+        "skillCount": 17,
+        "memoryPaths": {
+          "auto": "C:\\Users\\MSI\\.claude\\projects\\C--Users-MSI-AppData-Local-Temp-ws-Ml7Fdl\\memory\\"
+        }
+      },
+      "attempts": [
+        {
+          "fired": false,
+          "firedAtTurn": null,
+          "error": "You've hit your weekly limit · resets Aug 17, 8pm (Asia/Seoul)",
+          "truncated": false,
+          "terminalReason": "api_error",
+          "numTurns": 1,
+          "denials": 0
+        },
+        {
+          "fired": false,
+          "firedAtTurn": null,
+          "error": "You've hit your weekly limit · resets Aug 17, 8pm (Asia/Seoul)",
+          "truncated": false,
+          "terminalReason": "api_error",
+          "numTurns": 1,
+          "denials": 0
+        }
+      ]
+    },
+    {
+      "id": "N8",
+      "class": "negative",
+      "type": "golf-compression",
+      "split": "val",
+      "run": 2,
+      "fired": false,
+      "firedAtTurn": null,
+      "truncated": false,
+      "terminalReason": "api_error",
+      "denials": 0,
+      "numTurns": 1,
+      "durationMs": 648,
+      "costUsd": 0,
+      "error": "You've hit your weekly limit · resets Aug 17, 8pm (Asia/Seoul)",
+      "init": {
+        "version": "2.1.233",
+        "model": "claude-sonnet-5",
+        "permissionMode": "bypassPermissions",
+        "teaSkillVisible": true,
+        "skillCount": 17,
+        "memoryPaths": {
+          "auto": "C:\\Users\\MSI\\.claude\\projects\\C--Users-MSI-AppData-Local-Temp-ws-uvCCE9\\memory\\"
+        }
+      },
+      "attempts": [
+        {
+          "fired": false,
+          "firedAtTurn": null,
+          "error": "You've hit your weekly limit · resets Aug 17, 8pm (Asia/Seoul)",
+          "truncated": false,
+          "terminalReason": "api_error",
+          "numTurns": 1,
+          "denials": 0
+        },
+        {
+          "fired": false,
+          "firedAtTurn": null,
+          "error": "You've hit your weekly limit · resets Aug 17, 8pm (Asia/Seoul)",
+          "truncated": false,
+          "terminalReason": "api_error",
+          "numTurns": 1,
+          "denials": 0
+        }
+      ]
+    },
+    {
+      "id": "N8",
+      "class": "negative",
+      "type": "golf-compression",
+      "split": "val",
+      "run": 3,
+      "fired": false,
+      "firedAtTurn": null,
+      "truncated": false,
+      "terminalReason": "api_error",
+      "denials": 0,
+      "numTurns": 1,
+      "durationMs": 718,
+      "costUsd": 0,
+      "error": "You've hit your weekly limit · resets Aug 17, 8pm (Asia/Seoul)",
+      "init": {
+        "version": "2.1.233",
+        "model": "claude-sonnet-5",
+        "permissionMode": "bypassPermissions",
+        "teaSkillVisible": true,
+        "skillCount": 17,
+        "memoryPaths": {
+          "auto": "C:\\Users\\MSI\\.claude\\projects\\C--Users-MSI-AppData-Local-Temp-ws-QmOVWq\\memory\\"
+        }
+      },
+      "attempts": [
+        {
+          "fired": false,
+          "firedAtTurn": null,
+          "error": "You've hit your weekly limit · resets Aug 17, 8pm (Asia/Seoul)",
+          "truncated": false,
+          "terminalReason": "api_error",
+          "numTurns": 1,
+          "denials": 0
+        },
+        {
+          "fired": false,
+          "firedAtTurn": null,
+          "error": "You've hit your weekly limit · resets Aug 17, 8pm (Asia/Seoul)",
+          "truncated": false,
+          "terminalReason": "api_error",
+          "numTurns": 1,
+          "denials": 0
+        }
+      ]
+    },
+    {
+      "id": "N9",
+      "class": "negative",
+      "type": "golf-compression",
+      "split": "train",
+      "run": 1,
+      "fired": false,
+      "firedAtTurn": null,
+      "truncated": false,
+      "terminalReason": "api_error",
+      "denials": 0,
+      "numTurns": 1,
+      "durationMs": 767,
+      "costUsd": 0,
+      "error": "You've hit your weekly limit · resets Aug 17, 8pm (Asia/Seoul)",
+      "init": {
+        "version": "2.1.233",
+        "model": "claude-sonnet-5",
+        "permissionMode": "bypassPermissions",
+        "teaSkillVisible": true,
+        "skillCount": 17,
+        "memoryPaths": {
+          "auto": "C:\\Users\\MSI\\.claude\\projects\\C--Users-MSI-AppData-Local-Temp-ws-A2LlmP\\memory\\"
+        }
+      },
+      "attempts": [
+        {
+          "fired": false,
+          "firedAtTurn": null,
+          "error": "You've hit your weekly limit · resets Aug 17, 8pm (Asia/Seoul)",
+          "truncated": false,
+          "terminalReason": "api_error",
+          "numTurns": 1,
+          "denials": 0
+        },
+        {
+          "fired": false,
+          "firedAtTurn": null,
+          "error": "You've hit your weekly limit · resets Aug 17, 8pm (Asia/Seoul)",
+          "truncated": false,
+          "terminalReason": "api_error",
+          "numTurns": 1,
+          "denials": 0
+        }
+      ]
+    },
+    {
+      "id": "N9",
+      "class": "negative",
+      "type": "golf-compression",
+      "split": "train",
+      "run": 2,
+      "fired": false,
+      "firedAtTurn": null,
+      "truncated": false,
+      "terminalReason": "api_error",
+      "denials": 0,
+      "numTurns": 1,
+      "durationMs": 662,
+      "costUsd": 0,
+      "error": "You've hit your weekly limit · resets Aug 17, 8pm (Asia/Seoul)",
+      "init": {
+        "version": "2.1.233",
+        "model": "claude-sonnet-5",
+        "permissionMode": "bypassPermissions",
+        "teaSkillVisible": true,
+        "skillCount": 17,
+        "memoryPaths": {
+          "auto": "C:\\Users\\MSI\\.claude\\projects\\C--Users-MSI-AppData-Local-Temp-ws-G18nn3\\memory\\"
+        }
+      },
+      "attempts": [
+        {
+          "fired": false,
+          "firedAtTurn": null,
+          "error": "You've hit your weekly limit · resets Aug 17, 8pm (Asia/Seoul)",
+          "truncated": false,
+          "terminalReason": "api_error",
+          "numTurns": 1,
+          "denials": 0
+        },
+        {
+          "fired": false,
+          "firedAtTurn": null,
+          "error": "You've hit your weekly limit · resets Aug 17, 8pm (Asia/Seoul)",
+          "truncated": false,
+          "terminalReason": "api_error",
+          "numTurns": 1,
+          "denials": 0
+        }
+      ]
+    },
+    {
+      "id": "N9",
+      "class": "negative",
+      "type": "golf-compression",
+      "split": "train",
+      "run": 3,
+      "fired": false,
+      "firedAtTurn": null,
+      "truncated": false,
+      "terminalReason": "api_error",
+      "denials": 0,
+      "numTurns": 1,
+      "durationMs": 626,
+      "costUsd": 0,
+      "error": "You've hit your weekly limit · resets Aug 17, 8pm (Asia/Seoul)",
+      "init": {
+        "version": "2.1.233",
+        "model": "claude-sonnet-5",
+        "permissionMode": "bypassPermissions",
+        "teaSkillVisible": true,
+        "skillCount": 17,
+        "memoryPaths": {
+          "auto": "C:\\Users\\MSI\\.claude\\projects\\C--Users-MSI-AppData-Local-Temp-ws-WRzVG9\\memory\\"
+        }
+      },
+      "attempts": [
+        {
+          "fired": false,
+          "firedAtTurn": null,
+          "error": "You've hit your weekly limit · resets Aug 17, 8pm (Asia/Seoul)",
+          "truncated": false,
+          "terminalReason": "api_error",
+          "numTurns": 1,
+          "denials": 0
+        },
+        {
+          "fired": false,
+          "firedAtTurn": null,
+          "error": "You've hit your weekly limit · resets Aug 17, 8pm (Asia/Seoul)",
+          "truncated": false,
+          "terminalReason": "api_error",
+          "numTurns": 1,
+          "denials": 0
+        }
+      ]
+    },
+    {
+      "id": "N10",
+      "class": "negative",
+      "type": "golf-compression",
+      "split": "val",
+      "run": 1,
+      "fired": false,
+      "firedAtTurn": null,
+      "truncated": false,
+      "terminalReason": "api_error",
+      "denials": 0,
+      "numTurns": 1,
+      "durationMs": 701,
+      "costUsd": 0,
+      "error": "You've hit your weekly limit · resets Aug 17, 8pm (Asia/Seoul)",
+      "init": {
+        "version": "2.1.233",
+        "model": "claude-sonnet-5",
+        "permissionMode": "bypassPermissions",
+        "teaSkillVisible": true,
+        "skillCount": 17,
+        "memoryPaths": {
+          "auto": "C:\\Users\\MSI\\.claude\\projects\\C--Users-MSI-AppData-Local-Temp-ws-WpRdn8\\memory\\"
+        }
+      },
+      "attempts": [
+        {
+          "fired": false,
+          "firedAtTurn": null,
+          "error": "You've hit your weekly limit · resets Aug 17, 8pm (Asia/Seoul)",
+          "truncated": false,
+          "terminalReason": "api_error",
+          "numTurns": 1,
+          "denials": 0
+        },
+        {
+          "fired": false,
+          "firedAtTurn": null,
+          "error": "You've hit your weekly limit · resets Aug 17, 8pm (Asia/Seoul)",
+          "truncated": false,
+          "terminalReason": "api_error",
+          "numTurns": 1,
+          "denials": 0
+        }
+      ]
+    },
+    {
+      "id": "N10",
+      "class": "negative",
+      "type": "golf-compression",
+      "split": "val",
+      "run": 2,
+      "fired": false,
+      "firedAtTurn": null,
+      "truncated": false,
+      "terminalReason": "api_error",
+      "denials": 0,
+      "numTurns": 1,
+      "durationMs": 675,
+      "costUsd": 0,
+      "error": "You've hit your weekly limit · resets Aug 17, 8pm (Asia/Seoul)",
+      "init": {
+        "version": "2.1.233",
+        "model": "claude-sonnet-5",
+        "permissionMode": "bypassPermissions",
+        "teaSkillVisible": true,
+        "skillCount": 17,
+        "memoryPaths": {
+          "auto": "C:\\Users\\MSI\\.claude\\projects\\C--Users-MSI-AppData-Local-Temp-ws-XtYsoP\\memory\\"
+        }
+      },
+      "attempts": [
+        {
+          "fired": false,
+          "firedAtTurn": null,
+          "error": "You've hit your weekly limit · resets Aug 17, 8pm (Asia/Seoul)",
+          "truncated": false,
+          "terminalReason": "api_error",
+          "numTurns": 1,
+          "denials": 0
+        },
+        {
+          "fired": false,
+          "firedAtTurn": null,
+          "error": "You've hit your weekly limit · resets Aug 17, 8pm (Asia/Seoul)",
+          "truncated": false,
+          "terminalReason": "api_error",
+          "numTurns": 1,
+          "denials": 0
+        }
+      ]
+    },
+    {
+      "id": "N10",
+      "class": "negative",
+      "type": "golf-compression",
+      "split": "val",
+      "run": 3,
+      "fired": false,
+      "firedAtTurn": null,
+      "truncated": false,
+      "terminalReason": "api_error",
+      "denials": 0,
+      "numTurns": 1,
+      "durationMs": 633,
+      "costUsd": 0,
+      "error": "You've hit your weekly limit · resets Aug 17, 8pm (Asia/Seoul)",
+      "init": {
+        "version": "2.1.233",
+        "model": "claude-sonnet-5",
+        "permissionMode": "bypassPermissions",
+        "teaSkillVisible": true,
+        "skillCount": 17,
+        "memoryPaths": {
+          "auto": "C:\\Users\\MSI\\.claude\\projects\\C--Users-MSI-AppData-Local-Temp-ws-Teuvjs\\memory\\"
+        }
+      },
+      "attempts": [
+        {
+          "fired": false,
+          "firedAtTurn": null,
+          "error": "You've hit your weekly limit · resets Aug 17, 8pm (Asia/Seoul)",
+          "truncated": false,
+          "terminalReason": "api_error",
+          "numTurns": 1,
+          "denials": 0
+        },
+        {
+          "fired": false,
+          "firedAtTurn": null,
+          "error": "You've hit your weekly limit · resets Aug 17, 8pm (Asia/Seoul)",
+          "truncated": false,
+          "terminalReason": "api_error",
+          "numTurns": 1,
+          "denials": 0
+        }
+      ]
+    }
+  ]
+}
