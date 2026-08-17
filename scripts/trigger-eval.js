@@ -203,7 +203,7 @@ function runTrial(cliJs, protocol, prompt, workspace) {
           errorMsg = String(ev.result || ev.subtype || 'api_error').slice(0, 200);
           // 인증 실패·사용량 한도는 이후 전 트라이얼이 같은 오류를 내므로 즉시 전체 중단한다.
           // (v2 실측: 한도 도달 후 45트라이얼이 재시도 포함 90프로세스로 낭비된 사고의 재발 방지)
-          if (/authenticate|login|oauth|weekly limit|usage limit|rate.?limit/i.test(errorMsg)) authFailure = true;
+          if (/authenticate|login|oauth|(weekly|session|usage) limit|rate.?limit/i.test(errorMsg)) authFailure = true;
         }
       }
     });
