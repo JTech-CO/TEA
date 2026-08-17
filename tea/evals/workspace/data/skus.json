@@ -1,0 +1,8 @@
+[
+  { "sku": "SKU-001", "name": "Loose leaf tin, classic", "weightKg": 0.3, "active": true },
+  { "sku": "SKU-002", "name": "Loose leaf tin, mint", "weightKg": 0.3, "active": true },
+  { "sku": "CUP-100", "name": "Ceramic cup, white", "weightKg": 0.5, "active": true },
+  { "sku": "MUG-200", "name": "Travel mug, silver", "weightKg": 0.6, "active": true },
+  { "sku": "POT-300", "name": "Cast iron pot, black", "weightKg": 1.8, "active": false },
+  { "sku": "FLT-010", "name": "Mesh filter, small", "weightKg": 0.1, "active": true }
+]

@@ -1,7 +1,12 @@
-const { insertOrder, getOrder, listOrders } = require('../db');
+const { insertOrder, getOrder, listOrders, deleteOrder } = require('../db');
 const { validateOrder } = require('../utils/validate');
 const inventory = require('../services/inventory');
 const { computeTotal } = require('../services/pricing');
+const { taxFor } = require('../services/tax');
+const { quoteShipping } = require('../services/shipping');
+const notifications = require('../services/notifications');
+const config = require('../config');
+const { publicOrder } = require('../utils/format');
 
 function readBody(req, callback) {
   let raw = '';
@@ -32,9 +37,14 @@ function handleOrders(req, res) {
       try {
         inventory.reserve(body.sku, body.quantity);
         const total = computeTotal(body.sku, body.quantity, body.tier || 'guest');
-        const order = insertOrder({ sku: body.sku, quantity: body.quantity, total });
+        const tax = taxFor(total, config.taxRegion);
+        const shippingFee = quoteShipping(total, body.quantity);
+        const order = insertOrder({
+          sku: body.sku, quantity: body.quantity, total, tax, shippingFee, status: 'created',
+        });
         inventory.decrement(body.sku, body.quantity); // finalize stock after insert
-        return respond(res, 201, order);
+        notifications.enqueue('order.created', { orderId: order.id });
+        return respond(res, 201, publicOrder(order));
       } catch (e) {
         return respond(res, 500, { error: failure.message });
       }
@@ -46,9 +56,16 @@ function handleOrders(req, res) {
     if (idMatch) {
       const order = getOrder(Number(idMatch[1]));
       if (!order) return respond(res, 404, { error: 'order not found' });
-      return respond(res, 200, order);
+      return respond(res, 200, publicOrder(order));
     }
-    return respond(res, 200, listOrders());
+    return respond(res, 200, listOrders().map(publicOrder));
+  }
+  if (req.method === 'DELETE') {
+    const idMatch = req.url.match(/^\/orders\/(\d+)$/);
+    if (!idMatch) return respond(res, 400, { error: 'order id required' });
+    const removed = deleteOrder(Number(idMatch[1]));
+    if (!removed) return respond(res, 404, { error: 'order not found' });
+    return respond(res, 204, {});
   }
   return respond(res, 405, { error: 'method not allowed' });
 }

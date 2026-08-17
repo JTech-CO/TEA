@@ -17,6 +17,13 @@ function listOrders() {
   return [...orders.values()];
 }
 
+function updateOrder(id, patch) {
+  const existing = orders.get(id);
+  if (!existing) return null;
+  orders.set(id, { ...existing, ...patch });
+  return orders.get(id);
+}
+
 function deleteOrder(id) {
   return orders.delete(id);
 }
@@ -30,4 +37,8 @@ function getUser(id) {
   return users.get(id) || null;
 }
 
-module.exports = { insertOrder, getOrder, listOrders, deleteOrder, upsertUser, getUser };
+function listUsers() {
+  return [...users.values()];
+}
+
+module.exports = { insertOrder, getOrder, listOrders, updateOrder, deleteOrder, upsertUser, getUser, listUsers };
