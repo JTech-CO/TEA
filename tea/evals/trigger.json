@@ -1,7 +1,7 @@
 {
   "version": "1",
   "source": "docs/TEA-design-whitepaper.md §5.1·§5.2",
-  "description_file": "tea/evals/description-v2.md",
+  "description_file": "tea/evals/description-v3.md",
   "protocol": {
     "version": 2,
     "runs_per_question": 3,

@@ -15,7 +15,7 @@ const fs = require('fs');
 const os = require('os');
 const path = require('path');
 const crypto = require('crypto');
-const { spawn } = require('child_process');
+const { spawn, spawnSync } = require('child_process');
 const readline = require('readline');
 
 const ROOT = path.resolve(__dirname, '..');
@@ -70,15 +70,17 @@ function buildSkillText(descriptionFile) {
 // 트라이얼마다 리포 밖 임시 디렉터리에 워크스페이스를 새로 복사한다.
 // 두 가지를 동시에 막는다 — (1) 리포 루트 CLAUDE.md·git 컨텍스트가 상위 탐색으로 상속되어 발화를 편향시키는 것,
 // (2) 앞 트라이얼의 편집이 뒤 트라이얼의 조건을 바꾸는 것.
-// fs.cpSync는 이 환경(Node 25 / Windows)에서 프로세스를 하드 크래시시킨다 — 수동 재귀 복사로 대체.
-function copyDir(src, dest) {
-  fs.mkdirSync(dest, { recursive: true });
-  for (const entry of fs.readdirSync(src, { withFileTypes: true })) {
-    const from = path.join(src, entry.name);
-    const to = path.join(dest, entry.name);
-    if (entry.isDirectory()) copyDir(from, to);
-    else if (entry.isFile()) fs.copyFileSync(from, to);
-  }
+// Node 25.2.0/Windows에서 fs 재귀 복사·삭제가 프로세스를 무출력 하드 크래시(exit 127)시킨다.
+// cpSync는 100% 재현, copyFileSync 루프·rmSync도 간헐 재현 — 트라이얼마다 도는 핫패스라
+// 실측정이 2~9트라이얼 만에 반복 즉사했다. Windows 네이티브 도구로 우회한다 (이 프로젝트의
+// 개발 호스트는 Windows 고정 — docs/ENVIRONMENT).
+function copyDirNative(src, dest) {
+  const r = spawnSync('robocopy', [src, dest, '/E', '/NFL', '/NDL', '/NJH', '/NJS', '/NC', '/NS', '/NP'], { windowsHide: true });
+  // robocopy 종료 코드 0~7이 성공 계열
+  if (r.status === null || r.status >= 8) throw new Error(`robocopy 실패: status=${r.status} ${r.error ? r.error.message : ''}`);
+}
+function removeDirNative(dir) {
+  try { spawnSync('cmd', ['/c', 'rmdir', '/s', '/q', dir], { windowsHide: true }); } catch { /* 임시 디렉터리 누수 허용 */ }
 }
 
 // 자식 세션에 넘길 환경 변수 화이트리스트. process.env를 통째로 넘기면 CLAUDE_CODE_ENTRYPOINT 등
@@ -113,7 +115,7 @@ function fingerprintWorkspace() {
 function prepareTrialWorkspace(skillText) {
   // 디렉터리 이름도 중립으로 — 경로 문자열이 세션에 노출된다.
   const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'ws-'));
-  copyDir(WORKSPACE_SRC, dir);
+  copyDirNative(WORKSPACE_SRC, dir);
   const skillDir = path.join(dir, '.claude', 'skills', 'tea');
   fs.mkdirSync(skillDir, { recursive: true });
   fs.writeFileSync(path.join(skillDir, 'SKILL.md'), skillText);
@@ -135,9 +137,12 @@ function runTrial(cliJs, protocol, prompt, workspace) {
     ];
     const isJs = cliJs.endsWith('.js') || cliJs.endsWith('.cjs');
     const env = childEnv();
+    // detached + windowsHide: 네이티브 자식(claude.exe)이 부모 콘솔 그룹에 제어 이벤트를 보내
+    // 러너까지 조용히 죽이는 것을 차단한다 (실측: 트라이얼 도중 무출력 즉사 반복).
+    const spawnOpts = { cwd: workspace, env, stdio: ['ignore', 'pipe', 'pipe'], windowsHide: true, detached: true };
     const child = isJs
-      ? spawn(process.execPath, [cliJs, ...cliArgs], { cwd: workspace, env })
-      : spawn(cliJs, cliArgs, { cwd: workspace, env });
+      ? spawn(process.execPath, [cliJs, ...cliArgs], spawnOpts)
+      : spawn(cliJs, cliArgs, spawnOpts);
     let fired = false;
     let firedAtTurn = null;
     let assistantTurns = 0;
@@ -249,7 +254,7 @@ function ratio(n, d) {
 }
 
 // 게이트 환산: DESIGN §5.2의 비율(5/6, 7/8)을 트라이얼 수에 올림 적용 — 하향 없는 보수적 방향.
-function score(results, applyGate) {
+function score(results, applyGate, coverage) {
   const all = results.trials.map((t) => ({ ...t, verdict: classify(t) }));
   const unusable = all.filter((t) => t.verdict === 'error' || t.verdict === 'ambiguous');
   const valid = all.filter((t) => t.verdict === 'fired' || t.verdict === 'quiet');
@@ -334,6 +339,13 @@ function score(results, applyGate) {
     ? { name: `DoD 4 골프 발화 ${golfFired}/${golf.length} = 0`, pass: golfFired === 0 }
     : { name: 'DoD 4 골프 발화 0건', pass: false, note: `유효 골프 트라이얼 ${golf.length}/${golfExpected}건 — 전량 유효해야 판정` });
   gates.push({ name: `데이터 완전성 (판정 불가 ${unusable.length}건 = 0)`, pass: unusable.length === 0 });
+  if (coverage) {
+    gates.push({
+      name: `커버리지 (결손 ${coverage.missing.length}/${coverage.expectedCount} = 0)`,
+      pass: coverage.missing.length === 0,
+      note: coverage.missing.length ? coverage.missing.slice(0, 10).join(', ') : undefined,
+    });
+  }
   gates.push({
     name: `표본 무결성 (폐기된 발화 관측 ${discardedFired.length}건 = 0)`,
     pass: discardedFired.length === 0,
@@ -354,8 +366,51 @@ function score(results, applyGate) {
 async function main() {
   const scorePath = argValue('--score', null);
   if (scorePath) {
-    const results = JSON.parse(fs.readFileSync(scorePath, 'utf8'));
-    const ok = score(results, hasFlag('--gate'));
+    // 쉼표 목록 병합 — 중단·분할 실행의 결과를 하나로 채점한다.
+    const files = scorePath.split(',').map((f) => f.trim()).filter(Boolean);
+    const records = files.map((f) => JSON.parse(fs.readFileSync(f, 'utf8')));
+    const base = records[0];
+    for (const r of records.slice(1)) {
+      // 실행 조건이 다른 파일의 병합은 측정 혼합 — 거부한다.
+      const same = r.descriptionHash === base.descriptionHash
+        && r.workspaceFingerprint === base.workspaceFingerprint
+        && r.protocol.model === base.protocol.model
+        && r.protocol.max_turns === base.protocol.max_turns;
+      if (!same) {
+        console.error('[trigger-eval] 병합 거부: 실행 조건(description·워크스페이스·모델·턴 상한)이 다르다.');
+        process.exit(1);
+      }
+    }
+    // 대체 규칙: 유효 관측(fired/quiet)은 불변 — 중복 발견 시 병합 거부(결과 의존 재추첨 차단).
+    // 무효(error, 절단·미발화)만 이후 실행의 관측으로 대체할 수 있다(RUNBOOK #22의 보류분 재실행).
+    const isValidObs = (t) => !t.error && (t.fired || !t.truncated);
+    const byKey = new Map();
+    for (const r of records) {
+      for (const t of r.trials) {
+        const key = `${t.id}#${t.run}`;
+        const prev = byKey.get(key);
+        if (!prev) {
+          byKey.set(key, t);
+        } else if (isValidObs(prev)) {
+          console.error(`[trigger-eval] 병합 거부: (${t.id}, run${t.run})의 유효 관측이 이미 있다. 유효 관측의 재실행은 재추첨이다.`);
+          process.exit(1);
+        } else {
+          byKey.set(key, t); // 무효 → 새 관측으로 대체
+        }
+      }
+    }
+    const seen = new Set(byKey.keys());
+    const trials = [...byKey.values()];
+    // 커버리지 기대치: trigger.json 기준 (--gate-set 기본 all)
+    const config = JSON.parse(fs.readFileSync(CONFIG_PATH, 'utf8'));
+    const gateSet = argValue('--gate-set', 'all');
+    const runsN = config.protocol.runs_per_question;
+    const expectedPairs = [];
+    for (const q of config.questions.filter((q) => gateSet === 'all' || q.split === gateSet)) {
+      for (let r = 1; r <= runsN; r++) expectedPairs.push(`${q.id}#${r}`);
+    }
+    const missing = expectedPairs.filter((k) => !seen.has(k));
+    const ok = score({ ...base, trials }, hasFlag('--gate'), { missing, expectedCount: expectedPairs.length });
     process.exit(ok ? 0 : 1);
   }
 
@@ -381,15 +436,65 @@ async function main() {
   } else {
     const set = argValue('--set', 'all');
     questions = config.questions.filter((q) => set === 'all' || q.split === set);
+    const only = argValue('--questions', null); // 쉼표 목록 — 중단된 실행의 결손 문항만 채울 때
+    if (only) {
+      const ids = new Set(only.split(','));
+      questions = questions.filter((q) => ids.has(q.id));
+    }
     runs = Number(argValue('--runs', protocol.runs_per_question));
   }
   const concurrency = Number(argValue('--concurrency', 2));
 
   const trials = [];
-  for (const q of questions) for (let r = 1; r <= runs; r++) trials.push({ ...q, run: r });
+  const pairsArg = argValue('--pairs', null); // 예: P7#3,P4#3 — 무효(오류·절단) 회차만 채울 때
+  if (pairsArg) {
+    for (const pair of pairsArg.split(',')) {
+      const [qid, runStr] = pair.split('#');
+      const q = config.questions.find((x) => x.id === qid.trim());
+      if (!q) {
+        console.error(`[trigger-eval] --pairs: 문항 ${qid} 없음`);
+        process.exit(1);
+      }
+      trials.push({ ...q, run: Number(runStr) });
+    }
+  } else {
+    for (const q of questions) for (let r = 1; r <= runs; r++) trials.push({ ...q, run: r });
+  }
 
   console.log(`[trigger-eval] CLI: ${cliJs}`);
   console.log(`[trigger-eval] 모델 ${protocol.model} · 상한 ${protocol.max_turns}턴 · 문항 ${questions.length} × ${runs}회 = ${trials.length} 트라이얼 · 동시 ${concurrency} · description ${descHash}`);
+
+  // 증분 저장 — 프로세스가 외부에서 죽어도 완료된 트라이얼은 남는다.
+  fs.mkdirSync(RESULTS_DIR, { recursive: true });
+  const startedAt = new Date().toISOString();
+  const outPath = path.join(RESULTS_DIR, `run-${startedAt.replace(/[:.]/g, '-').slice(0, 19)}-${hasFlag('--smoke') ? 'smoke' : argValue('--set', 'all')}.json`);
+  const wsFp = fingerprintWorkspace();
+  const completedTrials = [];
+  const trialRow = (t) => ({
+    id: t.id, class: t.class, type: t.type, split: t.split, run: t.run,
+    fired: t.fired, firedAtTurn: t.firedAtTurn ?? null, truncated: !!t.truncated,
+    terminalReason: t.terminalReason || null, denials: t.denials || 0,
+    numTurns: t.numTurns, durationMs: t.durationMs, costUsd: t.costUsd, error: t.error || null,
+    init: t.init || null, attempts: t.attempts || null,
+  });
+  const flush = (complete) => {
+    const record = {
+      startedAt, complete, cli: cliJs, protocol,
+      descriptionFile: config.description_file, descriptionHash: descHash,
+      workspaceFingerprint: wsFp,
+      set: hasFlag('--smoke') ? 'smoke' : argValue('--set', 'all'),
+      questionsFilter: argValue('--questions', null),
+      pairsFilter: argValue('--pairs', null),
+      runsPerQuestion: runs,
+      expectedTrials: trials.length,
+      runKey: crypto.createHash('sha256').update(JSON.stringify({
+        descHash, protocol, workspace: wsFp,
+      })).digest('hex').slice(0, 16),
+      trials: completedTrials.map(trialRow),
+    };
+    fs.writeFileSync(outPath, JSON.stringify(record, null, 2));
+    return record;
+  };
 
   let done = 0;
   const { results, aborted } = await runPool(trials, async (t) => {
@@ -401,8 +506,8 @@ async function main() {
       } catch (e) {
         out = { fired: false, firedAtTurn: null, numTurns: null, costUsd: null, durationMs: null, terminalReason: null, denials: 0, truncated: false, init: null, error: `runTrial: ${e.message}`, authFailure: false };
       }
-      // 정리 실패가 관측을 죽이지 않게 한다 — 임시 디렉터리는 OS가 회수한다.
-      try { fs.rmSync(ws, { recursive: true, force: true }); } catch { /* 무시 */ }
+      // 정리 실패가 관측을 죽이지 않게 한다. fs.rmSync는 크래시 경로라 쓰지 않는다.
+      removeDirNative(ws);
       return out;
     };
     const snap = (o) => ({
@@ -420,7 +525,10 @@ async function main() {
     done++;
     const label = out.error ? `오류(${out.error.slice(0, 50)})` : out.fired ? `발화(턴${out.firedAtTurn})` : out.truncated ? `절단·판정보류(${out.terminalReason})` : '미발화';
     console.log(`  [${done}/${trials.length}] ${t.id} run${t.run} → ${label}${attempts.length > 1 ? ` [재시도 1회, 1차: ${attempts[0].error}]` : ''}`);
-    return { ...t, ...out, attempts };
+    const row = { ...t, ...out, attempts };
+    completedTrials.push(row);
+    flush(false);
+    return row;
   }, concurrency);
 
   if (aborted) {
@@ -429,32 +537,7 @@ async function main() {
     process.exit(1);
   }
 
-  const record = {
-    startedAt: new Date().toISOString(),
-    cli: cliJs,
-    protocol,
-    descriptionFile: config.description_file,
-    descriptionHash: descHash,
-    set: hasFlag('--smoke') ? 'smoke' : argValue('--set', 'all'),
-    runsPerQuestion: runs,
-    // 실행 조건 지문 — 조건이 다른 실행의 결과를 섞어 판정하는 것을 막는다.
-    runKey: crypto.createHash('sha256').update(JSON.stringify({
-      descHash, protocol, set: hasFlag('--smoke') ? 'smoke' : argValue('--set', 'all'), runs,
-      questions: questions.map((q) => `${q.id}:${q.prompt}`),
-      workspace: fingerprintWorkspace(),
-    })).digest('hex').slice(0, 16),
-    trials: results.map((t) => ({
-      id: t.id, class: t.class, type: t.type, split: t.split, run: t.run,
-      fired: t.fired, firedAtTurn: t.firedAtTurn ?? null, truncated: !!t.truncated,
-      terminalReason: t.terminalReason || null, denials: t.denials || 0,
-      numTurns: t.numTurns, durationMs: t.durationMs, costUsd: t.costUsd, error: t.error || null,
-      init: t.init || null, attempts: t.attempts || null,
-    })),
-  };
-  fs.mkdirSync(RESULTS_DIR, { recursive: true });
-  const stamp = record.startedAt.replace(/[:.]/g, '-').slice(0, 19);
-  const outPath = path.join(RESULTS_DIR, `run-${stamp}-${record.set}.json`);
-  fs.writeFileSync(outPath, JSON.stringify(record, null, 2));
+  const record = flush(!aborted);
   console.log(`\n결과 저장: ${path.relative(ROOT, outPath)}`);
 
   if (hasFlag('--smoke')) {
@@ -469,6 +552,19 @@ async function main() {
   const ok = score(record, hasFlag('--gate'));
   process.exit(ok ? 0 : 1);
 }
+
+for (const sig of ['SIGINT', 'SIGTERM', 'SIGBREAK', 'SIGHUP']) {
+  try {
+    process.on(sig, () => {
+      console.error(`[trigger-eval] ${sig} 수신 — 증분 저장분은 유지된다. 결손은 --pairs로 재개.`);
+      process.exit(1);
+    });
+  } catch { /* 미지원 신호 무시 */ }
+}
+process.on('uncaughtException', (e) => {
+  console.error(`[trigger-eval] uncaughtException: ${e.stack || e.message}`);
+  process.exit(1);
+});
 
 main().catch((e) => {
   console.error(`[trigger-eval] 오류: ${e.stack || e.message}`);
