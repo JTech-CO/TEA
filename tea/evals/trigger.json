@@ -1,13 +1,14 @@
 {
   "version": "1",
   "source": "docs/TEA-design-whitepaper.md §5.1·§5.2",
-  "description_file": "tea/evals/description-v3.md",
+  "description_file": "tea/evals/description-v1.md",
   "protocol": {
-    "version": 2.1,
+    "version": 2.2,
     "runs_per_question": 3,
     "max_turns": 30,
     "model": "claude-sonnet-5",
     "permission_mode": "bypassPermissions",
+    "adapter": "워크스페이스 CLAUDE.md에 로딩 어댑터 지시문 2문장 (ADR-0010, C-1). description은 v1 복원 — recall은 어댑터, precision은 description이 담당",
     "workspace": "트라이얼마다 리포 밖 임시 디렉터리에 새로 복사 — 상위 CLAUDE.md 상속과 트라이얼 간 간섭 차단. v2.1: 픽스처를 9파일→31파일(804줄)로 확장 — DESIGN §5.2 난이도 요건(자력 처리 곤란) 충족. 문항·시드 버그는 불변",
     "detection": "stream-json에서 tool_use name=Skill && input.skill=tea 검출",
     "verdict": "fired(발화·유효) / quiet(자연종료·미발화·유효) / ambiguous(절단·미발화·판정보류) / error(실행실패)",
