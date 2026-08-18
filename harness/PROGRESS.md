@@ -3,8 +3,9 @@
 > 이 팩에서 **매 세션 바뀌는 유일한 파일**. 세션이 끊겨도 이 파일만 읽으면 이어서 작업 가능해야 한다.
 
 ## 현재 상태
-- **현재 phase**: M1 — description 확정 (**STOP 발동** — HARNESS §2.1 "같은 실패 3회")
-- **상태**: recall 게이트 구조적 미달. 사용자 결정 대기 (선택지는 막힘 기록 참조)
+- **현재 phase**: M2 — SKILL.md 본문 (진입 가능. DoR: M1 통과 ✓, 원장 정합 ✓)
+- **상태**: M1 완료 — DoD 전부 통과 (검증셋 recall 15/15 · precision 6/6 · 골프 0/12, 증거: `phases/M1.md`)
+- **확정본**: description = `tea/evals/description-v1.md`(§3.2 초안 원안) + 로딩 어댑터 2문장(`tea/evals/workspace/CLAUDE.md`, ADR-0010) — M2의 frontmatter 입력
 - **마지막 갱신**: 2026-08-18
 
 ## 직전에 끝낸 것 (M0, 2026-08-14)
@@ -14,11 +15,11 @@
 - rules/catalog.json — 규칙 원장 (L1~4 + R·W·T 12규칙 측정 핸들 12종 + X1~4 + P1)
 - 검증 스크립트 4종(token-budget·forbidden-terms·rule-audit·secret-scan) + 자기시험 10/10
 
-## 다음 할 일 (M1)
-1. 발화 판정 프로토콜 정의 (M1 DoR 2) — 스킬 로드 여부를 확인·기록하는 방법을 docs/ENVIRONMENT에 고정
-2. description v1 (DESIGN §3.2 초안 기반) + tea/evals/trigger.json 20문항 (§5.1 구성: 양성 12/음성 8)
-3. 60/40 학습·검증 분할, 문항당 3회 실행 → recall/precision 집계
-4. 게이트: 검증셋 recall ≥ 5/6, precision ≥ 7/8, 골프 음성 발화 0건
+## 다음 할 일 (M2 — SKILL.md 본문)
+1. tea/SKILL.md 작성 — frontmatter(name: tea, description: v1 확정본), 본문은 M2.md 전개 순서(지속성 선언 → 사다리 → 축 우선순위 → R/W/T 규칙 → 경계 → X → 불가침 → P1 → references 로드 조건)
+2. 근거는 축당 1회 2~3문장, 규칙은 명령형 1문장 + ID 표기. 영문 문안을 원장에 text_en 역기입
+3. 게이트: `check:budget`(본문 ≤1,200토큰, INV-3) · `check:terms`(INV-5) · `check:rules`(본문↔원장 교차, INV-6)
+4. 어댑터 지시문은 배포 산출물에 포함(설치 안내) — M7에서 플러그인 훅으로 대체 예정(ADR-0010)
 
 ## 미결 질문 / 사용자 결정 대기
 - **Schema-Hub 14섹션 목록** — `references/spec.md` 배치표 확정용. M3 DoD 5만 차단 (M3 나머지·M4 진입은 가능)
@@ -37,9 +38,11 @@
 | M1 | DoD 2 예비(학습, v3) | `--score` 병합 | 양성 9/20, navigation 0/3 — **게이트 미달, STOP** | 2026-08-18 |
 | M1 | DoD 3·4 예비(학습, v3) | 〃 | 음성 미발화 18/18 · 골프 0/6 — precision 완벽 | 2026-08-18 |
 | M1 | 선택지 A: 확장 픽스처(31파일) 학습셋 | 39트라이얼 전량 유효 | recall 11/21(52%) · navigation 1/3 첫 발화 · **골프 N7 1/3 발화(DoD 4 훼손)** | 2026-08-18 |
+| M1 | C-1 어댑터 학습셋 | 39트라이얼 전량 유효 | recall 21/21 · precision 18/18 · 골프 0/6 (어댑터 v2: 단발 편집 제외 조항 추가 후) | 2026-08-18 |
+| M1 | **최종 판정 (DoD 2~4·무결성)** | `--score <병합> --gate --gate-set all` | **전면 PASS** — 검증 recall 15/15, precision 6/6, 골프 0/12, 66/66 유효 | 2026-08-18 |
 
 ## 막힘 기록 (STOP 발동 시)
-### 2026-08-18 — M1 recall 게이트 미달 (STOP)
+### 2026-08-18 — M1 recall 게이트 미달 (STOP) — **해소됨 (같은 날, C-1 채택으로 게이트 전면 통과)**
 - **증상**: description 3개 버전 모두 학습셋 양성 recall이 게이트 요구치(≈87% + 유형 5종 전수 발화)에 크게 미달.
   v2 13/19(68%) · v3 9/20(45%) · navigation 유형은 두 버전 합쳐 0/6 전멸.
   반면 **precision은 완벽** — 음성 18/18 미발화, 골프 0/6 (v3의 공격적 능동 문구에서도).

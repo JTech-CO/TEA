@@ -1,0 +1,997 @@
+{
+  "startedAt": "2026-08-18T04:26:05.994Z",
+  "complete": true,
+  "cli": "C:\\Users\\MSI\\AppData\\Roaming\\npm\\node_modules\\@anthropic-ai\\claude-code\\bin\\claude.exe",
+  "protocol": {
+    "version": 2.2,
+    "runs_per_question": 3,
+    "max_turns": 30,
+    "model": "claude-sonnet-5",
+    "permission_mode": "bypassPermissions",
+    "adapter": "워크스페이스 CLAUDE.md에 로딩 어댑터 지시문 2문장 (ADR-0010, C-1). description은 v1 복원 — recall은 어댑터, precision은 description이 담당",
+    "workspace": "트라이얼마다 리포 밖 임시 디렉터리에 새로 복사 — 상위 CLAUDE.md 상속과 트라이얼 간 간섭 차단. v2.1: 픽스처를 9파일→31파일(804줄)로 확장 — DESIGN §5.2 난이도 요건(자력 처리 곤란) 충족. 문항·시드 버그는 불변",
+    "detection": "stream-json에서 tool_use name=Skill && input.skill=tea 검출",
+    "verdict": "fired(발화·유효) / quiet(자연종료·미발화·유효) / ambiguous(절단·미발화·판정보류) / error(실행실패)",
+    "v1_defects": "max_turns 4 + allowedTools 화이트리스트가 권한 거부를 유발해 턴을 소진 → 발화 트라이얼이 선택적으로 상한을 넘겨 탈락. recall 0/11은 계측 artifact였음 (실제로는 오류 26건 중 18건이 발화)",
+    "split_rule": "유형별 마지막 문항을 검증셋으로 — 층화 60/40 (학습 12 / 검증 8)",
+    "gates": {
+      "recall_val": "검증 양성 5문항 × 3회 = 15 트라이얼 중 발화 ≥ 13 (= 5/6 비율의 올림). 유형당 1문항이므로 '유형 5종 전부 최소 1회 발화 AND 총 미발화 ≤ 2'와 동치",
+      "precision_val": "검증 음성 중 골프 제외(N4·N6) × 3회 = 6 트라이얼 중 미발화 ≥ 6 (= 7/8 비율의 올림). 골프를 분모에서 뺀 이유는 DoD 4가 0건 기준으로 따로 판정하므로 이중 계상이 되기 때문",
+      "golf_all": "골프·압축 4문항(N7·N8·N9·N10) 전 트라이얼 발화 0/12 (M1 DoD 4). N9·N10은 description 배제 문구(golf/compress/shorten)와 어휘가 겹치지 않는 우회 표현",
+      "integrity": "판정 불가 0건 · 폐기된 발화 관측 0건 · 스킬 미노출 세션 0건"
+    }
+  },
+  "descriptionFile": "tea/evals/description-v1.md",
+  "descriptionHash": "b5f5ee7bae7c",
+  "workspaceFingerprint": "160adb774f451114",
+  "set": "train",
+  "questionsFilter": null,
+  "pairsFilter": "P5#3,P7#3,P9#1,P9#2,P9#3,P11#1,P11#2,P11#3,N1#1,N1#2,N1#3,N2#1,N2#2,N2#3,N3#1,N3#2,N3#3,N5#1,N5#2,N5#3,N7#1,N7#2,N7#3,N9#1,N9#2,N9#3",
+  "runsPerQuestion": 3,
+  "expectedTrials": 26,
+  "runKey": "0fc57e6a3df9a357",
+  "trials": [
+    {
+      "id": "P7",
+      "class": "positive",
+      "type": "refactoring",
+      "split": "train",
+      "run": 3,
+      "fired": true,
+      "firedAtTurn": 2,
+      "truncated": false,
+      "terminalReason": "completed",
+      "denials": 0,
+      "numTurns": 6,
+      "durationMs": 24674,
+      "costUsd": 0.1642586,
+      "error": null,
+      "init": {
+        "version": "2.1.233",
+        "model": "claude-sonnet-5",
+        "permissionMode": "bypassPermissions",
+        "teaSkillVisible": true,
+        "skillCount": 17,
+        "memoryPaths": {
+          "auto": "C:\\Users\\MSI\\.claude\\projects\\C--Users-MSI-AppData-Local-Temp-ws-EjPpAn\\memory\\"
+        }
+      },
+      "attempts": [
+        {
+          "fired": true,
+          "firedAtTurn": 2,
+          "error": null,
+          "truncated": false,
+          "terminalReason": "completed",
+          "numTurns": 6,
+          "denials": 0
+        }
+      ]
+    },
+    {
+      "id": "P9",
+      "class": "positive",
+      "type": "codebase-navigation",
+      "split": "train",
+      "run": 2,
+      "fired": true,
+      "firedAtTurn": 2,
+      "truncated": false,
+      "terminalReason": "completed",
+      "denials": 0,
+      "numTurns": 17,
+      "durationMs": 41029,
+      "costUsd": 0.23305480000000003,
+      "error": null,
+      "init": {
+        "version": "2.1.233",
+        "model": "claude-sonnet-5",
+        "permissionMode": "bypassPermissions",
+        "teaSkillVisible": true,
+        "skillCount": 17,
+        "memoryPaths": {
+          "auto": "C:\\Users\\MSI\\.claude\\projects\\C--Users-MSI-AppData-Local-Temp-ws-nsr1cF\\memory\\"
+        }
+      },
+      "attempts": [
+        {
+          "fired": true,
+          "firedAtTurn": 2,
+          "error": null,
+          "truncated": false,
+          "terminalReason": "completed",
+          "numTurns": 17,
+          "denials": 0
+        }
+      ]
+    },
+    {
+      "id": "P5",
+      "class": "positive",
+      "type": "debugging",
+      "split": "train",
+      "run": 3,
+      "fired": true,
+      "firedAtTurn": 2,
+      "truncated": false,
+      "terminalReason": "completed",
+      "denials": 0,
+      "numTurns": 16,
+      "durationMs": 67857,
+      "costUsd": 0.3328959,
+      "error": null,
+      "init": {
+        "version": "2.1.233",
+        "model": "claude-sonnet-5",
+        "permissionMode": "bypassPermissions",
+        "teaSkillVisible": true,
+        "skillCount": 17,
+        "memoryPaths": {
+          "auto": "C:\\Users\\MSI\\.claude\\projects\\C--Users-MSI-AppData-Local-Temp-ws-l0blqS\\memory\\"
+        }
+      },
+      "attempts": [
+        {
+          "fired": true,
+          "firedAtTurn": 2,
+          "error": null,
+          "truncated": false,
+          "terminalReason": "completed",
+          "numTurns": 16,
+          "denials": 0
+        }
+      ]
+    },
+    {
+      "id": "P9",
+      "class": "positive",
+      "type": "codebase-navigation",
+      "split": "train",
+      "run": 1,
+      "fired": true,
+      "firedAtTurn": 2,
+      "truncated": false,
+      "terminalReason": "completed",
+      "denials": 0,
+      "numTurns": 17,
+      "durationMs": 75800,
+      "costUsd": 0.23892639999999998,
+      "error": null,
+      "init": {
+        "version": "2.1.233",
+        "model": "claude-sonnet-5",
+        "permissionMode": "bypassPermissions",
+        "teaSkillVisible": true,
+        "skillCount": 17,
+        "memoryPaths": {
+          "auto": "C:\\Users\\MSI\\.claude\\projects\\C--Users-MSI-AppData-Local-Temp-ws-K9EqMb\\memory\\"
+        }
+      },
+      "attempts": [
+        {
+          "fired": true,
+          "firedAtTurn": 2,
+          "error": null,
+          "truncated": false,
+          "terminalReason": "completed",
+          "numTurns": 17,
+          "denials": 0
+        }
+      ]
+    },
+    {
+      "id": "P11",
+      "class": "positive",
+      "type": "keyword-mention",
+      "split": "train",
+      "run": 1,
+      "fired": true,
+      "firedAtTurn": 2,
+      "truncated": false,
+      "terminalReason": "completed",
+      "denials": 0,
+      "numTurns": 10,
+      "durationMs": 34705,
+      "costUsd": 0.2268649,
+      "error": null,
+      "init": {
+        "version": "2.1.233",
+        "model": "claude-sonnet-5",
+        "permissionMode": "bypassPermissions",
+        "teaSkillVisible": true,
+        "skillCount": 17,
+        "memoryPaths": {
+          "auto": "C:\\Users\\MSI\\.claude\\projects\\C--Users-MSI-AppData-Local-Temp-ws-JgdI30\\memory\\"
+        }
+      },
+      "attempts": [
+        {
+          "fired": true,
+          "firedAtTurn": 2,
+          "error": null,
+          "truncated": false,
+          "terminalReason": "completed",
+          "numTurns": 10,
+          "denials": 0
+        }
+      ]
+    },
+    {
+      "id": "P11",
+      "class": "positive",
+      "type": "keyword-mention",
+      "split": "train",
+      "run": 2,
+      "fired": true,
+      "firedAtTurn": 2,
+      "truncated": false,
+      "terminalReason": "completed",
+      "denials": 0,
+      "numTurns": 13,
+      "durationMs": 34334,
+      "costUsd": 0.2726527,
+      "error": null,
+      "init": {
+        "version": "2.1.233",
+        "model": "claude-sonnet-5",
+        "permissionMode": "bypassPermissions",
+        "teaSkillVisible": true,
+        "skillCount": 17,
+        "memoryPaths": {
+          "auto": "C:\\Users\\MSI\\.claude\\projects\\C--Users-MSI-AppData-Local-Temp-ws-i2yM60\\memory\\"
+        }
+      },
+      "attempts": [
+        {
+          "fired": true,
+          "firedAtTurn": 2,
+          "error": null,
+          "truncated": false,
+          "terminalReason": "completed",
+          "numTurns": 13,
+          "denials": 0
+        }
+      ]
+    },
+    {
+      "id": "N1",
+      "class": "negative",
+      "type": "non-coding",
+      "split": "train",
+      "run": 1,
+      "fired": false,
+      "firedAtTurn": null,
+      "truncated": false,
+      "terminalReason": "completed",
+      "denials": 0,
+      "numTurns": 1,
+      "durationMs": 1915,
+      "costUsd": 0.0648473,
+      "error": null,
+      "init": {
+        "version": "2.1.233",
+        "model": "claude-sonnet-5",
+        "permissionMode": "bypassPermissions",
+        "teaSkillVisible": true,
+        "skillCount": 17,
+        "memoryPaths": {
+          "auto": "C:\\Users\\MSI\\.claude\\projects\\C--Users-MSI-AppData-Local-Temp-ws-CcbnXT\\memory\\"
+        }
+      },
+      "attempts": [
+        {
+          "fired": false,
+          "firedAtTurn": null,
+          "error": null,
+          "truncated": false,
+          "terminalReason": "completed",
+          "numTurns": 1,
+          "denials": 0
+        }
+      ]
+    },
+    {
+      "id": "N1",
+      "class": "negative",
+      "type": "non-coding",
+      "split": "train",
+      "run": 2,
+      "fired": false,
+      "firedAtTurn": null,
+      "truncated": false,
+      "terminalReason": "completed",
+      "denials": 0,
+      "numTurns": 1,
+      "durationMs": 2035,
+      "costUsd": 0.0648653,
+      "error": null,
+      "init": {
+        "version": "2.1.233",
+        "model": "claude-sonnet-5",
+        "permissionMode": "bypassPermissions",
+        "teaSkillVisible": true,
+        "skillCount": 17,
+        "memoryPaths": {
+          "auto": "C:\\Users\\MSI\\.claude\\projects\\C--Users-MSI-AppData-Local-Temp-ws-4Sl9AD\\memory\\"
+        }
+      },
+      "attempts": [
+        {
+          "fired": false,
+          "firedAtTurn": null,
+          "error": null,
+          "truncated": false,
+          "terminalReason": "completed",
+          "numTurns": 1,
+          "denials": 0
+        }
+      ]
+    },
+    {
+      "id": "P9",
+      "class": "positive",
+      "type": "codebase-navigation",
+      "split": "train",
+      "run": 3,
+      "fired": true,
+      "firedAtTurn": 2,
+      "truncated": false,
+      "terminalReason": "completed",
+      "denials": 0,
+      "numTurns": 18,
+      "durationMs": 53444,
+      "costUsd": 0.2300232,
+      "error": null,
+      "init": {
+        "version": "2.1.233",
+        "model": "claude-sonnet-5",
+        "permissionMode": "bypassPermissions",
+        "teaSkillVisible": true,
+        "skillCount": 17,
+        "memoryPaths": {
+          "auto": "C:\\Users\\MSI\\.claude\\projects\\C--Users-MSI-AppData-Local-Temp-ws-B1QokM\\memory\\"
+        }
+      },
+      "attempts": [
+        {
+          "fired": true,
+          "firedAtTurn": 2,
+          "error": null,
+          "truncated": false,
+          "terminalReason": "completed",
+          "numTurns": 18,
+          "denials": 0
+        }
+      ]
+    },
+    {
+      "id": "N1",
+      "class": "negative",
+      "type": "non-coding",
+      "split": "train",
+      "run": 3,
+      "fired": false,
+      "firedAtTurn": null,
+      "truncated": false,
+      "terminalReason": "completed",
+      "denials": 0,
+      "numTurns": 1,
+      "durationMs": 2512,
+      "costUsd": 0.0651923,
+      "error": null,
+      "init": {
+        "version": "2.1.233",
+        "model": "claude-sonnet-5",
+        "permissionMode": "bypassPermissions",
+        "teaSkillVisible": true,
+        "skillCount": 17,
+        "memoryPaths": {
+          "auto": "C:\\Users\\MSI\\.claude\\projects\\C--Users-MSI-AppData-Local-Temp-ws-jrLXfc\\memory\\"
+        }
+      },
+      "attempts": [
+        {
+          "fired": false,
+          "firedAtTurn": null,
+          "error": null,
+          "truncated": false,
+          "terminalReason": "completed",
+          "numTurns": 1,
+          "denials": 0
+        }
+      ]
+    },
+    {
+      "id": "P11",
+      "class": "positive",
+      "type": "keyword-mention",
+      "split": "train",
+      "run": 3,
+      "fired": true,
+      "firedAtTurn": 2,
+      "truncated": false,
+      "terminalReason": "completed",
+      "denials": 0,
+      "numTurns": 12,
+      "durationMs": 29452,
+      "costUsd": 0.2490843,
+      "error": null,
+      "init": {
+        "version": "2.1.233",
+        "model": "claude-sonnet-5",
+        "permissionMode": "bypassPermissions",
+        "teaSkillVisible": true,
+        "skillCount": 17,
+        "memoryPaths": {
+          "auto": "C:\\Users\\MSI\\.claude\\projects\\C--Users-MSI-AppData-Local-Temp-ws-SBr0X6\\memory\\"
+        }
+      },
+      "attempts": [
+        {
+          "fired": true,
+          "firedAtTurn": 2,
+          "error": null,
+          "truncated": false,
+          "terminalReason": "completed",
+          "numTurns": 12,
+          "denials": 0
+        }
+      ]
+    },
+    {
+      "id": "N2",
+      "class": "negative",
+      "type": "non-coding",
+      "split": "train",
+      "run": 1,
+      "fired": false,
+      "firedAtTurn": null,
+      "truncated": false,
+      "terminalReason": "completed",
+      "denials": 0,
+      "numTurns": 1,
+      "durationMs": 14201,
+      "costUsd": 0.0818433,
+      "error": null,
+      "init": {
+        "version": "2.1.233",
+        "model": "claude-sonnet-5",
+        "permissionMode": "bypassPermissions",
+        "teaSkillVisible": true,
+        "skillCount": 17,
+        "memoryPaths": {
+          "auto": "C:\\Users\\MSI\\.claude\\projects\\C--Users-MSI-AppData-Local-Temp-ws-mQ9TuQ\\memory\\"
+        }
+      },
+      "attempts": [
+        {
+          "fired": false,
+          "firedAtTurn": null,
+          "error": null,
+          "truncated": false,
+          "terminalReason": "completed",
+          "numTurns": 1,
+          "denials": 0
+        }
+      ]
+    },
+    {
+      "id": "N2",
+      "class": "negative",
+      "type": "non-coding",
+      "split": "train",
+      "run": 2,
+      "fired": false,
+      "firedAtTurn": null,
+      "truncated": false,
+      "terminalReason": "completed",
+      "denials": 0,
+      "numTurns": 1,
+      "durationMs": 17618,
+      "costUsd": 0.0842443,
+      "error": null,
+      "init": {
+        "version": "2.1.233",
+        "model": "claude-sonnet-5",
+        "permissionMode": "bypassPermissions",
+        "teaSkillVisible": true,
+        "skillCount": 17,
+        "memoryPaths": {
+          "auto": "C:\\Users\\MSI\\.claude\\projects\\C--Users-MSI-AppData-Local-Temp-ws-1CP76b\\memory\\"
+        }
+      },
+      "attempts": [
+        {
+          "fired": false,
+          "firedAtTurn": null,
+          "error": null,
+          "truncated": false,
+          "terminalReason": "completed",
+          "numTurns": 1,
+          "denials": 0
+        }
+      ]
+    },
+    {
+      "id": "N3",
+      "class": "negative",
+      "type": "non-coding",
+      "split": "train",
+      "run": 1,
+      "fired": false,
+      "firedAtTurn": null,
+      "truncated": false,
+      "terminalReason": "completed",
+      "denials": 0,
+      "numTurns": 1,
+      "durationMs": 4225,
+      "costUsd": 0.06724730000000001,
+      "error": null,
+      "init": {
+        "version": "2.1.233",
+        "model": "claude-sonnet-5",
+        "permissionMode": "bypassPermissions",
+        "teaSkillVisible": true,
+        "skillCount": 17,
+        "memoryPaths": {
+          "auto": "C:\\Users\\MSI\\.claude\\projects\\C--Users-MSI-AppData-Local-Temp-ws-fNNcLh\\memory\\"
+        }
+      },
+      "attempts": [
+        {
+          "fired": false,
+          "firedAtTurn": null,
+          "error": null,
+          "truncated": false,
+          "terminalReason": "completed",
+          "numTurns": 1,
+          "denials": 0
+        }
+      ]
+    },
+    {
+      "id": "N3",
+      "class": "negative",
+      "type": "non-coding",
+      "split": "train",
+      "run": 2,
+      "fired": false,
+      "firedAtTurn": null,
+      "truncated": false,
+      "terminalReason": "completed",
+      "denials": 0,
+      "numTurns": 1,
+      "durationMs": 3695,
+      "costUsd": 0.06690230000000001,
+      "error": null,
+      "init": {
+        "version": "2.1.233",
+        "model": "claude-sonnet-5",
+        "permissionMode": "bypassPermissions",
+        "teaSkillVisible": true,
+        "skillCount": 17,
+        "memoryPaths": {
+          "auto": "C:\\Users\\MSI\\.claude\\projects\\C--Users-MSI-AppData-Local-Temp-ws-aQlFyv\\memory\\"
+        }
+      },
+      "attempts": [
+        {
+          "fired": false,
+          "firedAtTurn": null,
+          "error": null,
+          "truncated": false,
+          "terminalReason": "completed",
+          "numTurns": 1,
+          "denials": 0
+        }
+      ]
+    },
+    {
+      "id": "N3",
+      "class": "negative",
+      "type": "non-coding",
+      "split": "train",
+      "run": 3,
+      "fired": false,
+      "firedAtTurn": null,
+      "truncated": false,
+      "terminalReason": "completed",
+      "denials": 0,
+      "numTurns": 1,
+      "durationMs": 4261,
+      "costUsd": 0.06720530000000001,
+      "error": null,
+      "init": {
+        "version": "2.1.233",
+        "model": "claude-sonnet-5",
+        "permissionMode": "bypassPermissions",
+        "teaSkillVisible": true,
+        "skillCount": 17,
+        "memoryPaths": {
+          "auto": "C:\\Users\\MSI\\.claude\\projects\\C--Users-MSI-AppData-Local-Temp-ws-qYIsJZ\\memory\\"
+        }
+      },
+      "attempts": [
+        {
+          "fired": false,
+          "firedAtTurn": null,
+          "error": null,
+          "truncated": false,
+          "terminalReason": "completed",
+          "numTurns": 1,
+          "denials": 0
+        }
+      ]
+    },
+    {
+      "id": "N2",
+      "class": "negative",
+      "type": "non-coding",
+      "split": "train",
+      "run": 3,
+      "fired": false,
+      "firedAtTurn": null,
+      "truncated": false,
+      "terminalReason": "completed",
+      "denials": 0,
+      "numTurns": 1,
+      "durationMs": 14553,
+      "costUsd": 0.0821523,
+      "error": null,
+      "init": {
+        "version": "2.1.233",
+        "model": "claude-sonnet-5",
+        "permissionMode": "bypassPermissions",
+        "teaSkillVisible": true,
+        "skillCount": 17,
+        "memoryPaths": {
+          "auto": "C:\\Users\\MSI\\.claude\\projects\\C--Users-MSI-AppData-Local-Temp-ws-9BsIBm\\memory\\"
+        }
+      },
+      "attempts": [
+        {
+          "fired": false,
+          "firedAtTurn": null,
+          "error": null,
+          "truncated": false,
+          "terminalReason": "completed",
+          "numTurns": 1,
+          "denials": 0
+        }
+      ]
+    },
+    {
+      "id": "N5",
+      "class": "negative",
+      "type": "single-file-edit",
+      "split": "train",
+      "run": 1,
+      "fired": true,
+      "firedAtTurn": 2,
+      "truncated": false,
+      "terminalReason": "completed",
+      "denials": 0,
+      "numTurns": 5,
+      "durationMs": 10227,
+      "costUsd": 0.11694399999999999,
+      "error": null,
+      "init": {
+        "version": "2.1.233",
+        "model": "claude-sonnet-5",
+        "permissionMode": "bypassPermissions",
+        "teaSkillVisible": true,
+        "skillCount": 17,
+        "memoryPaths": {
+          "auto": "C:\\Users\\MSI\\.claude\\projects\\C--Users-MSI-AppData-Local-Temp-ws-0UsvRQ\\memory\\"
+        }
+      },
+      "attempts": [
+        {
+          "fired": true,
+          "firedAtTurn": 2,
+          "error": null,
+          "truncated": false,
+          "terminalReason": "completed",
+          "numTurns": 5,
+          "denials": 0
+        }
+      ]
+    },
+    {
+      "id": "N5",
+      "class": "negative",
+      "type": "single-file-edit",
+      "split": "train",
+      "run": 2,
+      "fired": false,
+      "firedAtTurn": null,
+      "truncated": false,
+      "terminalReason": "completed",
+      "denials": 0,
+      "numTurns": 3,
+      "durationMs": 9433,
+      "costUsd": 0.10638199999999998,
+      "error": null,
+      "init": {
+        "version": "2.1.233",
+        "model": "claude-sonnet-5",
+        "permissionMode": "bypassPermissions",
+        "teaSkillVisible": true,
+        "skillCount": 17,
+        "memoryPaths": {
+          "auto": "C:\\Users\\MSI\\.claude\\projects\\C--Users-MSI-AppData-Local-Temp-ws-l6W3ZN\\memory\\"
+        }
+      },
+      "attempts": [
+        {
+          "fired": false,
+          "firedAtTurn": null,
+          "error": null,
+          "truncated": false,
+          "terminalReason": "completed",
+          "numTurns": 3,
+          "denials": 0
+        }
+      ]
+    },
+    {
+      "id": "N5",
+      "class": "negative",
+      "type": "single-file-edit",
+      "split": "train",
+      "run": 3,
+      "fired": true,
+      "firedAtTurn": 2,
+      "truncated": false,
+      "terminalReason": "completed",
+      "denials": 0,
+      "numTurns": 5,
+      "durationMs": 12068,
+      "costUsd": 0.11654849999999999,
+      "error": null,
+      "init": {
+        "version": "2.1.233",
+        "model": "claude-sonnet-5",
+        "permissionMode": "bypassPermissions",
+        "teaSkillVisible": true,
+        "skillCount": 17,
+        "memoryPaths": {
+          "auto": "C:\\Users\\MSI\\.claude\\projects\\C--Users-MSI-AppData-Local-Temp-ws-mxD2TG\\memory\\"
+        }
+      },
+      "attempts": [
+        {
+          "fired": true,
+          "firedAtTurn": 2,
+          "error": null,
+          "truncated": false,
+          "terminalReason": "completed",
+          "numTurns": 5,
+          "denials": 0
+        }
+      ]
+    },
+    {
+      "id": "N7",
+      "class": "negative",
+      "type": "golf-compression",
+      "split": "train",
+      "run": 1,
+      "fired": false,
+      "firedAtTurn": null,
+      "truncated": false,
+      "terminalReason": "completed",
+      "denials": 0,
+      "numTurns": 4,
+      "durationMs": 13824,
+      "costUsd": 0.1249299,
+      "error": null,
+      "init": {
+        "version": "2.1.233",
+        "model": "claude-sonnet-5",
+        "permissionMode": "bypassPermissions",
+        "teaSkillVisible": true,
+        "skillCount": 17,
+        "memoryPaths": {
+          "auto": "C:\\Users\\MSI\\.claude\\projects\\C--Users-MSI-AppData-Local-Temp-ws-mJlpEJ\\memory\\"
+        }
+      },
+      "attempts": [
+        {
+          "fired": false,
+          "firedAtTurn": null,
+          "error": null,
+          "truncated": false,
+          "terminalReason": "completed",
+          "numTurns": 4,
+          "denials": 0
+        }
+      ]
+    },
+    {
+      "id": "N7",
+      "class": "negative",
+      "type": "golf-compression",
+      "split": "train",
+      "run": 2,
+      "fired": false,
+      "firedAtTurn": null,
+      "truncated": false,
+      "terminalReason": "completed",
+      "denials": 0,
+      "numTurns": 3,
+      "durationMs": 13432,
+      "costUsd": 0.1117885,
+      "error": null,
+      "init": {
+        "version": "2.1.233",
+        "model": "claude-sonnet-5",
+        "permissionMode": "bypassPermissions",
+        "teaSkillVisible": true,
+        "skillCount": 17,
+        "memoryPaths": {
+          "auto": "C:\\Users\\MSI\\.claude\\projects\\C--Users-MSI-AppData-Local-Temp-ws-KvmEol\\memory\\"
+        }
+      },
+      "attempts": [
+        {
+          "fired": false,
+          "firedAtTurn": null,
+          "error": null,
+          "truncated": false,
+          "terminalReason": "completed",
+          "numTurns": 3,
+          "denials": 0
+        }
+      ]
+    },
+    {
+      "id": "N7",
+      "class": "negative",
+      "type": "golf-compression",
+      "split": "train",
+      "run": 3,
+      "fired": false,
+      "firedAtTurn": null,
+      "truncated": false,
+      "terminalReason": "completed",
+      "denials": 0,
+      "numTurns": 4,
+      "durationMs": 17228,
+      "costUsd": 0.1355353,
+      "error": null,
+      "init": {
+        "version": "2.1.233",
+        "model": "claude-sonnet-5",
+        "permissionMode": "bypassPermissions",
+        "teaSkillVisible": true,
+        "skillCount": 17,
+        "memoryPaths": {
+          "auto": "C:\\Users\\MSI\\.claude\\projects\\C--Users-MSI-AppData-Local-Temp-ws-DS223V\\memory\\"
+        }
+      },
+      "attempts": [
+        {
+          "fired": false,
+          "firedAtTurn": null,
+          "error": null,
+          "truncated": false,
+          "terminalReason": "completed",
+          "numTurns": 4,
+          "denials": 0
+        }
+      ]
+    },
+    {
+      "id": "N9",
+      "class": "negative",
+      "type": "golf-compression",
+      "split": "train",
+      "run": 2,
+      "fired": false,
+      "firedAtTurn": null,
+      "truncated": false,
+      "terminalReason": "completed",
+      "denials": 0,
+      "numTurns": 4,
+      "durationMs": 13960,
+      "costUsd": 0.12163310000000001,
+      "error": null,
+      "init": {
+        "version": "2.1.233",
+        "model": "claude-sonnet-5",
+        "permissionMode": "bypassPermissions",
+        "teaSkillVisible": true,
+        "skillCount": 17,
+        "memoryPaths": {
+          "auto": "C:\\Users\\MSI\\.claude\\projects\\C--Users-MSI-AppData-Local-Temp-ws-B6UXdX\\memory\\"
+        }
+      },
+      "attempts": [
+        {
+          "fired": false,
+          "firedAtTurn": null,
+          "error": null,
+          "truncated": false,
+          "terminalReason": "completed",
+          "numTurns": 4,
+          "denials": 0
+        }
+      ]
+    },
+    {
+      "id": "N9",
+      "class": "negative",
+      "type": "golf-compression",
+      "split": "train",
+      "run": 1,
+      "fired": false,
+      "firedAtTurn": null,
+      "truncated": false,
+      "terminalReason": "completed",
+      "denials": 0,
+      "numTurns": 4,
+      "durationMs": 18137,
+      "costUsd": 0.1353457,
+      "error": null,
+      "init": {
+        "version": "2.1.233",
+        "model": "claude-sonnet-5",
+        "permissionMode": "bypassPermissions",
+        "teaSkillVisible": true,
+        "skillCount": 17,
+        "memoryPaths": {
+          "auto": "C:\\Users\\MSI\\.claude\\projects\\C--Users-MSI-AppData-Local-Temp-ws-EPCuJ8\\memory\\"
+        }
+      },
+      "attempts": [
+        {
+          "fired": false,
+          "firedAtTurn": null,
+          "error": null,
+          "truncated": false,
+          "terminalReason": "completed",
+          "numTurns": 4,
+          "denials": 0
+        }
+      ]
+    },
+    {
+      "id": "N9",
+      "class": "negative",
+      "type": "golf-compression",
+      "split": "train",
+      "run": 3,
+      "fired": false,
+      "firedAtTurn": null,
+      "truncated": false,
+      "terminalReason": "completed",
+      "denials": 0,
+      "numTurns": 3,
+      "durationMs": 16327,
+      "costUsd": 0.12421760000000001,
+      "error": null,
+      "init": {
+        "version": "2.1.233",
+        "model": "claude-sonnet-5",
+        "permissionMode": "bypassPermissions",
+        "teaSkillVisible": true,
+        "skillCount": 17,
+        "memoryPaths": {
+          "auto": "C:\\Users\\MSI\\.claude\\projects\\C--Users-MSI-AppData-Local-Temp-ws-fXO846\\memory\\"
+        }
+      },
+      "attempts": [
+        {
+          "fired": false,
+          "firedAtTurn": null,
+          "error": null,
+          "truncated": false,
+          "terminalReason": "completed",
+          "numTurns": 3,
+          "denials": 0
+        }
+      ]
+    }
+  ]
+}
