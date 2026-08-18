@@ -22,4 +22,4 @@
 3. **rules/catalog.json이 규칙의 단일 출처** — SKILL.md 본문과의 정합은 `check:rules`가 강제(INV-6). 규칙 추가·제거는 원장과 본문을 **한 커밋에서 동기 수정**
 4. **세션 로그 원본·벤치 아티팩트·.env는 비커밋** — .gitignore + pre-commit이 집행(INV-1·2). 커밋 대상은 요약 통계뿐
 5. **harness/PROGRESS.md만 매 세션 갱신** — 나머지 하네스 파일은 결정·사건 발생 시에만
-6. **금칙어 검사 범위** — tea/SKILL.md 본문(frontmatter 제외) + tea/references/ + rules/catalog.json. frontmatter description은 사용자 표현 매칭을 위해 "tokens" 언급이 허용된다(DESIGN §3.2, ADR-0005)
+6. **금칙어 검사 범위** — tea/SKILL.md 본문(frontmatter 제외) + tea/references/ + rules/catalog.json. frontmatter description은 사용자 표현 매칭을 위해 "tokens" 언급이 허용된다(DESIGN §3.2, ADR-0005). **예외: references/spec.md** — 외부 포맷 명세(Schema-Hub)의 원문 보존본이며 사람·유지보수 전용(DESIGN §9.1)이라 INV-5 정의역 밖. 에이전트는 작업 중 이 파일을 로드하지 않는다

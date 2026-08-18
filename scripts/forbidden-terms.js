@@ -46,6 +46,9 @@ function main() {
     const refDir = 'tea/references';
     if (fs.existsSync(refDir)) {
       for (const f of fs.readdirSync(refDir)) {
+        // spec.md 제외 — 외부 포맷 명세(Schema-Hub 원문)의 보존본이며 사람·유지보수 전용(DESIGN §9.1).
+        // TEA의 규칙 문구가 아니므로 INV-5의 정의역 밖. 인용 원문 개변은 오히려 기록 왜곡이다.
+        if (f === 'spec.md') continue;
         if (f.endsWith('.md')) targets.push({ file: path.join(refDir, f), stripFm: false });
       }
     }

@@ -3,9 +3,9 @@
 > 이 팩에서 **매 세션 바뀌는 유일한 파일**. 세션이 끊겨도 이 파일만 읽으면 이어서 작업 가능해야 한다.
 
 ## 현재 상태
-- **현재 phase**: M3 — references (번들). 진입 가능 (DoR: M2 통과 ✓. spec.md만 14섹션 입력 대기)
-- **상태**: M2 완료 — DoD 5/5 통과 (본문 846토큰, 금칙어 0, 원장 교차 21/21. 증거: `phases/M2.md`)
-- **산출물**: `tea/SKILL.md` — frontmatter는 M1 확정 description v1, 본문은 규칙 21종 전개. 원장 text_en 동기 완료
+- **현재 phase**: M4 — 계측 하네스. 진입 가능 (DoR: M2 통과 ✓ · 대상 레포 접근 확인 필요 · Ponytail 설치 확인 필요)
+- **상태**: M3 완료 — DoD 5/5 (사례집 4종 28건, 금칙어 0, spec.md 배치표 확정. 증거: `phases/M3.md`)
+- **산출물**: `tea/` 스킬 배포물 완성형 — SKILL.md + references 5종 (read 7·write 7·think 6·boundaries 8·spec)
 - **마지막 갱신**: 2026-08-18
 
 ## 직전에 끝낸 것 (M0, 2026-08-14)
@@ -15,14 +15,15 @@
 - rules/catalog.json — 규칙 원장 (L1~4 + R·W·T 12규칙 측정 핸들 12종 + X1~4 + P1)
 - 검증 스크립트 4종(token-budget·forbidden-terms·rule-audit·secret-scan) + 자기시험 10/10
 
-## 다음 할 일 (M3 — references 번들)
-1. tea/references/read.md·write.md·think.md — 축별 판단 사례 각 ≥5건, 경계 사례(DESIGN §4.6) 포함. 사례는 규칙 재진술이 아니라 적용/비적용이 갈리는 지점만
-2. tea/references/boundaries.md — 금지·불가침 사례집 (X 규칙이 축약 지시로 오독되는 상황 포함, INV-4 문서화)
-3. 게이트: 사례 수 ≥5/파일, `check:terms`(references 포함, INV-5), `check:budget` 재판정(INV-3)
-4. spec.md는 Schema-Hub 14섹션 수령 후 (DoD 5만 보류 — M4 진입 비차단)
+## 다음 할 일 (M4 — 계측 하네스)
+1. DoR 확인: 대상 레포(tiangolo/full-stack-fastapi-template) 접근, **Ponytail 설치·모드 확인(B·C군 공통 조건)**
+2. 세션 로그 파서 — 측정 핸들 12종 추출 (원장 rules/catalog.json). 합성 픽스처가 아닌 실제 로그 1건으로 검증(RUNBOOK #8)
+3. 3군 러너(A/B/C) + 집계기 — 총 토큰(input+output+reasoning, INV-10), LOC 부재(INV-8), 3군 매트릭스(INV-9), mean±sd
+4. 태스크 12티켓 포팅 + B군 파일럿 1회 (완료 통지 즉시 저장, RUNBOOK #9)
+5. 주의: M1의 실행 인프라 교훈 재사용 — Node22 러너, 분리 실행, 증분 저장, 재개 루프
 
 ## 미결 질문 / 사용자 결정 대기
-- **Schema-Hub 14섹션 목록** — `references/spec.md` 배치표 확정용. M3 DoD 5만 차단 (M3 나머지·M4 진입은 가능)
+- ~~Schema-Hub 14섹션 목록~~ — 해소 (2026-08-18 수령: JTech-CO/Schema-Hub `MD/template.md` → spec.md 배치표 확정)
 - **검증 모델 2종 확정** — INV-7 게이트용. **M5 진입을 차단**한다
 - ~~토크나이저 선택~~ — 해소: ADR-0009 (gpt-tokenizer 3.4.0, cl100k_base)
 
@@ -41,6 +42,7 @@
 | M1 | C-1 어댑터 학습셋 | 39트라이얼 전량 유효 | recall 21/21 · precision 18/18 · 골프 0/6 (어댑터 v2: 단발 편집 제외 조항 추가 후) | 2026-08-18 |
 | M1 | **최종 판정 (DoD 2~4·무결성)** | `--score <병합> --gate --gate-set all` | **전면 PASS** — 검증 recall 15/15, precision 6/6, 골프 0/12, 66/66 유효 | 2026-08-18 |
 | M2 | DoD 1~5 (예산·금칙어·원장 교차) | `check:budget`·`check:terms`·`check:rules` | 본문 846tok·금칙어 0·교차 21/21 — **전면 PASS** | 2026-08-18 |
+| M3 | DoD 1~5 (사례·금칙어·예산·불가침·spec) | 사례 카운트 + 게이트 3종 | 사례 28건(7·7·6·8)·금칙어 0·846tok 유지·배치표 확정 — **전면 PASS** | 2026-08-18 |
 
 ## 막힘 기록 (STOP 발동 시)
 ### 2026-08-18 — M1 recall 게이트 미달 (STOP) — **해소됨 (같은 날, C-1 채택으로 게이트 전면 통과)**
