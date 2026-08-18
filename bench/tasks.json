@@ -1,0 +1,19 @@
+{
+  "source": "DietrichGebert/ponytail benchmarks/agentic/tasks.py — fixture 티어 12티켓 원문 그대로 (ADR-0006)",
+  "fixture": "tiangolo/full-stack-fastapi-template @ cd83fc1 (MIT) — bench/target",
+  "no_run": "Write the implementation (include tests if you normally would for a change like this). Do not run a dev server, install dependencies, run a database, or open a browser to verify -- just write the code and stop. Only the code you write is measured, not its execution.",
+  "tasks": [
+    { "id": "tmpl-fe-datepicker",  "area": "frontend", "prompt": "Add a date picker component to the frontend." },
+    { "id": "tmpl-fe-colorpicker", "area": "frontend", "prompt": "Add a color picker component to the frontend." },
+    { "id": "tmpl-fe-command",     "area": "frontend", "prompt": "Add a command palette (searchable command menu) to the frontend." },
+    { "id": "tmpl-fe-dropzone",    "area": "frontend", "prompt": "Add a file upload dropzone component to the frontend." },
+    { "id": "tmpl-fe-wizard",      "area": "frontend", "prompt": "Add a multi-step form wizard component to the frontend." },
+    { "id": "tmpl-fe-rating",      "area": "frontend", "prompt": "Add a star rating input component to the frontend." },
+    { "id": "tmpl-be-duplicate",   "area": "backend",  "prompt": "Add an endpoint to duplicate an item." },
+    { "id": "tmpl-be-search",      "area": "backend",  "prompt": "Add an endpoint to search items by title." },
+    { "id": "tmpl-be-count",       "area": "backend",  "prompt": "Add an endpoint that returns how many items the current user has." },
+    { "id": "tmpl-be-archive",     "area": "backend",  "prompt": "Add the ability to archive and unarchive an item." },
+    { "id": "tmpl-be-bulkdelete",  "area": "backend",  "prompt": "Add an endpoint to delete several items at once." },
+    { "id": "tmpl-be-csv",         "area": "backend",  "prompt": "Add an endpoint to export the current user's items as CSV." }
+  ]
+}

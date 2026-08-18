@@ -1,0 +1,102 @@
+{
+  "meta": {
+    "startedAt": "2026-08-18T17:24:42.440Z",
+    "fixtureCommit": "cd83fc1",
+    "teaSkillHash": "f58e7c9181eb",
+    "adapterHash": "80a879368f16",
+    "models": {
+      "sonnet": "claude-sonnet-5",
+      "opus": "claude-opus-5"
+    },
+    "trialTimeoutMs": 600000,
+    "noRun": "Write the implementation (include tests if you normally would for a change like this). Do not run a dev server, install dependencies, run a database, or open a browser to verify -- just write the code and stop. Only the code you write is measured, not its execution.",
+    "cliFlags": "bypassPermissions | stream-json | setting-sources=project,local | strict-mcp-config | disallowedTools=Bash,PowerShell | plugin-dir(B,C) | PONYTAIL_DEFAULT_MODE A:off B/C:full"
+  },
+  "complete": true,
+  "expectedTrials": 1,
+  "trials": [
+    {
+      "id": "tmpl-be-count#B#sonnet#1",
+      "task": "tmpl-be-count",
+      "area": "backend",
+      "arm": "B",
+      "model": "sonnet",
+      "run": 1,
+      "log": "bench\\logs\\bench-2026-08-18T17-24-42\\tmpl-be-count_B_sonnet_1.jsonl",
+      "classification": "ok",
+      "error": null,
+      "assertion": {
+        "pass": true,
+        "filesChanged": 1,
+        "areaTouched": true
+      },
+      "teaFired": false,
+      "init": {
+        "model": "claude-sonnet-5",
+        "skills": [
+          "deep-research",
+          "ponytail:ponytail",
+          "ponytail:ponytail-audit",
+          "ponytail:ponytail-debt",
+          "ponytail:ponytail-gain",
+          "ponytail:ponytail-help",
+          "ponytail:ponytail-review",
+          "design-sync",
+          "dataviz",
+          "update-config",
+          "verify",
+          "debug",
+          "code-review",
+          "simplify",
+          "batch",
+          "fewer-permission-prompts",
+          "doctor",
+          "loop",
+          "schedule",
+          "claude-api",
+          "run",
+          "run-skill-generator"
+        ],
+        "permissionMode": "bypassPermissions"
+      },
+      "metrics": {
+        "inputTokens": 18,
+        "outputTokens": 2029,
+        "reasoningTokens": 685,
+        "cacheCreationTokens": 37846,
+        "cacheReadTokens": 284544,
+        "totalTokens": 324437,
+        "numTurns": 10,
+        "durationMs": 39669,
+        "costUsd": 0.3429282,
+        "denials": 0
+      },
+      "authFailure": false,
+      "handles": {
+        "handles": {
+          "r1_searchLedReadRatio": 1,
+          "r2_rangedReadRatio": 0,
+          "r3_repeatReads": 0,
+          "r4_treeCalls": 2,
+          "w1_fullRewriteRatio": 0,
+          "w2_anchorMisses": 0,
+          "w3_newFiles": 0,
+          "w4_unrequestedArtifacts": 0,
+          "w5_codeRestatements": 0,
+          "t1_reverts": 0,
+          "t2_sameFileChurn": 0,
+          "t3_editFailureRatio": 0
+        },
+        "counts": {
+          "toolCalls": 9,
+          "reads": 1,
+          "searches": 7,
+          "edits": 1,
+          "writes": 0,
+          "editAttempts": 1,
+          "editFailures": 0
+        }
+      }
+    }
+  ]
+}

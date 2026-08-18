@@ -3,10 +3,10 @@
 > 이 팩에서 **매 세션 바뀌는 유일한 파일**. 세션이 끊겨도 이 파일만 읽으면 이어서 작업 가능해야 한다.
 
 ## 현재 상태
-- **현재 phase**: M4 — 계측 하네스. **DoR 3/3 충족, 진행 중** (Ponytail 4.9.0 설치·군별 env 제어 실증 · 대상 레포 클론 · 검증 모델 확정)
-- **상태**: M3 완료 — DoD 5/5 (사례집 4종 28건, 금칙어 0, spec.md 배치표 확정. 증거: `phases/M3.md`)
-- **산출물**: `tea/` 스킬 배포물 완성형 — SKILL.md + references 5종 (read 7·write 7·think 6·boundaries 8·spec)
-- **마지막 갱신**: 2026-08-18
+- **현재 phase**: M5 — 3군 벤치마크. DoR 2/3 (M4 통과 ✓ · 모델 확정 ✓ · **실행 예산 승인 대기** — 288트라이얼 ≈ $100~150, 수 시간)
+- **상태**: M4 완료 — DoD 5/5, 전부 실측 실증 (증거: `phases/M4.md`)
+- **산출물**: bench/ 계측 하네스 — tasks.json(선행 12티켓)·run3.js(3군 러너)·parse-handles.js(12핸들)·aggregate.js(집계·스키마 게이트). 픽스처 cd83fc1 고정
+- **마지막 갱신**: 2026-08-19
 
 ## 직전에 끝낸 것 (M0, 2026-08-14)
 - **하네스 팩 결손 보완** — 팩이 참조하나 부재였던 `phases/`(_TEMPLATE, M0~M8)·`decisions/`(ADR-0001~0009)·docs 보조 문서를 백서 기반으로 재구성. DOD_GUIDE는 `gates/`로 이동. (기존 "인스턴스화 완료" 기록과 실제 파일의 불일치를 해소)
@@ -15,12 +15,12 @@
 - rules/catalog.json — 규칙 원장 (L1~4 + R·W·T 12규칙 측정 핸들 12종 + X1~4 + P1)
 - 검증 스크립트 4종(token-budget·forbidden-terms·rule-audit·secret-scan) + 자기시험 10/10
 
-## 다음 할 일 (M4 — 계측 하네스)
-1. DoR 확인: 대상 레포(tiangolo/full-stack-fastapi-template) 접근, **Ponytail 설치·모드 확인(B·C군 공통 조건)**
-2. 세션 로그 파서 — 측정 핸들 12종 추출 (원장 rules/catalog.json). 합성 픽스처가 아닌 실제 로그 1건으로 검증(RUNBOOK #8)
-3. 3군 러너(A/B/C) + 집계기 — 총 토큰(input+output+reasoning, INV-10), LOC 부재(INV-8), 3군 매트릭스(INV-9), mean±sd
-4. 태스크 12티켓 포팅 + B군 파일럿 1회 (완료 통지 즉시 저장, RUNBOOK #9)
-5. 주의: M1의 실행 인프라 교훈 재사용 — Node22 러너, 분리 실행, 증분 저장, 재개 루프
+## 다음 할 일 (M5 — 3군 벤치마크)
+1. **사용자 승인**: 288트라이얼(12태스크 × 3군 × n4 × 2모델) 실행 예산 ≈ $100~150, 소요 수 시간
+2. B군 선행 재현 대조 — 선행 공개치(ponytail benchmarks/agentic/runs)와 우리 B군 수치 비교 (RUNBOOK #10 — 불일치 시 C군 측정 금지)
+3. 본 실행 — 분리 프로세스 + 재개 루프(M1 인프라), 완료 통지 즉시 저장
+4. 집계 mean±sd·C−B 델타·핸들 12종. **채택 판정은 M6** — 중간 수치로 규칙을 손대지 않는다(HARNESS §2.3)
+5. 적대적 티어(불가침, INV-4)는 선행 safety 티어 7태스크 재사용 검토
 
 ## 미결 질문 / 사용자 결정 대기
 - ~~Schema-Hub 14섹션 목록~~ — 해소 (2026-08-18 수령: JTech-CO/Schema-Hub `MD/template.md` → spec.md 배치표 확정)
@@ -43,6 +43,7 @@
 | M1 | **최종 판정 (DoD 2~4·무결성)** | `--score <병합> --gate --gate-set all` | **전면 PASS** — 검증 recall 15/15, precision 6/6, 골프 0/12, 66/66 유효 | 2026-08-18 |
 | M2 | DoD 1~5 (예산·금칙어·원장 교차) | `check:budget`·`check:terms`·`check:rules` | 본문 846tok·금칙어 0·교차 21/21 — **전면 PASS** | 2026-08-18 |
 | M3 | DoD 1~5 (사례·금칙어·예산·불가침·spec) | 사례 카운트 + 게이트 3종 | 사례 28건(7·7·6·8)·금칙어 0·846tok 유지·배치표 확정 — **전면 PASS** | 2026-08-18 |
+| M4 | DoD 1~5 (파서·스키마·매트릭스·파일럿) | parse-handles + aggregate --schema-check + run3 | 실로그 12/12 핸들·reasoning 685 실측·LOC 0·B군 파일럿 ok(324,437tok·10턴) — **전면 PASS** | 2026-08-19 |
 
 ## 막힘 기록 (STOP 발동 시)
 ### 2026-08-18 — M1 recall 게이트 미달 (STOP) — **해소됨 (같은 날, C-1 채택으로 게이트 전면 통과)**
