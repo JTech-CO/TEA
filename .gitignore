@@ -23,3 +23,6 @@ Thumbs.db
 
 # 러너 전용 Node LTS (Node 25.2.0 네이티브 크래시 회피 — ENVIRONMENT 참조)
 tools/node22/
+
+# 벤치마크 대상 레포 (외부 코드 — 비커밋)
+bench/target/

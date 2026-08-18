@@ -61,7 +61,9 @@
 
 **v1 폐기 사유(2026-08-15).** 초판은 `--max-turns 4` + 도구 화이트리스트를 썼다. 화이트리스트는 도구 목록을 제한하지 못한 채 권한 거부만 만들었고(1세션 8건), 거부가 턴을 소진해 상한을 넘겼다. 스킬을 호출한 세션은 턴을 하나 더 쓰므로 상한 초과 확률이 높아 "오류"로 제외됐고, 그 결과 **발화 트라이얼만 선택적으로 탈락**해 recall이 0/11로 관측됐다. 실제로는 제외된 26건 중 18건이 발화했다. 게이트가 아니라 계측을 고쳤다(HARNESS §2.3 1단계, RUNBOOK #20~22).
 
-## 벤치마크 실행 환경 (M4에서 확정)
-- 대상 레포: tiangolo/full-stack-fastapi-template (ADR-0006)
-- 실행: headless 에이전트 세션, 완료 통지 즉시 저장(RUNBOOK #9)
-- 검증 모델 2종: **미확정 — 사용자 입력 대기 (M5 진입 차단)**
+## 벤치마크 실행 환경 (M4)
+- 대상 레포: tiangolo/full-stack-fastapi-template — `bench/target/`에 클론(비커밋, .gitignore)
+- 실행: headless 에이전트 세션, 완료 통지 즉시 저장(RUNBOOK #9). M1 인프라 재사용(Node22 러너·분리 실행·증분 저장·재개 루프)
+- **검증 모델 2종: `claude-sonnet-5` + `claude-opus-5`** (사용자 확정 2026-08-19 — INV-7 모델 2종 게이트, DESIGN §7.3)
+- **Ponytail 4.9.0** — user 스코프 플러그인 설치(스킬 6종·훅 3종·상시 ~983tok). 전역 `%APPDATA%\ponytail\config.json` = `{"defaultMode":"off"}` (비벤치마크 세션 오염 방지)
+- **군별 모드 제어**: `PONYTAIL_DEFAULT_MODE` env가 config를 이긴다(2026-08-19 프로브 실증: config off + env full → 주입 확인). A군 `off` / B·C군 `full`을 트라이얼 env로 주입 — 결정적 3군 분리(INV-9)
