@@ -153,10 +153,14 @@ function runTrial(cli, task, arm, model, logPath) {
       // 채점: diff 존재 + 티켓 영역(frontend/backend) 접촉 = 기능 수행 (assertion v1)
       const diff = git(ws, ['diff', '--numstat', 'HEAD']);
       const diffLines = (diff.stdout || '').split('\n').filter(Boolean);
-      const touched = diffLines.map((l) => l.split('\t')[2] || '').filter(Boolean);
-      const areaTouched = touched.some((p) => p.replace(/\\/g, '/').startsWith(task.area + '/'));
+      // 신규 파일은 untracked라 diff에 없다 — 영역 판정에 반드시 포함해야 한다.
+      // (미포함 시 새 파일 하나만 만든 납품이 오답 처리되는 채점 결함 — B군 실측에서 발견)
       const status = git(ws, ['status', '--porcelain']);
-      const untracked = (status.stdout || '').split('\n').filter((l) => l.startsWith('??')).length;
+      const untrackedPaths = (status.stdout || '').split('\n')
+        .filter((l) => l.startsWith('??')).map((l) => l.slice(3).trim().replace(/^"|"$/g, ''));
+      const untracked = untrackedPaths.length;
+      const touched = diffLines.map((l) => l.split('\t')[2] || '').filter(Boolean).concat(untrackedPaths);
+      const areaTouched = touched.some((p) => p.replace(/\\/g, '/').startsWith(task.area + '/'));
       removeDirNative(ws);
 
       let row = {
@@ -292,8 +296,9 @@ async function main() {
 
   if (aborted) {
     flush(false);
+    // 종료 코드 3 = 인증·한도 중단 — 재개 루프가 대기 후 재시도하도록 구분한다
     console.error('[run3] 인증·한도로 전체 중단 — 증분 저장분 유지, --pairs로 재개');
-    process.exit(1);
+    process.exit(3);
   }
   flush(true);
   console.log(`[run3] 완료 — 결과 ${path.relative(ROOT, outPath)}`);

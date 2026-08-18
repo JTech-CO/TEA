@@ -1,0 +1,185 @@
+{
+  "meta": {
+    "startedAt": "2026-08-18T20:51:58.617Z",
+    "fixtureCommit": "cd83fc1",
+    "teaSkillHash": "f58e7c9181eb",
+    "adapterHash": "80a879368f16",
+    "models": {
+      "sonnet": "claude-sonnet-5",
+      "opus": "claude-opus-5"
+    },
+    "trialTimeoutMs": 600000,
+    "noRun": "Write the implementation (include tests if you normally would for a change like this). Do not run a dev server, install dependencies, run a database, or open a browser to verify -- just write the code and stop. Only the code you write is measured, not its execution.",
+    "cliFlags": "bypassPermissions | stream-json | setting-sources=project,local | strict-mcp-config | disallowedTools=Bash,PowerShell | plugin-dir(B,C) | PONYTAIL_DEFAULT_MODE A:off B/C:full"
+  },
+  "complete": false,
+  "expectedTrials": 74,
+  "trials": [
+    {
+      "id": "tmpl-fe-command#B#opus#2",
+      "task": "tmpl-fe-command",
+      "area": "frontend",
+      "arm": "B",
+      "model": "opus",
+      "run": 2,
+      "log": "bench\\logs\\bench-2026-08-18T20-51-58\\tmpl-fe-command_B_opus_2.jsonl",
+      "classification": "error",
+      "error": "You've hit your session limit · resets 6:30am (Asia/Seoul)",
+      "assertion": {
+        "pass": false,
+        "filesChanged": 0,
+        "areaTouched": false
+      },
+      "teaFired": false,
+      "init": {
+        "model": "claude-opus-5",
+        "skills": [
+          "deep-research",
+          "ponytail:ponytail",
+          "ponytail:ponytail-audit",
+          "ponytail:ponytail-debt",
+          "ponytail:ponytail-gain",
+          "ponytail:ponytail-help",
+          "ponytail:ponytail-review",
+          "design-sync",
+          "dataviz",
+          "update-config",
+          "verify",
+          "debug",
+          "code-review",
+          "simplify",
+          "batch",
+          "fewer-permission-prompts",
+          "doctor",
+          "loop",
+          "schedule",
+          "claude-api",
+          "run",
+          "run-skill-generator"
+        ],
+        "permissionMode": "bypassPermissions"
+      },
+      "metrics": {
+        "inputTokens": 0,
+        "outputTokens": 0,
+        "reasoningTokens": 0,
+        "cacheCreationTokens": 0,
+        "cacheReadTokens": 0,
+        "totalTokens": 0,
+        "numTurns": 1,
+        "durationMs": 853,
+        "costUsd": 0,
+        "denials": 0
+      },
+      "authFailure": true,
+      "handles": {
+        "handles": {
+          "r1_searchLedReadRatio": null,
+          "r2_rangedReadRatio": null,
+          "r3_repeatReads": 0,
+          "r4_treeCalls": 0,
+          "w1_fullRewriteRatio": null,
+          "w2_anchorMisses": 0,
+          "w3_newFiles": 0,
+          "w4_unrequestedArtifacts": 0,
+          "w5_codeRestatements": 0,
+          "t1_reverts": 0,
+          "t2_sameFileChurn": 0,
+          "t3_editFailureRatio": null
+        },
+        "counts": {
+          "toolCalls": 0,
+          "reads": 0,
+          "searches": 0,
+          "edits": 0,
+          "writes": 0,
+          "editAttempts": 0,
+          "editFailures": 0
+        }
+      }
+    },
+    {
+      "id": "tmpl-fe-command#B#opus#3",
+      "task": "tmpl-fe-command",
+      "area": "frontend",
+      "arm": "B",
+      "model": "opus",
+      "run": 3,
+      "log": "bench\\logs\\bench-2026-08-18T20-51-58\\tmpl-fe-command_B_opus_3.jsonl",
+      "classification": "error",
+      "error": "You've hit your session limit · resets 6:30am (Asia/Seoul)",
+      "assertion": {
+        "pass": false,
+        "filesChanged": 0,
+        "areaTouched": false
+      },
+      "teaFired": false,
+      "init": {
+        "model": "claude-opus-5",
+        "skills": [
+          "deep-research",
+          "ponytail:ponytail",
+          "ponytail:ponytail-audit",
+          "ponytail:ponytail-debt",
+          "ponytail:ponytail-gain",
+          "ponytail:ponytail-help",
+          "ponytail:ponytail-review",
+          "design-sync",
+          "dataviz",
+          "update-config",
+          "verify",
+          "debug",
+          "code-review",
+          "simplify",
+          "batch",
+          "fewer-permission-prompts",
+          "doctor",
+          "loop",
+          "schedule",
+          "claude-api",
+          "run",
+          "run-skill-generator"
+        ],
+        "permissionMode": "bypassPermissions"
+      },
+      "metrics": {
+        "inputTokens": 0,
+        "outputTokens": 0,
+        "reasoningTokens": 0,
+        "cacheCreationTokens": 0,
+        "cacheReadTokens": 0,
+        "totalTokens": 0,
+        "numTurns": 1,
+        "durationMs": 839,
+        "costUsd": 0,
+        "denials": 0
+      },
+      "authFailure": true,
+      "handles": {
+        "handles": {
+          "r1_searchLedReadRatio": null,
+          "r2_rangedReadRatio": null,
+          "r3_repeatReads": 0,
+          "r4_treeCalls": 0,
+          "w1_fullRewriteRatio": null,
+          "w2_anchorMisses": 0,
+          "w3_newFiles": 0,
+          "w4_unrequestedArtifacts": 0,
+          "w5_codeRestatements": 0,
+          "t1_reverts": 0,
+          "t2_sameFileChurn": 0,
+          "t3_editFailureRatio": null
+        },
+        "counts": {
+          "toolCalls": 0,
+          "reads": 0,
+          "searches": 0,
+          "edits": 0,
+          "writes": 0,
+          "editAttempts": 0,
+          "editFailures": 0
+        }
+      }
+    }
+  ]
+}

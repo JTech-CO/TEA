@@ -28,7 +28,10 @@
       "assertion": {
         "pass": true,
         "filesChanged": 1,
-        "areaTouched": true
+        "areaTouched": true,
+        "assertionV1": true,
+        "rescoredFromLog": true,
+        "logEdits": 1
       },
       "teaFired": false,
       "init": {

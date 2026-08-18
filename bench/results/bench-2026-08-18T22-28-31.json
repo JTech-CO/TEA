@@ -1,0 +1,179 @@
+{
+  "meta": {
+    "startedAt": "2026-08-18T22:28:31.399Z",
+    "fixtureCommit": "cd83fc1",
+    "teaSkillHash": "f58e7c9181eb",
+    "adapterHash": "80a879368f16",
+    "models": {
+      "sonnet": "claude-sonnet-5",
+      "opus": "claude-opus-5"
+    },
+    "trialTimeoutMs": 600000,
+    "noRun": "Write the implementation (include tests if you normally would for a change like this). Do not run a dev server, install dependencies, run a database, or open a browser to verify -- just write the code and stop. Only the code you write is measured, not its execution.",
+    "cliFlags": "bypassPermissions | stream-json | setting-sources=project,local | strict-mcp-config | disallowedTools=Bash,PowerShell | plugin-dir(B,C) | PONYTAIL_DEFAULT_MODE A:off B/C:full"
+  },
+  "complete": false,
+  "expectedTrials": 96,
+  "trials": [
+    {
+      "id": "tmpl-fe-datepicker#A#sonnet#1",
+      "task": "tmpl-fe-datepicker",
+      "area": "frontend",
+      "arm": "A",
+      "model": "sonnet",
+      "run": 1,
+      "log": "bench\\logs\\bench-2026-08-18T22-28-31\\tmpl-fe-datepicker_A_sonnet_1.jsonl",
+      "classification": "ok",
+      "error": null,
+      "assertion": {
+        "pass": true,
+        "filesChanged": 4,
+        "areaTouched": true,
+        "assertionV1": true,
+        "rescoredFromLog": true,
+        "logEdits": 6
+      },
+      "teaFired": false,
+      "init": {
+        "model": "claude-sonnet-5",
+        "skills": [
+          "deep-research",
+          "design-sync",
+          "dataviz",
+          "update-config",
+          "verify",
+          "debug",
+          "code-review",
+          "simplify",
+          "batch",
+          "fewer-permission-prompts",
+          "doctor",
+          "loop",
+          "schedule",
+          "claude-api",
+          "run",
+          "run-skill-generator"
+        ],
+        "permissionMode": "bypassPermissions"
+      },
+      "metrics": {
+        "inputTokens": 218,
+        "outputTokens": 7934,
+        "reasoningTokens": 2176,
+        "cacheCreationTokens": 58761,
+        "cacheReadTokens": 463344,
+        "totalTokens": 530257,
+        "numTurns": 20,
+        "durationMs": 78873,
+        "costUsd": 0.6118281999999999,
+        "denials": 0
+      },
+      "authFailure": false,
+      "handles": {
+        "handles": {
+          "r1_searchLedReadRatio": 1,
+          "r2_rangedReadRatio": 0,
+          "r3_repeatReads": 0,
+          "r4_treeCalls": 5,
+          "w1_fullRewriteRatio": 0,
+          "w2_anchorMisses": 0,
+          "w3_newFiles": 3,
+          "w4_unrequestedArtifacts": 0,
+          "w5_codeRestatements": 0,
+          "t1_reverts": 0,
+          "t2_sameFileChurn": 1,
+          "t3_editFailureRatio": 0
+        },
+        "counts": {
+          "toolCalls": 19,
+          "reads": 8,
+          "searches": 5,
+          "edits": 3,
+          "writes": 3,
+          "editAttempts": 6,
+          "editFailures": 0
+        }
+      }
+    },
+    {
+      "id": "tmpl-fe-datepicker#A#sonnet#2",
+      "task": "tmpl-fe-datepicker",
+      "area": "frontend",
+      "arm": "A",
+      "model": "sonnet",
+      "run": 2,
+      "log": "bench\\logs\\bench-2026-08-18T22-28-31\\tmpl-fe-datepicker_A_sonnet_2.jsonl",
+      "classification": "ok",
+      "error": null,
+      "assertion": {
+        "pass": true,
+        "filesChanged": 4,
+        "areaTouched": true,
+        "assertionV1": true,
+        "rescoredFromLog": true,
+        "logEdits": 5
+      },
+      "teaFired": false,
+      "init": {
+        "model": "claude-sonnet-5",
+        "skills": [
+          "deep-research",
+          "design-sync",
+          "dataviz",
+          "update-config",
+          "verify",
+          "debug",
+          "code-review",
+          "simplify",
+          "batch",
+          "fewer-permission-prompts",
+          "doctor",
+          "loop",
+          "schedule",
+          "claude-api",
+          "run",
+          "run-skill-generator"
+        ],
+        "permissionMode": "bypassPermissions"
+      },
+      "metrics": {
+        "inputTokens": 22,
+        "outputTokens": 13546,
+        "reasoningTokens": 6753,
+        "cacheCreationTokens": 36554,
+        "cacheReadTokens": 439210,
+        "totalTokens": 489332,
+        "numTurns": 17,
+        "durationMs": 117569,
+        "costUsd": 0.5549280000000001,
+        "denials": 0
+      },
+      "authFailure": false,
+      "handles": {
+        "handles": {
+          "r1_searchLedReadRatio": 1,
+          "r2_rangedReadRatio": 0,
+          "r3_repeatReads": 0,
+          "r4_treeCalls": 2,
+          "w1_fullRewriteRatio": 0,
+          "w2_anchorMisses": 0,
+          "w3_newFiles": 3,
+          "w4_unrequestedArtifacts": 0,
+          "w5_codeRestatements": 0,
+          "t1_reverts": 0,
+          "t2_sameFileChurn": 1,
+          "t3_editFailureRatio": 0
+        },
+        "counts": {
+          "toolCalls": 16,
+          "reads": 8,
+          "searches": 3,
+          "edits": 2,
+          "writes": 3,
+          "editAttempts": 5,
+          "editFailures": 0
+        }
+      }
+    }
+  ]
+}
