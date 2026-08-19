@@ -174,6 +174,1760 @@
           "editFailures": 0
         }
       }
+    },
+    {
+      "id": "tmpl-fe-datepicker#A#sonnet#3",
+      "task": "tmpl-fe-datepicker",
+      "area": "frontend",
+      "arm": "A",
+      "model": "sonnet",
+      "run": 3,
+      "log": "bench\\logs\\bench-2026-08-18T22-28-31\\tmpl-fe-datepicker_A_sonnet_3.jsonl",
+      "classification": "ok",
+      "error": null,
+      "assertion": {
+        "pass": true,
+        "filesChanged": 4,
+        "areaTouched": true,
+        "assertionV1": true,
+        "rescoredFromLog": true,
+        "logEdits": 6
+      },
+      "teaFired": false,
+      "init": {
+        "model": "claude-sonnet-5",
+        "skills": [
+          "deep-research",
+          "design-sync",
+          "dataviz",
+          "update-config",
+          "verify",
+          "debug",
+          "code-review",
+          "simplify",
+          "batch",
+          "fewer-permission-prompts",
+          "doctor",
+          "loop",
+          "schedule",
+          "claude-api",
+          "run",
+          "run-skill-generator"
+        ],
+        "permissionMode": "bypassPermissions"
+      },
+      "metrics": {
+        "inputTokens": 20,
+        "outputTokens": 13608,
+        "reasoningTokens": 6546,
+        "cacheCreationTokens": 29721,
+        "cacheReadTokens": 383003,
+        "totalTokens": 426352,
+        "numTurns": 18,
+        "durationMs": 114258,
+        "costUsd": 0.49800189999999994,
+        "denials": 0
+      },
+      "authFailure": false,
+      "handles": {
+        "handles": {
+          "r1_searchLedReadRatio": 1,
+          "r2_rangedReadRatio": 0,
+          "r3_repeatReads": 0,
+          "r4_treeCalls": 4,
+          "w1_fullRewriteRatio": 0,
+          "w2_anchorMisses": 0,
+          "w3_newFiles": 3,
+          "w4_unrequestedArtifacts": 0,
+          "w5_codeRestatements": 0,
+          "t1_reverts": 0,
+          "t2_sameFileChurn": 1,
+          "t3_editFailureRatio": 0
+        },
+        "counts": {
+          "toolCalls": 17,
+          "reads": 6,
+          "searches": 5,
+          "edits": 3,
+          "writes": 3,
+          "editAttempts": 6,
+          "editFailures": 0
+        }
+      }
+    },
+    {
+      "id": "tmpl-fe-datepicker#A#sonnet#4",
+      "task": "tmpl-fe-datepicker",
+      "area": "frontend",
+      "arm": "A",
+      "model": "sonnet",
+      "run": 4,
+      "log": "bench\\logs\\bench-2026-08-18T22-28-31\\tmpl-fe-datepicker_A_sonnet_4.jsonl",
+      "classification": "ok",
+      "error": null,
+      "assertion": {
+        "pass": true,
+        "filesChanged": 4,
+        "areaTouched": true,
+        "assertionV1": true,
+        "rescoredFromLog": true,
+        "logEdits": 4
+      },
+      "teaFired": false,
+      "init": {
+        "model": "claude-sonnet-5",
+        "skills": [
+          "deep-research",
+          "design-sync",
+          "dataviz",
+          "update-config",
+          "verify",
+          "debug",
+          "code-review",
+          "simplify",
+          "batch",
+          "fewer-permission-prompts",
+          "doctor",
+          "loop",
+          "schedule",
+          "claude-api",
+          "run",
+          "run-skill-generator"
+        ],
+        "permissionMode": "bypassPermissions"
+      },
+      "metrics": {
+        "inputTokens": 16,
+        "outputTokens": 11880,
+        "reasoningTokens": 6757,
+        "cacheCreationTokens": 37019,
+        "cacheReadTokens": 288610,
+        "totalTokens": 337525,
+        "numTurns": 17,
+        "durationMs": 100208,
+        "costUsd": 0.48754,
+        "denials": 0
+      },
+      "authFailure": false,
+      "handles": {
+        "handles": {
+          "r1_searchLedReadRatio": 1,
+          "r2_rangedReadRatio": 0,
+          "r3_repeatReads": 0,
+          "r4_treeCalls": 3,
+          "w1_fullRewriteRatio": 0,
+          "w2_anchorMisses": 0,
+          "w3_newFiles": 3,
+          "w4_unrequestedArtifacts": 0,
+          "w5_codeRestatements": 0,
+          "t1_reverts": 0,
+          "t2_sameFileChurn": 0,
+          "t3_editFailureRatio": 0
+        },
+        "counts": {
+          "toolCalls": 16,
+          "reads": 8,
+          "searches": 4,
+          "edits": 1,
+          "writes": 3,
+          "editAttempts": 4,
+          "editFailures": 0
+        }
+      }
+    },
+    {
+      "id": "tmpl-fe-datepicker#A#opus#2",
+      "task": "tmpl-fe-datepicker",
+      "area": "frontend",
+      "arm": "A",
+      "model": "opus",
+      "run": 2,
+      "log": "bench\\logs\\bench-2026-08-18T22-28-31\\tmpl-fe-datepicker_A_opus_2.jsonl",
+      "classification": "ok",
+      "error": null,
+      "assertion": {
+        "pass": true,
+        "filesChanged": 3,
+        "areaTouched": false,
+        "assertionV1": false,
+        "rescoredFromLog": true,
+        "logEdits": 13
+      },
+      "teaFired": false,
+      "init": {
+        "model": "claude-opus-5",
+        "skills": [
+          "deep-research",
+          "design-sync",
+          "dataviz",
+          "update-config",
+          "verify",
+          "debug",
+          "code-review",
+          "simplify",
+          "batch",
+          "fewer-permission-prompts",
+          "doctor",
+          "loop",
+          "schedule",
+          "claude-api",
+          "run",
+          "run-skill-generator"
+        ],
+        "permissionMode": "bypassPermissions"
+      },
+      "metrics": {
+        "inputTokens": 46,
+        "outputTokens": 25671,
+        "reasoningTokens": 12353,
+        "cacheCreationTokens": 46950,
+        "cacheReadTokens": 1059177,
+        "totalTokens": 1131844,
+        "numTurns": 29,
+        "durationMs": 289167,
+        "costUsd": 1.6416885,
+        "denials": 0
+      },
+      "authFailure": false,
+      "handles": {
+        "handles": {
+          "r1_searchLedReadRatio": 1,
+          "r2_rangedReadRatio": 0.273,
+          "r3_repeatReads": 1,
+          "r4_treeCalls": 4,
+          "w1_fullRewriteRatio": 0,
+          "w2_anchorMisses": 0,
+          "w3_newFiles": 3,
+          "w4_unrequestedArtifacts": 0,
+          "w5_codeRestatements": 0,
+          "t1_reverts": 0,
+          "t2_sameFileChurn": 8,
+          "t3_editFailureRatio": 0
+        },
+        "counts": {
+          "toolCalls": 28,
+          "reads": 11,
+          "searches": 4,
+          "edits": 10,
+          "writes": 3,
+          "editAttempts": 13,
+          "editFailures": 0
+        }
+      }
+    },
+    {
+      "id": "tmpl-fe-datepicker#A#opus#1",
+      "task": "tmpl-fe-datepicker",
+      "area": "frontend",
+      "arm": "A",
+      "model": "opus",
+      "run": 1,
+      "log": "bench\\logs\\bench-2026-08-18T22-28-31\\tmpl-fe-datepicker_A_opus_1.jsonl",
+      "classification": "ok",
+      "error": null,
+      "assertion": {
+        "pass": true,
+        "filesChanged": 3,
+        "areaTouched": false,
+        "assertionV1": false,
+        "rescoredFromLog": true,
+        "logEdits": 4
+      },
+      "teaFired": false,
+      "init": {
+        "model": "claude-opus-5",
+        "skills": [
+          "deep-research",
+          "design-sync",
+          "dataviz",
+          "update-config",
+          "verify",
+          "debug",
+          "code-review",
+          "simplify",
+          "batch",
+          "fewer-permission-prompts",
+          "doctor",
+          "loop",
+          "schedule",
+          "claude-api",
+          "run",
+          "run-skill-generator"
+        ],
+        "permissionMode": "bypassPermissions"
+      },
+      "metrics": {
+        "inputTokens": 22,
+        "outputTokens": 30931,
+        "reasoningTokens": 18740,
+        "cacheCreationTokens": 49017,
+        "cacheReadTokens": 431288,
+        "totalTokens": 511258,
+        "numTurns": 18,
+        "durationMs": 336760,
+        "costUsd": 1.479794,
+        "denials": 0
+      },
+      "authFailure": false,
+      "handles": {
+        "handles": {
+          "r1_searchLedReadRatio": 1,
+          "r2_rangedReadRatio": 0.1,
+          "r3_repeatReads": 0,
+          "r4_treeCalls": 3,
+          "w1_fullRewriteRatio": 0,
+          "w2_anchorMisses": 0,
+          "w3_newFiles": 3,
+          "w4_unrequestedArtifacts": 0,
+          "w5_codeRestatements": 0,
+          "t1_reverts": 0,
+          "t2_sameFileChurn": 0,
+          "t3_editFailureRatio": 0
+        },
+        "counts": {
+          "toolCalls": 17,
+          "reads": 10,
+          "searches": 3,
+          "edits": 1,
+          "writes": 3,
+          "editAttempts": 4,
+          "editFailures": 0
+        }
+      }
+    },
+    {
+      "id": "tmpl-fe-datepicker#A#opus#4",
+      "task": "tmpl-fe-datepicker",
+      "area": "frontend",
+      "arm": "A",
+      "model": "opus",
+      "run": 4,
+      "log": "bench\\logs\\bench-2026-08-18T22-28-31\\tmpl-fe-datepicker_A_opus_4.jsonl",
+      "classification": "ok",
+      "error": null,
+      "assertion": {
+        "pass": true,
+        "filesChanged": 3,
+        "areaTouched": false,
+        "assertionV1": false,
+        "rescoredFromLog": true,
+        "logEdits": 3
+      },
+      "teaFired": false,
+      "init": {
+        "model": "claude-opus-5",
+        "skills": [
+          "deep-research",
+          "design-sync",
+          "dataviz",
+          "update-config",
+          "verify",
+          "debug",
+          "code-review",
+          "simplify",
+          "batch",
+          "fewer-permission-prompts",
+          "doctor",
+          "loop",
+          "schedule",
+          "claude-api",
+          "run",
+          "run-skill-generator"
+        ],
+        "permissionMode": "bypassPermissions"
+      },
+      "metrics": {
+        "inputTokens": 485,
+        "outputTokens": 14980,
+        "reasoningTokens": 5181,
+        "cacheCreationTokens": 28818,
+        "cacheReadTokens": 237482,
+        "totalTokens": 281765,
+        "numTurns": 13,
+        "durationMs": 163631,
+        "costUsd": 0.784436,
+        "denials": 0
+      },
+      "authFailure": false,
+      "handles": {
+        "handles": {
+          "r1_searchLedReadRatio": 1,
+          "r2_rangedReadRatio": 0,
+          "r3_repeatReads": 0,
+          "r4_treeCalls": 3,
+          "w1_fullRewriteRatio": null,
+          "w2_anchorMisses": 0,
+          "w3_newFiles": 3,
+          "w4_unrequestedArtifacts": 0,
+          "w5_codeRestatements": 0,
+          "t1_reverts": 0,
+          "t2_sameFileChurn": 0,
+          "t3_editFailureRatio": 0
+        },
+        "counts": {
+          "toolCalls": 12,
+          "reads": 6,
+          "searches": 3,
+          "edits": 0,
+          "writes": 3,
+          "editAttempts": 3,
+          "editFailures": 0
+        }
+      }
+    },
+    {
+      "id": "tmpl-fe-colorpicker#A#sonnet#1",
+      "task": "tmpl-fe-colorpicker",
+      "area": "frontend",
+      "arm": "A",
+      "model": "sonnet",
+      "run": 1,
+      "log": "bench\\logs\\bench-2026-08-18T22-28-31\\tmpl-fe-colorpicker_A_sonnet_1.jsonl",
+      "classification": "ok",
+      "error": null,
+      "assertion": {
+        "pass": true,
+        "filesChanged": 1,
+        "areaTouched": false,
+        "assertionV1": false,
+        "rescoredFromLog": true,
+        "logEdits": 1
+      },
+      "teaFired": false,
+      "init": {
+        "model": "claude-sonnet-5",
+        "skills": [
+          "deep-research",
+          "design-sync",
+          "dataviz",
+          "update-config",
+          "verify",
+          "debug",
+          "code-review",
+          "simplify",
+          "batch",
+          "fewer-permission-prompts",
+          "doctor",
+          "loop",
+          "schedule",
+          "claude-api",
+          "run",
+          "run-skill-generator"
+        ],
+        "permissionMode": "bypassPermissions"
+      },
+      "metrics": {
+        "inputTokens": 12,
+        "outputTokens": 5890,
+        "reasoningTokens": 3452,
+        "cacheCreationTokens": 24033,
+        "cacheReadTokens": 197756,
+        "totalTokens": 227691,
+        "numTurns": 11,
+        "durationMs": 63739,
+        "costUsd": 0.2924958,
+        "denials": 0
+      },
+      "authFailure": false,
+      "handles": {
+        "handles": {
+          "r1_searchLedReadRatio": 1,
+          "r2_rangedReadRatio": 0,
+          "r3_repeatReads": 0,
+          "r4_treeCalls": 3,
+          "w1_fullRewriteRatio": null,
+          "w2_anchorMisses": 0,
+          "w3_newFiles": 1,
+          "w4_unrequestedArtifacts": 0,
+          "w5_codeRestatements": 0,
+          "t1_reverts": 0,
+          "t2_sameFileChurn": 0,
+          "t3_editFailureRatio": 0
+        },
+        "counts": {
+          "toolCalls": 10,
+          "reads": 6,
+          "searches": 3,
+          "edits": 0,
+          "writes": 1,
+          "editAttempts": 1,
+          "editFailures": 0
+        }
+      }
+    },
+    {
+      "id": "tmpl-fe-datepicker#A#opus#3",
+      "task": "tmpl-fe-datepicker",
+      "area": "frontend",
+      "arm": "A",
+      "model": "opus",
+      "run": 3,
+      "log": "bench\\logs\\bench-2026-08-18T22-28-31\\tmpl-fe-datepicker_A_opus_3.jsonl",
+      "classification": "ok",
+      "error": null,
+      "assertion": {
+        "pass": true,
+        "filesChanged": 3,
+        "areaTouched": false,
+        "assertionV1": false,
+        "rescoredFromLog": true,
+        "logEdits": 8
+      },
+      "teaFired": false,
+      "init": {
+        "model": "claude-opus-5",
+        "skills": [
+          "deep-research",
+          "design-sync",
+          "dataviz",
+          "update-config",
+          "verify",
+          "debug",
+          "code-review",
+          "simplify",
+          "batch",
+          "fewer-permission-prompts",
+          "doctor",
+          "loop",
+          "schedule",
+          "claude-api",
+          "run",
+          "run-skill-generator"
+        ],
+        "permissionMode": "bypassPermissions"
+      },
+      "metrics": {
+        "inputTokens": 30,
+        "outputTokens": 23849,
+        "reasoningTokens": 11473,
+        "cacheCreationTokens": 42216,
+        "cacheReadTokens": 619772,
+        "totalTokens": 685867,
+        "numTurns": 20,
+        "durationMs": 267367,
+        "costUsd": 1.329016,
+        "denials": 0
+      },
+      "authFailure": false,
+      "handles": {
+        "handles": {
+          "r1_searchLedReadRatio": 1,
+          "r2_rangedReadRatio": 0.125,
+          "r3_repeatReads": 0,
+          "r4_treeCalls": 3,
+          "w1_fullRewriteRatio": 0,
+          "w2_anchorMisses": 0,
+          "w3_newFiles": 3,
+          "w4_unrequestedArtifacts": 0,
+          "w5_codeRestatements": 0,
+          "t1_reverts": 0,
+          "t2_sameFileChurn": 3,
+          "t3_editFailureRatio": 0
+        },
+        "counts": {
+          "toolCalls": 19,
+          "reads": 8,
+          "searches": 3,
+          "edits": 5,
+          "writes": 3,
+          "editAttempts": 8,
+          "editFailures": 0
+        }
+      }
+    },
+    {
+      "id": "tmpl-fe-colorpicker#A#sonnet#2",
+      "task": "tmpl-fe-colorpicker",
+      "area": "frontend",
+      "arm": "A",
+      "model": "sonnet",
+      "run": 2,
+      "log": "bench\\logs\\bench-2026-08-18T22-28-31\\tmpl-fe-colorpicker_A_sonnet_2.jsonl",
+      "classification": "ok",
+      "error": null,
+      "assertion": {
+        "pass": true,
+        "filesChanged": 3,
+        "areaTouched": true,
+        "assertionV1": true,
+        "rescoredFromLog": true,
+        "logEdits": 4
+      },
+      "teaFired": false,
+      "init": {
+        "model": "claude-sonnet-5",
+        "skills": [
+          "deep-research",
+          "design-sync",
+          "dataviz",
+          "update-config",
+          "verify",
+          "debug",
+          "code-review",
+          "simplify",
+          "batch",
+          "fewer-permission-prompts",
+          "doctor",
+          "loop",
+          "schedule",
+          "claude-api",
+          "run",
+          "run-skill-generator"
+        ],
+        "permissionMode": "bypassPermissions"
+      },
+      "metrics": {
+        "inputTokens": 26,
+        "outputTokens": 5983,
+        "reasoningTokens": 1572,
+        "cacheCreationTokens": 27802,
+        "cacheReadTokens": 510126,
+        "totalTokens": 543937,
+        "numTurns": 18,
+        "durationMs": 64516,
+        "costUsd": 0.4102578,
+        "denials": 0
+      },
+      "authFailure": false,
+      "handles": {
+        "handles": {
+          "r1_searchLedReadRatio": 1,
+          "r2_rangedReadRatio": 0,
+          "r3_repeatReads": 0,
+          "r4_treeCalls": 3,
+          "w1_fullRewriteRatio": 0,
+          "w2_anchorMisses": 0,
+          "w3_newFiles": 2,
+          "w4_unrequestedArtifacts": 0,
+          "w5_codeRestatements": 0,
+          "t1_reverts": 0,
+          "t2_sameFileChurn": 1,
+          "t3_editFailureRatio": 0
+        },
+        "counts": {
+          "toolCalls": 17,
+          "reads": 8,
+          "searches": 5,
+          "edits": 2,
+          "writes": 2,
+          "editAttempts": 4,
+          "editFailures": 0
+        }
+      }
+    },
+    {
+      "id": "tmpl-fe-colorpicker#A#sonnet#3",
+      "task": "tmpl-fe-colorpicker",
+      "area": "frontend",
+      "arm": "A",
+      "model": "sonnet",
+      "run": 3,
+      "log": "bench\\logs\\bench-2026-08-18T22-28-31\\tmpl-fe-colorpicker_A_sonnet_3.jsonl",
+      "classification": "ok",
+      "error": null,
+      "assertion": {
+        "pass": true,
+        "filesChanged": 3,
+        "areaTouched": true,
+        "assertionV1": true,
+        "rescoredFromLog": true,
+        "logEdits": 3
+      },
+      "teaFired": false,
+      "init": {
+        "model": "claude-sonnet-5",
+        "skills": [
+          "deep-research",
+          "design-sync",
+          "dataviz",
+          "update-config",
+          "verify",
+          "debug",
+          "code-review",
+          "simplify",
+          "batch",
+          "fewer-permission-prompts",
+          "doctor",
+          "loop",
+          "schedule",
+          "claude-api",
+          "run",
+          "run-skill-generator"
+        ],
+        "permissionMode": "bypassPermissions"
+      },
+      "metrics": {
+        "inputTokens": 22,
+        "outputTokens": 9657,
+        "reasoningTokens": 5076,
+        "cacheCreationTokens": 35261,
+        "cacheReadTokens": 441425,
+        "totalTokens": 486365,
+        "numTurns": 18,
+        "durationMs": 92641,
+        "costUsd": 0.4894995,
+        "denials": 0
+      },
+      "authFailure": false,
+      "handles": {
+        "handles": {
+          "r1_searchLedReadRatio": 1,
+          "r2_rangedReadRatio": 0,
+          "r3_repeatReads": 0,
+          "r4_treeCalls": 3,
+          "w1_fullRewriteRatio": 0,
+          "w2_anchorMisses": 0,
+          "w3_newFiles": 2,
+          "w4_unrequestedArtifacts": 0,
+          "w5_codeRestatements": 0,
+          "t1_reverts": 0,
+          "t2_sameFileChurn": 0,
+          "t3_editFailureRatio": 0
+        },
+        "counts": {
+          "toolCalls": 17,
+          "reads": 10,
+          "searches": 4,
+          "edits": 1,
+          "writes": 2,
+          "editAttempts": 3,
+          "editFailures": 0
+        }
+      }
+    },
+    {
+      "id": "tmpl-fe-colorpicker#A#sonnet#4",
+      "task": "tmpl-fe-colorpicker",
+      "area": "frontend",
+      "arm": "A",
+      "model": "sonnet",
+      "run": 4,
+      "log": "bench\\logs\\bench-2026-08-18T22-28-31\\tmpl-fe-colorpicker_A_sonnet_4.jsonl",
+      "classification": "ok",
+      "error": null,
+      "assertion": {
+        "pass": true,
+        "filesChanged": 1,
+        "areaTouched": false,
+        "assertionV1": false,
+        "rescoredFromLog": true,
+        "logEdits": 1
+      },
+      "teaFired": false,
+      "init": {
+        "model": "claude-sonnet-5",
+        "skills": [
+          "deep-research",
+          "design-sync",
+          "dataviz",
+          "update-config",
+          "verify",
+          "debug",
+          "code-review",
+          "simplify",
+          "batch",
+          "fewer-permission-prompts",
+          "doctor",
+          "loop",
+          "schedule",
+          "claude-api",
+          "run",
+          "run-skill-generator"
+        ],
+        "permissionMode": "bypassPermissions"
+      },
+      "metrics": {
+        "inputTokens": 12,
+        "outputTokens": 5782,
+        "reasoningTokens": 3505,
+        "cacheCreationTokens": 21059,
+        "cacheReadTokens": 190678,
+        "totalTokens": 217531,
+        "numTurns": 10,
+        "durationMs": 59754,
+        "costUsd": 0.2709084,
+        "denials": 0
+      },
+      "authFailure": false,
+      "handles": {
+        "handles": {
+          "r1_searchLedReadRatio": 1,
+          "r2_rangedReadRatio": 0,
+          "r3_repeatReads": 0,
+          "r4_treeCalls": 2,
+          "w1_fullRewriteRatio": null,
+          "w2_anchorMisses": 0,
+          "w3_newFiles": 1,
+          "w4_unrequestedArtifacts": 0,
+          "w5_codeRestatements": 0,
+          "t1_reverts": 0,
+          "t2_sameFileChurn": 0,
+          "t3_editFailureRatio": 0
+        },
+        "counts": {
+          "toolCalls": 9,
+          "reads": 6,
+          "searches": 2,
+          "edits": 0,
+          "writes": 1,
+          "editAttempts": 1,
+          "editFailures": 0
+        }
+      }
+    },
+    {
+      "id": "tmpl-fe-colorpicker#A#opus#1",
+      "task": "tmpl-fe-colorpicker",
+      "area": "frontend",
+      "arm": "A",
+      "model": "opus",
+      "run": 1,
+      "log": "bench\\logs\\bench-2026-08-18T22-28-31\\tmpl-fe-colorpicker_A_opus_1.jsonl",
+      "classification": "ok",
+      "error": null,
+      "assertion": {
+        "pass": true,
+        "filesChanged": 1,
+        "areaTouched": false,
+        "assertionV1": false,
+        "rescoredFromLog": true,
+        "logEdits": 2
+      },
+      "teaFired": false,
+      "init": {
+        "model": "claude-opus-5",
+        "skills": [
+          "deep-research",
+          "design-sync",
+          "dataviz",
+          "update-config",
+          "verify",
+          "debug",
+          "code-review",
+          "simplify",
+          "batch",
+          "fewer-permission-prompts",
+          "doctor",
+          "loop",
+          "schedule",
+          "claude-api",
+          "run",
+          "run-skill-generator"
+        ],
+        "permissionMode": "bypassPermissions"
+      },
+      "metrics": {
+        "inputTokens": 16,
+        "outputTokens": 14774,
+        "reasoningTokens": 6579,
+        "cacheCreationTokens": 33104,
+        "cacheReadTokens": 242255,
+        "totalTokens": 290149,
+        "numTurns": 14,
+        "durationMs": 161502,
+        "costUsd": 0.8221824999999999,
+        "denials": 0
+      },
+      "authFailure": false,
+      "handles": {
+        "handles": {
+          "r1_searchLedReadRatio": 1,
+          "r2_rangedReadRatio": 0,
+          "r3_repeatReads": 0,
+          "r4_treeCalls": 3,
+          "w1_fullRewriteRatio": 0,
+          "w2_anchorMisses": 0,
+          "w3_newFiles": 1,
+          "w4_unrequestedArtifacts": 0,
+          "w5_codeRestatements": 0,
+          "t1_reverts": 0,
+          "t2_sameFileChurn": 0,
+          "t3_editFailureRatio": 0
+        },
+        "counts": {
+          "toolCalls": 13,
+          "reads": 8,
+          "searches": 3,
+          "edits": 1,
+          "writes": 1,
+          "editAttempts": 2,
+          "editFailures": 0
+        }
+      }
+    },
+    {
+      "id": "tmpl-fe-colorpicker#A#opus#2",
+      "task": "tmpl-fe-colorpicker",
+      "area": "frontend",
+      "arm": "A",
+      "model": "opus",
+      "run": 2,
+      "log": "bench\\logs\\bench-2026-08-18T22-28-31\\tmpl-fe-colorpicker_A_opus_2.jsonl",
+      "classification": "ok",
+      "error": null,
+      "assertion": {
+        "pass": true,
+        "filesChanged": 1,
+        "areaTouched": false,
+        "assertionV1": false,
+        "rescoredFromLog": true,
+        "logEdits": 1
+      },
+      "teaFired": false,
+      "init": {
+        "model": "claude-opus-5",
+        "skills": [
+          "deep-research",
+          "design-sync",
+          "dataviz",
+          "update-config",
+          "verify",
+          "debug",
+          "code-review",
+          "simplify",
+          "batch",
+          "fewer-permission-prompts",
+          "doctor",
+          "loop",
+          "schedule",
+          "claude-api",
+          "run",
+          "run-skill-generator"
+        ],
+        "permissionMode": "bypassPermissions"
+      },
+      "metrics": {
+        "inputTokens": 12,
+        "outputTokens": 23003,
+        "reasoningTokens": 16258,
+        "cacheCreationTokens": 42520,
+        "cacheReadTokens": 164020,
+        "totalTokens": 229555,
+        "numTurns": 13,
+        "durationMs": 264949,
+        "costUsd": 1.08294,
+        "denials": 0
+      },
+      "authFailure": false,
+      "handles": {
+        "handles": {
+          "r1_searchLedReadRatio": 1,
+          "r2_rangedReadRatio": 0,
+          "r3_repeatReads": 0,
+          "r4_treeCalls": 2,
+          "w1_fullRewriteRatio": null,
+          "w2_anchorMisses": 0,
+          "w3_newFiles": 1,
+          "w4_unrequestedArtifacts": 0,
+          "w5_codeRestatements": 0,
+          "t1_reverts": 0,
+          "t2_sameFileChurn": 0,
+          "t3_editFailureRatio": 0
+        },
+        "counts": {
+          "toolCalls": 12,
+          "reads": 9,
+          "searches": 2,
+          "edits": 0,
+          "writes": 1,
+          "editAttempts": 1,
+          "editFailures": 0
+        }
+      }
+    },
+    {
+      "id": "tmpl-fe-colorpicker#A#opus#3",
+      "task": "tmpl-fe-colorpicker",
+      "area": "frontend",
+      "arm": "A",
+      "model": "opus",
+      "run": 3,
+      "log": "bench\\logs\\bench-2026-08-18T22-28-31\\tmpl-fe-colorpicker_A_opus_3.jsonl",
+      "classification": "ok",
+      "error": null,
+      "assertion": {
+        "pass": true,
+        "filesChanged": 1,
+        "areaTouched": false,
+        "assertionV1": false,
+        "rescoredFromLog": true,
+        "logEdits": 4
+      },
+      "teaFired": false,
+      "init": {
+        "model": "claude-opus-5",
+        "skills": [
+          "deep-research",
+          "design-sync",
+          "dataviz",
+          "update-config",
+          "verify",
+          "debug",
+          "code-review",
+          "simplify",
+          "batch",
+          "fewer-permission-prompts",
+          "doctor",
+          "loop",
+          "schedule",
+          "claude-api",
+          "run",
+          "run-skill-generator"
+        ],
+        "permissionMode": "bypassPermissions"
+      },
+      "metrics": {
+        "inputTokens": 22,
+        "outputTokens": 17795,
+        "reasoningTokens": 8427,
+        "cacheCreationTokens": 33579,
+        "cacheReadTokens": 384681,
+        "totalTokens": 436077,
+        "numTurns": 18,
+        "durationMs": 197925,
+        "costUsd": 0.9737054999999999,
+        "denials": 0
+      },
+      "authFailure": false,
+      "handles": {
+        "handles": {
+          "r1_searchLedReadRatio": 1,
+          "r2_rangedReadRatio": 0,
+          "r3_repeatReads": 0,
+          "r4_treeCalls": 4,
+          "w1_fullRewriteRatio": 0,
+          "w2_anchorMisses": 0,
+          "w3_newFiles": 1,
+          "w4_unrequestedArtifacts": 0,
+          "w5_codeRestatements": 0,
+          "t1_reverts": 0,
+          "t2_sameFileChurn": 2,
+          "t3_editFailureRatio": 0
+        },
+        "counts": {
+          "toolCalls": 17,
+          "reads": 8,
+          "searches": 5,
+          "edits": 3,
+          "writes": 1,
+          "editAttempts": 4,
+          "editFailures": 0
+        }
+      }
+    },
+    {
+      "id": "tmpl-fe-colorpicker#A#opus#4",
+      "task": "tmpl-fe-colorpicker",
+      "area": "frontend",
+      "arm": "A",
+      "model": "opus",
+      "run": 4,
+      "log": "bench\\logs\\bench-2026-08-18T22-28-31\\tmpl-fe-colorpicker_A_opus_4.jsonl",
+      "classification": "ok",
+      "error": null,
+      "assertion": {
+        "pass": true,
+        "filesChanged": 2,
+        "areaTouched": false,
+        "assertionV1": false,
+        "rescoredFromLog": true,
+        "logEdits": 4
+      },
+      "teaFired": false,
+      "init": {
+        "model": "claude-opus-5",
+        "skills": [
+          "deep-research",
+          "design-sync",
+          "dataviz",
+          "update-config",
+          "verify",
+          "debug",
+          "code-review",
+          "simplify",
+          "batch",
+          "fewer-permission-prompts",
+          "doctor",
+          "loop",
+          "schedule",
+          "claude-api",
+          "run",
+          "run-skill-generator"
+        ],
+        "permissionMode": "bypassPermissions"
+      },
+      "metrics": {
+        "inputTokens": 18,
+        "outputTokens": 14989,
+        "reasoningTokens": 6689,
+        "cacheCreationTokens": 30714,
+        "cacheReadTokens": 288344,
+        "totalTokens": 334065,
+        "numTurns": 16,
+        "durationMs": 162303,
+        "costUsd": 0.826712,
+        "denials": 0
+      },
+      "authFailure": false,
+      "handles": {
+        "handles": {
+          "r1_searchLedReadRatio": 1,
+          "r2_rangedReadRatio": 0,
+          "r3_repeatReads": 0,
+          "r4_treeCalls": 4,
+          "w1_fullRewriteRatio": 0,
+          "w2_anchorMisses": 0,
+          "w3_newFiles": 2,
+          "w4_unrequestedArtifacts": 0,
+          "w5_codeRestatements": 0,
+          "t1_reverts": 0,
+          "t2_sameFileChurn": 1,
+          "t3_editFailureRatio": 0
+        },
+        "counts": {
+          "toolCalls": 15,
+          "reads": 7,
+          "searches": 4,
+          "edits": 2,
+          "writes": 2,
+          "editAttempts": 4,
+          "editFailures": 0
+        }
+      }
+    },
+    {
+      "id": "tmpl-fe-command#A#sonnet#1",
+      "task": "tmpl-fe-command",
+      "area": "frontend",
+      "arm": "A",
+      "model": "sonnet",
+      "run": 1,
+      "log": "bench\\logs\\bench-2026-08-18T22-28-31\\tmpl-fe-command_A_sonnet_1.jsonl",
+      "classification": "ok",
+      "error": null,
+      "assertion": {
+        "pass": true,
+        "filesChanged": 4,
+        "areaTouched": true,
+        "assertionV1": true,
+        "rescoredFromLog": true,
+        "logEdits": 5
+      },
+      "teaFired": false,
+      "init": {
+        "model": "claude-sonnet-5",
+        "skills": [
+          "deep-research",
+          "design-sync",
+          "dataviz",
+          "update-config",
+          "verify",
+          "debug",
+          "code-review",
+          "simplify",
+          "batch",
+          "fewer-permission-prompts",
+          "doctor",
+          "loop",
+          "schedule",
+          "claude-api",
+          "run",
+          "run-skill-generator"
+        ],
+        "permissionMode": "bypassPermissions"
+      },
+      "metrics": {
+        "inputTokens": 18,
+        "outputTokens": 15471,
+        "reasoningTokens": 8056,
+        "cacheCreationTokens": 42211,
+        "cacheReadTokens": 523282,
+        "totalTokens": 580982,
+        "numTurns": 20,
+        "durationMs": 127387,
+        "costUsd": 0.9688878499999999,
+        "denials": 0
+      },
+      "authFailure": false,
+      "handles": {
+        "handles": {
+          "r1_searchLedReadRatio": 1,
+          "r2_rangedReadRatio": 0.067,
+          "r3_repeatReads": 12,
+          "r4_treeCalls": 2,
+          "w1_fullRewriteRatio": 0,
+          "w2_anchorMisses": 0,
+          "w3_newFiles": 2,
+          "w4_unrequestedArtifacts": 0,
+          "w5_codeRestatements": 0,
+          "t1_reverts": 0,
+          "t2_sameFileChurn": 1,
+          "t3_editFailureRatio": 0
+        },
+        "counts": {
+          "toolCalls": 43,
+          "reads": 30,
+          "searches": 6,
+          "edits": 3,
+          "writes": 2,
+          "editAttempts": 5,
+          "editFailures": 0
+        }
+      }
+    },
+    {
+      "id": "tmpl-fe-command#A#sonnet#2",
+      "task": "tmpl-fe-command",
+      "area": "frontend",
+      "arm": "A",
+      "model": "sonnet",
+      "run": 2,
+      "log": "bench\\logs\\bench-2026-08-18T22-28-31\\tmpl-fe-command_A_sonnet_2.jsonl",
+      "classification": "ok",
+      "error": null,
+      "assertion": {
+        "pass": true,
+        "filesChanged": 5,
+        "areaTouched": true,
+        "assertionV1": true,
+        "rescoredFromLog": true,
+        "logEdits": 5
+      },
+      "teaFired": false,
+      "init": {
+        "model": "claude-sonnet-5",
+        "skills": [
+          "deep-research",
+          "design-sync",
+          "dataviz",
+          "update-config",
+          "verify",
+          "debug",
+          "code-review",
+          "simplify",
+          "batch",
+          "fewer-permission-prompts",
+          "doctor",
+          "loop",
+          "schedule",
+          "claude-api",
+          "run",
+          "run-skill-generator"
+        ],
+        "permissionMode": "bypassPermissions"
+      },
+      "metrics": {
+        "inputTokens": 24,
+        "outputTokens": 14054,
+        "reasoningTokens": 6583,
+        "cacheCreationTokens": 27714,
+        "cacheReadTokens": 560920,
+        "totalTokens": 602712,
+        "numTurns": 21,
+        "durationMs": 122865,
+        "costUsd": 0.7344920500000001,
+        "denials": 0
+      },
+      "authFailure": false,
+      "handles": {
+        "handles": {
+          "r1_searchLedReadRatio": 1,
+          "r2_rangedReadRatio": 0.053,
+          "r3_repeatReads": 7,
+          "r4_treeCalls": 7,
+          "w1_fullRewriteRatio": 0,
+          "w2_anchorMisses": 0,
+          "w3_newFiles": 3,
+          "w4_unrequestedArtifacts": 0,
+          "w5_codeRestatements": 0,
+          "t1_reverts": 0,
+          "t2_sameFileChurn": 0,
+          "t3_editFailureRatio": 0
+        },
+        "counts": {
+          "toolCalls": 34,
+          "reads": 19,
+          "searches": 9,
+          "edits": 2,
+          "writes": 3,
+          "editAttempts": 5,
+          "editFailures": 0
+        }
+      }
+    },
+    {
+      "id": "tmpl-fe-command#A#sonnet#3",
+      "task": "tmpl-fe-command",
+      "area": "frontend",
+      "arm": "A",
+      "model": "sonnet",
+      "run": 3,
+      "log": "bench\\logs\\bench-2026-08-18T22-28-31\\tmpl-fe-command_A_sonnet_3.jsonl",
+      "classification": "ok",
+      "error": null,
+      "assertion": {
+        "pass": true,
+        "filesChanged": 4,
+        "areaTouched": true,
+        "assertionV1": true,
+        "rescoredFromLog": true,
+        "logEdits": 8
+      },
+      "teaFired": false,
+      "init": {
+        "model": "claude-sonnet-5",
+        "skills": [
+          "deep-research",
+          "design-sync",
+          "dataviz",
+          "update-config",
+          "verify",
+          "debug",
+          "code-review",
+          "simplify",
+          "batch",
+          "fewer-permission-prompts",
+          "doctor",
+          "loop",
+          "schedule",
+          "claude-api",
+          "run",
+          "run-skill-generator"
+        ],
+        "permissionMode": "bypassPermissions"
+      },
+      "metrics": {
+        "inputTokens": 30,
+        "outputTokens": 15447,
+        "reasoningTokens": 5395,
+        "cacheCreationTokens": 46157,
+        "cacheReadTokens": 772974,
+        "totalTokens": 834608,
+        "numTurns": 29,
+        "durationMs": 204830,
+        "costUsd": 0.9645039999999999,
+        "denials": 0
+      },
+      "authFailure": false,
+      "handles": {
+        "handles": {
+          "r1_searchLedReadRatio": 1,
+          "r2_rangedReadRatio": 0.067,
+          "r3_repeatReads": 9,
+          "r4_treeCalls": 5,
+          "w1_fullRewriteRatio": 0,
+          "w2_anchorMisses": 0,
+          "w3_newFiles": 4,
+          "w4_unrequestedArtifacts": 0,
+          "w5_codeRestatements": 0,
+          "t1_reverts": 0,
+          "t2_sameFileChurn": 1,
+          "t3_editFailureRatio": 0
+        },
+        "counts": {
+          "toolCalls": 48,
+          "reads": 30,
+          "searches": 9,
+          "edits": 4,
+          "writes": 4,
+          "editAttempts": 8,
+          "editFailures": 0
+        }
+      }
+    },
+    {
+      "id": "tmpl-fe-command#A#sonnet#4",
+      "task": "tmpl-fe-command",
+      "area": "frontend",
+      "arm": "A",
+      "model": "sonnet",
+      "run": 4,
+      "log": "bench\\logs\\bench-2026-08-18T22-28-31\\tmpl-fe-command_A_sonnet_4.jsonl",
+      "classification": "ok",
+      "error": null,
+      "assertion": {
+        "pass": true,
+        "filesChanged": 5,
+        "areaTouched": true,
+        "assertionV1": true,
+        "rescoredFromLog": true,
+        "logEdits": 8
+      },
+      "teaFired": false,
+      "init": {
+        "model": "claude-sonnet-5",
+        "skills": [
+          "deep-research",
+          "design-sync",
+          "dataviz",
+          "update-config",
+          "verify",
+          "debug",
+          "code-review",
+          "simplify",
+          "batch",
+          "fewer-permission-prompts",
+          "doctor",
+          "loop",
+          "schedule",
+          "claude-api",
+          "run",
+          "run-skill-generator"
+        ],
+        "permissionMode": "bypassPermissions"
+      },
+      "metrics": {
+        "inputTokens": 28,
+        "outputTokens": 15931,
+        "reasoningTokens": 5946,
+        "cacheCreationTokens": 50239,
+        "cacheReadTokens": 886157,
+        "totalTokens": 952355,
+        "numTurns": 26,
+        "durationMs": 143430,
+        "costUsd": 1.11770335,
+        "denials": 0
+      },
+      "authFailure": false,
+      "handles": {
+        "handles": {
+          "r1_searchLedReadRatio": 1,
+          "r2_rangedReadRatio": 0.059,
+          "r3_repeatReads": 11,
+          "r4_treeCalls": 4,
+          "w1_fullRewriteRatio": 0.2,
+          "w2_anchorMisses": 0,
+          "w3_newFiles": 3,
+          "w4_unrequestedArtifacts": 0,
+          "w5_codeRestatements": 0,
+          "t1_reverts": 0,
+          "t2_sameFileChurn": 1,
+          "t3_editFailureRatio": 0
+        },
+        "counts": {
+          "toolCalls": 49,
+          "reads": 34,
+          "searches": 6,
+          "edits": 4,
+          "writes": 4,
+          "editAttempts": 8,
+          "editFailures": 0
+        }
+      }
+    },
+    {
+      "id": "tmpl-fe-command#A#opus#1",
+      "task": "tmpl-fe-command",
+      "area": "frontend",
+      "arm": "A",
+      "model": "opus",
+      "run": 1,
+      "log": "bench\\logs\\bench-2026-08-18T22-28-31\\tmpl-fe-command_A_opus_1.jsonl",
+      "classification": "ok",
+      "error": null,
+      "assertion": {
+        "pass": true,
+        "filesChanged": 5,
+        "areaTouched": true,
+        "assertionV1": true,
+        "rescoredFromLog": true,
+        "logEdits": 13
+      },
+      "teaFired": false,
+      "init": {
+        "model": "claude-opus-5",
+        "skills": [
+          "deep-research",
+          "design-sync",
+          "dataviz",
+          "update-config",
+          "verify",
+          "debug",
+          "code-review",
+          "simplify",
+          "batch",
+          "fewer-permission-prompts",
+          "doctor",
+          "loop",
+          "schedule",
+          "claude-api",
+          "run",
+          "run-skill-generator"
+        ],
+        "permissionMode": "bypassPermissions"
+      },
+      "metrics": {
+        "inputTokens": 965,
+        "outputTokens": 27575,
+        "reasoningTokens": 12855,
+        "cacheCreationTokens": 57968,
+        "cacheReadTokens": 1189635,
+        "totalTokens": 1276143,
+        "numTurns": 40,
+        "durationMs": 316535,
+        "costUsd": 1.8692925,
+        "denials": 0
+      },
+      "authFailure": false,
+      "handles": {
+        "handles": {
+          "r1_searchLedReadRatio": 1,
+          "r2_rangedReadRatio": 0.2,
+          "r3_repeatReads": 1,
+          "r4_treeCalls": 4,
+          "w1_fullRewriteRatio": 0,
+          "w2_anchorMisses": 0,
+          "w3_newFiles": 4,
+          "w4_unrequestedArtifacts": 1,
+          "w5_codeRestatements": 0,
+          "t1_reverts": 0,
+          "t2_sameFileChurn": 5,
+          "t3_editFailureRatio": 0
+        },
+        "counts": {
+          "toolCalls": 39,
+          "reads": 20,
+          "searches": 6,
+          "edits": 9,
+          "writes": 4,
+          "editAttempts": 13,
+          "editFailures": 0
+        }
+      }
+    },
+    {
+      "id": "tmpl-fe-command#A#opus#2",
+      "task": "tmpl-fe-command",
+      "area": "frontend",
+      "arm": "A",
+      "model": "opus",
+      "run": 2,
+      "log": "bench\\logs\\bench-2026-08-18T22-28-31\\tmpl-fe-command_A_opus_2.jsonl",
+      "classification": "ok",
+      "error": null,
+      "assertion": {
+        "pass": true,
+        "filesChanged": 4,
+        "areaTouched": true,
+        "assertionV1": true,
+        "rescoredFromLog": true,
+        "logEdits": 6
+      },
+      "teaFired": false,
+      "init": {
+        "model": "claude-opus-5",
+        "skills": [
+          "deep-research",
+          "design-sync",
+          "dataviz",
+          "update-config",
+          "verify",
+          "debug",
+          "code-review",
+          "simplify",
+          "batch",
+          "fewer-permission-prompts",
+          "doctor",
+          "loop",
+          "schedule",
+          "claude-api",
+          "run",
+          "run-skill-generator"
+        ],
+        "permissionMode": "bypassPermissions"
+      },
+      "metrics": {
+        "inputTokens": 34,
+        "outputTokens": 28385,
+        "reasoningTokens": 16978,
+        "cacheCreationTokens": 49916,
+        "cacheReadTokens": 739950,
+        "totalTokens": 818285,
+        "numTurns": 26,
+        "durationMs": 324960,
+        "costUsd": 1.579525,
+        "denials": 0
+      },
+      "authFailure": false,
+      "handles": {
+        "handles": {
+          "r1_searchLedReadRatio": 1,
+          "r2_rangedReadRatio": 0,
+          "r3_repeatReads": 0,
+          "r4_treeCalls": 4,
+          "w1_fullRewriteRatio": 0,
+          "w2_anchorMisses": 0,
+          "w3_newFiles": 3,
+          "w4_unrequestedArtifacts": 1,
+          "w5_codeRestatements": 0,
+          "t1_reverts": 0,
+          "t2_sameFileChurn": 1,
+          "t3_editFailureRatio": 0
+        },
+        "counts": {
+          "toolCalls": 25,
+          "reads": 14,
+          "searches": 5,
+          "edits": 3,
+          "writes": 3,
+          "editAttempts": 6,
+          "editFailures": 0
+        }
+      }
+    },
+    {
+      "id": "tmpl-fe-command#A#opus#3",
+      "task": "tmpl-fe-command",
+      "area": "frontend",
+      "arm": "A",
+      "model": "opus",
+      "run": 3,
+      "log": "bench\\logs\\bench-2026-08-18T22-28-31\\tmpl-fe-command_A_opus_3.jsonl",
+      "classification": "error",
+      "error": "You've hit your session limit · resets 11:50am (Asia/Seoul)",
+      "assertion": {
+        "pass": false,
+        "filesChanged": 1,
+        "areaTouched": false
+      },
+      "teaFired": false,
+      "init": {
+        "model": "claude-opus-5",
+        "skills": [
+          "deep-research",
+          "design-sync",
+          "dataviz",
+          "update-config",
+          "verify",
+          "debug",
+          "code-review",
+          "simplify",
+          "batch",
+          "fewer-permission-prompts",
+          "doctor",
+          "loop",
+          "schedule",
+          "claude-api",
+          "run",
+          "run-skill-generator"
+        ],
+        "permissionMode": "bypassPermissions"
+      },
+      "metrics": {
+        "inputTokens": 18,
+        "outputTokens": 22352,
+        "reasoningTokens": 15784,
+        "cacheCreationTokens": 30397,
+        "cacheReadTokens": 266757,
+        "totalTokens": 319524,
+        "numTurns": 20,
+        "durationMs": 252035,
+        "costUsd": 0.9968334999999999,
+        "denials": 0
+      },
+      "authFailure": true,
+      "handles": {
+        "handles": {
+          "r1_searchLedReadRatio": 1,
+          "r2_rangedReadRatio": 0.143,
+          "r3_repeatReads": 0,
+          "r4_treeCalls": 3,
+          "w1_fullRewriteRatio": null,
+          "w2_anchorMisses": 0,
+          "w3_newFiles": 1,
+          "w4_unrequestedArtifacts": 0,
+          "w5_codeRestatements": 0,
+          "t1_reverts": 0,
+          "t2_sameFileChurn": 0,
+          "t3_editFailureRatio": 0
+        },
+        "counts": {
+          "toolCalls": 19,
+          "reads": 14,
+          "searches": 4,
+          "edits": 0,
+          "writes": 1,
+          "editAttempts": 1,
+          "editFailures": 0
+        }
+      }
+    },
+    {
+      "id": "tmpl-fe-command#A#opus#4",
+      "task": "tmpl-fe-command",
+      "area": "frontend",
+      "arm": "A",
+      "model": "opus",
+      "run": 4,
+      "log": "bench\\logs\\bench-2026-08-18T22-28-31\\tmpl-fe-command_A_opus_4.jsonl",
+      "classification": "error",
+      "error": "You've hit your session limit · resets 11:50am (Asia/Seoul)",
+      "assertion": {
+        "pass": false,
+        "filesChanged": 1,
+        "areaTouched": false
+      },
+      "teaFired": false,
+      "init": {
+        "model": "claude-opus-5",
+        "skills": [
+          "deep-research",
+          "design-sync",
+          "dataviz",
+          "update-config",
+          "verify",
+          "debug",
+          "code-review",
+          "simplify",
+          "batch",
+          "fewer-permission-prompts",
+          "doctor",
+          "loop",
+          "schedule",
+          "claude-api",
+          "run",
+          "run-skill-generator"
+        ],
+        "permissionMode": "bypassPermissions"
+      },
+      "metrics": {
+        "inputTokens": 14,
+        "outputTokens": 19481,
+        "reasoningTokens": 12733,
+        "cacheCreationTokens": 26919,
+        "cacheReadTokens": 201641,
+        "totalTokens": 248055,
+        "numTurns": 21,
+        "durationMs": 217902,
+        "costUsd": 0.8577005,
+        "denials": 0
+      },
+      "authFailure": true,
+      "handles": {
+        "handles": {
+          "r1_searchLedReadRatio": 1,
+          "r2_rangedReadRatio": 0.133,
+          "r3_repeatReads": 0,
+          "r4_treeCalls": 4,
+          "w1_fullRewriteRatio": null,
+          "w2_anchorMisses": 0,
+          "w3_newFiles": 1,
+          "w4_unrequestedArtifacts": 0,
+          "w5_codeRestatements": 0,
+          "t1_reverts": 0,
+          "t2_sameFileChurn": 0,
+          "t3_editFailureRatio": 0
+        },
+        "counts": {
+          "toolCalls": 20,
+          "reads": 15,
+          "searches": 4,
+          "edits": 0,
+          "writes": 1,
+          "editAttempts": 1,
+          "editFailures": 0
+        }
+      }
     }
   ]
 }

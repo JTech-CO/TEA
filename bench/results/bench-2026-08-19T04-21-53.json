@@ -1,0 +1,99 @@
+{
+  "meta": {
+    "startedAt": "2026-08-19T04:21:53.266Z",
+    "fixtureCommit": "cd83fc1",
+    "teaSkillHash": "f58e7c9181eb",
+    "adapterHash": "80a879368f16",
+    "models": {
+      "sonnet": "claude-sonnet-5",
+      "opus": "claude-opus-5"
+    },
+    "trialTimeoutMs": 600000,
+    "noRun": "Write the implementation (include tests if you normally would for a change like this). Do not run a dev server, install dependencies, run a database, or open a browser to verify -- just write the code and stop. Only the code you write is measured, not its execution.",
+    "cliFlags": "bypassPermissions | stream-json | setting-sources=project,local | strict-mcp-config | disallowedTools=Bash,PowerShell | plugin-dir(B,C) | PONYTAIL_DEFAULT_MODE A:off B/C:full"
+  },
+  "complete": true,
+  "expectedTrials": 1,
+  "trials": [
+    {
+      "id": "tmpl-fe-command#A#opus#4",
+      "task": "tmpl-fe-command",
+      "area": "frontend",
+      "arm": "A",
+      "model": "opus",
+      "run": 4,
+      "log": "bench\\logs\\bench-2026-08-19T04-21-53\\tmpl-fe-command_A_opus_4.jsonl",
+      "classification": "ok",
+      "error": null,
+      "assertion": {
+        "pass": true,
+        "filesChanged": 4,
+        "areaTouched": true,
+        "assertionV1": true,
+        "rescoredFromLog": true,
+        "logEdits": 9
+      },
+      "teaFired": false,
+      "init": {
+        "model": "claude-opus-5",
+        "skills": [
+          "deep-research",
+          "design-sync",
+          "dataviz",
+          "update-config",
+          "verify",
+          "debug",
+          "code-review",
+          "simplify",
+          "batch",
+          "fewer-permission-prompts",
+          "doctor",
+          "loop",
+          "schedule",
+          "claude-api",
+          "run",
+          "run-skill-generator"
+        ],
+        "permissionMode": "bypassPermissions"
+      },
+      "metrics": {
+        "inputTokens": 1382,
+        "outputTokens": 35764,
+        "reasoningTokens": 21247,
+        "cacheCreationTokens": 69919,
+        "cacheReadTokens": 1002041,
+        "totalTokens": 1109106,
+        "numTurns": 33,
+        "durationMs": 407341,
+        "costUsd": 2.1018155000000003,
+        "denials": 0
+      },
+      "authFailure": false,
+      "handles": {
+        "handles": {
+          "r1_searchLedReadRatio": 1,
+          "r2_rangedReadRatio": 0.056,
+          "r3_repeatReads": 0,
+          "r4_treeCalls": 4,
+          "w1_fullRewriteRatio": 0,
+          "w2_anchorMisses": 0,
+          "w3_newFiles": 3,
+          "w4_unrequestedArtifacts": 1,
+          "w5_codeRestatements": 0,
+          "t1_reverts": 0,
+          "t2_sameFileChurn": 2,
+          "t3_editFailureRatio": 0
+        },
+        "counts": {
+          "toolCalls": 32,
+          "reads": 18,
+          "searches": 5,
+          "edits": 6,
+          "writes": 3,
+          "editAttempts": 9,
+          "editFailures": 0
+        }
+      }
+    }
+  ]
+}

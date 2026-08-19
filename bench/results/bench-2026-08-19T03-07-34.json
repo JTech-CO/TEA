@@ -1,0 +1,5924 @@
+{
+  "meta": {
+    "startedAt": "2026-08-19T03:07:34.233Z",
+    "fixtureCommit": "cd83fc1",
+    "teaSkillHash": "f58e7c9181eb",
+    "adapterHash": "80a879368f16",
+    "models": {
+      "sonnet": "claude-sonnet-5",
+      "opus": "claude-opus-5"
+    },
+    "trialTimeoutMs": 600000,
+    "noRun": "Write the implementation (include tests if you normally would for a change like this). Do not run a dev server, install dependencies, run a database, or open a browser to verify -- just write the code and stop. Only the code you write is measured, not its execution.",
+    "cliFlags": "bypassPermissions | stream-json | setting-sources=project,local | strict-mcp-config | disallowedTools=Bash,PowerShell | plugin-dir(B,C) | PONYTAIL_DEFAULT_MODE A:off B/C:full"
+  },
+  "complete": true,
+  "expectedTrials": 74,
+  "trials": [
+    {
+      "id": "tmpl-fe-command#A#opus#3",
+      "task": "tmpl-fe-command",
+      "area": "frontend",
+      "arm": "A",
+      "model": "opus",
+      "run": 3,
+      "log": "bench\\logs\\bench-2026-08-19T03-07-34\\tmpl-fe-command_A_opus_3.jsonl",
+      "classification": "ok",
+      "error": null,
+      "assertion": {
+        "pass": true,
+        "filesChanged": 4,
+        "areaTouched": true,
+        "assertionV1": true,
+        "rescoredFromLog": true,
+        "logEdits": 12
+      },
+      "teaFired": false,
+      "init": {
+        "model": "claude-opus-5",
+        "skills": [
+          "deep-research",
+          "design-sync",
+          "dataviz",
+          "update-config",
+          "verify",
+          "debug",
+          "code-review",
+          "simplify",
+          "batch",
+          "fewer-permission-prompts",
+          "doctor",
+          "loop",
+          "schedule",
+          "claude-api",
+          "run",
+          "run-skill-generator"
+        ],
+        "permissionMode": "bypassPermissions"
+      },
+      "metrics": {
+        "inputTokens": 524,
+        "outputTokens": 40961,
+        "reasoningTokens": 21798,
+        "cacheCreationTokens": 91478,
+        "cacheReadTokens": 1630621,
+        "totalTokens": 1763584,
+        "numTurns": 46,
+        "durationMs": 469658,
+        "costUsd": 2.7573304999999997,
+        "denials": 0
+      },
+      "authFailure": false,
+      "handles": {
+        "handles": {
+          "r1_searchLedReadRatio": 1,
+          "r2_rangedReadRatio": 0.231,
+          "r3_repeatReads": 1,
+          "r4_treeCalls": 5,
+          "w1_fullRewriteRatio": 0.111,
+          "w2_anchorMisses": 0,
+          "w3_newFiles": 3,
+          "w4_unrequestedArtifacts": 1,
+          "w5_codeRestatements": 0,
+          "t1_reverts": 0,
+          "t2_sameFileChurn": 6,
+          "t3_editFailureRatio": 0
+        },
+        "counts": {
+          "toolCalls": 45,
+          "reads": 26,
+          "searches": 7,
+          "edits": 8,
+          "writes": 4,
+          "editAttempts": 12,
+          "editFailures": 0
+        }
+      }
+    },
+    {
+      "id": "tmpl-fe-dropzone#A#sonnet#1",
+      "task": "tmpl-fe-dropzone",
+      "area": "frontend",
+      "arm": "A",
+      "model": "sonnet",
+      "run": 1,
+      "log": "bench\\logs\\bench-2026-08-19T03-07-34\\tmpl-fe-dropzone_A_sonnet_1.jsonl",
+      "classification": "ok",
+      "error": null,
+      "assertion": {
+        "pass": true,
+        "filesChanged": 1,
+        "areaTouched": true,
+        "assertionV1": true,
+        "rescoredFromLog": true,
+        "logEdits": 1
+      },
+      "teaFired": false,
+      "init": {
+        "model": "claude-sonnet-5",
+        "skills": [
+          "deep-research",
+          "design-sync",
+          "dataviz",
+          "update-config",
+          "verify",
+          "debug",
+          "code-review",
+          "simplify",
+          "batch",
+          "fewer-permission-prompts",
+          "doctor",
+          "loop",
+          "schedule",
+          "claude-api",
+          "run",
+          "run-skill-generator"
+        ],
+        "permissionMode": "bypassPermissions"
+      },
+      "metrics": {
+        "inputTokens": 481,
+        "outputTokens": 4571,
+        "reasoningTokens": 567,
+        "cacheCreationTokens": 45252,
+        "cacheReadTokens": 179706,
+        "totalTokens": 230010,
+        "numTurns": 13,
+        "durationMs": 41844,
+        "costUsd": 0.39602879999999996,
+        "denials": 0
+      },
+      "authFailure": false,
+      "handles": {
+        "handles": {
+          "r1_searchLedReadRatio": 1,
+          "r2_rangedReadRatio": 0,
+          "r3_repeatReads": 0,
+          "r4_treeCalls": 1,
+          "w1_fullRewriteRatio": null,
+          "w2_anchorMisses": 0,
+          "w3_newFiles": 1,
+          "w4_unrequestedArtifacts": 0,
+          "w5_codeRestatements": 0,
+          "t1_reverts": 0,
+          "t2_sameFileChurn": 0,
+          "t3_editFailureRatio": 0
+        },
+        "counts": {
+          "toolCalls": 12,
+          "reads": 10,
+          "searches": 1,
+          "edits": 0,
+          "writes": 1,
+          "editAttempts": 1,
+          "editFailures": 0
+        }
+      }
+    },
+    {
+      "id": "tmpl-fe-command#A#opus#4",
+      "task": "tmpl-fe-command",
+      "area": "frontend",
+      "arm": "A",
+      "model": "opus",
+      "run": 4,
+      "log": "bench\\logs\\bench-2026-08-19T03-07-34\\tmpl-fe-command_A_opus_4.jsonl",
+      "classification": "killed",
+      "error": "timeout 600000ms",
+      "assertion": {
+        "pass": false,
+        "filesChanged": 9,
+        "areaTouched": true
+      },
+      "teaFired": false,
+      "init": {
+        "model": "claude-opus-5",
+        "skills": [
+          "deep-research",
+          "design-sync",
+          "dataviz",
+          "update-config",
+          "verify",
+          "debug",
+          "code-review",
+          "simplify",
+          "batch",
+          "fewer-permission-prompts",
+          "doctor",
+          "loop",
+          "schedule",
+          "claude-api",
+          "run",
+          "run-skill-generator"
+        ],
+        "permissionMode": "bypassPermissions"
+      },
+      "authFailure": false,
+      "handles": {
+        "handles": {
+          "r1_searchLedReadRatio": 1,
+          "r2_rangedReadRatio": 0.25,
+          "r3_repeatReads": 1,
+          "r4_treeCalls": 5,
+          "w1_fullRewriteRatio": 0,
+          "w2_anchorMisses": 0,
+          "w3_newFiles": 10,
+          "w4_unrequestedArtifacts": 1,
+          "w5_codeRestatements": 0,
+          "t1_reverts": 0,
+          "t2_sameFileChurn": 7,
+          "t3_editFailureRatio": 0
+        },
+        "counts": {
+          "toolCalls": 68,
+          "reads": 32,
+          "searches": 7,
+          "edits": 19,
+          "writes": 10,
+          "editAttempts": 29,
+          "editFailures": 0
+        }
+      }
+    },
+    {
+      "id": "tmpl-fe-dropzone#A#sonnet#2",
+      "task": "tmpl-fe-dropzone",
+      "area": "frontend",
+      "arm": "A",
+      "model": "sonnet",
+      "run": 2,
+      "log": "bench\\logs\\bench-2026-08-19T03-07-34\\tmpl-fe-dropzone_A_sonnet_2.jsonl",
+      "classification": "ok",
+      "error": null,
+      "assertion": {
+        "pass": true,
+        "filesChanged": 1,
+        "areaTouched": true,
+        "assertionV1": true,
+        "rescoredFromLog": true,
+        "logEdits": 1
+      },
+      "teaFired": false,
+      "init": {
+        "model": "claude-sonnet-5",
+        "skills": [
+          "deep-research",
+          "design-sync",
+          "dataviz",
+          "update-config",
+          "verify",
+          "debug",
+          "code-review",
+          "simplify",
+          "batch",
+          "fewer-permission-prompts",
+          "doctor",
+          "loop",
+          "schedule",
+          "claude-api",
+          "run",
+          "run-skill-generator"
+        ],
+        "permissionMode": "bypassPermissions"
+      },
+      "metrics": {
+        "inputTokens": 12,
+        "outputTokens": 6109,
+        "reasoningTokens": 1383,
+        "cacheCreationTokens": 21841,
+        "cacheReadTokens": 197473,
+        "totalTokens": 225435,
+        "numTurns": 12,
+        "durationMs": 82401,
+        "costUsd": 0.40403205000000003,
+        "denials": 0
+      },
+      "authFailure": false,
+      "handles": {
+        "handles": {
+          "r1_searchLedReadRatio": 1,
+          "r2_rangedReadRatio": 0,
+          "r3_repeatReads": 3,
+          "r4_treeCalls": 6,
+          "w1_fullRewriteRatio": null,
+          "w2_anchorMisses": 0,
+          "w3_newFiles": 1,
+          "w4_unrequestedArtifacts": 0,
+          "w5_codeRestatements": 0,
+          "t1_reverts": 0,
+          "t2_sameFileChurn": 0,
+          "t3_editFailureRatio": 0
+        },
+        "counts": {
+          "toolCalls": 22,
+          "reads": 12,
+          "searches": 8,
+          "edits": 0,
+          "writes": 1,
+          "editAttempts": 1,
+          "editFailures": 0
+        }
+      }
+    },
+    {
+      "id": "tmpl-fe-dropzone#A#sonnet#3",
+      "task": "tmpl-fe-dropzone",
+      "area": "frontend",
+      "arm": "A",
+      "model": "sonnet",
+      "run": 3,
+      "log": "bench\\logs\\bench-2026-08-19T03-07-34\\tmpl-fe-dropzone_A_sonnet_3.jsonl",
+      "classification": "ok",
+      "error": null,
+      "assertion": {
+        "pass": true,
+        "filesChanged": 1,
+        "areaTouched": true,
+        "assertionV1": true,
+        "rescoredFromLog": true,
+        "logEdits": 1
+      },
+      "teaFired": false,
+      "init": {
+        "model": "claude-sonnet-5",
+        "skills": [
+          "deep-research",
+          "design-sync",
+          "dataviz",
+          "update-config",
+          "verify",
+          "debug",
+          "code-review",
+          "simplify",
+          "batch",
+          "fewer-permission-prompts",
+          "doctor",
+          "loop",
+          "schedule",
+          "claude-api",
+          "run",
+          "run-skill-generator"
+        ],
+        "permissionMode": "bypassPermissions"
+      },
+      "metrics": {
+        "inputTokens": 1037,
+        "outputTokens": 5716,
+        "reasoningTokens": 983,
+        "cacheCreationTokens": 20203,
+        "cacheReadTokens": 225583,
+        "totalTokens": 252539,
+        "numTurns": 12,
+        "durationMs": 57817,
+        "costUsd": 0.2783409,
+        "denials": 0
+      },
+      "authFailure": false,
+      "handles": {
+        "handles": {
+          "r1_searchLedReadRatio": 1,
+          "r2_rangedReadRatio": 0,
+          "r3_repeatReads": 0,
+          "r4_treeCalls": 2,
+          "w1_fullRewriteRatio": null,
+          "w2_anchorMisses": 0,
+          "w3_newFiles": 1,
+          "w4_unrequestedArtifacts": 0,
+          "w5_codeRestatements": 0,
+          "t1_reverts": 0,
+          "t2_sameFileChurn": 0,
+          "t3_editFailureRatio": 0
+        },
+        "counts": {
+          "toolCalls": 11,
+          "reads": 6,
+          "searches": 4,
+          "edits": 0,
+          "writes": 1,
+          "editAttempts": 1,
+          "editFailures": 0
+        }
+      }
+    },
+    {
+      "id": "tmpl-fe-dropzone#A#sonnet#4",
+      "task": "tmpl-fe-dropzone",
+      "area": "frontend",
+      "arm": "A",
+      "model": "sonnet",
+      "run": 4,
+      "log": "bench\\logs\\bench-2026-08-19T03-07-34\\tmpl-fe-dropzone_A_sonnet_4.jsonl",
+      "classification": "ok",
+      "error": null,
+      "assertion": {
+        "pass": true,
+        "filesChanged": 1,
+        "areaTouched": true,
+        "assertionV1": true,
+        "rescoredFromLog": true,
+        "logEdits": 1
+      },
+      "teaFired": false,
+      "init": {
+        "model": "claude-sonnet-5",
+        "skills": [
+          "deep-research",
+          "design-sync",
+          "dataviz",
+          "update-config",
+          "verify",
+          "debug",
+          "code-review",
+          "simplify",
+          "batch",
+          "fewer-permission-prompts",
+          "doctor",
+          "loop",
+          "schedule",
+          "claude-api",
+          "run",
+          "run-skill-generator"
+        ],
+        "permissionMode": "bypassPermissions"
+      },
+      "metrics": {
+        "inputTokens": 14,
+        "outputTokens": 5922,
+        "reasoningTokens": 1696,
+        "cacheCreationTokens": 20418,
+        "cacheReadTokens": 228461,
+        "totalTokens": 254815,
+        "numTurns": 12,
+        "durationMs": 57581,
+        "costUsd": 0.2805153,
+        "denials": 0
+      },
+      "authFailure": false,
+      "handles": {
+        "handles": {
+          "r1_searchLedReadRatio": 1,
+          "r2_rangedReadRatio": 0,
+          "r3_repeatReads": 0,
+          "r4_treeCalls": 3,
+          "w1_fullRewriteRatio": null,
+          "w2_anchorMisses": 0,
+          "w3_newFiles": 1,
+          "w4_unrequestedArtifacts": 0,
+          "w5_codeRestatements": 0,
+          "t1_reverts": 0,
+          "t2_sameFileChurn": 0,
+          "t3_editFailureRatio": 0
+        },
+        "counts": {
+          "toolCalls": 11,
+          "reads": 6,
+          "searches": 4,
+          "edits": 0,
+          "writes": 1,
+          "editAttempts": 1,
+          "editFailures": 0
+        }
+      }
+    },
+    {
+      "id": "tmpl-fe-dropzone#A#opus#1",
+      "task": "tmpl-fe-dropzone",
+      "area": "frontend",
+      "arm": "A",
+      "model": "opus",
+      "run": 1,
+      "log": "bench\\logs\\bench-2026-08-19T03-07-34\\tmpl-fe-dropzone_A_opus_1.jsonl",
+      "classification": "ok",
+      "error": null,
+      "assertion": {
+        "pass": true,
+        "filesChanged": 1,
+        "areaTouched": true,
+        "assertionV1": true,
+        "rescoredFromLog": true,
+        "logEdits": 1
+      },
+      "teaFired": false,
+      "init": {
+        "model": "claude-opus-5",
+        "skills": [
+          "deep-research",
+          "design-sync",
+          "dataviz",
+          "update-config",
+          "verify",
+          "debug",
+          "code-review",
+          "simplify",
+          "batch",
+          "fewer-permission-prompts",
+          "doctor",
+          "loop",
+          "schedule",
+          "claude-api",
+          "run",
+          "run-skill-generator"
+        ],
+        "permissionMode": "bypassPermissions"
+      },
+      "metrics": {
+        "inputTokens": 1102,
+        "outputTokens": 10477,
+        "reasoningTokens": 4786,
+        "cacheCreationTokens": 25787,
+        "cacheReadTokens": 181039,
+        "totalTokens": 218405,
+        "numTurns": 15,
+        "durationMs": 113943,
+        "costUsd": 0.6164215,
+        "denials": 0
+      },
+      "authFailure": false,
+      "handles": {
+        "handles": {
+          "r1_searchLedReadRatio": 1,
+          "r2_rangedReadRatio": 0,
+          "r3_repeatReads": 0,
+          "r4_treeCalls": 4,
+          "w1_fullRewriteRatio": null,
+          "w2_anchorMisses": 0,
+          "w3_newFiles": 1,
+          "w4_unrequestedArtifacts": 0,
+          "w5_codeRestatements": 0,
+          "t1_reverts": 0,
+          "t2_sameFileChurn": 0,
+          "t3_editFailureRatio": 0
+        },
+        "counts": {
+          "toolCalls": 14,
+          "reads": 9,
+          "searches": 4,
+          "edits": 0,
+          "writes": 1,
+          "editAttempts": 1,
+          "editFailures": 0
+        }
+      }
+    },
+    {
+      "id": "tmpl-fe-dropzone#A#opus#2",
+      "task": "tmpl-fe-dropzone",
+      "area": "frontend",
+      "arm": "A",
+      "model": "opus",
+      "run": 2,
+      "log": "bench\\logs\\bench-2026-08-19T03-07-34\\tmpl-fe-dropzone_A_opus_2.jsonl",
+      "classification": "ok",
+      "error": null,
+      "assertion": {
+        "pass": true,
+        "filesChanged": 2,
+        "areaTouched": true,
+        "assertionV1": true,
+        "rescoredFromLog": true,
+        "logEdits": 2
+      },
+      "teaFired": false,
+      "init": {
+        "model": "claude-opus-5",
+        "skills": [
+          "deep-research",
+          "design-sync",
+          "dataviz",
+          "update-config",
+          "verify",
+          "debug",
+          "code-review",
+          "simplify",
+          "batch",
+          "fewer-permission-prompts",
+          "doctor",
+          "loop",
+          "schedule",
+          "claude-api",
+          "run",
+          "run-skill-generator"
+        ],
+        "permissionMode": "bypassPermissions"
+      },
+      "metrics": {
+        "inputTokens": 1398,
+        "outputTokens": 13626,
+        "reasoningTokens": 6851,
+        "cacheCreationTokens": 27635,
+        "cacheReadTokens": 252121,
+        "totalTokens": 294780,
+        "numTurns": 17,
+        "durationMs": 146075,
+        "costUsd": 0.7506475,
+        "denials": 0
+      },
+      "authFailure": false,
+      "handles": {
+        "handles": {
+          "r1_searchLedReadRatio": 1,
+          "r2_rangedReadRatio": 0,
+          "r3_repeatReads": 0,
+          "r4_treeCalls": 5,
+          "w1_fullRewriteRatio": null,
+          "w2_anchorMisses": 0,
+          "w3_newFiles": 2,
+          "w4_unrequestedArtifacts": 0,
+          "w5_codeRestatements": 0,
+          "t1_reverts": 0,
+          "t2_sameFileChurn": 0,
+          "t3_editFailureRatio": 0
+        },
+        "counts": {
+          "toolCalls": 16,
+          "reads": 9,
+          "searches": 5,
+          "edits": 0,
+          "writes": 2,
+          "editAttempts": 2,
+          "editFailures": 0
+        }
+      }
+    },
+    {
+      "id": "tmpl-fe-dropzone#A#opus#3",
+      "task": "tmpl-fe-dropzone",
+      "area": "frontend",
+      "arm": "A",
+      "model": "opus",
+      "run": 3,
+      "log": "bench\\logs\\bench-2026-08-19T03-07-34\\tmpl-fe-dropzone_A_opus_3.jsonl",
+      "classification": "ok",
+      "error": null,
+      "assertion": {
+        "pass": true,
+        "filesChanged": 1,
+        "areaTouched": true,
+        "assertionV1": true,
+        "rescoredFromLog": true,
+        "logEdits": 3
+      },
+      "teaFired": false,
+      "init": {
+        "model": "claude-opus-5",
+        "skills": [
+          "deep-research",
+          "design-sync",
+          "dataviz",
+          "update-config",
+          "verify",
+          "debug",
+          "code-review",
+          "simplify",
+          "batch",
+          "fewer-permission-prompts",
+          "doctor",
+          "loop",
+          "schedule",
+          "claude-api",
+          "run",
+          "run-skill-generator"
+        ],
+        "permissionMode": "bypassPermissions"
+      },
+      "metrics": {
+        "inputTokens": 12,
+        "outputTokens": 8628,
+        "reasoningTokens": 3297,
+        "cacheCreationTokens": 21599,
+        "cacheReadTokens": 156542,
+        "totalTokens": 186781,
+        "numTurns": 12,
+        "durationMs": 96164,
+        "costUsd": 0.5106179999999999,
+        "denials": 0
+      },
+      "authFailure": false,
+      "handles": {
+        "handles": {
+          "r1_searchLedReadRatio": 1,
+          "r2_rangedReadRatio": 0,
+          "r3_repeatReads": 0,
+          "r4_treeCalls": 1,
+          "w1_fullRewriteRatio": 0,
+          "w2_anchorMisses": 0,
+          "w3_newFiles": 1,
+          "w4_unrequestedArtifacts": 0,
+          "w5_codeRestatements": 0,
+          "t1_reverts": 0,
+          "t2_sameFileChurn": 1,
+          "t3_editFailureRatio": 0
+        },
+        "counts": {
+          "toolCalls": 11,
+          "reads": 7,
+          "searches": 1,
+          "edits": 2,
+          "writes": 1,
+          "editAttempts": 3,
+          "editFailures": 0
+        }
+      }
+    },
+    {
+      "id": "tmpl-fe-dropzone#A#opus#4",
+      "task": "tmpl-fe-dropzone",
+      "area": "frontend",
+      "arm": "A",
+      "model": "opus",
+      "run": 4,
+      "log": "bench\\logs\\bench-2026-08-19T03-07-34\\tmpl-fe-dropzone_A_opus_4.jsonl",
+      "classification": "ok",
+      "error": null,
+      "assertion": {
+        "pass": true,
+        "filesChanged": 1,
+        "areaTouched": true,
+        "assertionV1": true,
+        "rescoredFromLog": true,
+        "logEdits": 1
+      },
+      "teaFired": false,
+      "init": {
+        "model": "claude-opus-5",
+        "skills": [
+          "deep-research",
+          "design-sync",
+          "dataviz",
+          "update-config",
+          "verify",
+          "debug",
+          "code-review",
+          "simplify",
+          "batch",
+          "fewer-permission-prompts",
+          "doctor",
+          "loop",
+          "schedule",
+          "claude-api",
+          "run",
+          "run-skill-generator"
+        ],
+        "permissionMode": "bypassPermissions"
+      },
+      "metrics": {
+        "inputTokens": 14,
+        "outputTokens": 10210,
+        "reasoningTokens": 4959,
+        "cacheCreationTokens": 24392,
+        "cacheReadTokens": 186652,
+        "totalTokens": 221268,
+        "numTurns": 14,
+        "durationMs": 118055,
+        "costUsd": 0.5931629999999999,
+        "denials": 0
+      },
+      "authFailure": false,
+      "handles": {
+        "handles": {
+          "r1_searchLedReadRatio": 1,
+          "r2_rangedReadRatio": 0,
+          "r3_repeatReads": 0,
+          "r4_treeCalls": 3,
+          "w1_fullRewriteRatio": null,
+          "w2_anchorMisses": 0,
+          "w3_newFiles": 1,
+          "w4_unrequestedArtifacts": 0,
+          "w5_codeRestatements": 0,
+          "t1_reverts": 0,
+          "t2_sameFileChurn": 0,
+          "t3_editFailureRatio": 0
+        },
+        "counts": {
+          "toolCalls": 13,
+          "reads": 8,
+          "searches": 4,
+          "edits": 0,
+          "writes": 1,
+          "editAttempts": 1,
+          "editFailures": 0
+        }
+      }
+    },
+    {
+      "id": "tmpl-fe-wizard#A#sonnet#2",
+      "task": "tmpl-fe-wizard",
+      "area": "frontend",
+      "arm": "A",
+      "model": "sonnet",
+      "run": 2,
+      "log": "bench\\logs\\bench-2026-08-19T03-07-34\\tmpl-fe-wizard_A_sonnet_2.jsonl",
+      "classification": "ok",
+      "error": null,
+      "assertion": {
+        "pass": true,
+        "filesChanged": 1,
+        "areaTouched": true,
+        "assertionV1": true,
+        "rescoredFromLog": true,
+        "logEdits": 1
+      },
+      "teaFired": false,
+      "init": {
+        "model": "claude-sonnet-5",
+        "skills": [
+          "deep-research",
+          "design-sync",
+          "dataviz",
+          "update-config",
+          "verify",
+          "debug",
+          "code-review",
+          "simplify",
+          "batch",
+          "fewer-permission-prompts",
+          "doctor",
+          "loop",
+          "schedule",
+          "claude-api",
+          "run",
+          "run-skill-generator"
+        ],
+        "permissionMode": "bypassPermissions"
+      },
+      "metrics": {
+        "inputTokens": 481,
+        "outputTokens": 6072,
+        "reasoningTokens": 2696,
+        "cacheCreationTokens": 13748,
+        "cacheReadTokens": 226543,
+        "totalTokens": 246844,
+        "numTurns": 11,
+        "durationMs": 55285,
+        "costUsd": 0.42168345000000007,
+        "denials": 0
+      },
+      "authFailure": false,
+      "handles": {
+        "handles": {
+          "r1_searchLedReadRatio": 1,
+          "r2_rangedReadRatio": 0.1,
+          "r3_repeatReads": 2,
+          "r4_treeCalls": 6,
+          "w1_fullRewriteRatio": null,
+          "w2_anchorMisses": 0,
+          "w3_newFiles": 1,
+          "w4_unrequestedArtifacts": 0,
+          "w5_codeRestatements": 0,
+          "t1_reverts": 0,
+          "t2_sameFileChurn": 0,
+          "t3_editFailureRatio": 0
+        },
+        "counts": {
+          "toolCalls": 22,
+          "reads": 10,
+          "searches": 10,
+          "edits": 0,
+          "writes": 1,
+          "editAttempts": 1,
+          "editFailures": 0
+        }
+      }
+    },
+    {
+      "id": "tmpl-fe-wizard#A#sonnet#1",
+      "task": "tmpl-fe-wizard",
+      "area": "frontend",
+      "arm": "A",
+      "model": "sonnet",
+      "run": 1,
+      "log": "bench\\logs\\bench-2026-08-19T03-07-34\\tmpl-fe-wizard_A_sonnet_1.jsonl",
+      "classification": "ok",
+      "error": null,
+      "assertion": {
+        "pass": true,
+        "filesChanged": 1,
+        "areaTouched": true,
+        "assertionV1": true,
+        "rescoredFromLog": true,
+        "logEdits": 2
+      },
+      "teaFired": false,
+      "init": {
+        "model": "claude-sonnet-5",
+        "skills": [
+          "deep-research",
+          "design-sync",
+          "dataviz",
+          "update-config",
+          "verify",
+          "debug",
+          "code-review",
+          "simplify",
+          "batch",
+          "fewer-permission-prompts",
+          "doctor",
+          "loop",
+          "schedule",
+          "claude-api",
+          "run",
+          "run-skill-generator"
+        ],
+        "permissionMode": "bypassPermissions"
+      },
+      "metrics": {
+        "inputTokens": 22,
+        "outputTokens": 11625,
+        "reasoningTokens": 7309,
+        "cacheCreationTokens": 29827,
+        "cacheReadTokens": 538391,
+        "totalTokens": 579865,
+        "numTurns": 19,
+        "durationMs": 114431,
+        "costUsd": 0.77383545,
+        "denials": 0
+      },
+      "authFailure": false,
+      "handles": {
+        "handles": {
+          "r1_searchLedReadRatio": 1,
+          "r2_rangedReadRatio": 0.105,
+          "r3_repeatReads": 2,
+          "r4_treeCalls": 10,
+          "w1_fullRewriteRatio": 0,
+          "w2_anchorMisses": 0,
+          "w3_newFiles": 1,
+          "w4_unrequestedArtifacts": 0,
+          "w5_codeRestatements": 0,
+          "t1_reverts": 0,
+          "t2_sameFileChurn": 0,
+          "t3_editFailureRatio": 0
+        },
+        "counts": {
+          "toolCalls": 34,
+          "reads": 19,
+          "searches": 11,
+          "edits": 1,
+          "writes": 1,
+          "editAttempts": 2,
+          "editFailures": 0
+        }
+      }
+    },
+    {
+      "id": "tmpl-fe-wizard#A#sonnet#3",
+      "task": "tmpl-fe-wizard",
+      "area": "frontend",
+      "arm": "A",
+      "model": "sonnet",
+      "run": 3,
+      "log": "bench\\logs\\bench-2026-08-19T03-07-34\\tmpl-fe-wizard_A_sonnet_3.jsonl",
+      "classification": "ok",
+      "error": null,
+      "assertion": {
+        "pass": true,
+        "filesChanged": 1,
+        "areaTouched": true,
+        "assertionV1": true,
+        "rescoredFromLog": true,
+        "logEdits": 1
+      },
+      "teaFired": false,
+      "init": {
+        "model": "claude-sonnet-5",
+        "skills": [
+          "deep-research",
+          "design-sync",
+          "dataviz",
+          "update-config",
+          "verify",
+          "debug",
+          "code-review",
+          "simplify",
+          "batch",
+          "fewer-permission-prompts",
+          "doctor",
+          "loop",
+          "schedule",
+          "claude-api",
+          "run",
+          "run-skill-generator"
+        ],
+        "permissionMode": "bypassPermissions"
+      },
+      "metrics": {
+        "inputTokens": 14,
+        "outputTokens": 9503,
+        "reasoningTokens": 5984,
+        "cacheCreationTokens": 29480,
+        "cacheReadTokens": 247885,
+        "totalTokens": 286882,
+        "numTurns": 13,
+        "durationMs": 92159,
+        "costUsd": 0.39443550000000005,
+        "denials": 0
+      },
+      "authFailure": false,
+      "handles": {
+        "handles": {
+          "r1_searchLedReadRatio": 1,
+          "r2_rangedReadRatio": 0,
+          "r3_repeatReads": 0,
+          "r4_treeCalls": 3,
+          "w1_fullRewriteRatio": null,
+          "w2_anchorMisses": 0,
+          "w3_newFiles": 1,
+          "w4_unrequestedArtifacts": 0,
+          "w5_codeRestatements": 0,
+          "t1_reverts": 0,
+          "t2_sameFileChurn": 0,
+          "t3_editFailureRatio": 0
+        },
+        "counts": {
+          "toolCalls": 12,
+          "reads": 7,
+          "searches": 4,
+          "edits": 0,
+          "writes": 1,
+          "editAttempts": 1,
+          "editFailures": 0
+        }
+      }
+    },
+    {
+      "id": "tmpl-fe-wizard#A#sonnet#4",
+      "task": "tmpl-fe-wizard",
+      "area": "frontend",
+      "arm": "A",
+      "model": "sonnet",
+      "run": 4,
+      "log": "bench\\logs\\bench-2026-08-19T03-07-34\\tmpl-fe-wizard_A_sonnet_4.jsonl",
+      "classification": "ok",
+      "error": null,
+      "assertion": {
+        "pass": true,
+        "filesChanged": 1,
+        "areaTouched": true,
+        "assertionV1": true,
+        "rescoredFromLog": true,
+        "logEdits": 7
+      },
+      "teaFired": false,
+      "init": {
+        "model": "claude-sonnet-5",
+        "skills": [
+          "deep-research",
+          "design-sync",
+          "dataviz",
+          "update-config",
+          "verify",
+          "debug",
+          "code-review",
+          "simplify",
+          "batch",
+          "fewer-permission-prompts",
+          "doctor",
+          "loop",
+          "schedule",
+          "claude-api",
+          "run",
+          "run-skill-generator"
+        ],
+        "permissionMode": "bypassPermissions"
+      },
+      "metrics": {
+        "inputTokens": 22,
+        "outputTokens": 7805,
+        "reasoningTokens": 2590,
+        "cacheCreationTokens": 21395,
+        "cacheReadTokens": 502130,
+        "totalTokens": 531352,
+        "numTurns": 17,
+        "durationMs": 78102,
+        "costUsd": 0.6580149,
+        "denials": 0
+      },
+      "authFailure": false,
+      "handles": {
+        "handles": {
+          "r1_searchLedReadRatio": 1,
+          "r2_rangedReadRatio": 0.056,
+          "r3_repeatReads": 5,
+          "r4_treeCalls": 5,
+          "w1_fullRewriteRatio": 0,
+          "w2_anchorMisses": 0,
+          "w3_newFiles": 1,
+          "w4_unrequestedArtifacts": 0,
+          "w5_codeRestatements": 0,
+          "t1_reverts": 0,
+          "t2_sameFileChurn": 5,
+          "t3_editFailureRatio": 0
+        },
+        "counts": {
+          "toolCalls": 32,
+          "reads": 18,
+          "searches": 6,
+          "edits": 6,
+          "writes": 1,
+          "editAttempts": 7,
+          "editFailures": 0
+        }
+      }
+    },
+    {
+      "id": "tmpl-fe-wizard#A#opus#2",
+      "task": "tmpl-fe-wizard",
+      "area": "frontend",
+      "arm": "A",
+      "model": "opus",
+      "run": 2,
+      "log": "bench\\logs\\bench-2026-08-19T03-07-34\\tmpl-fe-wizard_A_opus_2.jsonl",
+      "classification": "ok",
+      "error": null,
+      "assertion": {
+        "pass": true,
+        "filesChanged": 2,
+        "areaTouched": true,
+        "assertionV1": true,
+        "rescoredFromLog": true,
+        "logEdits": 3
+      },
+      "teaFired": false,
+      "init": {
+        "model": "claude-opus-5",
+        "skills": [
+          "deep-research",
+          "design-sync",
+          "dataviz",
+          "update-config",
+          "verify",
+          "debug",
+          "code-review",
+          "simplify",
+          "batch",
+          "fewer-permission-prompts",
+          "doctor",
+          "loop",
+          "schedule",
+          "claude-api",
+          "run",
+          "run-skill-generator"
+        ],
+        "permissionMode": "bypassPermissions"
+      },
+      "metrics": {
+        "inputTokens": 16,
+        "outputTokens": 14583,
+        "reasoningTokens": 8597,
+        "cacheCreationTokens": 33255,
+        "cacheReadTokens": 262944,
+        "totalTokens": 310798,
+        "numTurns": 15,
+        "durationMs": 168519,
+        "costUsd": 0.82928,
+        "denials": 0
+      },
+      "authFailure": false,
+      "handles": {
+        "handles": {
+          "r1_searchLedReadRatio": 1,
+          "r2_rangedReadRatio": 0,
+          "r3_repeatReads": 0,
+          "r4_treeCalls": 2,
+          "w1_fullRewriteRatio": 0,
+          "w2_anchorMisses": 0,
+          "w3_newFiles": 2,
+          "w4_unrequestedArtifacts": 0,
+          "w5_codeRestatements": 0,
+          "t1_reverts": 0,
+          "t2_sameFileChurn": 0,
+          "t3_editFailureRatio": 0
+        },
+        "counts": {
+          "toolCalls": 14,
+          "reads": 9,
+          "searches": 2,
+          "edits": 1,
+          "writes": 2,
+          "editAttempts": 3,
+          "editFailures": 0
+        }
+      }
+    },
+    {
+      "id": "tmpl-fe-wizard#A#opus#1",
+      "task": "tmpl-fe-wizard",
+      "area": "frontend",
+      "arm": "A",
+      "model": "opus",
+      "run": 1,
+      "log": "bench\\logs\\bench-2026-08-19T03-07-34\\tmpl-fe-wizard_A_opus_1.jsonl",
+      "classification": "ok",
+      "error": null,
+      "assertion": {
+        "pass": true,
+        "filesChanged": 1,
+        "areaTouched": true,
+        "assertionV1": true,
+        "rescoredFromLog": true,
+        "logEdits": 8
+      },
+      "teaFired": false,
+      "init": {
+        "model": "claude-opus-5",
+        "skills": [
+          "deep-research",
+          "design-sync",
+          "dataviz",
+          "update-config",
+          "verify",
+          "debug",
+          "code-review",
+          "simplify",
+          "batch",
+          "fewer-permission-prompts",
+          "doctor",
+          "loop",
+          "schedule",
+          "claude-api",
+          "run",
+          "run-skill-generator"
+        ],
+        "permissionMode": "bypassPermissions"
+      },
+      "metrics": {
+        "inputTokens": 30,
+        "outputTokens": 21833,
+        "reasoningTokens": 12349,
+        "cacheCreationTokens": 45591,
+        "cacheReadTokens": 637411,
+        "totalTokens": 704865,
+        "numTurns": 26,
+        "durationMs": 248976,
+        "costUsd": 1.3211935,
+        "denials": 0
+      },
+      "authFailure": false,
+      "handles": {
+        "handles": {
+          "r1_searchLedReadRatio": 1,
+          "r2_rangedReadRatio": 0.154,
+          "r3_repeatReads": 1,
+          "r4_treeCalls": 4,
+          "w1_fullRewriteRatio": 0,
+          "w2_anchorMisses": 0,
+          "w3_newFiles": 1,
+          "w4_unrequestedArtifacts": 0,
+          "w5_codeRestatements": 0,
+          "t1_reverts": 1,
+          "t2_sameFileChurn": 6,
+          "t3_editFailureRatio": 0
+        },
+        "counts": {
+          "toolCalls": 25,
+          "reads": 13,
+          "searches": 4,
+          "edits": 7,
+          "writes": 1,
+          "editAttempts": 8,
+          "editFailures": 0
+        }
+      }
+    },
+    {
+      "id": "tmpl-fe-wizard#A#opus#4",
+      "task": "tmpl-fe-wizard",
+      "area": "frontend",
+      "arm": "A",
+      "model": "opus",
+      "run": 4,
+      "log": "bench\\logs\\bench-2026-08-19T03-07-34\\tmpl-fe-wizard_A_opus_4.jsonl",
+      "classification": "ok",
+      "error": null,
+      "assertion": {
+        "pass": true,
+        "filesChanged": 1,
+        "areaTouched": true,
+        "assertionV1": true,
+        "rescoredFromLog": true,
+        "logEdits": 3
+      },
+      "teaFired": false,
+      "init": {
+        "model": "claude-opus-5",
+        "skills": [
+          "deep-research",
+          "design-sync",
+          "dataviz",
+          "update-config",
+          "verify",
+          "debug",
+          "code-review",
+          "simplify",
+          "batch",
+          "fewer-permission-prompts",
+          "doctor",
+          "loop",
+          "schedule",
+          "claude-api",
+          "run",
+          "run-skill-generator"
+        ],
+        "permissionMode": "bypassPermissions"
+      },
+      "metrics": {
+        "inputTokens": 18,
+        "outputTokens": 10137,
+        "reasoningTokens": 4430,
+        "cacheCreationTokens": 27045,
+        "cacheReadTokens": 273094,
+        "totalTokens": 310294,
+        "numTurns": 17,
+        "durationMs": 118684,
+        "costUsd": 0.661115,
+        "denials": 0
+      },
+      "authFailure": false,
+      "handles": {
+        "handles": {
+          "r1_searchLedReadRatio": 1,
+          "r2_rangedReadRatio": 0.111,
+          "r3_repeatReads": 0,
+          "r4_treeCalls": 4,
+          "w1_fullRewriteRatio": 0,
+          "w2_anchorMisses": 0,
+          "w3_newFiles": 1,
+          "w4_unrequestedArtifacts": 0,
+          "w5_codeRestatements": 0,
+          "t1_reverts": 0,
+          "t2_sameFileChurn": 1,
+          "t3_editFailureRatio": 0
+        },
+        "counts": {
+          "toolCalls": 16,
+          "reads": 9,
+          "searches": 4,
+          "edits": 2,
+          "writes": 1,
+          "editAttempts": 3,
+          "editFailures": 0
+        }
+      }
+    },
+    {
+      "id": "tmpl-fe-wizard#A#opus#3",
+      "task": "tmpl-fe-wizard",
+      "area": "frontend",
+      "arm": "A",
+      "model": "opus",
+      "run": 3,
+      "log": "bench\\logs\\bench-2026-08-19T03-07-34\\tmpl-fe-wizard_A_opus_3.jsonl",
+      "classification": "ok",
+      "error": null,
+      "assertion": {
+        "pass": true,
+        "filesChanged": 1,
+        "areaTouched": true,
+        "assertionV1": true,
+        "rescoredFromLog": true,
+        "logEdits": 1
+      },
+      "teaFired": false,
+      "init": {
+        "model": "claude-opus-5",
+        "skills": [
+          "deep-research",
+          "design-sync",
+          "dataviz",
+          "update-config",
+          "verify",
+          "debug",
+          "code-review",
+          "simplify",
+          "batch",
+          "fewer-permission-prompts",
+          "doctor",
+          "loop",
+          "schedule",
+          "claude-api",
+          "run",
+          "run-skill-generator"
+        ],
+        "permissionMode": "bypassPermissions"
+      },
+      "metrics": {
+        "inputTokens": 14,
+        "outputTokens": 13032,
+        "reasoningTokens": 8245,
+        "cacheCreationTokens": 27793,
+        "cacheReadTokens": 206351,
+        "totalTokens": 247190,
+        "numTurns": 14,
+        "durationMs": 155762,
+        "costUsd": 0.7075785,
+        "denials": 0
+      },
+      "authFailure": false,
+      "handles": {
+        "handles": {
+          "r1_searchLedReadRatio": 1,
+          "r2_rangedReadRatio": 0.125,
+          "r3_repeatReads": 0,
+          "r4_treeCalls": 4,
+          "w1_fullRewriteRatio": null,
+          "w2_anchorMisses": 0,
+          "w3_newFiles": 1,
+          "w4_unrequestedArtifacts": 0,
+          "w5_codeRestatements": 0,
+          "t1_reverts": 0,
+          "t2_sameFileChurn": 0,
+          "t3_editFailureRatio": 0
+        },
+        "counts": {
+          "toolCalls": 13,
+          "reads": 8,
+          "searches": 4,
+          "edits": 0,
+          "writes": 1,
+          "editAttempts": 1,
+          "editFailures": 0
+        }
+      }
+    },
+    {
+      "id": "tmpl-fe-rating#A#sonnet#1",
+      "task": "tmpl-fe-rating",
+      "area": "frontend",
+      "arm": "A",
+      "model": "sonnet",
+      "run": 1,
+      "log": "bench\\logs\\bench-2026-08-19T03-07-34\\tmpl-fe-rating_A_sonnet_1.jsonl",
+      "classification": "ok",
+      "error": null,
+      "assertion": {
+        "pass": true,
+        "filesChanged": 1,
+        "areaTouched": true,
+        "assertionV1": true,
+        "rescoredFromLog": true,
+        "logEdits": 2
+      },
+      "teaFired": false,
+      "init": {
+        "model": "claude-sonnet-5",
+        "skills": [
+          "deep-research",
+          "design-sync",
+          "dataviz",
+          "update-config",
+          "verify",
+          "debug",
+          "code-review",
+          "simplify",
+          "batch",
+          "fewer-permission-prompts",
+          "doctor",
+          "loop",
+          "schedule",
+          "claude-api",
+          "run",
+          "run-skill-generator"
+        ],
+        "permissionMode": "bypassPermissions"
+      },
+      "metrics": {
+        "inputTokens": 18,
+        "outputTokens": 6246,
+        "reasoningTokens": 1920,
+        "cacheCreationTokens": 23667,
+        "cacheReadTokens": 312833,
+        "totalTokens": 342764,
+        "numTurns": 13,
+        "durationMs": 64267,
+        "costUsd": 0.3301869,
+        "denials": 0
+      },
+      "authFailure": false,
+      "handles": {
+        "handles": {
+          "r1_searchLedReadRatio": 1,
+          "r2_rangedReadRatio": 0.143,
+          "r3_repeatReads": 0,
+          "r4_treeCalls": 2,
+          "w1_fullRewriteRatio": 0,
+          "w2_anchorMisses": 0,
+          "w3_newFiles": 1,
+          "w4_unrequestedArtifacts": 0,
+          "w5_codeRestatements": 0,
+          "t1_reverts": 0,
+          "t2_sameFileChurn": 0,
+          "t3_editFailureRatio": 0
+        },
+        "counts": {
+          "toolCalls": 12,
+          "reads": 7,
+          "searches": 3,
+          "edits": 1,
+          "writes": 1,
+          "editAttempts": 2,
+          "editFailures": 0
+        }
+      }
+    },
+    {
+      "id": "tmpl-fe-rating#A#sonnet#2",
+      "task": "tmpl-fe-rating",
+      "area": "frontend",
+      "arm": "A",
+      "model": "sonnet",
+      "run": 2,
+      "log": "bench\\logs\\bench-2026-08-19T03-07-34\\tmpl-fe-rating_A_sonnet_2.jsonl",
+      "classification": "ok",
+      "error": null,
+      "assertion": {
+        "pass": true,
+        "filesChanged": 1,
+        "areaTouched": true,
+        "assertionV1": true,
+        "rescoredFromLog": true,
+        "logEdits": 1
+      },
+      "teaFired": false,
+      "init": {
+        "model": "claude-sonnet-5",
+        "skills": [
+          "deep-research",
+          "design-sync",
+          "dataviz",
+          "update-config",
+          "verify",
+          "debug",
+          "code-review",
+          "simplify",
+          "batch",
+          "fewer-permission-prompts",
+          "doctor",
+          "loop",
+          "schedule",
+          "claude-api",
+          "run",
+          "run-skill-generator"
+        ],
+        "permissionMode": "bypassPermissions"
+      },
+      "metrics": {
+        "inputTokens": 12,
+        "outputTokens": 8081,
+        "reasoningTokens": 5433,
+        "cacheCreationTokens": 14901,
+        "cacheReadTokens": 211587,
+        "totalTokens": 234581,
+        "numTurns": 9,
+        "durationMs": 80450,
+        "costUsd": 0.46631265,
+        "denials": 0
+      },
+      "authFailure": false,
+      "handles": {
+        "handles": {
+          "r1_searchLedReadRatio": 1,
+          "r2_rangedReadRatio": 0.091,
+          "r3_repeatReads": 2,
+          "r4_treeCalls": 8,
+          "w1_fullRewriteRatio": null,
+          "w2_anchorMisses": 0,
+          "w3_newFiles": 1,
+          "w4_unrequestedArtifacts": 0,
+          "w5_codeRestatements": 0,
+          "t1_reverts": 0,
+          "t2_sameFileChurn": 0,
+          "t3_editFailureRatio": 0
+        },
+        "counts": {
+          "toolCalls": 23,
+          "reads": 11,
+          "searches": 10,
+          "edits": 0,
+          "writes": 1,
+          "editAttempts": 1,
+          "editFailures": 0
+        }
+      }
+    },
+    {
+      "id": "tmpl-fe-rating#A#sonnet#3",
+      "task": "tmpl-fe-rating",
+      "area": "frontend",
+      "arm": "A",
+      "model": "sonnet",
+      "run": 3,
+      "log": "bench\\logs\\bench-2026-08-19T03-07-34\\tmpl-fe-rating_A_sonnet_3.jsonl",
+      "classification": "ok",
+      "error": null,
+      "assertion": {
+        "pass": true,
+        "filesChanged": 1,
+        "areaTouched": true,
+        "assertionV1": true,
+        "rescoredFromLog": true,
+        "logEdits": 1
+      },
+      "teaFired": false,
+      "init": {
+        "model": "claude-sonnet-5",
+        "skills": [
+          "deep-research",
+          "design-sync",
+          "dataviz",
+          "update-config",
+          "verify",
+          "debug",
+          "code-review",
+          "simplify",
+          "batch",
+          "fewer-permission-prompts",
+          "doctor",
+          "loop",
+          "schedule",
+          "claude-api",
+          "run",
+          "run-skill-generator"
+        ],
+        "permissionMode": "bypassPermissions"
+      },
+      "metrics": {
+        "inputTokens": 485,
+        "outputTokens": 7211,
+        "reasoningTokens": 3793,
+        "cacheCreationTokens": 26937,
+        "cacheReadTokens": 258369,
+        "totalTokens": 293002,
+        "numTurns": 12,
+        "durationMs": 73510,
+        "costUsd": 0.51731355,
+        "denials": 0
+      },
+      "authFailure": false,
+      "handles": {
+        "handles": {
+          "r1_searchLedReadRatio": 1,
+          "r2_rangedReadRatio": 0,
+          "r3_repeatReads": 4,
+          "r4_treeCalls": 6,
+          "w1_fullRewriteRatio": null,
+          "w2_anchorMisses": 0,
+          "w3_newFiles": 1,
+          "w4_unrequestedArtifacts": 0,
+          "w5_codeRestatements": 0,
+          "t1_reverts": 0,
+          "t2_sameFileChurn": 0,
+          "t3_editFailureRatio": 0
+        },
+        "counts": {
+          "toolCalls": 26,
+          "reads": 14,
+          "searches": 9,
+          "edits": 0,
+          "writes": 1,
+          "editAttempts": 1,
+          "editFailures": 0
+        }
+      }
+    },
+    {
+      "id": "tmpl-fe-rating#A#sonnet#4",
+      "task": "tmpl-fe-rating",
+      "area": "frontend",
+      "arm": "A",
+      "model": "sonnet",
+      "run": 4,
+      "log": "bench\\logs\\bench-2026-08-19T03-07-34\\tmpl-fe-rating_A_sonnet_4.jsonl",
+      "classification": "ok",
+      "error": null,
+      "assertion": {
+        "pass": true,
+        "filesChanged": 1,
+        "areaTouched": true,
+        "assertionV1": true,
+        "rescoredFromLog": true,
+        "logEdits": 1
+      },
+      "teaFired": false,
+      "init": {
+        "model": "claude-sonnet-5",
+        "skills": [
+          "deep-research",
+          "design-sync",
+          "dataviz",
+          "update-config",
+          "verify",
+          "debug",
+          "code-review",
+          "simplify",
+          "batch",
+          "fewer-permission-prompts",
+          "doctor",
+          "loop",
+          "schedule",
+          "claude-api",
+          "run",
+          "run-skill-generator"
+        ],
+        "permissionMode": "bypassPermissions"
+      },
+      "metrics": {
+        "inputTokens": 14,
+        "outputTokens": 4307,
+        "reasoningTokens": 1640,
+        "cacheCreationTokens": 22798,
+        "cacheReadTokens": 232054,
+        "totalTokens": 259173,
+        "numTurns": 11,
+        "durationMs": 46332,
+        "costUsd": 0.2716422,
+        "denials": 0
+      },
+      "authFailure": false,
+      "handles": {
+        "handles": {
+          "r1_searchLedReadRatio": 1,
+          "r2_rangedReadRatio": 0,
+          "r3_repeatReads": 0,
+          "r4_treeCalls": 2,
+          "w1_fullRewriteRatio": null,
+          "w2_anchorMisses": 0,
+          "w3_newFiles": 1,
+          "w4_unrequestedArtifacts": 0,
+          "w5_codeRestatements": 0,
+          "t1_reverts": 0,
+          "t2_sameFileChurn": 0,
+          "t3_editFailureRatio": 0
+        },
+        "counts": {
+          "toolCalls": 10,
+          "reads": 7,
+          "searches": 2,
+          "edits": 0,
+          "writes": 1,
+          "editAttempts": 1,
+          "editFailures": 0
+        }
+      }
+    },
+    {
+      "id": "tmpl-fe-rating#A#opus#2",
+      "task": "tmpl-fe-rating",
+      "area": "frontend",
+      "arm": "A",
+      "model": "opus",
+      "run": 2,
+      "log": "bench\\logs\\bench-2026-08-19T03-07-34\\tmpl-fe-rating_A_opus_2.jsonl",
+      "classification": "ok",
+      "error": null,
+      "assertion": {
+        "pass": true,
+        "filesChanged": 1,
+        "areaTouched": true,
+        "assertionV1": true,
+        "rescoredFromLog": true,
+        "logEdits": 1
+      },
+      "teaFired": false,
+      "init": {
+        "model": "claude-opus-5",
+        "skills": [
+          "deep-research",
+          "design-sync",
+          "dataviz",
+          "update-config",
+          "verify",
+          "debug",
+          "code-review",
+          "simplify",
+          "batch",
+          "fewer-permission-prompts",
+          "doctor",
+          "loop",
+          "schedule",
+          "claude-api",
+          "run",
+          "run-skill-generator"
+        ],
+        "permissionMode": "bypassPermissions"
+      },
+      "metrics": {
+        "inputTokens": 1815,
+        "outputTokens": 6412,
+        "reasoningTokens": 2612,
+        "cacheCreationTokens": 19239,
+        "cacheReadTokens": 117693,
+        "totalTokens": 145159,
+        "numTurns": 9,
+        "durationMs": 73880,
+        "costUsd": 0.4212025,
+        "denials": 0
+      },
+      "authFailure": false,
+      "handles": {
+        "handles": {
+          "r1_searchLedReadRatio": 1,
+          "r2_rangedReadRatio": 0,
+          "r3_repeatReads": 0,
+          "r4_treeCalls": 1,
+          "w1_fullRewriteRatio": null,
+          "w2_anchorMisses": 0,
+          "w3_newFiles": 1,
+          "w4_unrequestedArtifacts": 0,
+          "w5_codeRestatements": 0,
+          "t1_reverts": 0,
+          "t2_sameFileChurn": 0,
+          "t3_editFailureRatio": 0
+        },
+        "counts": {
+          "toolCalls": 8,
+          "reads": 6,
+          "searches": 1,
+          "edits": 0,
+          "writes": 1,
+          "editAttempts": 1,
+          "editFailures": 0
+        }
+      }
+    },
+    {
+      "id": "tmpl-fe-rating#A#opus#1",
+      "task": "tmpl-fe-rating",
+      "area": "frontend",
+      "arm": "A",
+      "model": "opus",
+      "run": 1,
+      "log": "bench\\logs\\bench-2026-08-19T03-07-34\\tmpl-fe-rating_A_opus_1.jsonl",
+      "classification": "ok",
+      "error": null,
+      "assertion": {
+        "pass": true,
+        "filesChanged": 1,
+        "areaTouched": true,
+        "assertionV1": true,
+        "rescoredFromLog": true,
+        "logEdits": 1
+      },
+      "teaFired": false,
+      "init": {
+        "model": "claude-opus-5",
+        "skills": [
+          "deep-research",
+          "design-sync",
+          "dataviz",
+          "update-config",
+          "verify",
+          "debug",
+          "code-review",
+          "simplify",
+          "batch",
+          "fewer-permission-prompts",
+          "doctor",
+          "loop",
+          "schedule",
+          "claude-api",
+          "run",
+          "run-skill-generator"
+        ],
+        "permissionMode": "bypassPermissions"
+      },
+      "metrics": {
+        "inputTokens": 12,
+        "outputTokens": 11074,
+        "reasoningTokens": 6652,
+        "cacheCreationTokens": 23876,
+        "cacheReadTokens": 149249,
+        "totalTokens": 184211,
+        "numTurns": 11,
+        "durationMs": 128374,
+        "costUsd": 0.5908855,
+        "denials": 0
+      },
+      "authFailure": false,
+      "handles": {
+        "handles": {
+          "r1_searchLedReadRatio": 1,
+          "r2_rangedReadRatio": 0,
+          "r3_repeatReads": 0,
+          "r4_treeCalls": 3,
+          "w1_fullRewriteRatio": null,
+          "w2_anchorMisses": 0,
+          "w3_newFiles": 1,
+          "w4_unrequestedArtifacts": 0,
+          "w5_codeRestatements": 0,
+          "t1_reverts": 0,
+          "t2_sameFileChurn": 0,
+          "t3_editFailureRatio": 0
+        },
+        "counts": {
+          "toolCalls": 10,
+          "reads": 6,
+          "searches": 3,
+          "edits": 0,
+          "writes": 1,
+          "editAttempts": 1,
+          "editFailures": 0
+        }
+      }
+    },
+    {
+      "id": "tmpl-fe-rating#A#opus#4",
+      "task": "tmpl-fe-rating",
+      "area": "frontend",
+      "arm": "A",
+      "model": "opus",
+      "run": 4,
+      "log": "bench\\logs\\bench-2026-08-19T03-07-34\\tmpl-fe-rating_A_opus_4.jsonl",
+      "classification": "ok",
+      "error": null,
+      "assertion": {
+        "pass": true,
+        "filesChanged": 1,
+        "areaTouched": true,
+        "assertionV1": true,
+        "rescoredFromLog": true,
+        "logEdits": 1
+      },
+      "teaFired": false,
+      "init": {
+        "model": "claude-opus-5",
+        "skills": [
+          "deep-research",
+          "design-sync",
+          "dataviz",
+          "update-config",
+          "verify",
+          "debug",
+          "code-review",
+          "simplify",
+          "batch",
+          "fewer-permission-prompts",
+          "doctor",
+          "loop",
+          "schedule",
+          "claude-api",
+          "run",
+          "run-skill-generator"
+        ],
+        "permissionMode": "bypassPermissions"
+      },
+      "metrics": {
+        "inputTokens": 10,
+        "outputTokens": 5980,
+        "reasoningTokens": 2462,
+        "cacheCreationTokens": 17224,
+        "cacheReadTokens": 116417,
+        "totalTokens": 139631,
+        "numTurns": 9,
+        "durationMs": 72950,
+        "costUsd": 0.38058949999999997,
+        "denials": 0
+      },
+      "authFailure": false,
+      "handles": {
+        "handles": {
+          "r1_searchLedReadRatio": 1,
+          "r2_rangedReadRatio": 0,
+          "r3_repeatReads": 0,
+          "r4_treeCalls": 3,
+          "w1_fullRewriteRatio": null,
+          "w2_anchorMisses": 0,
+          "w3_newFiles": 1,
+          "w4_unrequestedArtifacts": 0,
+          "w5_codeRestatements": 0,
+          "t1_reverts": 0,
+          "t2_sameFileChurn": 0,
+          "t3_editFailureRatio": 0
+        },
+        "counts": {
+          "toolCalls": 8,
+          "reads": 4,
+          "searches": 3,
+          "edits": 0,
+          "writes": 1,
+          "editAttempts": 1,
+          "editFailures": 0
+        }
+      }
+    },
+    {
+      "id": "tmpl-fe-rating#A#opus#3",
+      "task": "tmpl-fe-rating",
+      "area": "frontend",
+      "arm": "A",
+      "model": "opus",
+      "run": 3,
+      "log": "bench\\logs\\bench-2026-08-19T03-07-34\\tmpl-fe-rating_A_opus_3.jsonl",
+      "classification": "ok",
+      "error": null,
+      "assertion": {
+        "pass": true,
+        "filesChanged": 1,
+        "areaTouched": true,
+        "assertionV1": true,
+        "rescoredFromLog": true,
+        "logEdits": 1
+      },
+      "teaFired": false,
+      "init": {
+        "model": "claude-opus-5",
+        "skills": [
+          "deep-research",
+          "design-sync",
+          "dataviz",
+          "update-config",
+          "verify",
+          "debug",
+          "code-review",
+          "simplify",
+          "batch",
+          "fewer-permission-prompts",
+          "doctor",
+          "loop",
+          "schedule",
+          "claude-api",
+          "run",
+          "run-skill-generator"
+        ],
+        "permissionMode": "bypassPermissions"
+      },
+      "metrics": {
+        "inputTokens": 12,
+        "outputTokens": 11260,
+        "reasoningTokens": 7346,
+        "cacheCreationTokens": 25258,
+        "cacheReadTokens": 149756,
+        "totalTokens": 186286,
+        "numTurns": 11,
+        "durationMs": 133551,
+        "costUsd": 0.6096090000000001,
+        "denials": 0
+      },
+      "authFailure": false,
+      "handles": {
+        "handles": {
+          "r1_searchLedReadRatio": 1,
+          "r2_rangedReadRatio": 0,
+          "r3_repeatReads": 0,
+          "r4_treeCalls": 3,
+          "w1_fullRewriteRatio": null,
+          "w2_anchorMisses": 0,
+          "w3_newFiles": 1,
+          "w4_unrequestedArtifacts": 0,
+          "w5_codeRestatements": 0,
+          "t1_reverts": 0,
+          "t2_sameFileChurn": 0,
+          "t3_editFailureRatio": 0
+        },
+        "counts": {
+          "toolCalls": 10,
+          "reads": 6,
+          "searches": 3,
+          "edits": 0,
+          "writes": 1,
+          "editAttempts": 1,
+          "editFailures": 0
+        }
+      }
+    },
+    {
+      "id": "tmpl-be-duplicate#A#sonnet#1",
+      "task": "tmpl-be-duplicate",
+      "area": "backend",
+      "arm": "A",
+      "model": "sonnet",
+      "run": 1,
+      "log": "bench\\logs\\bench-2026-08-19T03-07-34\\tmpl-be-duplicate_A_sonnet_1.jsonl",
+      "classification": "ok",
+      "error": null,
+      "assertion": {
+        "pass": true,
+        "filesChanged": 2,
+        "areaTouched": true,
+        "assertionV1": true,
+        "rescoredFromLog": true,
+        "logEdits": 2
+      },
+      "teaFired": false,
+      "init": {
+        "model": "claude-sonnet-5",
+        "skills": [
+          "deep-research",
+          "design-sync",
+          "dataviz",
+          "update-config",
+          "verify",
+          "debug",
+          "code-review",
+          "simplify",
+          "batch",
+          "fewer-permission-prompts",
+          "doctor",
+          "loop",
+          "schedule",
+          "claude-api",
+          "run",
+          "run-skill-generator"
+        ],
+        "permissionMode": "bypassPermissions"
+      },
+      "metrics": {
+        "inputTokens": 10,
+        "outputTokens": 1939,
+        "reasoningTokens": 52,
+        "cacheCreationTokens": 17156,
+        "cacheReadTokens": 160810,
+        "totalTokens": 179915,
+        "numTurns": 6,
+        "durationMs": 65548,
+        "costUsd": 0.35231199999999996,
+        "denials": 0
+      },
+      "authFailure": false,
+      "handles": {
+        "handles": {
+          "r1_searchLedReadRatio": 1,
+          "r2_rangedReadRatio": 0,
+          "r3_repeatReads": 2,
+          "r4_treeCalls": 6,
+          "w1_fullRewriteRatio": 0,
+          "w2_anchorMisses": 0,
+          "w3_newFiles": 0,
+          "w4_unrequestedArtifacts": 0,
+          "w5_codeRestatements": 0,
+          "t1_reverts": 0,
+          "t2_sameFileChurn": 0,
+          "t3_editFailureRatio": 0
+        },
+        "counts": {
+          "toolCalls": 23,
+          "reads": 11,
+          "searches": 8,
+          "edits": 2,
+          "writes": 0,
+          "editAttempts": 2,
+          "editFailures": 0
+        }
+      }
+    },
+    {
+      "id": "tmpl-be-duplicate#A#sonnet#3",
+      "task": "tmpl-be-duplicate",
+      "area": "backend",
+      "arm": "A",
+      "model": "sonnet",
+      "run": 3,
+      "log": "bench\\logs\\bench-2026-08-19T03-07-34\\tmpl-be-duplicate_A_sonnet_3.jsonl",
+      "classification": "ok",
+      "error": null,
+      "assertion": {
+        "pass": true,
+        "filesChanged": 2,
+        "areaTouched": true,
+        "assertionV1": true,
+        "rescoredFromLog": true,
+        "logEdits": 2
+      },
+      "teaFired": false,
+      "init": {
+        "model": "claude-sonnet-5",
+        "skills": [
+          "deep-research",
+          "design-sync",
+          "dataviz",
+          "update-config",
+          "verify",
+          "debug",
+          "code-review",
+          "simplify",
+          "batch",
+          "fewer-permission-prompts",
+          "doctor",
+          "loop",
+          "schedule",
+          "claude-api",
+          "run",
+          "run-skill-generator"
+        ],
+        "permissionMode": "bypassPermissions"
+      },
+      "metrics": {
+        "inputTokens": 273,
+        "outputTokens": 2969,
+        "reasoningTokens": 847,
+        "cacheCreationTokens": 21101,
+        "cacheReadTokens": 357811,
+        "totalTokens": 382154,
+        "numTurns": 15,
+        "durationMs": 36881,
+        "costUsd": 0.2798923,
+        "denials": 0
+      },
+      "authFailure": false,
+      "handles": {
+        "handles": {
+          "r1_searchLedReadRatio": 1,
+          "r2_rangedReadRatio": 0.167,
+          "r3_repeatReads": 0,
+          "r4_treeCalls": 4,
+          "w1_fullRewriteRatio": 0,
+          "w2_anchorMisses": 0,
+          "w3_newFiles": 0,
+          "w4_unrequestedArtifacts": 0,
+          "w5_codeRestatements": 0,
+          "t1_reverts": 0,
+          "t2_sameFileChurn": 0,
+          "t3_editFailureRatio": 0
+        },
+        "counts": {
+          "toolCalls": 14,
+          "reads": 6,
+          "searches": 6,
+          "edits": 2,
+          "writes": 0,
+          "editAttempts": 2,
+          "editFailures": 0
+        }
+      }
+    },
+    {
+      "id": "tmpl-be-duplicate#A#sonnet#2",
+      "task": "tmpl-be-duplicate",
+      "area": "backend",
+      "arm": "A",
+      "model": "sonnet",
+      "run": 2,
+      "log": "bench\\logs\\bench-2026-08-19T03-07-34\\tmpl-be-duplicate_A_sonnet_2.jsonl",
+      "classification": "ok",
+      "error": null,
+      "assertion": {
+        "pass": true,
+        "filesChanged": 3,
+        "areaTouched": true,
+        "assertionV1": true,
+        "rescoredFromLog": true,
+        "logEdits": 4
+      },
+      "teaFired": false,
+      "init": {
+        "model": "claude-sonnet-5",
+        "skills": [
+          "deep-research",
+          "design-sync",
+          "dataviz",
+          "update-config",
+          "verify",
+          "debug",
+          "code-review",
+          "simplify",
+          "batch",
+          "fewer-permission-prompts",
+          "doctor",
+          "loop",
+          "schedule",
+          "claude-api",
+          "run",
+          "run-skill-generator"
+        ],
+        "permissionMode": "bypassPermissions"
+      },
+      "metrics": {
+        "inputTokens": 12,
+        "outputTokens": 2544,
+        "reasoningTokens": 224,
+        "cacheCreationTokens": 11350,
+        "cacheReadTokens": 230825,
+        "totalTokens": 244731,
+        "numTurns": 8,
+        "durationMs": 25073,
+        "costUsd": 0.45576384999999997,
+        "denials": 0
+      },
+      "authFailure": false,
+      "handles": {
+        "handles": {
+          "r1_searchLedReadRatio": 1,
+          "r2_rangedReadRatio": 0,
+          "r3_repeatReads": 3,
+          "r4_treeCalls": 5,
+          "w1_fullRewriteRatio": 0,
+          "w2_anchorMisses": 0,
+          "w3_newFiles": 0,
+          "w4_unrequestedArtifacts": 0,
+          "w5_codeRestatements": 3,
+          "t1_reverts": 0,
+          "t2_sameFileChurn": 1,
+          "t3_editFailureRatio": 0
+        },
+        "counts": {
+          "toolCalls": 27,
+          "reads": 14,
+          "searches": 7,
+          "edits": 4,
+          "writes": 0,
+          "editAttempts": 4,
+          "editFailures": 0
+        }
+      }
+    },
+    {
+      "id": "tmpl-be-duplicate#A#sonnet#4",
+      "task": "tmpl-be-duplicate",
+      "area": "backend",
+      "arm": "A",
+      "model": "sonnet",
+      "run": 4,
+      "log": "bench\\logs\\bench-2026-08-19T03-07-34\\tmpl-be-duplicate_A_sonnet_4.jsonl",
+      "classification": "ok",
+      "error": null,
+      "assertion": {
+        "pass": true,
+        "filesChanged": 2,
+        "areaTouched": true,
+        "assertionV1": true,
+        "rescoredFromLog": true,
+        "logEdits": 3
+      },
+      "teaFired": false,
+      "init": {
+        "model": "claude-sonnet-5",
+        "skills": [
+          "deep-research",
+          "design-sync",
+          "dataviz",
+          "update-config",
+          "verify",
+          "debug",
+          "code-review",
+          "simplify",
+          "batch",
+          "fewer-permission-prompts",
+          "doctor",
+          "loop",
+          "schedule",
+          "claude-api",
+          "run",
+          "run-skill-generator"
+        ],
+        "permissionMode": "bypassPermissions"
+      },
+      "metrics": {
+        "inputTokens": 12,
+        "outputTokens": 2562,
+        "reasoningTokens": 571,
+        "cacheCreationTokens": 9210,
+        "cacheReadTokens": 216993,
+        "totalTokens": 228777,
+        "numTurns": 8,
+        "durationMs": 27474,
+        "costUsd": 0.34031350000000005,
+        "denials": 0
+      },
+      "authFailure": false,
+      "handles": {
+        "handles": {
+          "r1_searchLedReadRatio": 1,
+          "r2_rangedReadRatio": 0.111,
+          "r3_repeatReads": 4,
+          "r4_treeCalls": 4,
+          "w1_fullRewriteRatio": 0,
+          "w2_anchorMisses": 0,
+          "w3_newFiles": 0,
+          "w4_unrequestedArtifacts": 0,
+          "w5_codeRestatements": 0,
+          "t1_reverts": 0,
+          "t2_sameFileChurn": 1,
+          "t3_editFailureRatio": 0
+        },
+        "counts": {
+          "toolCalls": 18,
+          "reads": 9,
+          "searches": 5,
+          "edits": 3,
+          "writes": 0,
+          "editAttempts": 3,
+          "editFailures": 0
+        }
+      }
+    },
+    {
+      "id": "tmpl-be-duplicate#A#opus#1",
+      "task": "tmpl-be-duplicate",
+      "area": "backend",
+      "arm": "A",
+      "model": "opus",
+      "run": 1,
+      "log": "bench\\logs\\bench-2026-08-19T03-07-34\\tmpl-be-duplicate_A_opus_1.jsonl",
+      "classification": "ok",
+      "error": null,
+      "assertion": {
+        "pass": true,
+        "filesChanged": 2,
+        "areaTouched": true,
+        "assertionV1": true,
+        "rescoredFromLog": true,
+        "logEdits": 2
+      },
+      "teaFired": false,
+      "init": {
+        "model": "claude-opus-5",
+        "skills": [
+          "deep-research",
+          "design-sync",
+          "dataviz",
+          "update-config",
+          "verify",
+          "debug",
+          "code-review",
+          "simplify",
+          "batch",
+          "fewer-permission-prompts",
+          "doctor",
+          "loop",
+          "schedule",
+          "claude-api",
+          "run",
+          "run-skill-generator"
+        ],
+        "permissionMode": "bypassPermissions"
+      },
+      "metrics": {
+        "inputTokens": 1725,
+        "outputTokens": 2804,
+        "reasoningTokens": 786,
+        "cacheCreationTokens": 17857,
+        "cacheReadTokens": 208615,
+        "totalTokens": 231001,
+        "numTurns": 10,
+        "durationMs": 35656,
+        "costUsd": 0.36219150000000006,
+        "denials": 0
+      },
+      "authFailure": false,
+      "handles": {
+        "handles": {
+          "r1_searchLedReadRatio": 1,
+          "r2_rangedReadRatio": 0,
+          "r3_repeatReads": 0,
+          "r4_treeCalls": 2,
+          "w1_fullRewriteRatio": 0,
+          "w2_anchorMisses": 0,
+          "w3_newFiles": 0,
+          "w4_unrequestedArtifacts": 0,
+          "w5_codeRestatements": 0,
+          "t1_reverts": 0,
+          "t2_sameFileChurn": 0,
+          "t3_editFailureRatio": 0
+        },
+        "counts": {
+          "toolCalls": 9,
+          "reads": 5,
+          "searches": 2,
+          "edits": 2,
+          "writes": 0,
+          "editAttempts": 2,
+          "editFailures": 0
+        }
+      }
+    },
+    {
+      "id": "tmpl-be-duplicate#A#opus#2",
+      "task": "tmpl-be-duplicate",
+      "area": "backend",
+      "arm": "A",
+      "model": "opus",
+      "run": 2,
+      "log": "bench\\logs\\bench-2026-08-19T03-07-34\\tmpl-be-duplicate_A_opus_2.jsonl",
+      "classification": "ok",
+      "error": null,
+      "assertion": {
+        "pass": true,
+        "filesChanged": 2,
+        "areaTouched": true,
+        "assertionV1": true,
+        "rescoredFromLog": true,
+        "logEdits": 2
+      },
+      "teaFired": false,
+      "init": {
+        "model": "claude-opus-5",
+        "skills": [
+          "deep-research",
+          "design-sync",
+          "dataviz",
+          "update-config",
+          "verify",
+          "debug",
+          "code-review",
+          "simplify",
+          "batch",
+          "fewer-permission-prompts",
+          "doctor",
+          "loop",
+          "schedule",
+          "claude-api",
+          "run",
+          "run-skill-generator"
+        ],
+        "permissionMode": "bypassPermissions"
+      },
+      "metrics": {
+        "inputTokens": 18,
+        "outputTokens": 3915,
+        "reasoningTokens": 1265,
+        "cacheCreationTokens": 18924,
+        "cacheReadTokens": 244419,
+        "totalTokens": 267276,
+        "numTurns": 11,
+        "durationMs": 52204,
+        "costUsd": 0.41000850000000005,
+        "denials": 0
+      },
+      "authFailure": false,
+      "handles": {
+        "handles": {
+          "r1_searchLedReadRatio": 1,
+          "r2_rangedReadRatio": 0,
+          "r3_repeatReads": 0,
+          "r4_treeCalls": 3,
+          "w1_fullRewriteRatio": 0,
+          "w2_anchorMisses": 0,
+          "w3_newFiles": 0,
+          "w4_unrequestedArtifacts": 0,
+          "w5_codeRestatements": 0,
+          "t1_reverts": 0,
+          "t2_sameFileChurn": 0,
+          "t3_editFailureRatio": 0
+        },
+        "counts": {
+          "toolCalls": 10,
+          "reads": 5,
+          "searches": 3,
+          "edits": 2,
+          "writes": 0,
+          "editAttempts": 2,
+          "editFailures": 0
+        }
+      }
+    },
+    {
+      "id": "tmpl-be-duplicate#A#opus#3",
+      "task": "tmpl-be-duplicate",
+      "area": "backend",
+      "arm": "A",
+      "model": "opus",
+      "run": 3,
+      "log": "bench\\logs\\bench-2026-08-19T03-07-34\\tmpl-be-duplicate_A_opus_3.jsonl",
+      "classification": "ok",
+      "error": null,
+      "assertion": {
+        "pass": true,
+        "filesChanged": 2,
+        "areaTouched": true,
+        "assertionV1": true,
+        "rescoredFromLog": true,
+        "logEdits": 2
+      },
+      "teaFired": false,
+      "init": {
+        "model": "claude-opus-5",
+        "skills": [
+          "deep-research",
+          "design-sync",
+          "dataviz",
+          "update-config",
+          "verify",
+          "debug",
+          "code-review",
+          "simplify",
+          "batch",
+          "fewer-permission-prompts",
+          "doctor",
+          "loop",
+          "schedule",
+          "claude-api",
+          "run",
+          "run-skill-generator"
+        ],
+        "permissionMode": "bypassPermissions"
+      },
+      "metrics": {
+        "inputTokens": 1725,
+        "outputTokens": 3194,
+        "reasoningTokens": 947,
+        "cacheCreationTokens": 18051,
+        "cacheReadTokens": 209504,
+        "totalTokens": 232474,
+        "numTurns": 10,
+        "durationMs": 45911,
+        "costUsd": 0.374326,
+        "denials": 0
+      },
+      "authFailure": false,
+      "handles": {
+        "handles": {
+          "r1_searchLedReadRatio": 1,
+          "r2_rangedReadRatio": 0,
+          "r3_repeatReads": 0,
+          "r4_treeCalls": 2,
+          "w1_fullRewriteRatio": 0,
+          "w2_anchorMisses": 0,
+          "w3_newFiles": 0,
+          "w4_unrequestedArtifacts": 0,
+          "w5_codeRestatements": 0,
+          "t1_reverts": 0,
+          "t2_sameFileChurn": 0,
+          "t3_editFailureRatio": 0
+        },
+        "counts": {
+          "toolCalls": 9,
+          "reads": 5,
+          "searches": 2,
+          "edits": 2,
+          "writes": 0,
+          "editAttempts": 2,
+          "editFailures": 0
+        }
+      }
+    },
+    {
+      "id": "tmpl-be-duplicate#A#opus#4",
+      "task": "tmpl-be-duplicate",
+      "area": "backend",
+      "arm": "A",
+      "model": "opus",
+      "run": 4,
+      "log": "bench\\logs\\bench-2026-08-19T03-07-34\\tmpl-be-duplicate_A_opus_4.jsonl",
+      "classification": "ok",
+      "error": null,
+      "assertion": {
+        "pass": true,
+        "filesChanged": 2,
+        "areaTouched": true,
+        "assertionV1": true,
+        "rescoredFromLog": true,
+        "logEdits": 3
+      },
+      "teaFired": false,
+      "init": {
+        "model": "claude-opus-5",
+        "skills": [
+          "deep-research",
+          "design-sync",
+          "dataviz",
+          "update-config",
+          "verify",
+          "debug",
+          "code-review",
+          "simplify",
+          "batch",
+          "fewer-permission-prompts",
+          "doctor",
+          "loop",
+          "schedule",
+          "claude-api",
+          "run",
+          "run-skill-generator"
+        ],
+        "permissionMode": "bypassPermissions"
+      },
+      "metrics": {
+        "inputTokens": 269,
+        "outputTokens": 3883,
+        "reasoningTokens": 1029,
+        "cacheCreationTokens": 17877,
+        "cacheReadTokens": 214908,
+        "totalTokens": 236937,
+        "numTurns": 11,
+        "durationMs": 48636,
+        "costUsd": 0.385233,
+        "denials": 0
+      },
+      "authFailure": false,
+      "handles": {
+        "handles": {
+          "r1_searchLedReadRatio": 1,
+          "r2_rangedReadRatio": 0,
+          "r3_repeatReads": 0,
+          "r4_treeCalls": 2,
+          "w1_fullRewriteRatio": 0,
+          "w2_anchorMisses": 0,
+          "w3_newFiles": 0,
+          "w4_unrequestedArtifacts": 0,
+          "w5_codeRestatements": 0,
+          "t1_reverts": 0,
+          "t2_sameFileChurn": 1,
+          "t3_editFailureRatio": 0
+        },
+        "counts": {
+          "toolCalls": 10,
+          "reads": 5,
+          "searches": 2,
+          "edits": 3,
+          "writes": 0,
+          "editAttempts": 3,
+          "editFailures": 0
+        }
+      }
+    },
+    {
+      "id": "tmpl-be-search#A#sonnet#2",
+      "task": "tmpl-be-search",
+      "area": "backend",
+      "arm": "A",
+      "model": "sonnet",
+      "run": 2,
+      "log": "bench\\logs\\bench-2026-08-19T03-07-34\\tmpl-be-search_A_sonnet_2.jsonl",
+      "classification": "ok",
+      "error": null,
+      "assertion": {
+        "pass": true,
+        "filesChanged": 2,
+        "areaTouched": true,
+        "assertionV1": true,
+        "rescoredFromLog": true,
+        "logEdits": 2
+      },
+      "teaFired": false,
+      "init": {
+        "model": "claude-sonnet-5",
+        "skills": [
+          "deep-research",
+          "design-sync",
+          "dataviz",
+          "update-config",
+          "verify",
+          "debug",
+          "code-review",
+          "simplify",
+          "batch",
+          "fewer-permission-prompts",
+          "doctor",
+          "loop",
+          "schedule",
+          "claude-api",
+          "run",
+          "run-skill-generator"
+        ],
+        "permissionMode": "bypassPermissions"
+      },
+      "metrics": {
+        "inputTokens": 14,
+        "outputTokens": 2537,
+        "reasoningTokens": 564,
+        "cacheCreationTokens": 16346,
+        "cacheReadTokens": 225037,
+        "totalTokens": 243934,
+        "numTurns": 9,
+        "durationMs": 28937,
+        "costUsd": 0.20427910000000002,
+        "denials": 0
+      },
+      "authFailure": false,
+      "handles": {
+        "handles": {
+          "r1_searchLedReadRatio": 1,
+          "r2_rangedReadRatio": 0.25,
+          "r3_repeatReads": 0,
+          "r4_treeCalls": 1,
+          "w1_fullRewriteRatio": 0,
+          "w2_anchorMisses": 0,
+          "w3_newFiles": 0,
+          "w4_unrequestedArtifacts": 0,
+          "w5_codeRestatements": 0,
+          "t1_reverts": 0,
+          "t2_sameFileChurn": 0,
+          "t3_editFailureRatio": 0
+        },
+        "counts": {
+          "toolCalls": 8,
+          "reads": 4,
+          "searches": 2,
+          "edits": 2,
+          "writes": 0,
+          "editAttempts": 2,
+          "editFailures": 0
+        }
+      }
+    },
+    {
+      "id": "tmpl-be-search#A#sonnet#1",
+      "task": "tmpl-be-search",
+      "area": "backend",
+      "arm": "A",
+      "model": "sonnet",
+      "run": 1,
+      "log": "bench\\logs\\bench-2026-08-19T03-07-34\\tmpl-be-search_A_sonnet_1.jsonl",
+      "classification": "ok",
+      "error": null,
+      "assertion": {
+        "pass": true,
+        "filesChanged": 2,
+        "areaTouched": true,
+        "assertionV1": true,
+        "rescoredFromLog": true,
+        "logEdits": 3
+      },
+      "teaFired": false,
+      "init": {
+        "model": "claude-sonnet-5",
+        "skills": [
+          "deep-research",
+          "design-sync",
+          "dataviz",
+          "update-config",
+          "verify",
+          "debug",
+          "code-review",
+          "simplify",
+          "batch",
+          "fewer-permission-prompts",
+          "doctor",
+          "loop",
+          "schedule",
+          "claude-api",
+          "run",
+          "run-skill-generator"
+        ],
+        "permissionMode": "bypassPermissions"
+      },
+      "metrics": {
+        "inputTokens": 22,
+        "outputTokens": 4549,
+        "reasoningTokens": 724,
+        "cacheCreationTokens": 22030,
+        "cacheReadTokens": 398219,
+        "totalTokens": 424820,
+        "numTurns": 11,
+        "durationMs": 92556,
+        "costUsd": 0.4662787,
+        "denials": 0
+      },
+      "authFailure": false,
+      "handles": {
+        "handles": {
+          "r1_searchLedReadRatio": 1,
+          "r2_rangedReadRatio": 0,
+          "r3_repeatReads": 3,
+          "r4_treeCalls": 6,
+          "w1_fullRewriteRatio": 0,
+          "w2_anchorMisses": 0,
+          "w3_newFiles": 0,
+          "w4_unrequestedArtifacts": 0,
+          "w5_codeRestatements": 0,
+          "t1_reverts": 0,
+          "t2_sameFileChurn": 1,
+          "t3_editFailureRatio": 0
+        },
+        "counts": {
+          "toolCalls": 26,
+          "reads": 12,
+          "searches": 10,
+          "edits": 3,
+          "writes": 0,
+          "editAttempts": 3,
+          "editFailures": 0
+        }
+      }
+    },
+    {
+      "id": "tmpl-be-search#A#sonnet#3",
+      "task": "tmpl-be-search",
+      "area": "backend",
+      "arm": "A",
+      "model": "sonnet",
+      "run": 3,
+      "log": "bench\\logs\\bench-2026-08-19T03-07-34\\tmpl-be-search_A_sonnet_3.jsonl",
+      "classification": "ok",
+      "error": null,
+      "assertion": {
+        "pass": true,
+        "filesChanged": 2,
+        "areaTouched": true,
+        "assertionV1": true,
+        "rescoredFromLog": true,
+        "logEdits": 3
+      },
+      "teaFired": false,
+      "init": {
+        "model": "claude-sonnet-5",
+        "skills": [
+          "deep-research",
+          "design-sync",
+          "dataviz",
+          "update-config",
+          "verify",
+          "debug",
+          "code-review",
+          "simplify",
+          "batch",
+          "fewer-permission-prompts",
+          "doctor",
+          "loop",
+          "schedule",
+          "claude-api",
+          "run",
+          "run-skill-generator"
+        ],
+        "permissionMode": "bypassPermissions"
+      },
+      "metrics": {
+        "inputTokens": 16,
+        "outputTokens": 3644,
+        "reasoningTokens": 458,
+        "cacheCreationTokens": 18824,
+        "cacheReadTokens": 271319,
+        "totalTokens": 293803,
+        "numTurns": 8,
+        "durationMs": 76680,
+        "costUsd": 0.39126145,
+        "denials": 0
+      },
+      "authFailure": false,
+      "handles": {
+        "handles": {
+          "r1_searchLedReadRatio": 1,
+          "r2_rangedReadRatio": 0,
+          "r3_repeatReads": 3,
+          "r4_treeCalls": 3,
+          "w1_fullRewriteRatio": 0,
+          "w2_anchorMisses": 0,
+          "w3_newFiles": 0,
+          "w4_unrequestedArtifacts": 0,
+          "w5_codeRestatements": 0,
+          "t1_reverts": 0,
+          "t2_sameFileChurn": 1,
+          "t3_editFailureRatio": 0
+        },
+        "counts": {
+          "toolCalls": 21,
+          "reads": 12,
+          "searches": 5,
+          "edits": 3,
+          "writes": 0,
+          "editAttempts": 3,
+          "editFailures": 0
+        }
+      }
+    },
+    {
+      "id": "tmpl-be-search#A#sonnet#4",
+      "task": "tmpl-be-search",
+      "area": "backend",
+      "arm": "A",
+      "model": "sonnet",
+      "run": 4,
+      "log": "bench\\logs\\bench-2026-08-19T03-07-34\\tmpl-be-search_A_sonnet_4.jsonl",
+      "classification": "ok",
+      "error": null,
+      "assertion": {
+        "pass": true,
+        "filesChanged": 2,
+        "areaTouched": true,
+        "assertionV1": true,
+        "rescoredFromLog": true,
+        "logEdits": 3
+      },
+      "teaFired": false,
+      "init": {
+        "model": "claude-sonnet-5",
+        "skills": [
+          "deep-research",
+          "design-sync",
+          "dataviz",
+          "update-config",
+          "verify",
+          "debug",
+          "code-review",
+          "simplify",
+          "batch",
+          "fewer-permission-prompts",
+          "doctor",
+          "loop",
+          "schedule",
+          "claude-api",
+          "run",
+          "run-skill-generator"
+        ],
+        "permissionMode": "bypassPermissions"
+      },
+      "metrics": {
+        "inputTokens": 14,
+        "outputTokens": 3045,
+        "reasoningTokens": 255,
+        "cacheCreationTokens": 20208,
+        "cacheReadTokens": 247330,
+        "totalTokens": 270597,
+        "numTurns": 10,
+        "durationMs": 74927,
+        "costUsd": 0.41645780000000004,
+        "denials": 0
+      },
+      "authFailure": false,
+      "handles": {
+        "handles": {
+          "r1_searchLedReadRatio": 1,
+          "r2_rangedReadRatio": 0,
+          "r3_repeatReads": 4,
+          "r4_treeCalls": 4,
+          "w1_fullRewriteRatio": 0,
+          "w2_anchorMisses": 0,
+          "w3_newFiles": 0,
+          "w4_unrequestedArtifacts": 0,
+          "w5_codeRestatements": 0,
+          "t1_reverts": 0,
+          "t2_sameFileChurn": 1,
+          "t3_editFailureRatio": 0
+        },
+        "counts": {
+          "toolCalls": 25,
+          "reads": 13,
+          "searches": 8,
+          "edits": 3,
+          "writes": 0,
+          "editAttempts": 3,
+          "editFailures": 0
+        }
+      }
+    },
+    {
+      "id": "tmpl-be-search#A#opus#2",
+      "task": "tmpl-be-search",
+      "area": "backend",
+      "arm": "A",
+      "model": "opus",
+      "run": 2,
+      "log": "bench\\logs\\bench-2026-08-19T03-07-34\\tmpl-be-search_A_opus_2.jsonl",
+      "classification": "ok",
+      "error": null,
+      "assertion": {
+        "pass": true,
+        "filesChanged": 3,
+        "areaTouched": true,
+        "assertionV1": true,
+        "rescoredFromLog": true,
+        "logEdits": 5
+      },
+      "teaFired": false,
+      "init": {
+        "model": "claude-opus-5",
+        "skills": [
+          "deep-research",
+          "design-sync",
+          "dataviz",
+          "update-config",
+          "verify",
+          "debug",
+          "code-review",
+          "simplify",
+          "batch",
+          "fewer-permission-prompts",
+          "doctor",
+          "loop",
+          "schedule",
+          "claude-api",
+          "run",
+          "run-skill-generator"
+        ],
+        "permissionMode": "bypassPermissions"
+      },
+      "metrics": {
+        "inputTokens": 1735,
+        "outputTokens": 5704,
+        "reasoningTokens": 1476,
+        "cacheCreationTokens": 21344,
+        "cacheReadTokens": 381804,
+        "totalTokens": 410587,
+        "numTurns": 16,
+        "durationMs": 68779,
+        "costUsd": 0.5562120000000002,
+        "denials": 0
+      },
+      "authFailure": false,
+      "handles": {
+        "handles": {
+          "r1_searchLedReadRatio": 1,
+          "r2_rangedReadRatio": 0,
+          "r3_repeatReads": 0,
+          "r4_treeCalls": 3,
+          "w1_fullRewriteRatio": 0,
+          "w2_anchorMisses": 0,
+          "w3_newFiles": 0,
+          "w4_unrequestedArtifacts": 0,
+          "w5_codeRestatements": 0,
+          "t1_reverts": 0,
+          "t2_sameFileChurn": 2,
+          "t3_editFailureRatio": 0
+        },
+        "counts": {
+          "toolCalls": 15,
+          "reads": 7,
+          "searches": 3,
+          "edits": 5,
+          "writes": 0,
+          "editAttempts": 5,
+          "editFailures": 0
+        }
+      }
+    },
+    {
+      "id": "tmpl-be-search#A#opus#1",
+      "task": "tmpl-be-search",
+      "area": "backend",
+      "arm": "A",
+      "model": "opus",
+      "run": 1,
+      "log": "bench\\logs\\bench-2026-08-19T03-07-34\\tmpl-be-search_A_opus_1.jsonl",
+      "classification": "ok",
+      "error": null,
+      "assertion": {
+        "pass": true,
+        "filesChanged": 3,
+        "areaTouched": true,
+        "assertionV1": true,
+        "rescoredFromLog": true,
+        "logEdits": 5
+      },
+      "teaFired": false,
+      "init": {
+        "model": "claude-opus-5",
+        "skills": [
+          "deep-research",
+          "design-sync",
+          "dataviz",
+          "update-config",
+          "verify",
+          "debug",
+          "code-review",
+          "simplify",
+          "batch",
+          "fewer-permission-prompts",
+          "doctor",
+          "loop",
+          "schedule",
+          "claude-api",
+          "run",
+          "run-skill-generator"
+        ],
+        "permissionMode": "bypassPermissions"
+      },
+      "metrics": {
+        "inputTokens": 1739,
+        "outputTokens": 8935,
+        "reasoningTokens": 3706,
+        "cacheCreationTokens": 26285,
+        "cacheReadTokens": 479095,
+        "totalTokens": 516054,
+        "numTurns": 18,
+        "durationMs": 105353,
+        "costUsd": 0.7350625000000001,
+        "denials": 0
+      },
+      "authFailure": false,
+      "handles": {
+        "handles": {
+          "r1_searchLedReadRatio": 1,
+          "r2_rangedReadRatio": 0.111,
+          "r3_repeatReads": 0,
+          "r4_treeCalls": 3,
+          "w1_fullRewriteRatio": 0,
+          "w2_anchorMisses": 0,
+          "w3_newFiles": 0,
+          "w4_unrequestedArtifacts": 0,
+          "w5_codeRestatements": 0,
+          "t1_reverts": 0,
+          "t2_sameFileChurn": 2,
+          "t3_editFailureRatio": 0
+        },
+        "counts": {
+          "toolCalls": 17,
+          "reads": 9,
+          "searches": 3,
+          "edits": 5,
+          "writes": 0,
+          "editAttempts": 5,
+          "editFailures": 0
+        }
+      }
+    },
+    {
+      "id": "tmpl-be-search#A#opus#4",
+      "task": "tmpl-be-search",
+      "area": "backend",
+      "arm": "A",
+      "model": "opus",
+      "run": 4,
+      "log": "bench\\logs\\bench-2026-08-19T03-07-34\\tmpl-be-search_A_opus_4.jsonl",
+      "classification": "ok",
+      "error": null,
+      "assertion": {
+        "pass": true,
+        "filesChanged": 2,
+        "areaTouched": true,
+        "assertionV1": true,
+        "rescoredFromLog": true,
+        "logEdits": 3
+      },
+      "teaFired": false,
+      "init": {
+        "model": "claude-opus-5",
+        "skills": [
+          "deep-research",
+          "design-sync",
+          "dataviz",
+          "update-config",
+          "verify",
+          "debug",
+          "code-review",
+          "simplify",
+          "batch",
+          "fewer-permission-prompts",
+          "doctor",
+          "loop",
+          "schedule",
+          "claude-api",
+          "run",
+          "run-skill-generator"
+        ],
+        "permissionMode": "bypassPermissions"
+      },
+      "metrics": {
+        "inputTokens": 22,
+        "outputTokens": 4786,
+        "reasoningTokens": 1571,
+        "cacheCreationTokens": 20188,
+        "cacheReadTokens": 312167,
+        "totalTokens": 337163,
+        "numTurns": 14,
+        "durationMs": 62758,
+        "costUsd": 0.4783185,
+        "denials": 0
+      },
+      "authFailure": false,
+      "handles": {
+        "handles": {
+          "r1_searchLedReadRatio": 1,
+          "r2_rangedReadRatio": 0.143,
+          "r3_repeatReads": 0,
+          "r4_treeCalls": 3,
+          "w1_fullRewriteRatio": 0,
+          "w2_anchorMisses": 0,
+          "w3_newFiles": 0,
+          "w4_unrequestedArtifacts": 0,
+          "w5_codeRestatements": 0,
+          "t1_reverts": 0,
+          "t2_sameFileChurn": 1,
+          "t3_editFailureRatio": 0
+        },
+        "counts": {
+          "toolCalls": 13,
+          "reads": 7,
+          "searches": 3,
+          "edits": 3,
+          "writes": 0,
+          "editAttempts": 3,
+          "editFailures": 0
+        }
+      }
+    },
+    {
+      "id": "tmpl-be-search#A#opus#3",
+      "task": "tmpl-be-search",
+      "area": "backend",
+      "arm": "A",
+      "model": "opus",
+      "run": 3,
+      "log": "bench\\logs\\bench-2026-08-19T03-07-34\\tmpl-be-search_A_opus_3.jsonl",
+      "classification": "ok",
+      "error": null,
+      "assertion": {
+        "pass": true,
+        "filesChanged": 3,
+        "areaTouched": true,
+        "assertionV1": true,
+        "rescoredFromLog": true,
+        "logEdits": 7
+      },
+      "teaFired": false,
+      "init": {
+        "model": "claude-opus-5",
+        "skills": [
+          "deep-research",
+          "design-sync",
+          "dataviz",
+          "update-config",
+          "verify",
+          "debug",
+          "code-review",
+          "simplify",
+          "batch",
+          "fewer-permission-prompts",
+          "doctor",
+          "loop",
+          "schedule",
+          "claude-api",
+          "run",
+          "run-skill-generator"
+        ],
+        "permissionMode": "bypassPermissions"
+      },
+      "metrics": {
+        "inputTokens": 32,
+        "outputTokens": 8486,
+        "reasoningTokens": 2573,
+        "cacheCreationTokens": 25481,
+        "cacheReadTokens": 508409,
+        "totalTokens": 542408,
+        "numTurns": 20,
+        "durationMs": 98810,
+        "costUsd": 0.7219194999999999,
+        "denials": 0
+      },
+      "authFailure": false,
+      "handles": {
+        "handles": {
+          "r1_searchLedReadRatio": 1,
+          "r2_rangedReadRatio": 0.111,
+          "r3_repeatReads": 0,
+          "r4_treeCalls": 3,
+          "w1_fullRewriteRatio": 0,
+          "w2_anchorMisses": 0,
+          "w3_newFiles": 0,
+          "w4_unrequestedArtifacts": 0,
+          "w5_codeRestatements": 0,
+          "t1_reverts": 0,
+          "t2_sameFileChurn": 4,
+          "t3_editFailureRatio": 0
+        },
+        "counts": {
+          "toolCalls": 19,
+          "reads": 9,
+          "searches": 3,
+          "edits": 7,
+          "writes": 0,
+          "editAttempts": 7,
+          "editFailures": 0
+        }
+      }
+    },
+    {
+      "id": "tmpl-be-count#A#sonnet#1",
+      "task": "tmpl-be-count",
+      "area": "backend",
+      "arm": "A",
+      "model": "sonnet",
+      "run": 1,
+      "log": "bench\\logs\\bench-2026-08-19T03-07-34\\tmpl-be-count_A_sonnet_1.jsonl",
+      "classification": "ok",
+      "error": null,
+      "assertion": {
+        "pass": true,
+        "filesChanged": 3,
+        "areaTouched": true,
+        "assertionV1": true,
+        "rescoredFromLog": true,
+        "logEdits": 5
+      },
+      "teaFired": false,
+      "init": {
+        "model": "claude-sonnet-5",
+        "skills": [
+          "deep-research",
+          "design-sync",
+          "dataviz",
+          "update-config",
+          "verify",
+          "debug",
+          "code-review",
+          "simplify",
+          "batch",
+          "fewer-permission-prompts",
+          "doctor",
+          "loop",
+          "schedule",
+          "claude-api",
+          "run",
+          "run-skill-generator"
+        ],
+        "permissionMode": "bypassPermissions"
+      },
+      "metrics": {
+        "inputTokens": 28,
+        "outputTokens": 3801,
+        "reasoningTokens": 1417,
+        "cacheCreationTokens": 21798,
+        "cacheReadTokens": 522381,
+        "totalTokens": 548008,
+        "numTurns": 17,
+        "durationMs": 44667,
+        "costUsd": 0.34519530000000004,
+        "denials": 0
+      },
+      "authFailure": false,
+      "handles": {
+        "handles": {
+          "r1_searchLedReadRatio": 1,
+          "r2_rangedReadRatio": 0,
+          "r3_repeatReads": 0,
+          "r4_treeCalls": 4,
+          "w1_fullRewriteRatio": 0,
+          "w2_anchorMisses": 0,
+          "w3_newFiles": 0,
+          "w4_unrequestedArtifacts": 0,
+          "w5_codeRestatements": 0,
+          "t1_reverts": 0,
+          "t2_sameFileChurn": 2,
+          "t3_editFailureRatio": 0
+        },
+        "counts": {
+          "toolCalls": 16,
+          "reads": 6,
+          "searches": 5,
+          "edits": 5,
+          "writes": 0,
+          "editAttempts": 5,
+          "editFailures": 0
+        }
+      }
+    },
+    {
+      "id": "tmpl-be-count#A#sonnet#2",
+      "task": "tmpl-be-count",
+      "area": "backend",
+      "arm": "A",
+      "model": "sonnet",
+      "run": 2,
+      "log": "bench\\logs\\bench-2026-08-19T03-07-34\\tmpl-be-count_A_sonnet_2.jsonl",
+      "classification": "ok",
+      "error": null,
+      "assertion": {
+        "pass": true,
+        "filesChanged": 3,
+        "areaTouched": true,
+        "assertionV1": true,
+        "rescoredFromLog": true,
+        "logEdits": 5
+      },
+      "teaFired": false,
+      "init": {
+        "model": "claude-sonnet-5",
+        "skills": [
+          "deep-research",
+          "design-sync",
+          "dataviz",
+          "update-config",
+          "verify",
+          "debug",
+          "code-review",
+          "simplify",
+          "batch",
+          "fewer-permission-prompts",
+          "doctor",
+          "loop",
+          "schedule",
+          "claude-api",
+          "run",
+          "run-skill-generator"
+        ],
+        "permissionMode": "bypassPermissions"
+      },
+      "metrics": {
+        "inputTokens": 26,
+        "outputTokens": 3690,
+        "reasoningTokens": 998,
+        "cacheCreationTokens": 22226,
+        "cacheReadTokens": 484481,
+        "totalTokens": 510423,
+        "numTurns": 16,
+        "durationMs": 44297,
+        "costUsd": 0.3347223,
+        "denials": 0
+      },
+      "authFailure": false,
+      "handles": {
+        "handles": {
+          "r1_searchLedReadRatio": 1,
+          "r2_rangedReadRatio": 0.333,
+          "r3_repeatReads": 0,
+          "r4_treeCalls": 3,
+          "w1_fullRewriteRatio": 0,
+          "w2_anchorMisses": 0,
+          "w3_newFiles": 0,
+          "w4_unrequestedArtifacts": 0,
+          "w5_codeRestatements": 0,
+          "t1_reverts": 0,
+          "t2_sameFileChurn": 2,
+          "t3_editFailureRatio": 0
+        },
+        "counts": {
+          "toolCalls": 15,
+          "reads": 6,
+          "searches": 4,
+          "edits": 5,
+          "writes": 0,
+          "editAttempts": 5,
+          "editFailures": 0
+        }
+      }
+    },
+    {
+      "id": "tmpl-be-count#A#sonnet#4",
+      "task": "tmpl-be-count",
+      "area": "backend",
+      "arm": "A",
+      "model": "sonnet",
+      "run": 4,
+      "log": "bench\\logs\\bench-2026-08-19T03-07-34\\tmpl-be-count_A_sonnet_4.jsonl",
+      "classification": "ok",
+      "error": null,
+      "assertion": {
+        "pass": true,
+        "filesChanged": 3,
+        "areaTouched": true,
+        "assertionV1": true,
+        "rescoredFromLog": true,
+        "logEdits": 5
+      },
+      "teaFired": false,
+      "init": {
+        "model": "claude-sonnet-5",
+        "skills": [
+          "deep-research",
+          "design-sync",
+          "dataviz",
+          "update-config",
+          "verify",
+          "debug",
+          "code-review",
+          "simplify",
+          "batch",
+          "fewer-permission-prompts",
+          "doctor",
+          "loop",
+          "schedule",
+          "claude-api",
+          "run",
+          "run-skill-generator"
+        ],
+        "permissionMode": "bypassPermissions"
+      },
+      "metrics": {
+        "inputTokens": 22,
+        "outputTokens": 3524,
+        "reasoningTokens": 566,
+        "cacheCreationTokens": 20997,
+        "cacheReadTokens": 400476,
+        "totalTokens": 425019,
+        "numTurns": 13,
+        "durationMs": 39908,
+        "costUsd": 0.29964480000000004,
+        "denials": 0
+      },
+      "authFailure": false,
+      "handles": {
+        "handles": {
+          "r1_searchLedReadRatio": 1,
+          "r2_rangedReadRatio": 0,
+          "r3_repeatReads": 0,
+          "r4_treeCalls": 1,
+          "w1_fullRewriteRatio": 0,
+          "w2_anchorMisses": 0,
+          "w3_newFiles": 0,
+          "w4_unrequestedArtifacts": 0,
+          "w5_codeRestatements": 0,
+          "t1_reverts": 0,
+          "t2_sameFileChurn": 2,
+          "t3_editFailureRatio": 0
+        },
+        "counts": {
+          "toolCalls": 12,
+          "reads": 6,
+          "searches": 1,
+          "edits": 5,
+          "writes": 0,
+          "editAttempts": 5,
+          "editFailures": 0
+        }
+      }
+    },
+    {
+      "id": "tmpl-be-count#A#sonnet#3",
+      "task": "tmpl-be-count",
+      "area": "backend",
+      "arm": "A",
+      "model": "sonnet",
+      "run": 3,
+      "log": "bench\\logs\\bench-2026-08-19T03-07-34\\tmpl-be-count_A_sonnet_3.jsonl",
+      "classification": "ok",
+      "error": null,
+      "assertion": {
+        "pass": true,
+        "filesChanged": 3,
+        "areaTouched": true,
+        "assertionV1": true,
+        "rescoredFromLog": true,
+        "logEdits": 5
+      },
+      "teaFired": false,
+      "init": {
+        "model": "claude-sonnet-5",
+        "skills": [
+          "deep-research",
+          "design-sync",
+          "dataviz",
+          "update-config",
+          "verify",
+          "debug",
+          "code-review",
+          "simplify",
+          "batch",
+          "fewer-permission-prompts",
+          "doctor",
+          "loop",
+          "schedule",
+          "claude-api",
+          "run",
+          "run-skill-generator"
+        ],
+        "permissionMode": "bypassPermissions"
+      },
+      "metrics": {
+        "inputTokens": 30,
+        "outputTokens": 5033,
+        "reasoningTokens": 2520,
+        "cacheCreationTokens": 24152,
+        "cacheReadTokens": 569823,
+        "totalTokens": 599038,
+        "numTurns": 18,
+        "durationMs": 57258,
+        "costUsd": 0.39203790000000005,
+        "denials": 0
+      },
+      "authFailure": false,
+      "handles": {
+        "handles": {
+          "r1_searchLedReadRatio": 1,
+          "r2_rangedReadRatio": 0,
+          "r3_repeatReads": 0,
+          "r4_treeCalls": 4,
+          "w1_fullRewriteRatio": 0,
+          "w2_anchorMisses": 0,
+          "w3_newFiles": 0,
+          "w4_unrequestedArtifacts": 0,
+          "w5_codeRestatements": 0,
+          "t1_reverts": 0,
+          "t2_sameFileChurn": 2,
+          "t3_editFailureRatio": 0
+        },
+        "counts": {
+          "toolCalls": 17,
+          "reads": 7,
+          "searches": 5,
+          "edits": 5,
+          "writes": 0,
+          "editAttempts": 5,
+          "editFailures": 0
+        }
+      }
+    },
+    {
+      "id": "tmpl-be-count#A#opus#2",
+      "task": "tmpl-be-count",
+      "area": "backend",
+      "arm": "A",
+      "model": "opus",
+      "run": 2,
+      "log": "bench\\logs\\bench-2026-08-19T03-07-34\\tmpl-be-count_A_opus_2.jsonl",
+      "classification": "ok",
+      "error": null,
+      "assertion": {
+        "pass": true,
+        "filesChanged": 3,
+        "areaTouched": true,
+        "assertionV1": true,
+        "rescoredFromLog": true,
+        "logEdits": 4
+      },
+      "teaFired": false,
+      "init": {
+        "model": "claude-opus-5",
+        "skills": [
+          "deep-research",
+          "design-sync",
+          "dataviz",
+          "update-config",
+          "verify",
+          "debug",
+          "code-review",
+          "simplify",
+          "batch",
+          "fewer-permission-prompts",
+          "doctor",
+          "loop",
+          "schedule",
+          "claude-api",
+          "run",
+          "run-skill-generator"
+        ],
+        "permissionMode": "bypassPermissions"
+      },
+      "metrics": {
+        "inputTokens": 1731,
+        "outputTokens": 3463,
+        "reasoningTokens": 684,
+        "cacheCreationTokens": 18677,
+        "cacheReadTokens": 305969,
+        "totalTokens": 329840,
+        "numTurns": 14,
+        "durationMs": 47595,
+        "costUsd": 0.4355785,
+        "denials": 0
+      },
+      "authFailure": false,
+      "handles": {
+        "handles": {
+          "r1_searchLedReadRatio": 1,
+          "r2_rangedReadRatio": 0,
+          "r3_repeatReads": 0,
+          "r4_treeCalls": 3,
+          "w1_fullRewriteRatio": 0,
+          "w2_anchorMisses": 0,
+          "w3_newFiles": 0,
+          "w4_unrequestedArtifacts": 0,
+          "w5_codeRestatements": 0,
+          "t1_reverts": 0,
+          "t2_sameFileChurn": 1,
+          "t3_editFailureRatio": 0
+        },
+        "counts": {
+          "toolCalls": 13,
+          "reads": 6,
+          "searches": 3,
+          "edits": 4,
+          "writes": 0,
+          "editAttempts": 4,
+          "editFailures": 0
+        }
+      }
+    },
+    {
+      "id": "tmpl-be-count#A#opus#1",
+      "task": "tmpl-be-count",
+      "area": "backend",
+      "arm": "A",
+      "model": "opus",
+      "run": 1,
+      "log": "bench\\logs\\bench-2026-08-19T03-07-34\\tmpl-be-count_A_opus_1.jsonl",
+      "classification": "ok",
+      "error": null,
+      "assertion": {
+        "pass": true,
+        "filesChanged": 3,
+        "areaTouched": true,
+        "assertionV1": true,
+        "rescoredFromLog": true,
+        "logEdits": 5
+      },
+      "teaFired": false,
+      "init": {
+        "model": "claude-opus-5",
+        "skills": [
+          "deep-research",
+          "design-sync",
+          "dataviz",
+          "update-config",
+          "verify",
+          "debug",
+          "code-review",
+          "simplify",
+          "batch",
+          "fewer-permission-prompts",
+          "doctor",
+          "loop",
+          "schedule",
+          "claude-api",
+          "run",
+          "run-skill-generator"
+        ],
+        "permissionMode": "bypassPermissions"
+      },
+      "metrics": {
+        "inputTokens": 24,
+        "outputTokens": 4421,
+        "reasoningTokens": 1015,
+        "cacheCreationTokens": 21062,
+        "cacheReadTokens": 350013,
+        "totalTokens": 375520,
+        "numTurns": 17,
+        "durationMs": 59551,
+        "costUsd": 0.49686549999999996,
+        "denials": 0
+      },
+      "authFailure": false,
+      "handles": {
+        "handles": {
+          "r1_searchLedReadRatio": 1,
+          "r2_rangedReadRatio": 0.111,
+          "r3_repeatReads": 0,
+          "r4_treeCalls": 2,
+          "w1_fullRewriteRatio": 0,
+          "w2_anchorMisses": 0,
+          "w3_newFiles": 0,
+          "w4_unrequestedArtifacts": 0,
+          "w5_codeRestatements": 0,
+          "t1_reverts": 0,
+          "t2_sameFileChurn": 2,
+          "t3_editFailureRatio": 0
+        },
+        "counts": {
+          "toolCalls": 16,
+          "reads": 9,
+          "searches": 2,
+          "edits": 5,
+          "writes": 0,
+          "editAttempts": 5,
+          "editFailures": 0
+        }
+      }
+    },
+    {
+      "id": "tmpl-be-count#A#opus#3",
+      "task": "tmpl-be-count",
+      "area": "backend",
+      "arm": "A",
+      "model": "opus",
+      "run": 3,
+      "log": "bench\\logs\\bench-2026-08-19T03-07-34\\tmpl-be-count_A_opus_3.jsonl",
+      "classification": "ok",
+      "error": null,
+      "assertion": {
+        "pass": true,
+        "filesChanged": 3,
+        "areaTouched": true,
+        "assertionV1": true,
+        "rescoredFromLog": true,
+        "logEdits": 4
+      },
+      "teaFired": false,
+      "init": {
+        "model": "claude-opus-5",
+        "skills": [
+          "deep-research",
+          "design-sync",
+          "dataviz",
+          "update-config",
+          "verify",
+          "debug",
+          "code-review",
+          "simplify",
+          "batch",
+          "fewer-permission-prompts",
+          "doctor",
+          "loop",
+          "schedule",
+          "claude-api",
+          "run",
+          "run-skill-generator"
+        ],
+        "permissionMode": "bypassPermissions"
+      },
+      "metrics": {
+        "inputTokens": 1735,
+        "outputTokens": 4255,
+        "reasoningTokens": 1033,
+        "cacheCreationTokens": 21288,
+        "cacheReadTokens": 387587,
+        "totalTokens": 414865,
+        "numTurns": 17,
+        "durationMs": 63067,
+        "costUsd": 0.5223175000000001,
+        "denials": 0
+      },
+      "authFailure": false,
+      "handles": {
+        "handles": {
+          "r1_searchLedReadRatio": 1,
+          "r2_rangedReadRatio": 0,
+          "r3_repeatReads": 0,
+          "r4_treeCalls": 4,
+          "w1_fullRewriteRatio": 0,
+          "w2_anchorMisses": 0,
+          "w3_newFiles": 0,
+          "w4_unrequestedArtifacts": 0,
+          "w5_codeRestatements": 1,
+          "t1_reverts": 0,
+          "t2_sameFileChurn": 1,
+          "t3_editFailureRatio": 0
+        },
+        "counts": {
+          "toolCalls": 16,
+          "reads": 8,
+          "searches": 4,
+          "edits": 4,
+          "writes": 0,
+          "editAttempts": 4,
+          "editFailures": 0
+        }
+      }
+    },
+    {
+      "id": "tmpl-be-count#A#opus#4",
+      "task": "tmpl-be-count",
+      "area": "backend",
+      "arm": "A",
+      "model": "opus",
+      "run": 4,
+      "log": "bench\\logs\\bench-2026-08-19T03-07-34\\tmpl-be-count_A_opus_4.jsonl",
+      "classification": "ok",
+      "error": null,
+      "assertion": {
+        "pass": true,
+        "filesChanged": 3,
+        "areaTouched": true,
+        "assertionV1": true,
+        "rescoredFromLog": true,
+        "logEdits": 4
+      },
+      "teaFired": false,
+      "init": {
+        "model": "claude-opus-5",
+        "skills": [
+          "deep-research",
+          "design-sync",
+          "dataviz",
+          "update-config",
+          "verify",
+          "debug",
+          "code-review",
+          "simplify",
+          "batch",
+          "fewer-permission-prompts",
+          "doctor",
+          "loop",
+          "schedule",
+          "claude-api",
+          "run",
+          "run-skill-generator"
+        ],
+        "permissionMode": "bypassPermissions"
+      },
+      "metrics": {
+        "inputTokens": 20,
+        "outputTokens": 4259,
+        "reasoningTokens": 1002,
+        "cacheCreationTokens": 19936,
+        "cacheReadTokens": 282876,
+        "totalTokens": 307091,
+        "numTurns": 15,
+        "durationMs": 60729,
+        "costUsd": 0.44796700000000006,
+        "denials": 0
+      },
+      "authFailure": false,
+      "handles": {
+        "handles": {
+          "r1_searchLedReadRatio": 1,
+          "r2_rangedReadRatio": 0,
+          "r3_repeatReads": 0,
+          "r4_treeCalls": 2,
+          "w1_fullRewriteRatio": 0,
+          "w2_anchorMisses": 0,
+          "w3_newFiles": 0,
+          "w4_unrequestedArtifacts": 0,
+          "w5_codeRestatements": 0,
+          "t1_reverts": 0,
+          "t2_sameFileChurn": 1,
+          "t3_editFailureRatio": 0
+        },
+        "counts": {
+          "toolCalls": 14,
+          "reads": 8,
+          "searches": 2,
+          "edits": 4,
+          "writes": 0,
+          "editAttempts": 4,
+          "editFailures": 0
+        }
+      }
+    },
+    {
+      "id": "tmpl-be-archive#A#sonnet#1",
+      "task": "tmpl-be-archive",
+      "area": "backend",
+      "arm": "A",
+      "model": "sonnet",
+      "run": 1,
+      "log": "bench\\logs\\bench-2026-08-19T03-07-34\\tmpl-be-archive_A_sonnet_1.jsonl",
+      "classification": "ok",
+      "error": null,
+      "assertion": {
+        "pass": true,
+        "filesChanged": 12,
+        "areaTouched": true,
+        "assertionV1": true,
+        "rescoredFromLog": true,
+        "logEdits": 19
+      },
+      "teaFired": false,
+      "init": {
+        "model": "claude-sonnet-5",
+        "skills": [
+          "deep-research",
+          "design-sync",
+          "dataviz",
+          "update-config",
+          "verify",
+          "debug",
+          "code-review",
+          "simplify",
+          "batch",
+          "fewer-permission-prompts",
+          "doctor",
+          "loop",
+          "schedule",
+          "claude-api",
+          "run",
+          "run-skill-generator"
+        ],
+        "permissionMode": "bypassPermissions"
+      },
+      "metrics": {
+        "inputTokens": 309,
+        "outputTokens": 21157,
+        "reasoningTokens": 5604,
+        "cacheCreationTokens": 70772,
+        "cacheReadTokens": 1850098,
+        "totalTokens": 1942336,
+        "numTurns": 55,
+        "durationMs": 189561,
+        "costUsd": 1.2985464,
+        "denials": 0
+      },
+      "authFailure": false,
+      "handles": {
+        "handles": {
+          "r1_searchLedReadRatio": 1,
+          "r2_rangedReadRatio": 0.12,
+          "r3_repeatReads": 0,
+          "r4_treeCalls": 6,
+          "w1_fullRewriteRatio": 0.059,
+          "w2_anchorMisses": 0,
+          "w3_newFiles": 2,
+          "w4_unrequestedArtifacts": 0,
+          "w5_codeRestatements": 0,
+          "t1_reverts": 0,
+          "t2_sameFileChurn": 7,
+          "t3_editFailureRatio": 0
+        },
+        "counts": {
+          "toolCalls": 54,
+          "reads": 25,
+          "searches": 10,
+          "edits": 16,
+          "writes": 3,
+          "editAttempts": 19,
+          "editFailures": 0
+        }
+      }
+    },
+    {
+      "id": "tmpl-be-archive#A#sonnet#2",
+      "task": "tmpl-be-archive",
+      "area": "backend",
+      "arm": "A",
+      "model": "sonnet",
+      "run": 2,
+      "log": "bench\\logs\\bench-2026-08-19T03-07-34\\tmpl-be-archive_A_sonnet_2.jsonl",
+      "classification": "ok",
+      "error": null,
+      "assertion": {
+        "pass": true,
+        "filesChanged": 12,
+        "areaTouched": true,
+        "assertionV1": true,
+        "rescoredFromLog": true,
+        "logEdits": 20
+      },
+      "teaFired": false,
+      "init": {
+        "model": "claude-sonnet-5",
+        "skills": [
+          "deep-research",
+          "design-sync",
+          "dataviz",
+          "update-config",
+          "verify",
+          "debug",
+          "code-review",
+          "simplify",
+          "batch",
+          "fewer-permission-prompts",
+          "doctor",
+          "loop",
+          "schedule",
+          "claude-api",
+          "run",
+          "run-skill-generator"
+        ],
+        "permissionMode": "bypassPermissions"
+      },
+      "metrics": {
+        "inputTokens": 78,
+        "outputTokens": 24147,
+        "reasoningTokens": 6545,
+        "cacheCreationTokens": 67278,
+        "cacheReadTokens": 2496407,
+        "totalTokens": 2587910,
+        "numTurns": 54,
+        "durationMs": 222417,
+        "costUsd": 1.5156371,
+        "denials": 0
+      },
+      "authFailure": false,
+      "handles": {
+        "handles": {
+          "r1_searchLedReadRatio": 1,
+          "r2_rangedReadRatio": 0.143,
+          "r3_repeatReads": 0,
+          "r4_treeCalls": 7,
+          "w1_fullRewriteRatio": 0,
+          "w2_anchorMisses": 0,
+          "w3_newFiles": 2,
+          "w4_unrequestedArtifacts": 0,
+          "w5_codeRestatements": 0,
+          "t1_reverts": 0,
+          "t2_sameFileChurn": 8,
+          "t3_editFailureRatio": 0
+        },
+        "counts": {
+          "toolCalls": 53,
+          "reads": 21,
+          "searches": 12,
+          "edits": 18,
+          "writes": 2,
+          "editAttempts": 20,
+          "editFailures": 0
+        }
+      }
+    },
+    {
+      "id": "tmpl-be-archive#A#sonnet#3",
+      "task": "tmpl-be-archive",
+      "area": "backend",
+      "arm": "A",
+      "model": "sonnet",
+      "run": 3,
+      "log": "bench\\logs\\bench-2026-08-19T03-07-34\\tmpl-be-archive_A_sonnet_3.jsonl",
+      "classification": "ok",
+      "error": null,
+      "assertion": {
+        "pass": true,
+        "filesChanged": 11,
+        "areaTouched": true,
+        "assertionV1": true,
+        "rescoredFromLog": true,
+        "logEdits": 14
+      },
+      "teaFired": false,
+      "init": {
+        "model": "claude-sonnet-5",
+        "skills": [
+          "deep-research",
+          "design-sync",
+          "dataviz",
+          "update-config",
+          "verify",
+          "debug",
+          "code-review",
+          "simplify",
+          "batch",
+          "fewer-permission-prompts",
+          "doctor",
+          "loop",
+          "schedule",
+          "claude-api",
+          "run",
+          "run-skill-generator"
+        ],
+        "permissionMode": "bypassPermissions"
+      },
+      "metrics": {
+        "inputTokens": 50,
+        "outputTokens": 15430,
+        "reasoningTokens": 3096,
+        "cacheCreationTokens": 45690,
+        "cacheReadTokens": 1461850,
+        "totalTokens": 1523020,
+        "numTurns": 39,
+        "durationMs": 146491,
+        "costUsd": 1.2055813499999999,
+        "denials": 0
+      },
+      "authFailure": false,
+      "handles": {
+        "handles": {
+          "r1_searchLedReadRatio": 1,
+          "r2_rangedReadRatio": 0.077,
+          "r3_repeatReads": 9,
+          "r4_treeCalls": 7,
+          "w1_fullRewriteRatio": 0,
+          "w2_anchorMisses": 0,
+          "w3_newFiles": 3,
+          "w4_unrequestedArtifacts": 0,
+          "w5_codeRestatements": 0,
+          "t1_reverts": 0,
+          "t2_sameFileChurn": 3,
+          "t3_editFailureRatio": 0
+        },
+        "counts": {
+          "toolCalls": 54,
+          "reads": 26,
+          "searches": 13,
+          "edits": 11,
+          "writes": 3,
+          "editAttempts": 14,
+          "editFailures": 0
+        }
+      }
+    },
+    {
+      "id": "tmpl-be-archive#A#sonnet#4",
+      "task": "tmpl-be-archive",
+      "area": "backend",
+      "arm": "A",
+      "model": "sonnet",
+      "run": 4,
+      "log": "bench\\logs\\bench-2026-08-19T03-07-34\\tmpl-be-archive_A_sonnet_4.jsonl",
+      "classification": "ok",
+      "error": null,
+      "assertion": {
+        "pass": true,
+        "filesChanged": 10,
+        "areaTouched": true,
+        "assertionV1": true,
+        "rescoredFromLog": true,
+        "logEdits": 14
+      },
+      "teaFired": false,
+      "init": {
+        "model": "claude-sonnet-5",
+        "skills": [
+          "deep-research",
+          "design-sync",
+          "dataviz",
+          "update-config",
+          "verify",
+          "debug",
+          "code-review",
+          "simplify",
+          "batch",
+          "fewer-permission-prompts",
+          "doctor",
+          "loop",
+          "schedule",
+          "claude-api",
+          "run",
+          "run-skill-generator"
+        ],
+        "permissionMode": "bypassPermissions"
+      },
+      "metrics": {
+        "inputTokens": 52,
+        "outputTokens": 15313,
+        "reasoningTokens": 4368,
+        "cacheCreationTokens": 46353,
+        "cacheReadTokens": 1633559,
+        "totalTokens": 1695277,
+        "numTurns": 45,
+        "durationMs": 147907,
+        "costUsd": 1.43819565,
+        "denials": 0
+      },
+      "authFailure": false,
+      "handles": {
+        "handles": {
+          "r1_searchLedReadRatio": 1,
+          "r2_rangedReadRatio": 0.132,
+          "r3_repeatReads": 15,
+          "r4_treeCalls": 17,
+          "w1_fullRewriteRatio": 0,
+          "w2_anchorMisses": 0,
+          "w3_newFiles": 2,
+          "w4_unrequestedArtifacts": 0,
+          "w5_codeRestatements": 2,
+          "t1_reverts": 0,
+          "t2_sameFileChurn": 4,
+          "t3_editFailureRatio": 0
+        },
+        "counts": {
+          "toolCalls": 79,
+          "reads": 38,
+          "searches": 24,
+          "edits": 12,
+          "writes": 2,
+          "editAttempts": 14,
+          "editFailures": 0
+        }
+      }
+    },
+    {
+      "id": "tmpl-be-archive#A#opus#1",
+      "task": "tmpl-be-archive",
+      "area": "backend",
+      "arm": "A",
+      "model": "opus",
+      "run": 1,
+      "log": "bench\\logs\\bench-2026-08-19T03-07-34\\tmpl-be-archive_A_opus_1.jsonl",
+      "classification": "ok",
+      "error": null,
+      "assertion": {
+        "pass": true,
+        "filesChanged": 12,
+        "areaTouched": true,
+        "assertionV1": true,
+        "rescoredFromLog": true,
+        "logEdits": 25
+      },
+      "teaFired": false,
+      "init": {
+        "model": "claude-opus-5",
+        "skills": [
+          "deep-research",
+          "design-sync",
+          "dataviz",
+          "update-config",
+          "verify",
+          "debug",
+          "code-review",
+          "simplify",
+          "batch",
+          "fewer-permission-prompts",
+          "doctor",
+          "loop",
+          "schedule",
+          "claude-api",
+          "run",
+          "run-skill-generator"
+        ],
+        "permissionMode": "bypassPermissions"
+      },
+      "metrics": {
+        "inputTokens": 251,
+        "outputTokens": 29771,
+        "reasoningTokens": 11356,
+        "cacheCreationTokens": 70396,
+        "cacheReadTokens": 2737775,
+        "totalTokens": 2838193,
+        "numTurns": 62,
+        "durationMs": 340477,
+        "costUsd": 2.8189805000000003,
+        "denials": 0
+      },
+      "authFailure": false,
+      "handles": {
+        "handles": {
+          "r1_searchLedReadRatio": 1,
+          "r2_rangedReadRatio": 0.208,
+          "r3_repeatReads": 1,
+          "r4_treeCalls": 6,
+          "w1_fullRewriteRatio": 0.087,
+          "w2_anchorMisses": 0,
+          "w3_newFiles": 2,
+          "w4_unrequestedArtifacts": 0,
+          "w5_codeRestatements": 0,
+          "t1_reverts": 0,
+          "t2_sameFileChurn": 12,
+          "t3_editFailureRatio": 0
+        },
+        "counts": {
+          "toolCalls": 61,
+          "reads": 24,
+          "searches": 12,
+          "edits": 21,
+          "writes": 4,
+          "editAttempts": 25,
+          "editFailures": 0
+        }
+      }
+    },
+    {
+      "id": "tmpl-be-archive#A#opus#2",
+      "task": "tmpl-be-archive",
+      "area": "backend",
+      "arm": "A",
+      "model": "opus",
+      "run": 2,
+      "log": "bench\\logs\\bench-2026-08-19T03-07-34\\tmpl-be-archive_A_opus_2.jsonl",
+      "classification": "ok",
+      "error": null,
+      "assertion": {
+        "pass": true,
+        "filesChanged": 13,
+        "areaTouched": true,
+        "assertionV1": true,
+        "rescoredFromLog": true,
+        "logEdits": 21
+      },
+      "teaFired": false,
+      "init": {
+        "model": "claude-opus-5",
+        "skills": [
+          "deep-research",
+          "design-sync",
+          "dataviz",
+          "update-config",
+          "verify",
+          "debug",
+          "code-review",
+          "simplify",
+          "batch",
+          "fewer-permission-prompts",
+          "doctor",
+          "loop",
+          "schedule",
+          "claude-api",
+          "run",
+          "run-skill-generator"
+        ],
+        "permissionMode": "bypassPermissions"
+      },
+      "metrics": {
+        "inputTokens": 1791,
+        "outputTokens": 27180,
+        "reasoningTokens": 10072,
+        "cacheCreationTokens": 65388,
+        "cacheReadTokens": 2173626,
+        "totalTokens": 2267985,
+        "numTurns": 55,
+        "durationMs": 307394,
+        "costUsd": 2.4297509999999996,
+        "denials": 0
+      },
+      "authFailure": false,
+      "handles": {
+        "handles": {
+          "r1_searchLedReadRatio": 1,
+          "r2_rangedReadRatio": 0.182,
+          "r3_repeatReads": 1,
+          "r4_treeCalls": 5,
+          "w1_fullRewriteRatio": 0.105,
+          "w2_anchorMisses": 0,
+          "w3_newFiles": 2,
+          "w4_unrequestedArtifacts": 0,
+          "w5_codeRestatements": 0,
+          "t1_reverts": 0,
+          "t2_sameFileChurn": 8,
+          "t3_editFailureRatio": 0
+        },
+        "counts": {
+          "toolCalls": 54,
+          "reads": 22,
+          "searches": 11,
+          "edits": 17,
+          "writes": 4,
+          "editAttempts": 21,
+          "editFailures": 0
+        }
+      }
+    },
+    {
+      "id": "tmpl-be-archive#A#opus#3",
+      "task": "tmpl-be-archive",
+      "area": "backend",
+      "arm": "A",
+      "model": "opus",
+      "run": 3,
+      "log": "bench\\logs\\bench-2026-08-19T03-07-34\\tmpl-be-archive_A_opus_3.jsonl",
+      "classification": "ok",
+      "error": null,
+      "assertion": {
+        "pass": true,
+        "filesChanged": 13,
+        "areaTouched": true,
+        "assertionV1": true,
+        "rescoredFromLog": true,
+        "logEdits": 24
+      },
+      "teaFired": false,
+      "init": {
+        "model": "claude-opus-5",
+        "skills": [
+          "deep-research",
+          "design-sync",
+          "dataviz",
+          "update-config",
+          "verify",
+          "debug",
+          "code-review",
+          "simplify",
+          "batch",
+          "fewer-permission-prompts",
+          "doctor",
+          "loop",
+          "schedule",
+          "claude-api",
+          "run",
+          "run-skill-generator"
+        ],
+        "permissionMode": "bypassPermissions"
+      },
+      "metrics": {
+        "inputTokens": 294,
+        "outputTokens": 26186,
+        "reasoningTokens": 8083,
+        "cacheCreationTokens": 65580,
+        "cacheReadTokens": 2068610,
+        "totalTokens": 2160670,
+        "numTurns": 58,
+        "durationMs": 282867,
+        "costUsd": 2.3468279999999995,
+        "denials": 0
+      },
+      "authFailure": false,
+      "handles": {
+        "handles": {
+          "r1_searchLedReadRatio": 1,
+          "r2_rangedReadRatio": 0.182,
+          "r3_repeatReads": 0,
+          "r4_treeCalls": 6,
+          "w1_fullRewriteRatio": 0.045,
+          "w2_anchorMisses": 0,
+          "w3_newFiles": 2,
+          "w4_unrequestedArtifacts": 0,
+          "w5_codeRestatements": 0,
+          "t1_reverts": 0,
+          "t2_sameFileChurn": 9,
+          "t3_editFailureRatio": 0
+        },
+        "counts": {
+          "toolCalls": 57,
+          "reads": 22,
+          "searches": 11,
+          "edits": 21,
+          "writes": 3,
+          "editAttempts": 24,
+          "editFailures": 0
+        }
+      }
+    },
+    {
+      "id": "tmpl-be-bulkdelete#A#sonnet#1",
+      "task": "tmpl-be-bulkdelete",
+      "area": "backend",
+      "arm": "A",
+      "model": "sonnet",
+      "run": 1,
+      "log": "bench\\logs\\bench-2026-08-19T03-07-34\\tmpl-be-bulkdelete_A_sonnet_1.jsonl",
+      "classification": "ok",
+      "error": null,
+      "assertion": {
+        "pass": true,
+        "filesChanged": 3,
+        "areaTouched": true,
+        "assertionV1": true,
+        "rescoredFromLog": true,
+        "logEdits": 4
+      },
+      "teaFired": false,
+      "init": {
+        "model": "claude-sonnet-5",
+        "skills": [
+          "deep-research",
+          "design-sync",
+          "dataviz",
+          "update-config",
+          "verify",
+          "debug",
+          "code-review",
+          "simplify",
+          "batch",
+          "fewer-permission-prompts",
+          "doctor",
+          "loop",
+          "schedule",
+          "claude-api",
+          "run",
+          "run-skill-generator"
+        ],
+        "permissionMode": "bypassPermissions"
+      },
+      "metrics": {
+        "inputTokens": 18,
+        "outputTokens": 4707,
+        "reasoningTokens": 1572,
+        "cacheCreationTokens": 20667,
+        "cacheReadTokens": 317239,
+        "totalTokens": 342631,
+        "numTurns": 11,
+        "durationMs": 49033,
+        "costUsd": 0.29042370000000006,
+        "denials": 0
+      },
+      "authFailure": false,
+      "handles": {
+        "handles": {
+          "r1_searchLedReadRatio": 1,
+          "r2_rangedReadRatio": 0,
+          "r3_repeatReads": 0,
+          "r4_treeCalls": 2,
+          "w1_fullRewriteRatio": 0,
+          "w2_anchorMisses": 0,
+          "w3_newFiles": 0,
+          "w4_unrequestedArtifacts": 0,
+          "w5_codeRestatements": 0,
+          "t1_reverts": 0,
+          "t2_sameFileChurn": 1,
+          "t3_editFailureRatio": 0
+        },
+        "counts": {
+          "toolCalls": 10,
+          "reads": 4,
+          "searches": 2,
+          "edits": 4,
+          "writes": 0,
+          "editAttempts": 4,
+          "editFailures": 0
+        }
+      }
+    },
+    {
+      "id": "tmpl-be-archive#A#opus#4",
+      "task": "tmpl-be-archive",
+      "area": "backend",
+      "arm": "A",
+      "model": "opus",
+      "run": 4,
+      "log": "bench\\logs\\bench-2026-08-19T03-07-34\\tmpl-be-archive_A_opus_4.jsonl",
+      "classification": "ok",
+      "error": null,
+      "assertion": {
+        "pass": true,
+        "filesChanged": 13,
+        "areaTouched": true,
+        "assertionV1": true,
+        "rescoredFromLog": true,
+        "logEdits": 26
+      },
+      "teaFired": false,
+      "init": {
+        "model": "claude-opus-5",
+        "skills": [
+          "deep-research",
+          "design-sync",
+          "dataviz",
+          "update-config",
+          "verify",
+          "debug",
+          "code-review",
+          "simplify",
+          "batch",
+          "fewer-permission-prompts",
+          "doctor",
+          "loop",
+          "schedule",
+          "claude-api",
+          "run",
+          "run-skill-generator"
+        ],
+        "permissionMode": "bypassPermissions"
+      },
+      "metrics": {
+        "inputTokens": 341,
+        "outputTokens": 27509,
+        "reasoningTokens": 9162,
+        "cacheCreationTokens": 68600,
+        "cacheReadTokens": 2701045,
+        "totalTokens": 2797495,
+        "numTurns": 63,
+        "durationMs": 319101,
+        "costUsd": 2.7265555,
+        "denials": 0
+      },
+      "authFailure": false,
+      "handles": {
+        "handles": {
+          "r1_searchLedReadRatio": 1,
+          "r2_rangedReadRatio": 0.192,
+          "r3_repeatReads": 0,
+          "r4_treeCalls": 5,
+          "w1_fullRewriteRatio": 0.042,
+          "w2_anchorMisses": 0,
+          "w3_newFiles": 2,
+          "w4_unrequestedArtifacts": 0,
+          "w5_codeRestatements": 0,
+          "t1_reverts": 0,
+          "t2_sameFileChurn": 13,
+          "t3_editFailureRatio": 0
+        },
+        "counts": {
+          "toolCalls": 62,
+          "reads": 26,
+          "searches": 10,
+          "edits": 23,
+          "writes": 3,
+          "editAttempts": 26,
+          "editFailures": 0
+        }
+      }
+    },
+    {
+      "id": "tmpl-be-bulkdelete#A#sonnet#2",
+      "task": "tmpl-be-bulkdelete",
+      "area": "backend",
+      "arm": "A",
+      "model": "sonnet",
+      "run": 2,
+      "log": "bench\\logs\\bench-2026-08-19T03-07-34\\tmpl-be-bulkdelete_A_sonnet_2.jsonl",
+      "classification": "ok",
+      "error": null,
+      "assertion": {
+        "pass": true,
+        "filesChanged": 3,
+        "areaTouched": true,
+        "assertionV1": true,
+        "rescoredFromLog": true,
+        "logEdits": 5
+      },
+      "teaFired": false,
+      "init": {
+        "model": "claude-sonnet-5",
+        "skills": [
+          "deep-research",
+          "design-sync",
+          "dataviz",
+          "update-config",
+          "verify",
+          "debug",
+          "code-review",
+          "simplify",
+          "batch",
+          "fewer-permission-prompts",
+          "doctor",
+          "loop",
+          "schedule",
+          "claude-api",
+          "run",
+          "run-skill-generator"
+        ],
+        "permissionMode": "bypassPermissions"
+      },
+      "metrics": {
+        "inputTokens": 1143,
+        "outputTokens": 6204,
+        "reasoningTokens": 2682,
+        "cacheCreationTokens": 23177,
+        "cacheReadTokens": 477514,
+        "totalTokens": 508038,
+        "numTurns": 15,
+        "durationMs": 67257,
+        "costUsd": 0.37939119999999993,
+        "denials": 0
+      },
+      "authFailure": false,
+      "handles": {
+        "handles": {
+          "r1_searchLedReadRatio": 1,
+          "r2_rangedReadRatio": 0.25,
+          "r3_repeatReads": 0,
+          "r4_treeCalls": 2,
+          "w1_fullRewriteRatio": 0,
+          "w2_anchorMisses": 0,
+          "w3_newFiles": 0,
+          "w4_unrequestedArtifacts": 0,
+          "w5_codeRestatements": 0,
+          "t1_reverts": 0,
+          "t2_sameFileChurn": 2,
+          "t3_editFailureRatio": 0
+        },
+        "counts": {
+          "toolCalls": 14,
+          "reads": 4,
+          "searches": 5,
+          "edits": 5,
+          "writes": 0,
+          "editAttempts": 5,
+          "editFailures": 0
+        }
+      }
+    },
+    {
+      "id": "tmpl-be-bulkdelete#A#sonnet#3",
+      "task": "tmpl-be-bulkdelete",
+      "area": "backend",
+      "arm": "A",
+      "model": "sonnet",
+      "run": 3,
+      "log": "bench\\logs\\bench-2026-08-19T03-07-34\\tmpl-be-bulkdelete_A_sonnet_3.jsonl",
+      "classification": "ok",
+      "error": null,
+      "assertion": {
+        "pass": true,
+        "filesChanged": 3,
+        "areaTouched": true,
+        "assertionV1": true,
+        "rescoredFromLog": true,
+        "logEdits": 4
+      },
+      "teaFired": false,
+      "init": {
+        "model": "claude-sonnet-5",
+        "skills": [
+          "deep-research",
+          "design-sync",
+          "dataviz",
+          "update-config",
+          "verify",
+          "debug",
+          "code-review",
+          "simplify",
+          "batch",
+          "fewer-permission-prompts",
+          "doctor",
+          "loop",
+          "schedule",
+          "claude-api",
+          "run",
+          "run-skill-generator"
+        ],
+        "permissionMode": "bypassPermissions"
+      },
+      "metrics": {
+        "inputTokens": 20,
+        "outputTokens": 4933,
+        "reasoningTokens": 1580,
+        "cacheCreationTokens": 22851,
+        "cacheReadTokens": 360981,
+        "totalTokens": 388785,
+        "numTurns": 14,
+        "durationMs": 49790,
+        "costUsd": 0.3200413,
+        "denials": 0
+      },
+      "authFailure": false,
+      "handles": {
+        "handles": {
+          "r1_searchLedReadRatio": 1,
+          "r2_rangedReadRatio": 0,
+          "r3_repeatReads": 0,
+          "r4_treeCalls": 4,
+          "w1_fullRewriteRatio": 0,
+          "w2_anchorMisses": 0,
+          "w3_newFiles": 0,
+          "w4_unrequestedArtifacts": 0,
+          "w5_codeRestatements": 0,
+          "t1_reverts": 0,
+          "t2_sameFileChurn": 1,
+          "t3_editFailureRatio": 0
+        },
+        "counts": {
+          "toolCalls": 13,
+          "reads": 5,
+          "searches": 4,
+          "edits": 4,
+          "writes": 0,
+          "editAttempts": 4,
+          "editFailures": 0
+        }
+      }
+    },
+    {
+      "id": "tmpl-be-bulkdelete#A#opus#1",
+      "task": "tmpl-be-bulkdelete",
+      "area": "backend",
+      "arm": "A",
+      "model": "opus",
+      "run": 1,
+      "log": "bench\\logs\\bench-2026-08-19T03-07-34\\tmpl-be-bulkdelete_A_opus_1.jsonl",
+      "classification": "ok",
+      "error": null,
+      "assertion": {
+        "pass": true,
+        "filesChanged": 3,
+        "areaTouched": true,
+        "assertionV1": true,
+        "rescoredFromLog": true,
+        "logEdits": 5
+      },
+      "teaFired": false,
+      "init": {
+        "model": "claude-opus-5",
+        "skills": [
+          "deep-research",
+          "design-sync",
+          "dataviz",
+          "update-config",
+          "verify",
+          "debug",
+          "code-review",
+          "simplify",
+          "batch",
+          "fewer-permission-prompts",
+          "doctor",
+          "loop",
+          "schedule",
+          "claude-api",
+          "run",
+          "run-skill-generator"
+        ],
+        "permissionMode": "bypassPermissions"
+      },
+      "metrics": {
+        "inputTokens": 20,
+        "outputTokens": 6455,
+        "reasoningTokens": 2035,
+        "cacheCreationTokens": 19937,
+        "cacheReadTokens": 281141,
+        "totalTokens": 307553,
+        "numTurns": 13,
+        "durationMs": 74605,
+        "costUsd": 0.5020015,
+        "denials": 0
+      },
+      "authFailure": false,
+      "handles": {
+        "handles": {
+          "r1_searchLedReadRatio": 1,
+          "r2_rangedReadRatio": 0,
+          "r3_repeatReads": 0,
+          "r4_treeCalls": 2,
+          "w1_fullRewriteRatio": 0,
+          "w2_anchorMisses": 0,
+          "w3_newFiles": 0,
+          "w4_unrequestedArtifacts": 0,
+          "w5_codeRestatements": 0,
+          "t1_reverts": 0,
+          "t2_sameFileChurn": 2,
+          "t3_editFailureRatio": 0
+        },
+        "counts": {
+          "toolCalls": 12,
+          "reads": 5,
+          "searches": 2,
+          "edits": 5,
+          "writes": 0,
+          "editAttempts": 5,
+          "editFailures": 0
+        }
+      }
+    },
+    {
+      "id": "tmpl-be-bulkdelete#A#sonnet#4",
+      "task": "tmpl-be-bulkdelete",
+      "area": "backend",
+      "arm": "A",
+      "model": "sonnet",
+      "run": 4,
+      "log": "bench\\logs\\bench-2026-08-19T03-07-34\\tmpl-be-bulkdelete_A_sonnet_4.jsonl",
+      "classification": "ok",
+      "error": null,
+      "assertion": {
+        "pass": true,
+        "filesChanged": 3,
+        "areaTouched": true,
+        "assertionV1": true,
+        "rescoredFromLog": true,
+        "logEdits": 5
+      },
+      "teaFired": false,
+      "init": {
+        "model": "claude-sonnet-5",
+        "skills": [
+          "deep-research",
+          "design-sync",
+          "dataviz",
+          "update-config",
+          "verify",
+          "debug",
+          "code-review",
+          "simplify",
+          "batch",
+          "fewer-permission-prompts",
+          "doctor",
+          "loop",
+          "schedule",
+          "claude-api",
+          "run",
+          "run-skill-generator"
+        ],
+        "permissionMode": "bypassPermissions"
+      },
+      "metrics": {
+        "inputTokens": 26,
+        "outputTokens": 7479,
+        "reasoningTokens": 2980,
+        "cacheCreationTokens": 25373,
+        "cacheReadTokens": 484721,
+        "totalTokens": 517599,
+        "numTurns": 16,
+        "durationMs": 116275,
+        "costUsd": 0.56338345,
+        "denials": 0
+      },
+      "authFailure": false,
+      "handles": {
+        "handles": {
+          "r1_searchLedReadRatio": 1,
+          "r2_rangedReadRatio": 0.167,
+          "r3_repeatReads": 4,
+          "r4_treeCalls": 6,
+          "w1_fullRewriteRatio": 0,
+          "w2_anchorMisses": 0,
+          "w3_newFiles": 0,
+          "w4_unrequestedArtifacts": 0,
+          "w5_codeRestatements": 0,
+          "t1_reverts": 0,
+          "t2_sameFileChurn": 2,
+          "t3_editFailureRatio": 0
+        },
+        "counts": {
+          "toolCalls": 28,
+          "reads": 12,
+          "searches": 9,
+          "edits": 5,
+          "writes": 0,
+          "editAttempts": 5,
+          "editFailures": 0
+        }
+      }
+    },
+    {
+      "id": "tmpl-be-bulkdelete#A#opus#2",
+      "task": "tmpl-be-bulkdelete",
+      "area": "backend",
+      "arm": "A",
+      "model": "opus",
+      "run": 2,
+      "log": "bench\\logs\\bench-2026-08-19T03-07-34\\tmpl-be-bulkdelete_A_opus_2.jsonl",
+      "classification": "ok",
+      "error": null,
+      "assertion": {
+        "pass": true,
+        "filesChanged": 3,
+        "areaTouched": true,
+        "assertionV1": true,
+        "rescoredFromLog": true,
+        "logEdits": 4
+      },
+      "teaFired": false,
+      "init": {
+        "model": "claude-opus-5",
+        "skills": [
+          "deep-research",
+          "design-sync",
+          "dataviz",
+          "update-config",
+          "verify",
+          "debug",
+          "code-review",
+          "simplify",
+          "batch",
+          "fewer-permission-prompts",
+          "doctor",
+          "loop",
+          "schedule",
+          "claude-api",
+          "run",
+          "run-skill-generator"
+        ],
+        "permissionMode": "bypassPermissions"
+      },
+      "metrics": {
+        "inputTokens": 18,
+        "outputTokens": 6286,
+        "reasoningTokens": 2018,
+        "cacheCreationTokens": 19672,
+        "cacheReadTokens": 247766,
+        "totalTokens": 273742,
+        "numTurns": 12,
+        "durationMs": 71832,
+        "costUsd": 0.478429,
+        "denials": 0
+      },
+      "authFailure": false,
+      "handles": {
+        "handles": {
+          "r1_searchLedReadRatio": 1,
+          "r2_rangedReadRatio": 0,
+          "r3_repeatReads": 0,
+          "r4_treeCalls": 2,
+          "w1_fullRewriteRatio": 0,
+          "w2_anchorMisses": 0,
+          "w3_newFiles": 0,
+          "w4_unrequestedArtifacts": 0,
+          "w5_codeRestatements": 0,
+          "t1_reverts": 0,
+          "t2_sameFileChurn": 1,
+          "t3_editFailureRatio": 0
+        },
+        "counts": {
+          "toolCalls": 11,
+          "reads": 5,
+          "searches": 2,
+          "edits": 4,
+          "writes": 0,
+          "editAttempts": 4,
+          "editFailures": 0
+        }
+      }
+    },
+    {
+      "id": "tmpl-be-bulkdelete#A#opus#3",
+      "task": "tmpl-be-bulkdelete",
+      "area": "backend",
+      "arm": "A",
+      "model": "opus",
+      "run": 3,
+      "log": "bench\\logs\\bench-2026-08-19T03-07-34\\tmpl-be-bulkdelete_A_opus_3.jsonl",
+      "classification": "ok",
+      "error": null,
+      "assertion": {
+        "pass": true,
+        "filesChanged": 3,
+        "areaTouched": true,
+        "assertionV1": true,
+        "rescoredFromLog": true,
+        "logEdits": 5
+      },
+      "teaFired": false,
+      "init": {
+        "model": "claude-opus-5",
+        "skills": [
+          "deep-research",
+          "design-sync",
+          "dataviz",
+          "update-config",
+          "verify",
+          "debug",
+          "code-review",
+          "simplify",
+          "batch",
+          "fewer-permission-prompts",
+          "doctor",
+          "loop",
+          "schedule",
+          "claude-api",
+          "run",
+          "run-skill-generator"
+        ],
+        "permissionMode": "bypassPermissions"
+      },
+      "metrics": {
+        "inputTokens": 32,
+        "outputTokens": 7546,
+        "reasoningTokens": 2704,
+        "cacheCreationTokens": 24509,
+        "cacheReadTokens": 491449,
+        "totalTokens": 523536,
+        "numTurns": 18,
+        "durationMs": 98427,
+        "costUsd": 0.6802154999999999,
+        "denials": 0
+      },
+      "authFailure": false,
+      "handles": {
+        "handles": {
+          "r1_searchLedReadRatio": 1,
+          "r2_rangedReadRatio": 0.125,
+          "r3_repeatReads": 0,
+          "r4_treeCalls": 4,
+          "w1_fullRewriteRatio": 0,
+          "w2_anchorMisses": 0,
+          "w3_newFiles": 0,
+          "w4_unrequestedArtifacts": 0,
+          "w5_codeRestatements": 0,
+          "t1_reverts": 0,
+          "t2_sameFileChurn": 2,
+          "t3_editFailureRatio": 0
+        },
+        "counts": {
+          "toolCalls": 17,
+          "reads": 8,
+          "searches": 4,
+          "edits": 5,
+          "writes": 0,
+          "editAttempts": 5,
+          "editFailures": 0
+        }
+      }
+    },
+    {
+      "id": "tmpl-be-bulkdelete#A#opus#4",
+      "task": "tmpl-be-bulkdelete",
+      "area": "backend",
+      "arm": "A",
+      "model": "opus",
+      "run": 4,
+      "log": "bench\\logs\\bench-2026-08-19T03-07-34\\tmpl-be-bulkdelete_A_opus_4.jsonl",
+      "classification": "ok",
+      "error": null,
+      "assertion": {
+        "pass": true,
+        "filesChanged": 3,
+        "areaTouched": true,
+        "assertionV1": true,
+        "rescoredFromLog": true,
+        "logEdits": 4
+      },
+      "teaFired": false,
+      "init": {
+        "model": "claude-opus-5",
+        "skills": [
+          "deep-research",
+          "design-sync",
+          "dataviz",
+          "update-config",
+          "verify",
+          "debug",
+          "code-review",
+          "simplify",
+          "batch",
+          "fewer-permission-prompts",
+          "doctor",
+          "loop",
+          "schedule",
+          "claude-api",
+          "run",
+          "run-skill-generator"
+        ],
+        "permissionMode": "bypassPermissions"
+      },
+      "metrics": {
+        "inputTokens": 269,
+        "outputTokens": 5317,
+        "reasoningTokens": 1403,
+        "cacheCreationTokens": 18158,
+        "cacheReadTokens": 214407,
+        "totalTokens": 238151,
+        "numTurns": 11,
+        "durationMs": 62946,
+        "costUsd": 0.42364450000000003,
+        "denials": 0
+      },
+      "authFailure": false,
+      "handles": {
+        "handles": {
+          "r1_searchLedReadRatio": 1,
+          "r2_rangedReadRatio": 0,
+          "r3_repeatReads": 0,
+          "r4_treeCalls": 2,
+          "w1_fullRewriteRatio": 0,
+          "w2_anchorMisses": 0,
+          "w3_newFiles": 0,
+          "w4_unrequestedArtifacts": 0,
+          "w5_codeRestatements": 0,
+          "t1_reverts": 0,
+          "t2_sameFileChurn": 1,
+          "t3_editFailureRatio": 0
+        },
+        "counts": {
+          "toolCalls": 10,
+          "reads": 4,
+          "searches": 2,
+          "edits": 4,
+          "writes": 0,
+          "editAttempts": 4,
+          "editFailures": 0
+        }
+      }
+    },
+    {
+      "id": "tmpl-be-csv#A#sonnet#2",
+      "task": "tmpl-be-csv",
+      "area": "backend",
+      "arm": "A",
+      "model": "sonnet",
+      "run": 2,
+      "log": "bench\\logs\\bench-2026-08-19T03-07-34\\tmpl-be-csv_A_sonnet_2.jsonl",
+      "classification": "ok",
+      "error": null,
+      "assertion": {
+        "pass": true,
+        "filesChanged": 2,
+        "areaTouched": true,
+        "assertionV1": true,
+        "rescoredFromLog": true,
+        "logEdits": 4
+      },
+      "teaFired": false,
+      "init": {
+        "model": "claude-sonnet-5",
+        "skills": [
+          "deep-research",
+          "design-sync",
+          "dataviz",
+          "update-config",
+          "verify",
+          "debug",
+          "code-review",
+          "simplify",
+          "batch",
+          "fewer-permission-prompts",
+          "doctor",
+          "loop",
+          "schedule",
+          "claude-api",
+          "run",
+          "run-skill-generator"
+        ],
+        "permissionMode": "bypassPermissions"
+      },
+      "metrics": {
+        "inputTokens": 24,
+        "outputTokens": 4505,
+        "reasoningTokens": 1772,
+        "cacheCreationTokens": 12838,
+        "cacheReadTokens": 455924,
+        "totalTokens": 473291,
+        "numTurns": 12,
+        "durationMs": 49004,
+        "costUsd": 0.47816425,
+        "denials": 0
+      },
+      "authFailure": false,
+      "handles": {
+        "handles": {
+          "r1_searchLedReadRatio": 1,
+          "r2_rangedReadRatio": 0.091,
+          "r3_repeatReads": 3,
+          "r4_treeCalls": 2,
+          "w1_fullRewriteRatio": 0,
+          "w2_anchorMisses": 0,
+          "w3_newFiles": 0,
+          "w4_unrequestedArtifacts": 0,
+          "w5_codeRestatements": 0,
+          "t1_reverts": 0,
+          "t2_sameFileChurn": 2,
+          "t3_editFailureRatio": 0
+        },
+        "counts": {
+          "toolCalls": 22,
+          "reads": 11,
+          "searches": 5,
+          "edits": 4,
+          "writes": 0,
+          "editAttempts": 4,
+          "editFailures": 0
+        }
+      }
+    },
+    {
+      "id": "tmpl-be-csv#A#sonnet#1",
+      "task": "tmpl-be-csv",
+      "area": "backend",
+      "arm": "A",
+      "model": "sonnet",
+      "run": 1,
+      "log": "bench\\logs\\bench-2026-08-19T03-07-34\\tmpl-be-csv_A_sonnet_1.jsonl",
+      "classification": "ok",
+      "error": null,
+      "assertion": {
+        "pass": true,
+        "filesChanged": 2,
+        "areaTouched": true,
+        "assertionV1": true,
+        "rescoredFromLog": true,
+        "logEdits": 4
+      },
+      "teaFired": false,
+      "init": {
+        "model": "claude-sonnet-5",
+        "skills": [
+          "deep-research",
+          "design-sync",
+          "dataviz",
+          "update-config",
+          "verify",
+          "debug",
+          "code-review",
+          "simplify",
+          "batch",
+          "fewer-permission-prompts",
+          "doctor",
+          "loop",
+          "schedule",
+          "claude-api",
+          "run",
+          "run-skill-generator"
+        ],
+        "permissionMode": "bypassPermissions"
+      },
+      "metrics": {
+        "inputTokens": 20,
+        "outputTokens": 3276,
+        "reasoningTokens": 379,
+        "cacheCreationTokens": 20294,
+        "cacheReadTokens": 354207,
+        "totalTokens": 377797,
+        "numTurns": 12,
+        "durationMs": 95335,
+        "costUsd": 0.4876087,
+        "denials": 0
+      },
+      "authFailure": false,
+      "handles": {
+        "handles": {
+          "r1_searchLedReadRatio": 1,
+          "r2_rangedReadRatio": 0,
+          "r3_repeatReads": 0,
+          "r4_treeCalls": 12,
+          "w1_fullRewriteRatio": 0,
+          "w2_anchorMisses": 0,
+          "w3_newFiles": 0,
+          "w4_unrequestedArtifacts": 0,
+          "w5_codeRestatements": 0,
+          "t1_reverts": 0,
+          "t2_sameFileChurn": 2,
+          "t3_editFailureRatio": 0
+        },
+        "counts": {
+          "toolCalls": 38,
+          "reads": 16,
+          "searches": 17,
+          "edits": 4,
+          "writes": 0,
+          "editAttempts": 4,
+          "editFailures": 0
+        }
+      }
+    },
+    {
+      "id": "tmpl-be-csv#A#sonnet#3",
+      "task": "tmpl-be-csv",
+      "area": "backend",
+      "arm": "A",
+      "model": "sonnet",
+      "run": 3,
+      "log": "bench\\logs\\bench-2026-08-19T03-07-34\\tmpl-be-csv_A_sonnet_3.jsonl",
+      "classification": "ok",
+      "error": null,
+      "assertion": {
+        "pass": true,
+        "filesChanged": 2,
+        "areaTouched": true,
+        "assertionV1": true,
+        "rescoredFromLog": true,
+        "logEdits": 4
+      },
+      "teaFired": false,
+      "init": {
+        "model": "claude-sonnet-5",
+        "skills": [
+          "deep-research",
+          "design-sync",
+          "dataviz",
+          "update-config",
+          "verify",
+          "debug",
+          "code-review",
+          "simplify",
+          "batch",
+          "fewer-permission-prompts",
+          "doctor",
+          "loop",
+          "schedule",
+          "claude-api",
+          "run",
+          "run-skill-generator"
+        ],
+        "permissionMode": "bypassPermissions"
+      },
+      "metrics": {
+        "inputTokens": 1731,
+        "outputTokens": 3246,
+        "reasoningTokens": 373,
+        "cacheCreationTokens": 21425,
+        "cacheReadTokens": 400624,
+        "totalTokens": 427026,
+        "numTurns": 14,
+        "durationMs": 35172,
+        "costUsd": 0.3032242,
+        "denials": 0
+      },
+      "authFailure": false,
+      "handles": {
+        "handles": {
+          "r1_searchLedReadRatio": 1,
+          "r2_rangedReadRatio": 0,
+          "r3_repeatReads": 0,
+          "r4_treeCalls": 1,
+          "w1_fullRewriteRatio": 0,
+          "w2_anchorMisses": 0,
+          "w3_newFiles": 0,
+          "w4_unrequestedArtifacts": 0,
+          "w5_codeRestatements": 0,
+          "t1_reverts": 0,
+          "t2_sameFileChurn": 2,
+          "t3_editFailureRatio": 0
+        },
+        "counts": {
+          "toolCalls": 13,
+          "reads": 7,
+          "searches": 2,
+          "edits": 4,
+          "writes": 0,
+          "editAttempts": 4,
+          "editFailures": 0
+        }
+      }
+    },
+    {
+      "id": "tmpl-be-csv#A#sonnet#4",
+      "task": "tmpl-be-csv",
+      "area": "backend",
+      "arm": "A",
+      "model": "sonnet",
+      "run": 4,
+      "log": "bench\\logs\\bench-2026-08-19T03-07-34\\tmpl-be-csv_A_sonnet_4.jsonl",
+      "classification": "ok",
+      "error": null,
+      "assertion": {
+        "pass": true,
+        "filesChanged": 2,
+        "areaTouched": true,
+        "assertionV1": true,
+        "rescoredFromLog": true,
+        "logEdits": 6
+      },
+      "teaFired": false,
+      "init": {
+        "model": "claude-sonnet-5",
+        "skills": [
+          "deep-research",
+          "design-sync",
+          "dataviz",
+          "update-config",
+          "verify",
+          "debug",
+          "code-review",
+          "simplify",
+          "batch",
+          "fewer-permission-prompts",
+          "doctor",
+          "loop",
+          "schedule",
+          "claude-api",
+          "run",
+          "run-skill-generator"
+        ],
+        "permissionMode": "bypassPermissions"
+      },
+      "metrics": {
+        "inputTokens": 24,
+        "outputTokens": 4291,
+        "reasoningTokens": 475,
+        "cacheCreationTokens": 17068,
+        "cacheReadTokens": 492290,
+        "totalTokens": 513673,
+        "numTurns": 16,
+        "durationMs": 43729,
+        "costUsd": 0.5826428499999999,
+        "denials": 0
+      },
+      "authFailure": false,
+      "handles": {
+        "handles": {
+          "r1_searchLedReadRatio": 1,
+          "r2_rangedReadRatio": 0.091,
+          "r3_repeatReads": 6,
+          "r4_treeCalls": 6,
+          "w1_fullRewriteRatio": 0,
+          "w2_anchorMisses": 0,
+          "w3_newFiles": 0,
+          "w4_unrequestedArtifacts": 0,
+          "w5_codeRestatements": 0,
+          "t1_reverts": 0,
+          "t2_sameFileChurn": 4,
+          "t3_editFailureRatio": 0
+        },
+        "counts": {
+          "toolCalls": 38,
+          "reads": 22,
+          "searches": 9,
+          "edits": 6,
+          "writes": 0,
+          "editAttempts": 6,
+          "editFailures": 0
+        }
+      }
+    },
+    {
+      "id": "tmpl-be-csv#A#opus#1",
+      "task": "tmpl-be-csv",
+      "area": "backend",
+      "arm": "A",
+      "model": "opus",
+      "run": 1,
+      "log": "bench\\logs\\bench-2026-08-19T03-07-34\\tmpl-be-csv_A_opus_1.jsonl",
+      "classification": "ok",
+      "error": null,
+      "assertion": {
+        "pass": true,
+        "filesChanged": 2,
+        "areaTouched": true,
+        "assertionV1": true,
+        "rescoredFromLog": true,
+        "logEdits": 7
+      },
+      "teaFired": false,
+      "init": {
+        "model": "claude-opus-5",
+        "skills": [
+          "deep-research",
+          "design-sync",
+          "dataviz",
+          "update-config",
+          "verify",
+          "debug",
+          "code-review",
+          "simplify",
+          "batch",
+          "fewer-permission-prompts",
+          "doctor",
+          "loop",
+          "schedule",
+          "claude-api",
+          "run",
+          "run-skill-generator"
+        ],
+        "permissionMode": "bypassPermissions"
+      },
+      "metrics": {
+        "inputTokens": 30,
+        "outputTokens": 6548,
+        "reasoningTokens": 1848,
+        "cacheCreationTokens": 22843,
+        "cacheReadTokens": 463794,
+        "totalTokens": 493215,
+        "numTurns": 18,
+        "durationMs": 83640,
+        "costUsd": 0.624781,
+        "denials": 0
+      },
+      "authFailure": false,
+      "handles": {
+        "handles": {
+          "r1_searchLedReadRatio": 1,
+          "r2_rangedReadRatio": 0.143,
+          "r3_repeatReads": 0,
+          "r4_treeCalls": 2,
+          "w1_fullRewriteRatio": 0,
+          "w2_anchorMisses": 0,
+          "w3_newFiles": 0,
+          "w4_unrequestedArtifacts": 0,
+          "w5_codeRestatements": 0,
+          "t1_reverts": 0,
+          "t2_sameFileChurn": 4,
+          "t3_editFailureRatio": 0
+        },
+        "counts": {
+          "toolCalls": 17,
+          "reads": 7,
+          "searches": 3,
+          "edits": 7,
+          "writes": 0,
+          "editAttempts": 7,
+          "editFailures": 0
+        }
+      }
+    },
+    {
+      "id": "tmpl-be-csv#A#opus#3",
+      "task": "tmpl-be-csv",
+      "area": "backend",
+      "arm": "A",
+      "model": "opus",
+      "run": 3,
+      "log": "bench\\logs\\bench-2026-08-19T03-07-34\\tmpl-be-csv_A_opus_3.jsonl",
+      "classification": "ok",
+      "error": null,
+      "assertion": {
+        "pass": true,
+        "filesChanged": 2,
+        "areaTouched": true,
+        "assertionV1": true,
+        "rescoredFromLog": true,
+        "logEdits": 4
+      },
+      "teaFired": false,
+      "init": {
+        "model": "claude-opus-5",
+        "skills": [
+          "deep-research",
+          "design-sync",
+          "dataviz",
+          "update-config",
+          "verify",
+          "debug",
+          "code-review",
+          "simplify",
+          "batch",
+          "fewer-permission-prompts",
+          "doctor",
+          "loop",
+          "schedule",
+          "claude-api",
+          "run",
+          "run-skill-generator"
+        ],
+        "permissionMode": "bypassPermissions"
+      },
+      "metrics": {
+        "inputTokens": 24,
+        "outputTokens": 6571,
+        "reasoningTokens": 2610,
+        "cacheCreationTokens": 22817,
+        "cacheReadTokens": 359583,
+        "totalTokens": 388995,
+        "numTurns": 16,
+        "durationMs": 84392,
+        "costUsd": 0.5729605000000001,
+        "denials": 0
+      },
+      "authFailure": false,
+      "handles": {
+        "handles": {
+          "r1_searchLedReadRatio": 1,
+          "r2_rangedReadRatio": 0,
+          "r3_repeatReads": 0,
+          "r4_treeCalls": 3,
+          "w1_fullRewriteRatio": 0,
+          "w2_anchorMisses": 0,
+          "w3_newFiles": 0,
+          "w4_unrequestedArtifacts": 0,
+          "w5_codeRestatements": 0,
+          "t1_reverts": 0,
+          "t2_sameFileChurn": 2,
+          "t3_editFailureRatio": 0
+        },
+        "counts": {
+          "toolCalls": 15,
+          "reads": 8,
+          "searches": 3,
+          "edits": 4,
+          "writes": 0,
+          "editAttempts": 4,
+          "editFailures": 0
+        }
+      }
+    },
+    {
+      "id": "tmpl-be-csv#A#opus#2",
+      "task": "tmpl-be-csv",
+      "area": "backend",
+      "arm": "A",
+      "model": "opus",
+      "run": 2,
+      "log": "bench\\logs\\bench-2026-08-19T03-07-34\\tmpl-be-csv_A_opus_2.jsonl",
+      "classification": "ok",
+      "error": null,
+      "assertion": {
+        "pass": true,
+        "filesChanged": 2,
+        "areaTouched": true,
+        "assertionV1": true,
+        "rescoredFromLog": true,
+        "logEdits": 10
+      },
+      "teaFired": false,
+      "init": {
+        "model": "claude-opus-5",
+        "skills": [
+          "deep-research",
+          "design-sync",
+          "dataviz",
+          "update-config",
+          "verify",
+          "debug",
+          "code-review",
+          "simplify",
+          "batch",
+          "fewer-permission-prompts",
+          "doctor",
+          "loop",
+          "schedule",
+          "claude-api",
+          "run",
+          "run-skill-generator"
+        ],
+        "permissionMode": "bypassPermissions"
+      },
+      "metrics": {
+        "inputTokens": 848,
+        "outputTokens": 8699,
+        "reasoningTokens": 2870,
+        "cacheCreationTokens": 28472,
+        "cacheReadTokens": 691352,
+        "totalTokens": 729371,
+        "numTurns": 27,
+        "durationMs": 107687,
+        "costUsd": 0.8527149999999999,
+        "denials": 0
+      },
+      "authFailure": false,
+      "handles": {
+        "handles": {
+          "r1_searchLedReadRatio": 1,
+          "r2_rangedReadRatio": 0.25,
+          "r3_repeatReads": 1,
+          "r4_treeCalls": 4,
+          "w1_fullRewriteRatio": 0,
+          "w2_anchorMisses": 0,
+          "w3_newFiles": 0,
+          "w4_unrequestedArtifacts": 0,
+          "w5_codeRestatements": 0,
+          "t1_reverts": 0,
+          "t2_sameFileChurn": 8,
+          "t3_editFailureRatio": 0
+        },
+        "counts": {
+          "toolCalls": 26,
+          "reads": 12,
+          "searches": 4,
+          "edits": 10,
+          "writes": 0,
+          "editAttempts": 10,
+          "editFailures": 0
+        }
+      }
+    },
+    {
+      "id": "tmpl-be-csv#A#opus#4",
+      "task": "tmpl-be-csv",
+      "area": "backend",
+      "arm": "A",
+      "model": "opus",
+      "run": 4,
+      "log": "bench\\logs\\bench-2026-08-19T03-07-34\\tmpl-be-csv_A_opus_4.jsonl",
+      "classification": "ok",
+      "error": null,
+      "assertion": {
+        "pass": true,
+        "filesChanged": 2,
+        "areaTouched": true,
+        "assertionV1": true,
+        "rescoredFromLog": true,
+        "logEdits": 4
+      },
+      "teaFired": false,
+      "init": {
+        "model": "claude-opus-5",
+        "skills": [
+          "deep-research",
+          "design-sync",
+          "dataviz",
+          "update-config",
+          "verify",
+          "debug",
+          "code-review",
+          "simplify",
+          "batch",
+          "fewer-permission-prompts",
+          "doctor",
+          "loop",
+          "schedule",
+          "claude-api",
+          "run",
+          "run-skill-generator"
+        ],
+        "permissionMode": "bypassPermissions"
+      },
+      "metrics": {
+        "inputTokens": 20,
+        "outputTokens": 7390,
+        "reasoningTokens": 2335,
+        "cacheCreationTokens": 26801,
+        "cacheReadTokens": 326380,
+        "totalTokens": 360591,
+        "numTurns": 15,
+        "durationMs": 87034,
+        "costUsd": 0.6166539999999999,
+        "denials": 0
+      },
+      "authFailure": false,
+      "handles": {
+        "handles": {
+          "r1_searchLedReadRatio": 1,
+          "r2_rangedReadRatio": 0.111,
+          "r3_repeatReads": 0,
+          "r4_treeCalls": 1,
+          "w1_fullRewriteRatio": 0,
+          "w2_anchorMisses": 0,
+          "w3_newFiles": 0,
+          "w4_unrequestedArtifacts": 0,
+          "w5_codeRestatements": 0,
+          "t1_reverts": 0,
+          "t2_sameFileChurn": 2,
+          "t3_editFailureRatio": 0
+        },
+        "counts": {
+          "toolCalls": 14,
+          "reads": 9,
+          "searches": 1,
+          "edits": 4,
+          "writes": 0,
+          "editAttempts": 4,
+          "editFailures": 0
+        }
+      }
+    }
+  ]
+}
